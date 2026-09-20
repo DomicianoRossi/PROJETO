@@ -52,3 +52,6 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 8. ~~Página de artigo das editorias Na Operação e Análise~~ (feitas em 20/set/2026)
 9. ~~Listagem de Na Operação~~ (feita em 20/set/2026)
 10. ~~Listagens de Ferramentas, Análise e Guia~~ (feitas em 20/set/2026)
+
+## Navegação entre páginas
+- Links relativos entre os `.dc.html`, com `%20` no lugar dos espaços. Nav e rodapé iguais em todas as páginas: logo → Home; editorias → listagem; itens de listagem → página-modelo; relacionados de artigo → listagem; rodapé → Sobre, Sobre#criterios, Para Empresas#contato. E-mails em `mailto:`. Só "LinkedIn", "Carregar notas anteriores", "Casos anteriores" e "Imprimir" ficam em `#`.

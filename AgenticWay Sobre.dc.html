@@ -16,12 +16,12 @@
   <!-- barra superior -->
   <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
     <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
-      <a href="#" style="display:flex;align-items:center;gap:10px">
+      <a href="AgenticWay%20Home.dc.html" style="display:flex;align-items:center;gap:10px">
         <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
         <span class="sans" style="font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
       </a>
       <nav class="sans" style="display:flex;gap:22px;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
-        <a href="#">Radar</a><a href="#">Na Operação</a><a href="#">Ferramentas</a><a href="#">Análise</a><a href="#">Guia</a><a href="#">Para empresas</a>
+        <a href="AgenticWay%20Radar%20Lista.dc.html">Radar</a><a href="AgenticWay%20Na%20Operacao%20Lista.dc.html">Na Operação</a><a href="AgenticWay%20Ferramentas%20Lista.dc.html">Ferramentas</a><a href="AgenticWay%20Analise%20Lista.dc.html">Análise</a><a href="AgenticWay%20Guia%20Lista.dc.html">Guia</a><a href="AgenticWay%20Para%20Empresas.dc.html">Para empresas</a>
       </nav>
     </div>
   </div>
@@ -113,7 +113,7 @@
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px">
           <sc-for list="{{ editorias }}" as="e" hint-placeholder-count="5">
-            <a href="#" style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:2px solid #0F2A44;min-width:0">
+            <a href="{{ e.url }}" style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:2px solid #0F2A44;min-width:0">
               <span class="mono" style="font-size:11px;color:#1F4E79">{{ e.cadencia }}</span>
               <span class="sans" style="font-weight:700;font-size:19px;letter-spacing:-0.3px">{{ e.nome }}</span>
               <span style="font-size:14px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ e.texto }}</span>
@@ -145,12 +145,12 @@
         <div style="display:flex;flex-direction:column;gap:12px">
           <div class="rotulo">CORREÇÕES</div>
           <h2 class="h2" style="font-size:22px">Erramos, corrigimos, registramos.</h2>
-          <p style="margin:0;font-size:15px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Toda correção de fato aparece no fim da nota com data e o que mudou. Mudança de opinião é assunto de nova análise, não de edição silenciosa. Para apontar um erro: <a href="#" style="border-bottom:1px solid #4A8FC7">correcoes@agenticway.com.br</a>.</p>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Toda correção de fato aparece no fim da nota com data e o que mudou. Mudança de opinião é assunto de nova análise, não de edição silenciosa. Para apontar um erro: <a href="mailto:correcoes@agenticway.com.br" style="border-bottom:1px solid #4A8FC7">correcoes@agenticway.com.br</a>.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:12px">
           <div class="rotulo">PAUTAS E CASOS</div>
           <h2 class="h2" style="font-size:22px">Tem um agente rodando na sua operação?</h2>
-          <p style="margin:0;font-size:15px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Queremos ouvir, inclusive o que deu errado. Casos entram em Na Operação com número, setor e o que a história não conta. Escreva para <a href="#" style="border-bottom:1px solid #4A8FC7">pauta@agenticway.com.br</a>.</p>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Queremos ouvir, inclusive o que deu errado. Casos entram em Na Operação com número, setor e o que a história não conta. Escreva para <a href="mailto:pauta@agenticway.com.br" style="border-bottom:1px solid #4A8FC7">pauta@agenticway.com.br</a>.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:12px">
           <div class="rotulo">CONTATO</div>
@@ -164,7 +164,7 @@
   <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
     <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
       <span>© 2026 AgenticWay</span>
-      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="#" style="color:#5B6572">Sobre</a><a href="#" style="color:#5B6572">Editorias</a><a href="#" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="AgenticWay%20Sobre.dc.html" style="color:#5B6572">Sobre</a><a href="AgenticWay%20Sobre.dc.html#criterios" style="color:#5B6572">Critérios editoriais</a><a href="AgenticWay%20Para%20Empresas.dc.html#contato" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
     </div>
   </footer>
 </div>
@@ -195,11 +195,11 @@ class Component extends DCLogic {
       { n: '07', titulo: 'Caso conta o que a história não conta', texto: 'Todo caso publicado traz o custo escondido: tempo de integração, ajuste de regra, o que ainda depende de gente.' },
     ];
     const editorias = [
-      { nome: 'Radar', cadencia: 'DIÁRIO', texto: 'Notas curtas sobre o que está acontecendo: lançamentos, regulação, pesquisa, mercado. Sempre com fonte.' },
-      { nome: 'Na Operação', cadencia: 'SEMANAL', texto: 'Casos reais de agentes em empresas: setor, processo, resultado e o que a história não conta.' },
-      { nome: 'Ferramentas', cadencia: 'QUINZENAL', texto: 'Lançamentos e comparativos, avaliados por um critério: integra com o que a empresa já tem?' },
-      { nome: 'Análise', cadencia: 'SEMANAL', texto: 'Opinião assinada. Onde a marca toma posição e diz quando algo é hype.' },
-      { nome: 'Guia', cadencia: 'MENSAL', texto: 'Referência prática: perguntas para fornecedor, checklists, glossário. Atualizado com data.' },
+      { nome: 'Radar', url: 'AgenticWay%20Radar%20Lista.dc.html', cadencia: 'DIÁRIO', texto: 'Notas curtas sobre o que está acontecendo: lançamentos, regulação, pesquisa, mercado. Sempre com fonte.' },
+      { nome: 'Na Operação', url: 'AgenticWay%20Na%20Operacao%20Lista.dc.html', cadencia: 'SEMANAL', texto: 'Casos reais de agentes em empresas: setor, processo, resultado e o que a história não conta.' },
+      { nome: 'Ferramentas', url: 'AgenticWay%20Ferramentas%20Lista.dc.html', cadencia: 'QUINZENAL', texto: 'Lançamentos e comparativos, avaliados por um critério: integra com o que a empresa já tem?' },
+      { nome: 'Análise', url: 'AgenticWay%20Analise%20Lista.dc.html', cadencia: 'SEMANAL', texto: 'Opinião assinada. Onde a marca toma posição e diz quando algo é hype.' },
+      { nome: 'Guia', url: 'AgenticWay%20Guia%20Lista.dc.html', cadencia: 'MENSAL', texto: 'Referência prática: perguntas para fornecedor, checklists, glossário. Atualizado com data.' },
     ];
     const etapas = [
       { n: '1', etapa: 'Radar', faz: 'Notas diárias e curadoria do que importa.', ganha: 'Acompanhar o assunto sem ler tudo.' },
