@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}</style>
+</helmet>
+<div data-screen-label="Radar · Lista" style="min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- barra superior -->
+  <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
+      <a href="#" style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+        <span class="sans" style="font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
+      </a>
+      <nav class="sans" style="display:flex;gap:22px;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Radar</a><a href="#">Na Operação</a><a href="#">Ferramentas</a><a href="#">Análise</a><a href="#">Guia</a><a href="#">Para empresas</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- linha de contexto -->
+  <div style="padding:0 clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
+      <span>Radar / Todas as notas</span><span>{{ hoje }}</span>
+    </div>
+  </div>
+
+  <main style="padding:0 clamp(16px,4vw,48px);flex:1">
+    <div style="max-width:1200px;margin:0 auto">
+
+      <!-- cabeçalho da editoria -->
+      <header style="padding:40px 0 24px;border-bottom:1px solid #0F2A44;display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column;gap:10px;max-width:720px">
+            <h1 class="sans" style="font-weight:700;font-size:clamp(34px,4.4vw,56px);line-height:1;margin:0;letter-spacing:-1.4px">Radar</h1>
+            <p style="font-size:19px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">O que está acontecendo com agentes de IA, filtrado pelo que muda na operação. Notas curtas, com fonte, ao longo do dia.</p>
+          </div>
+          <span class="mono" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#5B6572;padding-bottom:6px"><span style="width:8px;height:8px;border-radius:50%;background:#E8785A"></span>atualizado às {{ ultimaAtualizacao }}</span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px">TEMA</span>
+          <sc-for list="{{ filtros }}" as="f" hint-placeholder-count="6">
+            <button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button>
+          </sc-for>
+        </div>
+      </header>
+
+      <section style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px;padding:0 0 56px">
+
+        <!-- feed por dia -->
+        <div style="min-width:0">
+          <sc-for list="{{ dias }}" as="d" hint-placeholder-count="3">
+            <div style="padding-top:28px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-bottom:10px;border-bottom:2px solid #0F2A44">
+                <span class="sans" style="font-weight:700;font-size:15px;letter-spacing:0.3px">{{ d.rotulo }}</span>
+                <span class="mono" style="font-size:12px;color:#5B6572">{{ d.data }} · {{ d.qtd }}</span>
+              </div>
+              <sc-for list="{{ d.notas }}" as="n" hint-placeholder-count="4">
+                <a href="#" style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;padding:18px 0;border-bottom:1px solid #DDD9D0;align-items:start">
+                  <span class="mono" style="font-size:12px;color:#5B6572;padding-top:4px">{{ n.hora }}</span>
+                  <span style="display:flex;flex-direction:column;gap:6px;min-width:0">
+                    <span class="mono" style="font-size:11px;color:#1F4E79">{{ n.tema }}</span>
+                    <span class="sans" style="font-weight:600;font-size:19px;line-height:1.3;letter-spacing:-0.3px;text-wrap:pretty">{{ n.titulo }}</span>
+                    <span style="font-size:15px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ n.linha }}</span>
+                    <span class="mono" style="font-size:11px;color:#5B6572">{{ n.fonte }} · {{ n.leitura }} min</span>
+                  </span>
+                </a>
+              </sc-for>
+            </div>
+          </sc-for>
+          <div style="display:flex;justify-content:center;padding:32px 0 0">
+            <a href="#" class="sans" style="padding:13px 22px;font-weight:600;font-size:13px;color:#1F4E79;border:1px solid #1F4E79;border-radius:3px" style-hover="background:#0F2A44;color:#F7F5F0;border-color:#0F2A44">Carregar notas anteriores</a>
+          </div>
+        </div>
+
+        <!-- coluna lateral -->
+        <aside style="min-width:0;padding-top:28px;display:flex;flex-direction:column;gap:36px">
+
+          <!-- temas -->
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">POR TEMA</div>
+            <sc-for list="{{ temas }}" as="t" hint-placeholder-count="5">
+              <a href="#" onClick="{{ t.onClick }}" style="display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #DDD9D0;font-size:15px">
+                <span class="sans" style="font-weight:600;font-size:14px">{{ t.rotulo }}</span>
+                <span class="mono" style="font-size:11px;color:#5B6572">{{ t.qtd }} notas</span>
+              </a>
+            </sc-for>
+          </div>
+
+          <!-- mais lidas -->
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">MAIS LIDAS DA SEMANA</div>
+            <sc-for list="{{ maisLidas }}" as="m" hint-placeholder-count="3">
+              <a href="#" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #DDD9D0;align-items:start">
+                <span class="sans" style="font-weight:700;font-size:20px;line-height:1;color:#DDD9D0;letter-spacing:-0.5px">{{ m.n }}</span>
+                <span style="display:flex;flex-direction:column;gap:4px">
+                  <span class="sans" style="font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">{{ m.titulo }}</span>
+                  <span class="mono" style="font-size:11px;color:#5B6572">{{ m.meta }}</span>
+                </span>
+              </a>
+            </sc-for>
+          </div>
+
+          <!-- newsletter compacta -->
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="mono" style="font-size:11px;color:#5B6572">NEWSLETTER · SEXTAS</div>
+            <div class="sans" style="font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.3px;text-wrap:pretty">O Radar da semana em sete minutos, para quem decide.</div>
+            <form style="display:flex;flex-direction:column;gap:8px" onSubmit="{{ onSubscribe }}">
+              <input type="email" placeholder="seu@email.com.br" required="{{ true }}" style="padding:12px 14px;font-size:14px;font-family:'Source Serif 4',serif;border:1px solid #0F2A44;background:#fff;border-radius:3px;color:#0F2A44;outline:none">
+              <button type="submit" class="sans" style="padding:12px 18px;font-weight:600;font-size:13px;background:#0F2A44;color:#F7F5F0;border:0;border-radius:3px;cursor:pointer" style-hover="background:#1F4E79">{{ btnLabel }}</button>
+            </form>
+          </div>
+
+          <!-- como o radar funciona -->
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="lat-h">COMO O RADAR FUNCIONA</div>
+            <p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Acompanhamos lançamentos, casos, pesquisas e regulação sobre agentes de IA. Entra no Radar o que tem fonte verificável e efeito plausível em processos de empresas médias. Não entra: demonstração sem cliente, promessa sem número, opinião sem assinatura.</p>
+            <a href="#" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79">Critérios editoriais →</a>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
+      <span>© 2026 AgenticWay</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="#" style="color:#5B6572">Sobre</a><a href="#" style="color:#5B6572">Editorias</a><a href="#" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;diasVisiveis&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:4,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Feed&quot;}}">
+class Component extends DCLogic {
+  state = { sent: false, filtro: 'Todos' };
+  renderVals() {
+    const diasVisiveis = this.props.diasVisiveis ?? 3;
+    const dias = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+    const meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+    const d = new Date();
+    const hoje = `${dias[d.getDay()]}, ${d.getDate()} ${meses[d.getMonth()]} ${d.getFullYear()}`;
+
+    const todas = [
+      { dia: 0, hora: '14:20', tema: 'LANÇAMENTOS', titulo: 'OpenAI libera agentes com acesso a planilhas para contas corporativas', linha: 'Útil para quem roda a operação em planilha. Perigoso pelo mesmo motivo: planilha não tem controle de versão nem de permissão.', fonte: 'OpenAI · comunicado', leitura: 3 },
+      { dia: 0, hora: '11:05', tema: 'REGULAÇÃO', titulo: 'Banco Central abre consulta sobre agentes de IA no atendimento financeiro', linha: 'Registro auditável de cada decisão, transferência imediata para humano e responsabilidade integral da instituição. Prazo de 60 dias.', fonte: 'BCB · consulta pública', leitura: 4 },
+      { dia: 0, hora: '09:40', tema: 'LANÇAMENTOS', titulo: 'TOTVS anuncia conector nativo de agentes para o Protheus', linha: 'Integração oficial reduz o trabalho de ligar agente ao ERP mais usado por empresas médias. Falta ver o que o conector expõe de log.', fonte: 'TOTVS · release', leitura: 3 },
+      { dia: 1, hora: '17:30', tema: 'PESQUISA', titulo: 'Estudo do MIT: 60% dos pilotos de agentes param na integração com sistemas legados', linha: 'A causa mais citada não é o modelo, é o acesso ao dado. Amostra de 340 empresas em quatro países.', fonte: 'MIT Sloan · relatório', leitura: 5 },
+      { dia: 1, hora: '15:10', tema: 'LANÇAMENTOS', titulo: 'Anthropic amplia limite de contexto e reduz custo por tarefa em 30%', linha: 'Para agentes que leem contrato, nota e histórico de uma vez, o custo por processo cai na mesma proporção.', fonte: 'Anthropic · blog', leitura: 3 },
+      { dia: 1, hora: '10:00', tema: 'CASOS', titulo: 'Importadora de Santos automatiza classificação fiscal de 2 mil itens/mês', linha: 'Agente sugere NCM com justificativa registrada; despachante confirma. Erro de classificação caiu de 8% para 1,5% em quatro meses.', fonte: 'AgenticWay · apuração própria', leitura: 4 },
+      { dia: 2, hora: '16:45', tema: 'MERCADO', titulo: 'Microsoft integra agentes do Copilot ao Dynamics 365 Finance', linha: 'Conciliação e fechamento com agente nativo. Relevante para quem já está no Dynamics; irrelevante para o resto.', fonte: 'Microsoft · Ignite', leitura: 3 },
+      { dia: 2, hora: '13:20', tema: 'REGULAÇÃO', titulo: 'LGPD: ANPD publica orientação sobre decisões automatizadas por IA', linha: 'Direito à revisão humana passa a valer para decisões tomadas por agentes. Somada à consulta do BC, forma o começo de um padrão brasileiro.', fonte: 'ANPD · nota técnica', leitura: 4 },
+      { dia: 2, hora: '09:15', tema: 'MERCADO', titulo: 'Fundo brasileiro levanta R$ 200 milhões para investir em agentes verticais', linha: 'Tese: um agente por setor, integrado ao sistema que o setor já usa. Primeiros cheques em logística e saúde.', fonte: 'Valor Econômico', leitura: 3 },
+      { dia: 3, hora: '18:00', tema: 'PESQUISA', titulo: 'Gartner: metade dos projetos de agentes será cancelada até 2028', linha: 'Motivos citados: custo imprevisível, controle inadequado e ganho não mensurado. Os três têm solução de projeto, não de tecnologia.', fonte: 'Gartner · previsão', leitura: 4 },
+      { dia: 3, hora: '11:30', tema: 'CASOS', titulo: 'Rede de farmácias usa agente para repor estoque em 120 lojas', linha: 'Sugestão de pedido por loja, aprovada pelo gerente em lote. Ruptura caiu 12%; o ganho veio da regra, não do modelo.', fonte: 'AgenticWay · apuração própria', leitura: 5 },
+    ];
+
+    const filtro = this.state.filtro;
+    const rotulosDia = ['Hoje', 'Ontem', 'Quinta-feira', 'Quarta-feira'];
+    const datasDia = ['18 set', '17 set', '16 set', '15 set'];
+    const visiveis = todas.filter(n => filtro === 'Todos' || n.tema === filtro);
+    const diasFeed = rotulosDia.slice(0, diasVisiveis).map((rotulo, i) => {
+      const notas = visiveis.filter(n => n.dia === i);
+      return { rotulo, data: datasDia[i], qtd: `${notas.length} ${notas.length === 1 ? 'nota' : 'notas'}`, notas };
+    }).filter(dd => dd.notas.length > 0);
+
+    const contagem = (t) => todas.filter(n => n.tema === t).length;
+    const nomes = ['Todos', 'REGULAÇÃO', 'LANÇAMENTOS', 'CASOS', 'PESQUISA', 'MERCADO'];
+    const bonito = { Todos: 'Todos', 'REGULAÇÃO': 'Regulação', 'LANÇAMENTOS': 'Lançamentos', CASOS: 'Casos', PESQUISA: 'Pesquisa', MERCADO: 'Mercado' };
+    const filtros = nomes.map(t => ({
+      rotulo: bonito[t],
+      classe: t === filtro ? 'chip chip-on' : 'chip',
+      onClick: () => this.setState({ filtro: t }),
+    }));
+    const temas = nomes.slice(1).map(t => ({
+      rotulo: bonito[t], qtd: contagem(t),
+      onClick: (e) => { e.preventDefault(); this.setState({ filtro: t }); },
+    }));
+
+    const maisLidas = [
+      { n: '1', titulo: 'Banco Central abre consulta sobre agentes de IA no atendimento financeiro', meta: 'Regulação · 15 set' },
+      { n: '2', titulo: 'Estudo do MIT: 60% dos pilotos de agentes param na integração com sistemas legados', meta: 'Pesquisa · 17 set' },
+      { n: '3', titulo: 'Importadora de Santos automatiza classificação fiscal de 2 mil itens/mês', meta: 'Casos · 17 set' },
+    ];
+
+    return {
+      hoje, ultimaAtualizacao: '14:20', filtros, dias: diasFeed, temas, maisLidas,
+      btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>
