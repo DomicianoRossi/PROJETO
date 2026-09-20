@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.corpo p{margin:0 0 22px;font-size:18px;line-height:1.65;color:#1E2A38;text-wrap:pretty}.corpo h2{font-family:Montserrat,sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:36px 0 14px;letter-spacing:-0.3px}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.tab{width:100%;border-collapse:collapse;font-size:14px}.tab th{font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;text-align:left;padding:10px 12px;border-bottom:2px solid #0F2A44;vertical-align:bottom}.tab td{padding:12px;border-bottom:1px solid #DDD9D0;vertical-align:top;line-height:1.4}.tab td:first-child{font-family:Montserrat,sans-serif;font-weight:600;font-size:13px}.ok{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0F2A44}.parcial{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B6572}.nao{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A93A0}</style>
+</helmet>
+<div data-screen-label="Ferramentas · Comparativo" style="min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- barra superior -->
+  <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
+      <a href="#" style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+        <span class="sans" style="font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
+      </a>
+      <nav class="sans" style="display:flex;gap:22px;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#">Radar</a><a href="#">Na Operação</a><a href="#" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Ferramentas</a><a href="#">Análise</a><a href="#">Guia</a><a href="#">Para empresas</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- linha de contexto -->
+  <div style="padding:0 clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
+      <span><a href="#" style="color:#5B6572">Ferramentas</a> / Comparativo</span><span>{{ artigo.data }}</span>
+    </div>
+  </div>
+
+  <main style="padding:0 clamp(16px,4vw,48px);flex:1">
+    <div style="max-width:1200px;margin:0 auto">
+
+      <!-- cabeçalho -->
+      <header style="max-width:860px;padding:40px 0 28px;display:flex;flex-direction:column;gap:16px">
+        <div class="mono" style="font-size:12px;color:#E8785A">FERRAMENTAS · COMPARATIVO</div>
+        <h1 class="sans" style="font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:1.1;margin:0;letter-spacing:-0.8px;text-wrap:pretty">{{ artigo.titulo }}</h1>
+        <p style="font-size:20px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">{{ artigo.linhaFina }}</p>
+        <div class="mono" style="display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#5B6572;padding-top:6px;border-top:1px solid #DDD9D0">
+          <span>Por {{ artigo.autor }}</span><span>{{ artigo.leitura }} min de leitura</span><span>Testado em {{ artigo.periodo }}</span>
+        </div>
+      </header>
+
+      <section style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px;padding:0 0 56px;border-top:1px solid #0F2A44">
+
+        <article style="min-width:0;padding-top:32px">
+
+          <!-- o critério -->
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px 22px;margin-bottom:32px;display:flex;flex-direction:column;gap:8px">
+            <span class="sans" style="font-weight:700;font-size:13px;letter-spacing:0.5px">O CRITÉRIO</span>
+            <span class="sans" style="font-weight:600;font-size:19px;line-height:1.3;letter-spacing:-0.3px;text-wrap:pretty">Integra com o que a empresa já tem?</span>
+            <span style="font-size:15px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">Toda avaliação de Ferramentas responde a essa pergunta antes de qualquer outra. Não medimos qualidade de resposta em demonstração; medimos o que acontece quando a plataforma precisa ler e escrever em um ERP real, com autenticação, permissão e log.</span>
+          </div>
+
+          <div class="corpo">
+            <p>{{ artigo.abertura }}</p>
+            <h2>Como testamos</h2>
+            <p>{{ artigo.metodo }}</p>
+          </div>
+
+          <!-- tarefas -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:#DDD9D0;border:1px solid #DDD9D0;border-radius:4px;overflow:hidden;margin:8px 0 36px">
+            <sc-for list="{{ tarefas }}" as="t" hint-placeholder-count="3">
+              <div style="background:#F7F5F0;padding:16px;display:flex;flex-direction:column;gap:6px">
+                <span class="mono" style="font-size:11px;color:#1F4E79">TAREFA {{ t.n }}</span>
+                <span class="sans" style="font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">{{ t.titulo }}</span>
+                <span style="font-size:13px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ t.texto }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <!-- tabela -->
+          <div class="corpo"><h2 style="margin-top:0">Resultado por critério</h2></div>
+          <div style="overflow-x:auto;margin-bottom:12px">
+            <table class="tab">
+              <thead>
+                <tr>
+                  <th style="min-width:180px">Critério</th>
+                  <sc-for list="{{ plataformas }}" as="p" hint-placeholder-count="4"><th style="min-width:120px">{{ p.nome }}<span class="mono" style="display:block;font-weight:400;font-size:11px;color:#5B6572;margin-top:2px">{{ p.tipo }}</span></th></sc-for>
+                </tr>
+              </thead>
+              <tbody>
+                <sc-for list="{{ linhas }}" as="l" hint-placeholder-count="6">
+                  <tr>
+                    <td>{{ l.criterio }}<span style="display:block;font-family:'Source Serif 4',serif;font-weight:400;font-size:13px;color:#5B6572;margin-top:2px">{{ l.pergunta }}</span></td>
+                    <sc-for list="{{ l.celulas }}" as="c" hint-placeholder-count="4"><td><span class="{{ c.classe }}">{{ c.marca }}</span><span style="display:block;font-size:13px;color:#3C4A5A;margin-top:3px">{{ c.nota }}</span></td></sc-for>
+                  </tr>
+                </sc-for>
+                <tr style="background:#EFEDE6">
+                  <td style="border-bottom:0">Veredito</td>
+                  <sc-for list="{{ plataformas }}" as="p" hint-placeholder-count="4"><td style="border-bottom:0"><span class="sans" style="font-weight:700;font-size:13px">{{ p.veredito }}</span></td></sc-for>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mono" style="font-size:11px;color:#5B6572;line-height:1.7;margin-bottom:36px">Legenda: <span class="ok">■ passou</span> · <span class="parcial">◪ parcial</span> · <span class="nao">□ não passou</span>. Nomes das plataformas omitidos até o fechamento do direito de resposta; versão testada na ficha ao lado.</div>
+
+          <!-- por plataforma -->
+          <div class="corpo"><h2 style="margin-top:0">Uma a uma</h2></div>
+          <div style="display:flex;flex-direction:column;margin-bottom:8px">
+            <sc-for list="{{ plataformas }}" as="p" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px;padding:18px 0;border-top:1px solid #DDD9D0">
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <span class="sans" style="font-weight:700;font-size:17px;letter-spacing:-0.2px">{{ p.nome }}</span>
+                  <span class="mono" style="font-size:11px;color:#5B6572">{{ p.tipo }} · {{ p.custo }}</span>
+                  <span class="sans" style="font-weight:600;font-size:13px;color:#1F4E79;margin-top:4px">{{ p.veredito }}</span>
+                </div>
+                <p style="margin:0;font-size:15px;line-height:1.55;color:#1E2A38;text-wrap:pretty">{{ p.texto }}</p>
+              </div>
+            </sc-for>
+          </div>
+
+          <div class="corpo">
+            <h2>O que isso significa para quem vai comprar</h2>
+            <p>{{ artigo.conclusao1 }}</p>
+            <p>{{ artigo.conclusao2 }}</p>
+          </div>
+
+          <!-- direito de resposta -->
+          <div class="mono" style="margin-top:28px;padding-top:16px;border-top:1px solid #DDD9D0;font-size:11px;color:#5B6572;line-height:1.7">As quatro empresas receberam o resultado antes da publicação e tiveram cinco dias úteis para responder. Respostas recebidas aparecem ao fim do texto, sem edição. Nenhuma pagou ou foi convidada a pagar para participar do teste.</div>
+        </article>
+
+        <!-- coluna lateral -->
+        <aside style="min-width:0;padding-top:32px;display:flex;flex-direction:column;gap:36px">
+
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">FICHA DO TESTE</div>
+            <sc-for list="{{ ficha }}" as="i" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid #DDD9D0;font-size:14px;line-height:1.45">
+                <span class="mono" style="font-size:11px;color:#5B6572;padding-top:3px">{{ i.rotulo }}</span>
+                <span style="text-wrap:pretty">{{ i.valor }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="lat-h">COMO LER A TABELA</div>
+            <p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">"Passou" significa que a tarefa rodou no ERP de teste sem código extra além da configuração documentada. "Parcial" precisou de código ou de intervenção manual. "Não passou" não completou a tarefa ou completou sem registro do que fez.</p>
+          </div>
+
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">OUTROS COMPARATIVOS</div>
+            <sc-for list="{{ relacionados }}" as="r" hint-placeholder-count="3">
+              <a href="#" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
+                <span class="sans" style="font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">{{ r.titulo }}</span>
+                <span class="mono" style="font-size:11px;color:#5B6572">{{ r.meta }}</span>
+              </a>
+            </sc-for>
+          </div>
+
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="mono" style="font-size:11px;color:#5B6572">NEWSLETTER · SEXTAS</div>
+            <div class="sans" style="font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.3px;text-wrap:pretty">Os próximos comparativos, antes de todo mundo.</div>
+            <form style="display:flex;flex-direction:column;gap:8px" onSubmit="{{ onSubscribe }}">
+              <input type="email" placeholder="seu@email.com.br" required="{{ true }}" style="padding:12px 14px;font-size:14px;font-family:'Source Serif 4',serif;border:1px solid #0F2A44;background:#fff;border-radius:3px;color:#0F2A44;outline:none">
+              <button type="submit" class="sans" style="padding:12px 18px;font-weight:600;font-size:13px;background:#0F2A44;color:#F7F5F0;border:0;border-radius:3px;cursor:pointer" style-hover="background:#1F4E79">{{ btnLabel }}</button>
+            </form>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
+      <span>© 2026 AgenticWay</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="#" style="color:#5B6572">Sobre</a><a href="#" style="color:#5B6572">Editorias</a><a href="#" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    const artigo = {
+      data: 'quinta-feira, 10 set 2026',
+      titulo: 'Quatro plataformas de agentes testadas com o mesmo ERP: só uma passou',
+      linhaFina: 'Mesmas três tarefas, mesmo ERP, mesmo usuário com permissão limitada. Uma completou tudo com log. Duas precisaram de código. Uma não chegou a ler o pedido.',
+      autor: 'Domiciano Rossi',
+      leitura: 12,
+      periodo: 'ago/2026',
+      abertura: 'Toda plataforma de agentes demonstra bem em slide. O problema começa quando ela precisa entrar no ERP de uma distribuidora com usuário restrito, ler um pedido, conferir estoque e registrar o que fez. Montamos esse cenário uma vez e passamos as quatro plataformas mais citadas pelos leitores por ele.',
+      metodo: 'Instalamos um ERP de mercado em ambiente de teste, com cadastro de 1.200 itens e 300 clientes copiados de uma operação real, anonimizados. Criamos um usuário com permissão de vendedor, sem acesso a preço de custo. Cada plataforma recebeu a mesma instrução em português e teve de completar três tarefas, cada uma repetida dez vezes. Medimos conclusão, intervenção manual, registro de ações e custo por execução.',
+      conclusao1: 'O resultado não diz qual plataforma é melhor. Diz qual está pronta para uma empresa média que não vai contratar time de desenvolvimento para fazê-la funcionar. Nesse recorte, uma passou; as outras três exigem projeto de integração, o que muda o custo total e o prazo.',
+      conclusao2: 'Antes de assinar com qualquer uma, peça a mesma coisa que pedimos: uma tarefa real, no seu sistema, com o seu usuário, e o log do que o agente fez. Se a resposta for uma demonstração em ambiente do fornecedor, o teste não aconteceu.',
+    };
+    const tarefas = [
+      { n: '01', titulo: 'Ler pedido e conferir estoque', texto: 'Receber um pedido em texto livre, localizar os itens no ERP e apontar o que não tem saldo.' },
+      { n: '02', titulo: 'Emitir orçamento com tabela vigente', texto: 'Gerar orçamento no ERP com preço e condição do cliente, sem acesso ao custo.' },
+      { n: '03', titulo: 'Registrar e escalar exceção', texto: 'Detectar cliente com limite estourado, não emitir e avisar o responsável com o motivo.' },
+    ];
+    const plataformas = [
+      { nome: 'Plataforma A', tipo: 'nativa do ERP', custo: 'R$ 0,40/execução', veredito: 'Passou', texto: 'Conector nativo resolveu autenticação e permissão sem configuração extra. Log por ação com versão do modelo e dados consultados. A tarefa 3 escalou por e-mail com o motivo correto nas dez execuções. Ponto fraco: só funciona com este ERP.' },
+      { nome: 'Plataforma B', tipo: 'genérica, via API', custo: 'R$ 0,25/execução', veredito: 'Parcial', texto: 'Precisou de 300 linhas de código para mapear a API do ERP. Depois disso, completou as três tarefas. O log registra a resposta do modelo, mas não os dados consultados, o que não atende ao padrão que o BC está propondo.' },
+      { nome: 'Plataforma C', tipo: 'genérica, via tela', custo: 'R$ 0,90/execução', veredito: 'Parcial', texto: 'Opera o ERP pela interface, como uma pessoa faria. Funcionou em sete das dez execuções da tarefa 1; falhou quando a tela demorou a carregar. Não há como saber o que foi feito sem assistir à gravação.' },
+      { nome: 'Plataforma D', tipo: 'genérica, sem conector', custo: 'não medido', veredito: 'Não passou', texto: 'Não leu o pedido: a plataforma espera dados estruturados na entrada e não tem conector para o ERP testado. O fornecedor sugeriu exportar para planilha antes. Isso transfere o trabalho, não o elimina.' },
+    ];
+    const M = (marca, classe, nota) => ({ marca, classe, nota });
+    const ok = (n) => M('■', 'ok', n), pa = (n) => M('◪', 'parcial', n), nao = (n) => M('□', 'nao', n);
+    const linhas = [
+      { criterio: 'Autenticação', pergunta: 'Usa o usuário e a permissão do ERP?', celulas: [ok('nativa'), pa('token manual'), ok('login de tela'), nao('sem acesso')] },
+      { criterio: 'Log por ação', pergunta: 'Registra o que consultou e o que fez?', celulas: [ok('modelo + dados'), pa('só resposta'), nao('só gravação'), nao('—')] },
+      { criterio: 'Conector', pergunta: 'Liga ao ERP sem código?', celulas: [ok('nativo'), nao('300 linhas'), pa('configuração de tela'), nao('não há')] },
+      { criterio: 'Humano no fluxo', pergunta: 'Escala exceção para uma pessoa?', celulas: [ok('e-mail com motivo'), ok('webhook'), pa('sem motivo'), nao('—')] },
+      { criterio: 'Dados', pergunta: 'Ficam no ambiente do cliente?', celulas: [ok('sim'), pa('trafegam pela API'), pa('capturas de tela'), nao('exige exportar')] },
+      { criterio: 'Custo por tarefa', pergunta: 'Previsível e medido?', celulas: [ok('R$ 0,40'), ok('R$ 0,25'), pa('R$ 0,90, variável'), nao('não medido')] },
+    ];
+    const ficha = [
+      { rotulo: 'ERP', valor: 'Sistema de mercado, versão de ago/2026, ambiente de teste' },
+      { rotulo: 'Base', valor: '1.200 itens, 300 clientes, anonimizados de uma distribuidora' },
+      { rotulo: 'Usuário', valor: 'Perfil vendedor, sem acesso a custo' },
+      { rotulo: 'Execuções', valor: '3 tarefas × 10 repetições por plataforma' },
+      { rotulo: 'Período', valor: '11 a 29 de agosto de 2026' },
+    ];
+    const relacionados = [
+      { titulo: 'Três ferramentas de leitura de nota fiscal: qual entende a NF-e de verdade', meta: 'Ferramentas · ago/2026' },
+      { titulo: 'Agentes no WhatsApp: cinco plataformas e um só critério, integra com o CRM?', meta: 'Ferramentas · jul/2026' },
+      { titulo: 'O que o conector da TOTVS para o Protheus expõe de log', meta: 'Ferramentas · em apuração' },
+    ];
+    return {
+      artigo, tarefas, plataformas, linhas, ficha, relacionados,
+      btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

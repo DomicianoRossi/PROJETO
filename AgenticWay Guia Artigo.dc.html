@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.corpo p{margin:0 0 20px;font-size:17px;line-height:1.65;color:#1E2A38;text-wrap:pretty}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}@media print{nav,aside,footer,form{display:none}}</style>
+</helmet>
+<div data-screen-label="Guia · Artigo" style="min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- barra superior -->
+  <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
+      <a href="#" style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+        <span class="sans" style="font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
+      </a>
+      <nav class="sans" style="display:flex;gap:22px;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#">Radar</a><a href="#">Na Operação</a><a href="#">Ferramentas</a><a href="#">Análise</a><a href="#" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Guia</a><a href="#">Para empresas</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- linha de contexto -->
+  <div style="padding:0 clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
+      <span><a href="#" style="color:#5B6572">Guia</a> / {{ guia.tema }}</span><span>Atualizado em {{ guia.atualizado }} · versão {{ guia.versao }}</span>
+    </div>
+  </div>
+
+  <main style="padding:0 clamp(16px,4vw,48px);flex:1">
+    <div style="max-width:1200px;margin:0 auto">
+
+      <!-- cabeçalho -->
+      <header style="max-width:860px;padding:40px 0 28px;display:flex;flex-direction:column;gap:16px">
+        <div class="mono" style="font-size:12px;color:#E8785A">GUIA · {{ guia.temaUpper }}</div>
+        <h1 class="sans" style="font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:1.1;margin:0;letter-spacing:-0.8px;text-wrap:pretty">{{ guia.titulo }}</h1>
+        <p style="font-size:20px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">{{ guia.linhaFina }}</p>
+        <div class="mono" style="display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#5B6572;padding-top:6px;border-top:1px solid #DDD9D0">
+          <span>Por {{ guia.autor }}</span><span>{{ guia.leitura }} min de leitura</span><span>{{ guia.itens.length }} itens</span><a href="#" style="color:#1F4E79">Imprimir ou salvar em PDF</a>
+        </div>
+      </header>
+
+      <section style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px;padding:0 0 56px;border-top:1px solid #0F2A44">
+
+        <article style="min-width:0;padding-top:32px">
+
+          <!-- para quem / como usar -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#DDD9D0;border:1px solid #0F2A44;border-radius:4px;overflow:hidden;margin-bottom:32px">
+            <div style="background:#F7F5F0;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+              <span class="sans" style="font-weight:700;font-size:13px;letter-spacing:0.5px">PARA QUEM</span>
+              <span style="font-size:15px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ guia.paraQuem }}</span>
+            </div>
+            <div style="background:#F7F5F0;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+              <span class="sans" style="font-weight:700;font-size:13px;letter-spacing:0.5px">COMO USAR</span>
+              <span style="font-size:15px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ guia.comoUsar }}</span>
+            </div>
+          </div>
+
+          <div class="corpo"><p>{{ guia.abertura }}</p></div>
+
+          <!-- itens -->
+          <div style="display:flex;flex-direction:column;margin-top:8px">
+            <sc-for list="{{ guia.itens }}" as="i" hint-placeholder-count="7">
+              <div id="{{ i.id }}" style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:20px;padding:32px 0;border-top:1px solid #0F2A44">
+                <span class="sans" style="font-weight:700;font-size:44px;line-height:0.9;letter-spacing:-2px;color:#1F4E79">{{ i.n }}</span>
+                <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+                  <h2 class="sans" style="font-weight:700;font-size:24px;line-height:1.2;margin:0;letter-spacing:-0.4px;text-wrap:pretty">{{ i.pergunta }}</h2>
+                  <p style="margin:0;font-size:17px;line-height:1.6;color:#1E2A38;text-wrap:pretty">{{ i.porque }}</p>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:#DDD9D0;border:1px solid #DDD9D0;border-radius:4px;overflow:hidden">
+                    <div style="background:#F7F5F0;padding:14px 16px;display:flex;flex-direction:column;gap:5px">
+                      <span class="mono" style="font-size:11px;color:#1F4E79">RESPOSTA QUE TRANQUILIZA</span>
+                      <span style="font-size:14px;line-height:1.5;text-wrap:pretty">{{ i.boa }}</span>
+                    </div>
+                    <div style="background:#F7F5F0;padding:14px 16px;display:flex;flex-direction:column;gap:5px">
+                      <span class="mono" style="font-size:11px;color:#8A93A0">RESPOSTA QUE PREOCUPA</span>
+                      <span style="font-size:14px;line-height:1.5;color:#5B6572;text-wrap:pretty">{{ i.ruim }}</span>
+                    </div>
+                  </div>
+                  <div class="mono" style="font-size:12px;color:#5B6572;line-height:1.5"><span style="color:#0F2A44">Anote:</span> {{ i.anote }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <!-- checklist para levar -->
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:22px 24px;margin-top:8px;display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px">
+              <span class="sans" style="font-weight:700;font-size:13px;letter-spacing:0.5px">PARA LEVAR À REUNIÃO</span>
+              <span class="mono" style="font-size:11px;color:#5B6572">agenticway.com.br/guia/{{ guia.slug }}</span>
+            </div>
+            <sc-for list="{{ guia.itens }}" as="i" hint-placeholder-count="7">
+              <div style="display:grid;grid-template-columns:18px 28px minmax(0,1fr);gap:8px;padding:8px 0;border-top:1px solid #DDD9D0;align-items:start">
+                <span style="width:12px;height:12px;border:1px solid #0F2A44;border-radius:2px;margin-top:4px"></span>
+                <span class="mono" style="font-size:11px;color:#5B6572;padding-top:3px">{{ i.n }}</span>
+                <span class="sans" style="font-weight:600;font-size:14px;line-height:1.4;text-wrap:pretty">{{ i.pergunta }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div class="corpo" style="margin-top:32px">
+            <p>{{ guia.fechamento }}</p>
+          </div>
+
+          <!-- histórico -->
+          <div style="margin-top:28px;padding-top:16px;border-top:1px solid #DDD9D0">
+            <div class="mono" style="font-size:11px;color:#5B6572;margin-bottom:8px">HISTÓRICO DE ATUALIZAÇÕES</div>
+            <sc-for list="{{ guia.historico }}" as="h" hint-placeholder-count="2">
+              <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:6px 0;font-size:13px;line-height:1.5;color:#3C4A5A">
+                <span class="mono" style="font-size:11px;color:#5B6572;padding-top:2px">{{ h.data }}</span><span>{{ h.texto }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </article>
+
+        <!-- coluna lateral -->
+        <aside style="min-width:0;padding-top:32px;display:flex;flex-direction:column;gap:36px">
+
+          <div style="display:flex;flex-direction:column;position:sticky;top:24px">
+            <div class="lat-h">NESTE GUIA</div>
+            <sc-for list="{{ guia.itens }}" as="i" hint-placeholder-count="7">
+              <a href="#{{ i.id }}" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px solid #DDD9D0;font-size:14px;line-height:1.4">
+                <span class="mono" style="font-size:11px;color:#1F4E79;padding-top:3px">{{ i.n }}</span>
+                <span style="text-wrap:pretty">{{ i.curta }}</span>
+              </a>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">OUTROS GUIAS</div>
+            <sc-for list="{{ relacionados }}" as="r" hint-placeholder-count="3">
+              <a href="#" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
+                <span class="sans" style="font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">{{ r.titulo }}</span>
+                <span class="mono" style="font-size:11px;color:#5B6572">{{ r.meta }}</span>
+              </a>
+            </sc-for>
+          </div>
+
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="mono" style="font-size:11px;color:#5B6572">NEWSLETTER · SEXTAS</div>
+            <div class="sans" style="font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.3px;text-wrap:pretty">Avisamos quando este guia mudar.</div>
+            <form style="display:flex;flex-direction:column;gap:8px" onSubmit="{{ onSubscribe }}">
+              <input type="email" placeholder="seu@email.com.br" required="{{ true }}" style="padding:12px 14px;font-size:14px;font-family:'Source Serif 4',serif;border:1px solid #0F2A44;background:#fff;border-radius:3px;color:#0F2A44;outline:none">
+              <button type="submit" class="sans" style="padding:12px 18px;font-weight:600;font-size:13px;background:#0F2A44;color:#F7F5F0;border:0;border-radius:3px;cursor:pointer" style-hover="background:#1F4E79">{{ btnLabel }}</button>
+            </form>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
+      <span>© 2026 AgenticWay</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="#" style="color:#5B6572">Sobre</a><a href="#" style="color:#5B6572">Editorias</a><a href="#" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    const guia = {
+      tema: 'Contratação',
+      temaUpper: 'CONTRATAÇÃO',
+      slug: 'sete-perguntas-fornecedor',
+      atualizado: 'set/2026',
+      versao: '1.2',
+      titulo: 'Sete perguntas para fazer a um fornecedor de agentes antes de assinar',
+      linhaFina: 'De "onde ficam os dados" a "o que acontece quando o modelo muda". Cada pergunta vem com a resposta que tranquiliza e a que preocupa.',
+      autor: 'Domiciano Rossi',
+      leitura: 9,
+      paraQuem: 'Quem vai decidir ou assinar: dono, diretor de operações, gerente de TI. Não exige conhecimento técnico; exige fazer a pergunta e anotar a resposta.',
+      comoUsar: 'Leve a lista impressa. Faça as sete perguntas na mesma reunião, nesta ordem. Uma resposta que preocupa não elimina o fornecedor; duas ou mais, sim.',
+      abertura: 'A maioria das reuniões de venda de agentes de IA é uma demonstração: o fornecedor mostra o agente respondendo bem a uma pergunta que ele escolheu. As perguntas abaixo tiram a conversa da demonstração e a levam para o que vai acontecer no seu sistema, com os seus dados e a sua regra.',
+      itens: [
+        { id: 'p1', n: '01', curta: 'Onde ficam os dados', pergunta: 'Onde ficam os nossos dados e o que sai para o modelo?', porque: 'O agente precisa ler dados para agir. A pergunta é quais, por quanto tempo e para onde vão. Isso define o risco de LGPD e o que você vai responder ao cliente que perguntar.', boa: 'Os dados ficam no seu ambiente; para o modelo vai só o trecho necessário à tarefa; nada é usado para treinar; há lista do que sai.', ruim: '"Fica tudo na nossa nuvem, é seguro." Sem lista, sem prazo de retenção, sem dizer se treina com os seus dados.', anote: 'o nome do provedor do modelo, o país do servidor e a política de retenção, por escrito.' },
+        { id: 'p2', n: '02', curta: 'Integração com o sistema atual', pergunta: 'Como o agente entra no nosso ERP ou CRM, e com que usuário?', porque: 'É onde 60% dos pilotos param. Se a integração for "vemos depois", o preço da proposta não é o preço do projeto.', boa: 'Conector documentado para o seu sistema, ou API com exemplo funcionando; o agente usa um usuário próprio com permissão limitada.', ruim: '"Integramos com qualquer sistema." Sem citar o seu, sem falar de usuário e permissão, sem estimar o esforço.', anote: 'se a integração está no escopo e no preço, e quem é responsável por ela.' },
+        { id: 'p3', n: '03', curta: 'O que acontece quando o modelo muda', pergunta: 'O que acontece quando o modelo de IA muda ou é descontinuado?', porque: 'Modelos mudam a cada poucos meses. Se a regra de negócio estiver presa ao modelo, cada mudança é um projeto novo.', boa: 'A regra fica separada do modelo; trocar de modelo é configuração, testada antes de virar produção; há mais de um provedor homologado.', ruim: '"Usamos sempre o melhor modelo do mercado." Sem dizer como a troca é testada nem o que acontece com o comportamento do agente.', anote: 'quantos provedores estão homologados e como a troca é comunicada.' },
+        { id: 'p4', n: '04', curta: 'Registro do que o agente fez', pergunta: 'Que registro fica de cada ação do agente?', porque: 'Quando algo der errado, você precisa saber o que o agente leu, decidiu e fez. O Banco Central está propondo isso como exigência; outros reguladores tendem a seguir.', boa: 'Log por ação com data, versão do modelo, dados consultados e instrução de origem; acessível a você sem pedir ao fornecedor.', ruim: '"Guardamos o histórico da conversa." Só a resposta, sem os dados consultados; acesso só via chamado.', anote: 'peça para ver um log real de uma ação, não um exemplo de slide.' },
+        { id: 'p5', n: '05', curta: 'Onde entra a pessoa', pergunta: 'Em que ponto do fluxo uma pessoa confirma, e como o agente escala exceção?', porque: 'Ato com efeito financeiro ou fiscal precisa de confirmação humana. Um agente "autônomo" sem esse ponto é um risco, não uma vantagem.', boa: 'Pontos de confirmação configuráveis por tipo de ação; exceção vai para uma pessoa nomeada com o motivo; o agente não tenta de novo sozinho.', ruim: '"O agente resolve tudo sem intervenção." Ou o oposto: tudo precisa de aprovação, e o ganho some.', anote: 'quais ações vão exigir confirmação e quem recebe as exceções.' },
+        { id: 'p6', n: '06', curta: 'Custo por tarefa', pergunta: 'Quanto custa cada execução, e como isso muda com o volume?', porque: 'Licença mensal é só parte da conta. Agentes consomem modelo por tarefa; o custo cresce com o volume e com o tamanho do que o agente lê.', boa: 'Custo por execução medido em caso parecido com o seu; teto configurável; relatório de consumo por processo.', ruim: '"Depende do uso." Sem número de referência, sem teto, sem relatório.', anote: 'custo por execução estimado para o seu volume mensal e o que acontece ao passar do teto.' },
+        { id: 'p7', n: '07', curta: 'Quem responde pelo erro', pergunta: 'Quando o agente errar, quem responde, e o que o contrato diz sobre isso?', porque: 'Perante o cliente e o fisco, a empresa responde. A pergunta é o que o fornecedor assume: correção, prazo, acesso ao log, ressarcimento.', boa: 'SLA de correção por gravidade, acesso permanente ao log, cláusula clara de responsabilidade por falha do sistema.', ruim: '"Nunca aconteceu." Contrato sem SLA, com limitação total de responsabilidade e sem garantia de acesso ao log ao fim do contrato.', anote: 'a cláusula de responsabilidade e o SLA, antes de assinar; leve ao jurídico.' },
+      ],
+      fechamento: 'Nenhuma dessas perguntas exige entender de IA. Todas exigem que o fornecedor fale do seu sistema, do seu processo e do seu risco, em vez de falar da tecnologia dele. Quem responde bem às sete vai ser um parceiro razoável mesmo quando algo der errado, e algo vai dar errado.',
+      historico: [
+        { data: 'set/2026', texto: 'Versão 1.2: pergunta 04 atualizada com a consulta pública do Banco Central sobre registro auditável.' },
+        { data: 'jul/2026', texto: 'Versão 1.1: acrescentada a pergunta 06 sobre custo por tarefa, a pedido de leitores.' },
+        { data: 'jun/2026', texto: 'Versão 1.0: publicação.' },
+      ],
+    };
+    const relacionados = [
+      { titulo: 'Glossário de agentes de IA para quem opera empresa', meta: 'Guia · atualizado ago/2026' },
+      { titulo: 'Como medir se um agente está dando resultado: cinco indicadores', meta: 'Guia · atualizado jul/2026' },
+      { titulo: 'Checklist de LGPD para agentes que leem dados de cliente', meta: 'Guia · em revisão' },
+    ];
+    return {
+      guia, relacionados,
+      btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>
