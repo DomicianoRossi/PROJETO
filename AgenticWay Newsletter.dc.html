@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E9E6DF;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#1F4E79;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono','Courier New',monospace}.sans{font-family:Montserrat,Arial,sans-serif}.email p{margin:0 0 14px;font-size:16px;line-height:1.55;color:#1E2A38}.email a.link{border-bottom:1px solid #4A8FC7}.sec{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.6px;padding-bottom:8px;border-bottom:2px solid #0F2A44;margin:0 0 4px}</style>
+</helmet>
+<div data-screen-label="Newsletter" style="min-height:100vh;padding:40px clamp(16px,4vw,48px)">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:600px minmax(260px,1fr);gap:32px;align-items:start">
+
+    <!-- e-mail -->
+    <div class="email" style="background:#F7F5F0;border:1px solid #DDD9D0;border-radius:4px;overflow:hidden">
+
+      <!-- preheader (oculto no cliente de e-mail) -->
+      <div style="display:none;max-height:0;overflow:hidden;font-size:1px;color:#F7F5F0">{{ edicao.preheader }}</div>
+
+      <!-- cabeçalho -->
+      <div style="padding:22px 32px;border-bottom:1px solid #0F2A44;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span class="sans" style="display:flex;align-items:center;gap:8px;font-weight:600;font-size:18px;letter-spacing:-0.5px">
+          <svg viewBox="30 0 140 110" width="32" style="display:block"><defs><linearGradient id="gn" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gn)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+          <span>Agentic<span style="color:#E8785A">Way</span></span>
+        </span>
+        <span class="mono" style="font-size:12px;color:#5B6572">Edição {{ edicao.numero }} · {{ edicao.data }}</span>
+      </div>
+      <div class="mono" style="padding:8px 32px;font-size:11px;color:#5B6572;border-bottom:1px solid #DDD9D0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <span>A semana dos agentes de IA, resumida para quem decide</span><span>{{ edicao.leitura }} min</span>
+      </div>
+
+      <!-- abertura -->
+      <div style="padding:28px 32px 8px">
+        <h1 class="sans" style="font-weight:700;font-size:26px;line-height:1.15;margin:0 0 14px;letter-spacing:-0.6px;text-wrap:pretty">{{ edicao.titulo }}</h1>
+        <p>{{ edicao.abertura }}</p>
+        <p class="mono" style="font-size:12px;color:#5B6572">— Domiciano Rossi</p>
+      </div>
+
+      <!-- cinco fatos -->
+      <div style="padding:20px 32px 8px">
+        <div class="sec">CINCO FATOS</div>
+        <sc-for list="{{ fatos }}" as="f" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #DDD9D0;align-items:start">
+            <span class="mono" style="font-size:12px;color:#1F4E79;padding-top:3px">{{ f.n }}</span>
+            <span style="display:flex;flex-direction:column;gap:5px">
+              <a href="{{ f.url }}" class="sans" style="font-weight:600;font-size:16px;line-height:1.35;color:#0F2A44;text-wrap:pretty">{{ f.titulo }}</a>
+              <span style="font-size:15px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ f.texto }}</span>
+              <span class="mono" style="font-size:11px;color:#5B6572">{{ f.fonte }}</span>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- um caso -->
+      <div style="padding:28px 32px 8px">
+        <div class="sec">UM CASO</div>
+        <div style="padding:16px 0 4px;display:flex;flex-direction:column;gap:10px">
+          <span class="mono" style="font-size:11px;color:#5B6572">{{ caso.setor }}</span>
+          <div style="display:flex;align-items:baseline;gap:12px">
+            <span class="sans" style="font-weight:700;font-size:40px;line-height:1;letter-spacing:-1.5px">{{ caso.numero }}</span>
+            <span class="mono" style="font-size:12px;color:#5B6572;line-height:1.4">{{ caso.numeroLegenda }}</span>
+          </div>
+          <a href="{{ caso.url }}" class="sans" style="font-weight:600;font-size:18px;line-height:1.3;color:#0F2A44;letter-spacing:-0.3px;text-wrap:pretty">{{ caso.titulo }}</a>
+          <p style="margin:0">{{ caso.texto }}</p>
+          <p style="margin:0;border-left:3px solid #1F4E79;padding-left:12px;color:#3C4A5A;font-size:15px">O que a história não conta: {{ caso.naoConta }}</p>
+          <a href="{{ caso.url }}" class="sans" style="font-weight:600;font-size:13px;margin-top:4px">Ler o caso completo →</a>
+        </div>
+      </div>
+
+      <!-- uma opinião -->
+      <div style="padding:28px 32px 8px">
+        <div class="sec">UMA OPINIÃO</div>
+        <div style="padding:16px 0 4px;display:flex;flex-direction:column;gap:12px">
+          <div style="font-style:italic;font-size:20px;line-height:1.45;color:#0F2A44;text-wrap:pretty">{{ opiniao.citacao }}</div>
+          <p style="margin:0">{{ opiniao.texto }}</p>
+          <a href="{{ opiniao.url }}" class="sans" style="font-weight:600;font-size:13px">Ler a análise →</a>
+        </div>
+      </div>
+
+      <!-- na agenda -->
+      <div style="padding:28px 32px 8px">
+        <div class="sec">NA AGENDA</div>
+        <sc-for list="{{ agenda }}" as="a" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid #DDD9D0;font-size:15px;line-height:1.45">
+            <span class="mono" style="font-size:11px;color:#1F4E79;padding-top:3px">{{ a.quando }}</span>
+            <span style="text-wrap:pretty">{{ a.evento }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- para empresas -->
+      <div style="margin:32px 32px 0;padding:20px 0;border-top:1px solid #0F2A44;border-bottom:1px solid #0F2A44;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:220px">
+          <span class="mono" style="font-size:11px;color:#5B6572">PARA EMPRESAS</span>
+          <span class="sans" style="font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">Quer avaliar isso no seu processo?</span>
+          <span style="font-size:14px;color:#3C4A5A;line-height:1.45">Quem escreve esta newsletter também integra.</span>
+        </div>
+        <a href="#" class="sans" style="padding:11px 16px;font-weight:600;font-size:13px;color:#1F4E79;border:1px solid #1F4E79;border-radius:3px;white-space:nowrap" style-hover="background:#0F2A44;color:#F7F5F0;border-color:#0F2A44">Diagnóstico de Oportunidades com IA</a>
+      </div>
+
+      <!-- encaminhar -->
+      <div style="padding:24px 32px 8px;text-align:center">
+        <p style="margin:0;font-size:14px;color:#5B6572">Recebeu de alguém? <a href="#" class="link">Assine aqui</a>. Achou útil? Encaminhe para quem decide.</p>
+      </div>
+
+      <!-- rodapé -->
+      <div class="mono" style="padding:20px 32px 28px;font-size:11px;color:#5B6572;line-height:1.7;border-top:1px solid #DDD9D0;margin-top:16px">
+        Você recebe esta newsletter porque se inscreveu em agenticway.com.br. Sai toda sexta.<br>
+        <a href="#" style="color:#5B6572;text-decoration:underline">Alterar preferências</a> · <a href="#" style="color:#5B6572;text-decoration:underline">Descadastrar</a> · <a href="#" style="color:#5B6572;text-decoration:underline">Ver no navegador</a><br>
+        AgenticWay · {{ edicao.endereco }}
+      </div>
+    </div>
+
+    <!-- painel de envio -->
+    <aside style="display:flex;flex-direction:column;gap:20px;position:sticky;top:24px">
+      <div style="background:#fff;border:1px solid #DDD9D0;border-radius:4px;padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+        <div class="mono" style="font-size:11px;color:#5B6572">CAMPOS DE ENVIO</div>
+        <div style="display:flex;flex-direction:column;gap:3px"><span class="mono" style="font-size:11px;color:#1F4E79">Assunto</span><span class="sans" style="font-weight:600;font-size:14px;line-height:1.35">{{ edicao.assunto }}</span><span class="mono" style="font-size:11px;color:#5B6572">{{ edicao.assunto.length }} caracteres · meta: até 50</span></div>
+        <div style="display:flex;flex-direction:column;gap:3px"><span class="mono" style="font-size:11px;color:#1F4E79">Preheader</span><span style="font-size:14px;line-height:1.4">{{ edicao.preheader }}</span><span class="mono" style="font-size:11px;color:#5B6572">{{ edicao.preheader.length }} caracteres · meta: até 90</span></div>
+        <div style="display:flex;flex-direction:column;gap:3px"><span class="mono" style="font-size:11px;color:#1F4E79">Remetente</span><span style="font-size:14px">Domiciano Rossi · AgenticWay &lt;radar@agenticway.com.br&gt;</span></div>
+        <div style="display:flex;flex-direction:column;gap:3px"><span class="mono" style="font-size:11px;color:#1F4E79">Envio</span><span style="font-size:14px">Sexta-feira, 7h (horário de Brasília)</span></div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #DDD9D0;border-radius:4px;padding:18px 20px;display:flex;flex-direction:column">
+        <div class="mono" style="font-size:11px;color:#5B6572;margin-bottom:6px">CHECKLIST ANTES DE ENVIAR</div>
+        <sc-for list="{{ checklist }}" as="c" hint-placeholder-count="8">
+          <div style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:8px 0;border-bottom:1px solid #DDD9D0;font-size:13px;line-height:1.45">
+            <span style="width:12px;height:12px;border:1px solid #0F2A44;border-radius:2px;margin-top:3px"></span>
+            <span style="text-wrap:pretty">{{ c }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:#fff;border:1px solid #DDD9D0;border-radius:4px;padding:18px 20px;display:flex;flex-direction:column;gap:8px">
+        <div class="mono" style="font-size:11px;color:#5B6572">NOTA TÉCNICA</div>
+        <p style="margin:0;font-size:13px;line-height:1.5;color:#3C4A5A">Clientes de e-mail não carregam Google Fonts. Ao exportar para a ferramenta de envio, manter as pilhas de fallback: Montserrat → Arial; Source Serif 4 → Georgia; IBM Plex Mono → Courier New. Largura fixa de 600 px, cores em hex, sem CSS externo.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;fatosItems&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:5,&quot;min&quot;:3,&quot;max&quot;:5,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Fatos&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const density = this.props.fatosItems ?? 5;
+    const edicao = {
+      numero: 'nº 12',
+      data: 'sexta, 18 set 2026',
+      leitura: 7,
+      assunto: 'O BC começou a regular agentes. E o seu ERP?',
+      preheader: 'Consulta do Banco Central, conector da TOTVS, 60% dos pilotos parando na integração. E um caso de nota fiscal.',
+      titulo: 'A semana em que o regulador passou a olhar para o agente, e não para o chatbot',
+      abertura: 'Três das cinco notas desta semana tratam da mesma coisa por ângulos diferentes: o que acontece quando o agente deixa de responder e passa a agir. O Banco Central escreveu regra para isso, a TOTVS lançou conector para isso e o MIT mediu onde isso trava. O caso da semana mostra o outro lado, uma distribuidora que fez funcionar, com o custo que não aparece no release.',
+      endereco: 'São Paulo, SP · CNPJ 00.000.000/0001-00',
+    };
+    const fatos = [
+      { n: '01', titulo: 'Banco Central abre consulta sobre agentes de IA no atendimento financeiro', texto: 'Registro auditável de cada decisão, transferência imediata para humano e responsabilidade integral da instituição. Prazo de 60 dias. Vale como sinal para outros setores.', fonte: 'BCB · edital de consulta pública', url: '#' },
+      { n: '02', titulo: 'TOTVS anuncia conector nativo de agentes para o Protheus', texto: 'Integração oficial reduz o trabalho de ligar agente ao ERP mais usado por empresas médias no Brasil. Falta ver o que o conector expõe de log.', fonte: 'TOTVS · release', url: '#' },
+      { n: '03', titulo: 'Estudo do MIT: 60% dos pilotos de agentes param na integração com sistemas legados', texto: 'A causa mais citada não é o modelo, é o acesso ao dado. Confirma o que a coluna vem repetindo desde a primeira edição.', fonte: 'MIT Sloan · relatório', url: '#' },
+      { n: '04', titulo: 'OpenAI libera agentes com acesso a planilhas para contas corporativas', texto: 'Útil para quem roda a operação em planilha. Perigoso pelo mesmo motivo: planilha não tem controle de versão nem de permissão.', fonte: 'OpenAI · comunicado', url: '#' },
+      { n: '05', titulo: 'ANPD publica orientação sobre decisões automatizadas por IA', texto: 'Direito à revisão humana passa a valer para decisões tomadas por agentes. Somada à consulta do BC, forma o começo de um padrão brasileiro.', fonte: 'ANPD · nota técnica', url: '#' },
+    ].slice(0, density);
+    const caso = {
+      setor: 'DISTRIBUIÇÃO · INTERIOR DE SP',
+      numero: '40%',
+      numeroLegenda: 'menos erros de nota fiscal em seis meses',
+      titulo: 'Distribuidora liga agente ao ERP e corta erros de nota fiscal',
+      texto: 'O agente lê pedidos do WhatsApp, confere estoque e cadastro no ERP e emite a NF-e. Três pessoas do faturamento foram realocadas para atendimento.',
+      naoConta: 'dois meses de integração e um mês de ajuste de regra fiscal antes do primeiro dia sem intervenção.',
+      url: '#',
+    };
+    const opiniao = {
+      citacao: '"O agente autônomo ainda precisa de um humano no meio do fluxo. A questão não é se, é onde."',
+      texto: 'A promessa de zero intervenção esbarra em regra fiscal, exceção comercial e responsabilidade. A consulta do BC deixa isso explícito: confirmação humana em atos com efeito patrimonial. Escrevi sobre onde colocar essa pessoa sem perder o ganho do agente.',
+      url: '#',
+    };
+    const agenda = [
+      { quando: '24 set', evento: 'Webinar TOTVS sobre o conector de agentes para o Protheus' },
+      { quando: '14 nov', evento: 'Encerramento da consulta pública do Banco Central' },
+      { quando: 'próx. sexta', evento: 'Edição nº 13, com comparativo de quatro plataformas de agentes no mesmo ERP' },
+    ];
+    const checklist = [
+      'Cinco fatos, um caso, uma opinião. Nem mais, nem menos.',
+      'Cada fato tem fonte nomeada e link que abre.',
+      'Tempo de leitura medido: até sete minutos.',
+      'Assunto até 50 caracteres, sem ponto de exclamação, sem emoji.',
+      'Preheader complementa o assunto, não repete.',
+      'Um coral na peça: só no wordmark.',
+      'Bloco "Para empresas" presente e discreto, depois do conteúdo.',
+      'Teste de envio aberto no celular e no Outlook antes das 7h.',
+    ];
+    return { edicao, fatos, caso, opiniao, agenda, checklist };
+  }
+}
+</script>
+</body>
+</html>

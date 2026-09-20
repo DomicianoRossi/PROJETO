@@ -27,6 +27,7 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `AgenticWay Radar Artigo.dc.html` — página de nota do Radar (conteúdo de exemplo)
 - `AgenticWay Para Empresas.dc.html` — página de serviço "Para empresas" (conteúdo de exemplo)
 - `AgenticWay Posts.dc.html` — prancha de templates de post LinkedIn/Instagram (2a–2i, canvas em 50%)
+- `AgenticWay Newsletter.dc.html` — template da newsletter semanal (e-mail 600 px + painel de envio)
 - `github.md` — repo DomicianoRossi/PROJETO, pasta `marca/`
 - `uploads/` e `marca/` — logos originais e DNA v1
 
@@ -34,4 +35,4 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 1. ~~Página de artigo / nota do Radar~~ (feita em 20/set/2026)
 2. ~~Página "Para empresas" completa~~ (feita em 20/set/2026)
 3. ~~Template de post LinkedIn/Instagram~~ (feito em 20/set/2026)
-4. Template da newsletter
+4. ~~Template da newsletter~~ (feito em 20/set/2026)
