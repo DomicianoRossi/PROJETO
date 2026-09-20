@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.foto{background:repeating-linear-gradient(135deg,#E5E1D8 0 10px,#EDEAE3 10px 20px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5B6572;border-radius:4px}</style>
+</helmet>
+<div data-screen-label="Na Operação · Lista" style="min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- barra superior -->
+  <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
+      <a href="#" style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+        <span class="sans" style="font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
+      </a>
+      <nav class="sans" style="display:flex;gap:22px;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#">Radar</a><a href="#" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Na Operação</a><a href="#">Ferramentas</a><a href="#">Análise</a><a href="#">Guia</a><a href="#">Para empresas</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- linha de contexto -->
+  <div style="padding:0 clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
+      <span>Na Operação / Todos os casos</span><span>{{ total }} casos publicados · um por semana</span>
+    </div>
+  </div>
+
+  <main style="padding:0 clamp(16px,4vw,48px);flex:1">
+    <div style="max-width:1200px;margin:0 auto">
+
+      <!-- cabeçalho da editoria -->
+      <header style="padding:40px 0 24px;border-bottom:1px solid #0F2A44;display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;flex-direction:column;gap:10px;max-width:760px">
+          <div class="mono" style="font-size:12px;color:#E8785A">NA OPERAÇÃO</div>
+          <h1 class="sans" style="font-weight:700;font-size:clamp(34px,4.4vw,56px);line-height:1;margin:0;letter-spacing:-1.4px">Casos reais de agentes em empresas.</h1>
+          <p style="font-size:19px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">Setor, processo, resultado e o que a história não conta. Inclui os que pararam. Números conferidos com relatório do sistema, não com o release.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px;min-width:64px">SETOR</span>
+            <sc-for list="{{ filtrosSetor }}" as="f" hint-placeholder-count="6"><button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button></sc-for>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px;min-width:64px">PROCESSO</span>
+            <sc-for list="{{ filtrosProcesso }}" as="f" hint-placeholder-count="6"><button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button></sc-for>
+          </div>
+        </div>
+      </header>
+
+      <section style="display:grid;grid-template-columns:minmax(0,8fr) minmax(0,3fr);gap:48px;padding:0 0 56px">
+
+        <div style="min-width:0">
+
+          <!-- destaque -->
+          <a href="#" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;padding:32px 0;border-bottom:1px solid #0F2A44;align-items:center">
+            <div class="foto" style="width:100%;aspect-ratio:4/3">foto: {{ destaque.foto }}</div>
+            <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+              <span class="mono" style="font-size:11px;color:#1F4E79">{{ destaque.setor }} · {{ destaque.processo }} · MAIS RECENTE</span>
+              <span style="display:flex;align-items:baseline;gap:12px">
+                <span class="sans" style="font-weight:700;font-size:48px;line-height:1;letter-spacing:-2px">{{ destaque.numero }}</span>
+                <span class="mono" style="font-size:12px;color:#5B6572;line-height:1.4;max-width:200px">{{ destaque.numeroLegenda }}</span>
+              </span>
+              <span class="sans" style="font-weight:700;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-0.5px;text-wrap:pretty">{{ destaque.titulo }}</span>
+              <span style="font-size:15px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ destaque.resumo }}</span>
+              <span class="mono" style="font-size:11px;color:#5B6572">{{ destaque.data }} · {{ destaque.leitura }} min</span>
+            </div>
+          </a>
+
+          <!-- grade de casos -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:32px 28px;padding-top:32px">
+            <sc-for list="{{ casos }}" as="c" hint-placeholder-count="6">
+              <a href="#" style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                <div class="foto" style="width:100%;aspect-ratio:16/10;position:relative">
+                  <span>foto: {{ c.foto }}</span>
+                  <span class="mono" style="position:absolute;top:10px;left:10px;font-size:10px;padding:3px 7px;border-radius:2px;background:{{ c.tagBg }};color:{{ c.tagCor }}">{{ c.tag }}</span>
+                </div>
+                <span class="mono" style="font-size:11px;color:#1F4E79">{{ c.setor }} · {{ c.processo }}</span>
+                <span style="display:flex;align-items:baseline;gap:10px">
+                  <span class="sans" style="font-weight:700;font-size:30px;line-height:1;letter-spacing:-1px">{{ c.numero }}</span>
+                  <span class="mono" style="font-size:11px;color:#5B6572;line-height:1.35">{{ c.numeroLegenda }}</span>
+                </span>
+                <span class="sans" style="font-weight:600;font-size:18px;line-height:1.3;letter-spacing:-0.3px;text-wrap:pretty">{{ c.titulo }}</span>
+                <span style="font-size:14px;line-height:1.5;color:#3C4A5A;text-wrap:pretty;border-left:3px solid #DDD9D0;padding-left:10px">Não conta: {{ c.naoConta }}</span>
+                <span class="mono" style="font-size:11px;color:#5B6572">{{ c.data }} · {{ c.leitura }} min</span>
+              </a>
+            </sc-for>
+          </div>
+          <div class="mono" style="padding-top:24px;font-size:12px;color:#5B6572">{{ vazio }}</div>
+          <div style="display:flex;justify-content:center;padding:40px 0 0">
+            <a href="#" class="sans" style="padding:13px 22px;font-weight:600;font-size:13px;color:#1F4E79;border:1px solid #1F4E79;border-radius:3px" style-hover="background:#0F2A44;color:#F7F5F0;border-color:#0F2A44">Casos anteriores</a>
+          </div>
+        </div>
+
+        <!-- coluna lateral -->
+        <aside style="min-width:0;padding-top:32px;display:flex;flex-direction:column;gap:36px">
+
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">POR SETOR</div>
+            <sc-for list="{{ setores }}" as="s" hint-placeholder-count="6">
+              <a href="#" onClick="{{ s.onClick }}" style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #DDD9D0">
+                <span class="sans" style="font-weight:600;font-size:14px">{{ s.rotulo }}</span>
+                <span class="mono" style="font-size:11px;color:#5B6572">{{ s.qtd }}</span>
+              </a>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="lat-h">COMO UM CASO ENTRA AQUI</div>
+            <sc-for list="{{ regras }}" as="r" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;padding:8px 0;border-bottom:1px solid #DDD9D0;font-size:13px;line-height:1.5;color:#3C4A5A">
+                <span class="mono" style="font-size:11px;color:#1F4E79;padding-top:2px">{{ r.n }}</span><span style="text-wrap:pretty">{{ r.texto }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="mono" style="font-size:11px;color:#5B6572">TEM UM CASO?</div>
+            <div class="sans" style="font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.3px;text-wrap:pretty">Agente rodando na sua operação, inclusive o que deu errado.</div>
+            <p style="margin:0;font-size:14px;line-height:1.5;color:#3C4A5A">Anonimato quando necessário. Os que pararam são os mais lidos.</p>
+            <a href="#" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79">pauta@agenticway.com.br →</a>
+          </div>
+
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="mono" style="font-size:11px;color:#5B6572">NEWSLETTER · SEXTAS</div>
+            <div class="sans" style="font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.3px;text-wrap:pretty">Um caso por semana, com o que a história não conta.</div>
+            <form style="display:flex;flex-direction:column;gap:8px" onSubmit="{{ onSubscribe }}">
+              <input type="email" placeholder="seu@email.com.br" required="{{ true }}" style="padding:12px 14px;font-size:14px;font-family:'Source Serif 4',serif;border:1px solid #0F2A44;background:#fff;border-radius:3px;color:#0F2A44;outline:none">
+              <button type="submit" class="sans" style="padding:12px 18px;font-weight:600;font-size:13px;background:#0F2A44;color:#F7F5F0;border:0;border-radius:3px;cursor:pointer" style-hover="background:#1F4E79">{{ btnLabel }}</button>
+            </form>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
+      <span>© 2026 AgenticWay</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="#" style="color:#5B6572">Sobre</a><a href="#" style="color:#5B6572">Editorias</a><a href="#" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false, setor: 'Todos', processo: 'Todos' };
+  renderVals() {
+    const todos = [
+      { setor: 'DISTRIBUIÇÃO', processo: 'FATURAMENTO', numero: '40%', numeroLegenda: 'menos erros de nota fiscal', titulo: 'Distribuidora do interior de SP liga agente ao ERP e corta erros de nota fiscal', resumo: 'O agente lê pedidos do WhatsApp, confere estoque no ERP e emite a NF-e. Três meses de projeto, 14% dos pedidos ainda passam por uma pessoa.', naoConta: 'dois meses de integração e um mês de ajuste de regra.', data: '14 set 2026', leitura: 9, foto: 'setor de faturamento', status: 'ok' },
+      { setor: 'COMÉRCIO EXTERIOR', processo: 'FISCAL', numero: '8% → 1,5%', numeroLegenda: 'erro de classificação NCM', titulo: 'Importadora de Santos automatiza classificação fiscal de 2 mil itens/mês', resumo: '', naoConta: 'o despachante confere tudo; o ganho foi tempo, não gente.', data: '7 set 2026', leitura: 8, foto: 'armazém alfandegado', status: 'ok' },
+      { setor: 'VAREJO', processo: 'ESTOQUE', numero: '12%', numeroLegenda: 'menos ruptura em 120 lojas', titulo: 'Rede de farmácias usa agente para repor estoque loja a loja', resumo: '', naoConta: 'o ganho veio da regra de reposição, que estava errada antes do agente.', data: '31 ago 2026', leitura: 7, foto: 'gôndola de farmácia', status: 'ok' },
+      { setor: 'INDÚSTRIA', processo: 'COMERCIAL', numero: 'parou', numeroLegenda: 'após três meses de piloto', titulo: 'O piloto que parou: metalúrgica desliga agente de cotação', resumo: '', naoConta: 'a tabela de preço mudava toda semana e ninguém avisava o agente.', data: '24 ago 2026', leitura: 8, foto: 'chão de fábrica', status: 'parou' },
+      { setor: 'LOGÍSTICA', processo: 'ATENDIMENTO', numero: '−63%', numeroLegenda: 'ligações "cadê meu pedido"', titulo: 'Transportadora avisa o cliente só quando a entrega atrasa', resumo: '', naoConta: 'a integração com a segunda transportadora parceira nunca ficou pronta.', data: '17 ago 2026', leitura: 6, foto: 'pátio de caminhões', status: 'ok' },
+      { setor: 'SERVIÇOS', processo: 'FINANCEIRO', numero: '2 dias → 3h', numeroLegenda: 'fechamento de conciliação', titulo: 'Escritório contábil concilia extratos de 80 clientes com um agente', resumo: '', naoConta: 'cada banco tem um formato; foram seis semanas só de conector.', data: '10 ago 2026', leitura: 7, foto: 'mesa de trabalho contábil', status: 'ok' },
+      { setor: 'DISTRIBUIÇÃO', processo: 'COMERCIAL', numero: '+18%', numeroLegenda: 'de pedidos respondidos no mesmo dia', titulo: 'Distribuidora de bebidas responde cotação de WhatsApp em minutos', resumo: '', naoConta: 'o agente não fecha pedido; só cota. Fechar continua com o vendedor.', data: '3 ago 2026', leitura: 6, foto: 'depósito de bebidas', status: 'ok' },
+      { setor: 'INDÚSTRIA', processo: 'FISCAL', numero: 'parou', numeroLegenda: 'antes de entrar em produção', titulo: 'Fábrica de autopeças desiste de agente para entrada de nota depois de auditoria', resumo: '', naoConta: 'o log não registrava o que o agente tinha lido; o auditor não aceitou.', data: '27 jul 2026', leitura: 7, foto: 'recebimento de materiais', status: 'parou' },
+    ];
+
+    const { setor, processo } = this.state;
+    const bonito = (s) => s === 'Todos' ? 'Todos' : s.charAt(0) + s.slice(1).toLowerCase();
+    const setoresNomes = ['Todos', 'DISTRIBUIÇÃO', 'INDÚSTRIA', 'LOGÍSTICA', 'COMÉRCIO EXTERIOR', 'VAREJO', 'SERVIÇOS'];
+    const processosNomes = ['Todos', 'FATURAMENTO', 'COMERCIAL', 'FISCAL', 'ESTOQUE', 'ATENDIMENTO', 'FINANCEIRO'];
+
+    const filtrados = todos.filter(c => (setor === 'Todos' || c.setor === setor) && (processo === 'Todos' || c.processo === processo));
+    const destaque = filtrados[0] || todos[0];
+    const casos = filtrados.slice(filtrados.length ? 1 : 0).map(c => ({
+      ...c,
+      tag: c.status === 'parou' ? 'PAROU' : 'EM OPERAÇÃO',
+      tagBg: c.status === 'parou' ? '#0F2A44' : '#fff',
+      tagCor: c.status === 'parou' ? '#F7F5F0' : '#5B6572',
+    }));
+    const vazio = filtrados.length === 0 ? 'Nenhum caso com esse setor e processo ainda. Tem um? pauta@agenticway.com.br' : (filtrados.length === 1 ? 'Um caso com esse filtro.' : '');
+
+    const filtrosSetor = setoresNomes.map(s => ({ rotulo: bonito(s), classe: s === setor ? 'chip chip-on' : 'chip', onClick: () => this.setState({ setor: s }) }));
+    const filtrosProcesso = processosNomes.map(p => ({ rotulo: bonito(p), classe: p === processo ? 'chip chip-on' : 'chip', onClick: () => this.setState({ processo: p }) }));
+    const setores = setoresNomes.slice(1).map(s => ({ rotulo: bonito(s), qtd: todos.filter(c => c.setor === s).length, onClick: (e) => { e.preventDefault(); this.setState({ setor: s, processo: 'Todos' }); } }));
+
+    const regras = [
+      { n: '01', texto: 'Agente em produção há pelo menos três meses, ou piloto encerrado com motivo conhecido.' },
+      { n: '02', texto: 'Número conferido com relatório do sistema, não com apresentação do fornecedor.' },
+      { n: '03', texto: 'Conversamos com quem opera o processo, não só com quem contratou.' },
+      { n: '04', texto: 'Todo caso traz o custo escondido: integração, regra, o que ainda depende de gente.' },
+    ];
+
+    return {
+      total: todos.length, destaque, casos, vazio, filtrosSetor, filtrosProcesso, setores, regras,
+      btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -26,6 +26,7 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `AgenticWay Home.dc.html` — home do site (conteúdo de exemplo)
 - `AgenticWay Radar Lista.dc.html` — listagem do Radar por dia, com filtro por tema
 - `AgenticWay Radar Artigo.dc.html` — página de nota do Radar (conteúdo de exemplo)
+- `AgenticWay Na Operacao Lista.dc.html` — listagem de casos com filtro por setor e processo, destaque e marca "parou"
 - `AgenticWay Na Operacao Artigo.dc.html` — caso de Na Operação (números, fluxo, antes/depois, "o que a história não conta")
 - `AgenticWay Analise Artigo.dc.html` — opinião assinada (tese em três pontos, "onde posso estar errado", bloco de serviço ao fim)
 - `AgenticWay Ferramentas Artigo.dc.html` — comparativo de Ferramentas (tabela passou/parcial/não, ficha do teste)
@@ -46,3 +47,5 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 6. ~~Página "Sobre" e critérios editoriais~~ (feita em 20/set/2026)
 7. ~~Templates das editorias Ferramentas e Guia~~ (feitos em 20/set/2026)
 8. ~~Página de artigo das editorias Na Operação e Análise~~ (feitas em 20/set/2026)
+9. ~~Listagem de Na Operação~~ (feita em 20/set/2026)
+10. Listagens de Ferramentas, Análise e Guia
