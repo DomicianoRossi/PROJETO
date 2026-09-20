@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.ok{color:#0F2A44}.parcial{color:#5B6572}.nao{color:#8A93A0}</style>
+</helmet>
+<div data-screen-label="Ferramentas · Lista" style="min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- barra superior -->
+  <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
+      <a href="#" style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+        <span class="sans" style="font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
+      </a>
+      <nav class="sans" style="display:flex;gap:22px;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#">Radar</a><a href="#">Na Operação</a><a href="#" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Ferramentas</a><a href="#">Análise</a><a href="#">Guia</a><a href="#">Para empresas</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- linha de contexto -->
+  <div style="padding:0 clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
+      <span>Ferramentas / Comparativos e avaliações</span><span>{{ total }} publicações · a cada duas semanas</span>
+    </div>
+  </div>
+
+  <main style="padding:0 clamp(16px,4vw,48px);flex:1">
+    <div style="max-width:1200px;margin:0 auto">
+
+      <!-- cabeçalho da editoria -->
+      <header style="padding:40px 0 24px;border-bottom:1px solid #0F2A44;display:flex;flex-direction:column;gap:18px">
+        <div style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:40px;align-items:end">
+          <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+            <div class="mono" style="font-size:12px;color:#E8785A">FERRAMENTAS</div>
+            <h1 class="sans" style="font-weight:700;font-size:clamp(34px,4.4vw,56px);line-height:1;margin:0;letter-spacing:-1.4px">Testadas com um critério só.</h1>
+            <p style="font-size:19px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">Integra com o que a empresa já tem? Cada plataforma passa pelo mesmo ERP, o mesmo usuário restrito e as mesmas tarefas. Sem nota de estrelas, sem patrocínio.</p>
+          </div>
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0">
+            <span class="sans" style="font-weight:700;font-size:12px;letter-spacing:0.5px">COMO LER O RESULTADO</span>
+            <span class="mono" style="font-size:12px;line-height:1.8"><span class="ok">■ passou</span> · rodou no ERP de teste sem código extra<br><span class="parcial">◪ parcial</span> · precisou de código ou intervenção manual<br><span class="nao">□ não passou</span> · não completou ou completou sem log</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px;min-width:80px">TIPO</span>
+            <sc-for list="{{ filtrosTipo }}" as="f" hint-placeholder-count="3"><button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button></sc-for>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px;min-width:80px">CATEGORIA</span>
+            <sc-for list="{{ filtrosCat }}" as="f" hint-placeholder-count="6"><button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button></sc-for>
+          </div>
+        </div>
+      </header>
+
+      <section style="display:grid;grid-template-columns:minmax(0,8fr) minmax(0,3fr);gap:48px;padding:0 0 56px">
+
+        <div style="min-width:0;display:flex;flex-direction:column">
+          <sc-for list="{{ itens }}" as="i" hint-placeholder-count="6">
+            <a href="#" style="display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:28px;padding:28px 0;border-bottom:1px solid #DDD9D0;align-items:start">
+              <span style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                <span class="mono" style="font-size:11px;color:#1F4E79">{{ i.tipo }} · {{ i.categoria }}</span>
+                <span class="sans" style="font-weight:700;font-size:clamp(19px,2vw,24px);line-height:1.2;letter-spacing:-0.4px;text-wrap:pretty">{{ i.titulo }}</span>
+                <span style="font-size:15px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ i.linha }}</span>
+                <span class="mono" style="font-size:11px;color:#5B6572">{{ i.data }} · {{ i.leitura }} min · testado com {{ i.testadoCom }}</span>
+              </span>
+              <span style="display:flex;flex-direction:column;gap:6px;border-left:1px solid #DDD9D0;padding-left:20px;min-width:0">
+                <span class="mono" style="font-size:10px;color:#5B6572">INTEGRA COM O QUE A EMPRESA JÁ TEM?</span>
+                <sc-for list="{{ i.placar }}" as="p" hint-placeholder-count="4">
+                  <span style="display:flex;justify-content:space-between;gap:8px;font-size:13px;line-height:1.4"><span class="sans" style="font-weight:600;font-size:12px">{{ p.nome }}</span><span class="mono {{ p.classe }}" style="font-size:12px">{{ p.marca }} {{ p.nota }}</span></span>
+                </sc-for>
+              </span>
+            </a>
+          </sc-for>
+          <div class="mono" style="padding-top:24px;font-size:12px;color:#5B6572">{{ vazio }}</div>
+        </div>
+
+        <!-- coluna lateral -->
+        <aside style="min-width:0;padding-top:28px;display:flex;flex-direction:column;gap:36px">
+
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="lat-h">A BANCADA</div>
+            <sc-for list="{{ bancada }}" as="b" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:10px;padding:8px 0;border-bottom:1px solid #DDD9D0;font-size:13px;line-height:1.45">
+                <span class="mono" style="font-size:11px;color:#5B6572;padding-top:2px">{{ b.rotulo }}</span><span style="text-wrap:pretty">{{ b.valor }}</span>
+              </div>
+            </sc-for>
+            <a href="#" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79;margin-top:4px">Metodologia completa →</a>
+          </div>
+
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">O QUE TESTAR A SEGUIR</div>
+            <p style="margin:10px 0 4px;font-size:13px;line-height:1.5;color:#3C4A5A">Pedidos de leitores. Os mais votados entram na fila.</p>
+            <sc-for list="{{ pedidos }}" as="p" hint-placeholder-count="4">
+              <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #DDD9D0;align-items:start">
+                <span style="font-size:14px;line-height:1.4;text-wrap:pretty">{{ p.texto }}</span>
+                <button class="mono" onClick="{{ p.onClick }}" style="font-size:11px;padding:4px 8px;border:1px solid #0F2A44;border-radius:3px;background:{{ p.bg }};color:{{ p.cor }};cursor:pointer;white-space:nowrap">{{ p.votos }} ▲</button>
+              </div>
+            </sc-for>
+            <a href="#" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79;padding-top:12px">Sugerir um teste →</a>
+          </div>
+
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="mono" style="font-size:11px;color:#5B6572">NEWSLETTER · SEXTAS</div>
+            <div class="sans" style="font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.3px;text-wrap:pretty">Os próximos comparativos, antes de todo mundo.</div>
+            <form style="display:flex;flex-direction:column;gap:8px" onSubmit="{{ onSubscribe }}">
+              <input type="email" placeholder="seu@email.com.br" required="{{ true }}" style="padding:12px 14px;font-size:14px;font-family:'Source Serif 4',serif;border:1px solid #0F2A44;background:#fff;border-radius:3px;color:#0F2A44;outline:none">
+              <button type="submit" class="sans" style="padding:12px 18px;font-weight:600;font-size:13px;background:#0F2A44;color:#F7F5F0;border:0;border-radius:3px;cursor:pointer" style-hover="background:#1F4E79">{{ btnLabel }}</button>
+            </form>
+          </div>
+
+          <div class="mono" style="font-size:11px;color:#5B6572;line-height:1.7;border-top:1px solid #DDD9D0;padding-top:12px">Nenhuma ferramenta paga para ser testada ou para aparecer aqui. Fornecedores recebem o resultado antes da publicação e têm direito de resposta.</div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
+      <span>© 2026 AgenticWay</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="#" style="color:#5B6572">Sobre</a><a href="#" style="color:#5B6572">Editorias</a><a href="#" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false, tipo: 'Todos', cat: 'Todos', votados: {} };
+  renderVals() {
+    const P = (nome, marca, nota) => ({ nome, marca, nota, classe: marca === '■' ? 'ok' : marca === '◪' ? 'parcial' : 'nao' });
+    const todos = [
+      { tipo: 'COMPARATIVO', categoria: 'PLATAFORMAS DE AGENTES', titulo: 'Quatro plataformas de agentes testadas com o mesmo ERP: só uma passou', linha: 'Mesmas três tarefas, mesmo usuário restrito. Uma completou tudo com log; duas precisaram de código; uma não leu o pedido.', data: '10 set 2026', leitura: 12, testadoCom: 'ERP de mercado', placar: [P('Plataforma A', '■', 'passou'), P('Plataforma B', '◪', 'parcial'), P('Plataforma C', '◪', 'parcial'), P('Plataforma D', '□', 'não')] },
+      { tipo: 'AVALIAÇÃO', categoria: 'CONECTORES ERP', titulo: 'O conector da TOTVS para o Protheus: o que expõe de log e o que esconde', linha: 'Autenticação e permissão resolvidas. O log registra a ação, mas não os dados consultados, o que fica aquém do que o BC propõe.', data: '27 ago 2026', leitura: 8, testadoCom: 'Protheus 12', placar: [P('Autenticação', '■', 'nativa'), P('Log por ação', '◪', 'sem dados'), P('Custo', '■', 'previsível')] },
+      { tipo: 'COMPARATIVO', categoria: 'LEITURA DE DOCUMENTOS', titulo: 'Três ferramentas de leitura de nota fiscal: qual entende a NF-e de verdade', linha: 'Cem notas reais, com CFOP, ST e desconto. Duas leram o XML; a terceira só o PDF, e errou imposto em 11% dos casos.', data: '13 ago 2026', leitura: 10, testadoCom: '100 NF-e reais', placar: [P('Ferramenta A', '■', 'XML'), P('Ferramenta B', '■', 'XML'), P('Ferramenta C', '□', 'só PDF')] },
+      { tipo: 'COMPARATIVO', categoria: 'WHATSAPP', titulo: 'Agentes no WhatsApp: cinco plataformas e um só critério, integra com o CRM?', linha: 'Todas respondem bem. Só duas gravam a conversa no CRM com o cliente certo; as outras criam contato duplicado.', data: '30 jul 2026', leitura: 11, testadoCom: 'CRM de mercado', placar: [P('Duas', '■', 'gravam no CRM'), P('Duas', '◪', 'duplicam'), P('Uma', '□', 'não integra')] },
+      { tipo: 'AVALIAÇÃO', categoria: 'PLANILHAS', titulo: 'Agente da OpenAI com acesso a planilhas: útil e perigoso pelo mesmo motivo', linha: 'Lê e escreve em planilha compartilhada sem controle de versão nem permissão por célula. Para operação, exige regra fora da planilha.', data: '16 jul 2026', leitura: 7, testadoCom: 'planilha de pedidos real', placar: [P('Leitura', '■', 'boa'), P('Escrita', '◪', 'sem trilha'), P('Permissão', '□', 'não há')] },
+      { tipo: 'AVALIAÇÃO', categoria: 'CONECTORES ERP', titulo: 'Conector genérico por automação de tela: funciona até a tela mudar', linha: 'Sete de dez execuções corretas; as três falhas vieram de tela lenta. Sem log estruturado, só gravação.', data: '2 jul 2026', leitura: 8, testadoCom: 'ERP de mercado', placar: [P('Autenticação', '■', 'login de tela'), P('Estabilidade', '◪', '7/10'), P('Log', '□', 'só vídeo')] },
+    ];
+    const { tipo, cat } = this.state;
+    const tipos = ['Todos', 'COMPARATIVO', 'AVALIAÇÃO'];
+    const cats = ['Todos', 'PLATAFORMAS DE AGENTES', 'CONECTORES ERP', 'LEITURA DE DOCUMENTOS', 'WHATSAPP', 'PLANILHAS'];
+    const bonito = (s) => s === 'Todos' ? 'Todos' : s.charAt(0) + s.slice(1).toLowerCase();
+    const itens = todos.filter(i => (tipo === 'Todos' || i.tipo === tipo) && (cat === 'Todos' || i.categoria === cat));
+    const filtrosTipo = tipos.map(t => ({ rotulo: bonito(t), classe: t === tipo ? 'chip chip-on' : 'chip', onClick: () => this.setState({ tipo: t }) }));
+    const filtrosCat = cats.map(c => ({ rotulo: bonito(c), classe: c === cat ? 'chip chip-on' : 'chip', onClick: () => this.setState({ cat: c }) }));
+    const vazio = itens.length === 0 ? 'Nada testado nessa combinação ainda. Sugira um teste na coluna ao lado.' : '';
+    const bancada = [
+      { rotulo: 'ERP', valor: 'Sistema de mercado em ambiente de teste, com API' },
+      { rotulo: 'Base', valor: '1.200 itens e 300 clientes anonimizados de uma distribuidora' },
+      { rotulo: 'Usuário', valor: 'Perfil vendedor, sem acesso a custo' },
+      { rotulo: 'Tarefas', valor: 'Ler pedido, emitir orçamento, escalar exceção; dez repetições cada' },
+    ];
+    const base = [
+      { id: 'a', texto: 'Agentes de cobrança ligados ao financeiro do ERP', votos: 41 },
+      { id: 'b', texto: 'Ferramentas de extração de dados de contrato para o jurídico', votos: 29 },
+      { id: 'c', texto: 'Conector do Dynamics 365 para agentes do Copilot', votos: 22 },
+      { id: 'd', texto: 'Plataformas de agente para e-mail de compras', votos: 17 },
+    ];
+    const pedidos = base.map(p => {
+      const v = !!this.state.votados[p.id];
+      return { texto: p.texto, votos: p.votos + (v ? 1 : 0), bg: v ? '#0F2A44' : 'transparent', cor: v ? '#F7F5F0' : '#0F2A44',
+        onClick: () => this.setState({ votados: { ...this.state.votados, [p.id]: !v } }) };
+    });
+    return {
+      total: todos.length, itens, vazio, filtrosTipo, filtrosCat, bancada, pedidos,
+      btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

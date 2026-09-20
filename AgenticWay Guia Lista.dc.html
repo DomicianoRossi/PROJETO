@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}</style>
+</helmet>
+<div data-screen-label="Guia · Lista" style="min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- barra superior -->
+  <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
+      <a href="#" style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+        <span class="sans" style="font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
+      </a>
+      <nav class="sans" style="display:flex;gap:22px;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#">Radar</a><a href="#">Na Operação</a><a href="#">Ferramentas</a><a href="#">Análise</a><a href="#" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Guia</a><a href="#">Para empresas</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- linha de contexto -->
+  <div style="padding:0 clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
+      <span>Guia / Referência prática</span><span>{{ total }} guias · mantidos com data e versão</span>
+    </div>
+  </div>
+
+  <main style="padding:0 clamp(16px,4vw,48px);flex:1">
+    <div style="max-width:1200px;margin:0 auto">
+
+      <!-- cabeçalho da editoria -->
+      <header style="padding:40px 0 24px;border-bottom:1px solid #0F2A44;display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;flex-direction:column;gap:10px;max-width:760px">
+          <div class="mono" style="font-size:12px;color:#E8785A">GUIA</div>
+          <h1 class="sans" style="font-weight:700;font-size:clamp(34px,4.4vw,56px);line-height:1;margin:0;letter-spacing:-1.4px">Para levar à reunião.</h1>
+          <p style="font-size:19px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">Perguntas para fornecedor, checklists, glossário e critérios de medição. Não é notícia: é referência, mantida com data e número de versão. Quando um guia muda, dizemos o que mudou.</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px">ASSUNTO</span>
+          <sc-for list="{{ filtros }}" as="f" hint-placeholder-count="6"><button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button></sc-for>
+        </div>
+      </header>
+
+      <section style="display:grid;grid-template-columns:minmax(0,8fr) minmax(0,3fr);gap:48px;padding:0 0 56px">
+
+        <div style="min-width:0">
+          <sc-for list="{{ grupos }}" as="g" hint-placeholder-count="3">
+            <div style="padding-top:32px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-bottom:10px;border-bottom:2px solid #0F2A44">
+                <span class="sans" style="font-weight:700;font-size:15px;letter-spacing:0.3px">{{ g.nome }}</span>
+                <span class="mono" style="font-size:12px;color:#5B6572">{{ g.qtd }}</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:#DDD9D0;border:1px solid #DDD9D0;border-top:0;border-radius:0 0 4px 4px;overflow:hidden">
+                <sc-for list="{{ g.guias }}" as="u" hint-placeholder-count="3">
+                  <a href="#" style="background:#F7F5F0;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0" style-hover="background:#EFEDE6">
+                    <span style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+                      <span class="mono" style="font-size:11px;color:#1F4E79">{{ u.formato }}</span>
+                      <span class="mono" style="font-size:10px;padding:2px 6px;border-radius:2px;border:1px solid {{ u.tagBorda }};color:{{ u.tagCor }}">{{ u.tag }}</span>
+                    </span>
+                    <span class="sans" style="font-weight:600;font-size:17px;line-height:1.3;letter-spacing:-0.3px;text-wrap:pretty">{{ u.titulo }}</span>
+                    <span style="font-size:14px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ u.texto }}</span>
+                    <span class="mono" style="font-size:11px;color:#5B6572;margin-top:auto;padding-top:6px">{{ u.itens }} · v{{ u.versao }} · atualizado {{ u.atualizado }}</span>
+                  </a>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+          <div class="mono" style="padding-top:24px;font-size:12px;color:#5B6572">{{ vazio }}</div>
+        </div>
+
+        <!-- coluna lateral -->
+        <aside style="min-width:0;padding-top:32px;display:flex;flex-direction:column;gap:36px">
+
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="lat-h">COMO USAR OS GUIAS</div>
+            <p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Cada guia tem versão e data. Imprima ou salve em PDF pela página do guia; a versão fica no rodapé. Se a sua cópia estiver atrás da versão publicada, o histórico ao fim do guia diz o que mudou.</p>
+          </div>
+
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">ATUALIZADOS RECENTEMENTE</div>
+            <sc-for list="{{ mudancas }}" as="m" hint-placeholder-count="4">
+              <a href="#" style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;padding:10px 0;border-bottom:1px solid #DDD9D0;align-items:start">
+                <span class="mono" style="font-size:11px;color:#5B6572;padding-top:3px">{{ m.data }}</span>
+                <span style="display:flex;flex-direction:column;gap:3px">
+                  <span class="sans" style="font-weight:600;font-size:13px;line-height:1.35;text-wrap:pretty">{{ m.guia }}</span>
+                  <span style="font-size:13px;line-height:1.45;color:#3C4A5A;text-wrap:pretty">{{ m.oque }}</span>
+                </span>
+              </a>
+            </sc-for>
+          </div>
+
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="mono" style="font-size:11px;color:#5B6572">FALTA UM GUIA?</div>
+            <div class="sans" style="font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.3px;text-wrap:pretty">Diga qual pergunta você levaria à reunião e não encontrou aqui.</div>
+            <a href="#" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79">guia@agenticway.com.br →</a>
+          </div>
+
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="mono" style="font-size:11px;color:#5B6572">NEWSLETTER · SEXTAS</div>
+            <div class="sans" style="font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.3px;text-wrap:pretty">Avisamos quando um guia mudar.</div>
+            <form style="display:flex;flex-direction:column;gap:8px" onSubmit="{{ onSubscribe }}">
+              <input type="email" placeholder="seu@email.com.br" required="{{ true }}" style="padding:12px 14px;font-size:14px;font-family:'Source Serif 4',serif;border:1px solid #0F2A44;background:#fff;border-radius:3px;color:#0F2A44;outline:none">
+              <button type="submit" class="sans" style="padding:12px 18px;font-weight:600;font-size:13px;background:#0F2A44;color:#F7F5F0;border:0;border-radius:3px;cursor:pointer" style-hover="background:#1F4E79">{{ btnLabel }}</button>
+            </form>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
+      <span>© 2026 AgenticWay</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="#" style="color:#5B6572">Sobre</a><a href="#" style="color:#5B6572">Editorias</a><a href="#" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false, assunto: 'Todos' };
+  renderVals() {
+    const todos = [
+      { assunto: 'CONTRATAÇÃO', formato: 'PERGUNTAS', titulo: 'Sete perguntas para fazer a um fornecedor de agentes antes de assinar', texto: 'De "onde ficam os dados" a "o que acontece quando o modelo muda", com a resposta que tranquiliza e a que preocupa.', itens: '7 perguntas', versao: '1.2', atualizado: 'set/2026', status: 'atual' },
+      { assunto: 'CONTRATAÇÃO', formato: 'CHECKLIST', titulo: 'O que precisa estar no contrato de um agente de IA', texto: 'SLA por gravidade, acesso ao log, responsabilidade por falha, saída com os dados. Para levar ao jurídico.', itens: '12 cláusulas', versao: '1.0', atualizado: 'ago/2026', status: 'atual' },
+      { assunto: 'MEDIÇÃO', formato: 'INDICADORES', titulo: 'Como medir se um agente está dando resultado: cinco indicadores', texto: 'Taxa de exceção, tempo de ciclo, custo por tarefa, erro pós-agente e retrabalho. Como medir antes e depois.', itens: '5 indicadores', versao: '1.1', atualizado: 'jul/2026', status: 'atual' },
+      { assunto: 'MEDIÇÃO', formato: 'PLANILHA', titulo: 'Planilha de custo total de um agente no primeiro ano', texto: 'Projeto, plataforma, modelo por execução, ajuste de regra e a pessoa da fila de exceções. Com o exemplo da distribuidora.', itens: '1 planilha', versao: '1.0', atualizado: 'set/2026', status: 'novo' },
+      { assunto: 'RISCO E LGPD', formato: 'CHECKLIST', titulo: 'Checklist de LGPD para agentes que leem dados de cliente', texto: 'Base legal, minimização, o que sai para o modelo, retenção e direito à revisão humana.', itens: '9 itens', versao: '0.9', atualizado: 'ago/2026', status: 'revisao' },
+      { assunto: 'RISCO E LGPD', formato: 'PERGUNTAS', titulo: 'O que o auditor vai perguntar sobre o seu agente', texto: 'Escrito a partir do piloto que parou na auditoria. Log, versão do modelo, quem aprovou o quê.', itens: '6 perguntas', versao: '1.0', atualizado: 'ago/2026', status: 'atual' },
+      { assunto: 'INTEGRAÇÃO', formato: 'CHECKLIST', titulo: 'Antes do agente: limpeza de cadastro em cinco passos', texto: 'Duplicidade, apelido de produto, unidade de medida, cliente sem limite. O que fazer antes de ligar qualquer coisa.', itens: '5 passos', versao: '1.0', atualizado: 'jul/2026', status: 'atual' },
+      { assunto: 'INTEGRAÇÃO', formato: 'MAPA', titulo: 'Como o agente entra no ERP: API, banco, arquivo ou tela', texto: 'As quatro portas, quando cada uma é aceitável e o que cada uma custa em manutenção.', itens: '4 opções', versao: '1.0', atualizado: 'jun/2026', status: 'atual' },
+      { assunto: 'VOCABULÁRIO', formato: 'GLOSSÁRIO', titulo: 'Glossário de agentes de IA para quem opera empresa', texto: 'Quarenta termos que aparecem em proposta e em reunião, explicados uma vez, em português.', itens: '40 termos', versao: '2.3', atualizado: 'ago/2026', status: 'atual' },
+    ];
+    const { assunto } = this.state;
+    const assuntos = ['Todos', 'CONTRATAÇÃO', 'MEDIÇÃO', 'RISCO E LGPD', 'INTEGRAÇÃO', 'VOCABULÁRIO'];
+    const bonito = (s) => s === 'Todos' ? 'Todos' : s.charAt(0) + s.slice(1).toLowerCase();
+    const tagDe = (s) => s === 'novo' ? { tag: 'NOVO', tagCor: '#0F2A44', tagBorda: '#0F2A44' } : s === 'revisao' ? { tag: 'EM REVISÃO', tagCor: '#5B6572', tagBorda: '#DDD9D0' } : { tag: 'ATUAL', tagCor: '#8A93A0', tagBorda: '#DDD9D0' };
+    const filtrados = todos.filter(g => assunto === 'Todos' || g.assunto === assunto);
+    const grupos = assuntos.slice(1).map(a => {
+      const guias = filtrados.filter(g => g.assunto === a).map(g => ({ ...g, ...tagDe(g.status) }));
+      return { nome: bonito(a), qtd: `${guias.length} ${guias.length === 1 ? 'guia' : 'guias'}`, guias };
+    }).filter(g => g.guias.length > 0);
+    const vazio = filtrados.length === 0 ? 'Nenhum guia nesse assunto ainda.' : '';
+    const filtros = assuntos.map(a => ({ rotulo: bonito(a), classe: a === assunto ? 'chip chip-on' : 'chip', onClick: () => this.setState({ assunto: a }) }));
+    const mudancas = [
+      { data: '18 set', guia: 'Sete perguntas para o fornecedor', oque: 'v1.2: pergunta 04 atualizada com a consulta do BC sobre registro auditável.' },
+      { data: '12 set', guia: 'Planilha de custo total', oque: 'v1.0: publicada, com o exemplo da distribuidora do caso da semana.' },
+      { data: '29 ago', guia: 'Glossário', oque: 'v2.3: acrescentados "conector nativo", "fila de exceções" e "custo por tarefa".' },
+      { data: '20 ago', guia: 'Checklist de LGPD', oque: 'v0.9: em revisão por advogada convidada após a orientação da ANPD.' },
+    ];
+    return {
+      total: todos.length, grupos, vazio, filtros, mudancas,
+      btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -28,8 +28,11 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `AgenticWay Radar Artigo.dc.html` — página de nota do Radar (conteúdo de exemplo)
 - `AgenticWay Na Operacao Lista.dc.html` — listagem de casos com filtro por setor e processo, destaque e marca "parou"
 - `AgenticWay Na Operacao Artigo.dc.html` — caso de Na Operação (números, fluxo, antes/depois, "o que a história não conta")
+- `AgenticWay Analise Lista.dc.html` — listagem de análises por tema, com réplicas publicadas
 - `AgenticWay Analise Artigo.dc.html` — opinião assinada (tese em três pontos, "onde posso estar errado", bloco de serviço ao fim)
+- `AgenticWay Ferramentas Lista.dc.html` — listagem de Ferramentas com placar "integra?" por item e fila de testes votável
 - `AgenticWay Ferramentas Artigo.dc.html` — comparativo de Ferramentas (tabela passou/parcial/não, ficha do teste)
+- `AgenticWay Guia Lista.dc.html` — biblioteca de guias por assunto, com versão, status e atualizações recentes
 - `AgenticWay Guia Artigo.dc.html` — artigo de Guia (itens numerados, resposta boa/ruim, checklist imprimível, histórico de versões)
 - `AgenticWay Para Empresas.dc.html` — página de serviço "Para empresas" (conteúdo de exemplo)
 - `AgenticWay Posts.dc.html` — prancha de templates de post LinkedIn/Instagram (2a–2i, canvas em 50%)
@@ -48,4 +51,4 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 7. ~~Templates das editorias Ferramentas e Guia~~ (feitos em 20/set/2026)
 8. ~~Página de artigo das editorias Na Operação e Análise~~ (feitas em 20/set/2026)
 9. ~~Listagem de Na Operação~~ (feita em 20/set/2026)
-10. Listagens de Ferramentas, Análise e Guia
+10. ~~Listagens de Ferramentas, Análise e Guia~~ (feitas em 20/set/2026)
