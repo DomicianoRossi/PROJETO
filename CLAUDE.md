@@ -9,7 +9,7 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - Editorias: Radar · Na Operação · Ferramentas · Análise · Guia
 - Público: decisores de empresas médias (primário); gerentes de TI/processos (secundário). Não: devs, curiosos.
 - Tom: analítico, direto, com fonte, sem hype. Sem emoji, sem exclamação, anglicismo só quando necessário.
-- Serviço: seção "Para empresas" + bloco discreto ao fim das análises. Sem pop-up.
+- Serviço: seção "Para empresas" + bloco discreto ao fim das análises (só em Análise; as demais editorias não têm). Sem pop-up.
 - Newsletter semanal às sextas. Oferta de entrada: "Diagnóstico de Oportunidades com IA".
 - Idioma: português (pt-BR).
 
@@ -26,6 +26,8 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `AgenticWay Home.dc.html` — home do site (conteúdo de exemplo)
 - `AgenticWay Radar Lista.dc.html` — listagem do Radar por dia, com filtro por tema
 - `AgenticWay Radar Artigo.dc.html` — página de nota do Radar (conteúdo de exemplo)
+- `AgenticWay Na Operacao Artigo.dc.html` — caso de Na Operação (números, fluxo, antes/depois, "o que a história não conta")
+- `AgenticWay Analise Artigo.dc.html` — opinião assinada (tese em três pontos, "onde posso estar errado", bloco de serviço ao fim)
 - `AgenticWay Ferramentas Artigo.dc.html` — comparativo de Ferramentas (tabela passou/parcial/não, ficha do teste)
 - `AgenticWay Guia Artigo.dc.html` — artigo de Guia (itens numerados, resposta boa/ruim, checklist imprimível, histórico de versões)
 - `AgenticWay Para Empresas.dc.html` — página de serviço "Para empresas" (conteúdo de exemplo)
@@ -43,4 +45,4 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 5. ~~Listagem do Radar~~ (feita em 20/set/2026)
 6. ~~Página "Sobre" e critérios editoriais~~ (feita em 20/set/2026)
 7. ~~Templates das editorias Ferramentas e Guia~~ (feitos em 20/set/2026)
-8. Página de artigo das editorias Na Operação e Análise
+8. ~~Página de artigo das editorias Na Operação e Análise~~ (feitas em 20/set/2026)

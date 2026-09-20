@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.corpo p{margin:0 0 22px;font-size:18px;line-height:1.65;color:#1E2A38;text-wrap:pretty}.corpo h2{font-family:Montserrat,sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:36px 0 14px;letter-spacing:-0.3px}.corpo blockquote{margin:28px 0;padding:0 0 0 20px;border-left:3px solid #1F4E79;font-style:italic;font-size:19px;line-height:1.55;color:#3C4A5A}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.fluxo{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}.fluxo .no{flex:1;min-width:120px;border:1px solid #0F2A44;border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;background:#F7F5F0}.fluxo .seta{display:flex;align-items:center;padding:0 8px;font-family:'IBM Plex Mono',monospace;color:#5B6572}</style>
+</helmet>
+<div data-screen-label="Na Operação · Caso" style="min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- barra superior -->
+  <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
+      <a href="#" style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+        <span class="sans" style="font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
+      </a>
+      <nav class="sans" style="display:flex;gap:22px;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#">Radar</a><a href="#" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Na Operação</a><a href="#">Ferramentas</a><a href="#">Análise</a><a href="#">Guia</a><a href="#">Para empresas</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- linha de contexto -->
+  <div style="padding:0 clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
+      <span><a href="#" style="color:#5B6572">Na Operação</a> / {{ caso.setor }}</span><span>{{ caso.data }}</span>
+    </div>
+  </div>
+
+  <main style="padding:0 clamp(16px,4vw,48px);flex:1">
+    <div style="max-width:1200px;margin:0 auto">
+
+      <!-- cabeçalho -->
+      <header style="padding:40px 0 0;display:flex;flex-direction:column;gap:16px">
+        <div style="max-width:860px;display:flex;flex-direction:column;gap:16px">
+          <div class="mono" style="font-size:12px;color:#E8785A">NA OPERAÇÃO · CASO</div>
+          <h1 class="sans" style="font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:1.1;margin:0;letter-spacing:-0.8px;text-wrap:pretty">{{ caso.titulo }}</h1>
+          <p style="font-size:20px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">{{ caso.linhaFina }}</p>
+          <div class="mono" style="display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#5B6572;padding-top:6px;border-top:1px solid #DDD9D0">
+            <span>Por {{ caso.autor }}</span><span>{{ caso.leitura }} min de leitura</span><span>Apuração: {{ caso.apuracao }}</span>
+          </div>
+        </div>
+        <div style="width:100%;aspect-ratio:16/7;background:repeating-linear-gradient(135deg,#E5E1D8 0 10px,#EDEAE3 10px 20px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B6572;border-radius:4px;margin-top:12px">foto: {{ caso.foto }}</div>
+        <!-- números do caso -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#DDD9D0;border:1px solid #DDD9D0;border-radius:4px;overflow:hidden">
+          <sc-for list="{{ numeros }}" as="n" hint-placeholder-count="5">
+            <div style="background:#F7F5F0;padding:16px 18px;display:flex;flex-direction:column;gap:4px">
+              <span class="sans" style="font-weight:700;font-size:26px;letter-spacing:-0.8px;line-height:1">{{ n.valor }}</span>
+              <span class="mono" style="font-size:11px;color:#5B6572;line-height:1.4">{{ n.legenda }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </header>
+
+      <section style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px;padding:32px 0 56px">
+
+        <article style="min-width:0">
+          <div class="corpo">
+            <p>{{ caso.abertura }}</p>
+            <h2>O problema</h2>
+            <p>{{ caso.problema }}</p>
+            <h2>O que foi feito</h2>
+            <p>{{ caso.solucao }}</p>
+          </div>
+
+          <!-- fluxo -->
+          <div class="mono" style="font-size:11px;color:#5B6572;margin-bottom:8px">FLUXO DEPOIS DO AGENTE</div>
+          <div class="fluxo" style="margin-bottom:36px">
+            <sc-for list="{{ fluxo }}" as="f" hint-placeholder-count="5">
+              <div class="no"><span class="mono" style="font-size:10px;color:#1F4E79">{{ f.tipo }}</span><span class="sans" style="font-weight:600;font-size:14px;line-height:1.3">{{ f.nome }}</span><span style="font-size:12px;line-height:1.4;color:#3C4A5A">{{ f.faz }}</span></div>
+              <div class="seta">{{ f.seta }}</div>
+            </sc-for>
+          </div>
+
+          <div class="corpo">
+            <h2>Resultado</h2>
+            <p>{{ caso.resultado }}</p>
+          </div>
+
+          <!-- antes e depois -->
+          <div style="overflow-x:auto;margin-bottom:36px">
+            <table style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead><tr>
+                <th class="sans" style="font-weight:600;font-size:13px;text-align:left;padding:10px 12px;border-bottom:2px solid #0F2A44">Indicador</th>
+                <th class="sans" style="font-weight:600;font-size:13px;text-align:left;padding:10px 12px;border-bottom:2px solid #0F2A44">Antes</th>
+                <th class="sans" style="font-weight:600;font-size:13px;text-align:left;padding:10px 12px;border-bottom:2px solid #0F2A44">Depois (6 meses)</th>
+                <th class="sans" style="font-weight:600;font-size:13px;text-align:left;padding:10px 12px;border-bottom:2px solid #0F2A44">Como foi medido</th>
+              </tr></thead>
+              <tbody>
+                <sc-for list="{{ indicadores }}" as="i" hint-placeholder-count="4">
+                  <tr>
+                    <td class="sans" style="font-weight:600;font-size:13px;padding:12px;border-bottom:1px solid #DDD9D0">{{ i.nome }}</td>
+                    <td class="mono" style="font-size:13px;padding:12px;border-bottom:1px solid #DDD9D0;color:#5B6572">{{ i.antes }}</td>
+                    <td class="mono" style="font-size:13px;padding:12px;border-bottom:1px solid #DDD9D0">{{ i.depois }}</td>
+                    <td style="font-size:13px;padding:12px;border-bottom:1px solid #DDD9D0;color:#3C4A5A;line-height:1.4">{{ i.medida }}</td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- o que a história não conta -->
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:22px 24px;margin-bottom:36px;display:flex;flex-direction:column;gap:10px">
+            <span class="sans" style="font-weight:700;font-size:13px;letter-spacing:0.5px">O QUE A HISTÓRIA NÃO CONTA</span>
+            <sc-for list="{{ naoConta }}" as="x" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;padding:10px 0;border-top:1px solid #DDD9D0;align-items:start">
+                <span class="sans" style="font-weight:700;font-size:20px;letter-spacing:-0.5px;line-height:1.1">{{ x.valor }}</span>
+                <span style="font-size:15px;line-height:1.5;color:#1E2A38;text-wrap:pretty">{{ x.texto }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div class="corpo">
+            <h2>O que ainda depende de gente</h2>
+            <p>{{ caso.humano }}</p>
+            <blockquote>{{ caso.citacao }}</blockquote>
+            <h2>Para quem quer replicar</h2>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:#DDD9D0;border:1px solid #DDD9D0;border-radius:4px;overflow:hidden;margin-bottom:32px">
+            <sc-for list="{{ licoes }}" as="l" hint-placeholder-count="3">
+              <div style="background:#F7F5F0;padding:18px;display:flex;flex-direction:column;gap:8px">
+                <span class="mono" style="font-size:11px;color:#1F4E79">{{ l.n }}</span>
+                <span class="sans" style="font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">{{ l.titulo }}</span>
+                <span style="font-size:14px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ l.texto }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div class="mono" style="padding-top:16px;border-top:1px solid #DDD9D0;font-size:11px;color:#5B6572;line-height:1.7">{{ caso.transparencia }}</div>
+        </article>
+
+        <aside style="min-width:0;display:flex;flex-direction:column;gap:36px">
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">FICHA DO CASO</div>
+            <sc-for list="{{ ficha }}" as="i" hint-placeholder-count="7">
+              <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid #DDD9D0;font-size:14px;line-height:1.45">
+                <span class="mono" style="font-size:11px;color:#5B6572;padding-top:3px">{{ i.rotulo }}</span>
+                <span style="text-wrap:pretty">{{ i.valor }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="lat-h">COMO APURAMOS</div>
+            <p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">{{ caso.comoApuramos }}</p>
+          </div>
+
+          <div style="display:flex;flex-direction:column">
+            <div class="lat-h">OUTROS CASOS</div>
+            <sc-for list="{{ relacionados }}" as="r" hint-placeholder-count="3">
+              <a href="#" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
+                <span class="mono" style="font-size:11px;color:#1F4E79">{{ r.setor }}</span>
+                <span class="sans" style="font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">{{ r.titulo }}</span>
+                <span class="mono" style="font-size:11px;color:#5B6572">{{ r.meta }}</span>
+              </a>
+            </sc-for>
+          </div>
+
+          <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="mono" style="font-size:11px;color:#5B6572">TEM UM CASO?</div>
+            <div class="sans" style="font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.3px;text-wrap:pretty">Agente rodando na sua operação, inclusive o que deu errado.</div>
+            <p style="margin:0;font-size:14px;line-height:1.5;color:#3C4A5A">Publicamos com número, setor e o que a história não conta. Anonimato quando necessário.</p>
+            <a href="#" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79">pauta@agenticway.com.br →</a>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
+      <span>© 2026 AgenticWay</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="#" style="color:#5B6572">Sobre</a><a href="#" style="color:#5B6572">Editorias</a><a href="#" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const caso = {
+      setor: 'Distribuição',
+      data: 'segunda-feira, 14 set 2026',
+      titulo: 'Distribuidora do interior de SP liga agente ao ERP e corta 40% dos erros de nota fiscal',
+      linhaFina: 'O agente lê pedidos do WhatsApp, confere estoque no ERP e emite a NF-e. O que a história não conta: dois meses de integração e um mês de ajuste de regra.',
+      autor: 'Domiciano Rossi',
+      leitura: 9,
+      apuracao: 'visita e entrevistas, ago/2026',
+      foto: 'setor de faturamento da distribuidora, com a tela do ERP',
+      abertura: 'A distribuidora tem 38 funcionários, 1.200 itens em estoque e recebe cerca de 300 pedidos por dia, quase todos por WhatsApp. Até março, três pessoas do faturamento passavam o dia lendo mensagens, digitando pedidos no ERP e emitindo nota. O erro de nota, item trocado, quantidade errada, cliente sem limite, chegava a 6% e custava, em devolução e reemissão, o equivalente a um salário e meio por mês.',
+      problema: 'O gargalo não era o ERP, que já tinha cadastro, estoque e emissão de NF-e funcionando. Era a entrada: pedido em texto livre, com apelido de produto, quantidade em caixa ou unidade sem dizer qual, e cliente que às vezes pedia pelo vendedor, às vezes direto. Cada pedido exigia interpretação, e a interpretação variava com a pessoa e com a hora do dia.',
+      solucao: 'O agente entrou entre o WhatsApp e o ERP. Lê a mensagem, identifica cliente e itens usando o cadastro e o histórico de compras, confere saldo e limite de crédito e monta o pedido no ERP com o usuário próprio. Se tudo confere, a NF-e é emitida. Se algo não confere, o pedido para na fila de uma pessoa, com o motivo escrito. Nada é emitido sem saldo ou sem limite.',
+      resultado: 'Em seis meses, o erro de nota caiu de 6% para 3,6%, uma redução de 40%. O tempo entre o pedido chegar e a nota sair caiu de quatro horas, em média, para 25 minutos. Das três pessoas do faturamento, duas foram para o atendimento e uma ficou cuidando da fila de exceções, que hoje representa 14% dos pedidos.',
+      humano: 'A fila de exceções não é falha do projeto; é o projeto. Cliente novo sem cadastro, produto com apelido desconhecido, pedido acima do limite, tudo isso vai para uma pessoa. O agente escreve por que parou e sugere o que faria. A pessoa decide. A empresa optou por não deixar o agente liberar limite de crédito em nenhuma hipótese, mesmo quando a regra permitiria.',
+      citacao: '"O que eu mais gostei não foi a nota sair rápido. Foi saber por que ela não saiu." — gerente administrativo da distribuidora',
+      comoApuramos: 'Visitamos a operação em agosto, entrevistamos o gerente administrativo, a responsável pela fila de exceções e o integrador. Vimos o log do agente de duas semanas e os relatórios de devolução do ERP de janeiro a agosto. Os números de erro e de tempo são da empresa; os de custo, estimativa nossa a partir deles.',
+      transparencia: 'A integração foi feita por um fornecedor sem relação com a AgenticWay. A empresa pediu para não ser nomeada por razão comercial; nome, cidade e setor estão registrados na redação. Os números foram conferidos com os relatórios do ERP.',
+    };
+    const numeros = [
+      { valor: '40%', legenda: 'menos erros de nota fiscal' },
+      { valor: '4h → 25min', legenda: 'do pedido à nota emitida' },
+      { valor: '3 meses', legenda: 'de projeto até operação sem intervenção' },
+      { valor: '14%', legenda: 'dos pedidos ainda passam por uma pessoa' },
+      { valor: 'R$ 0,30', legenda: 'custo médio por pedido processado' },
+    ];
+    const fluxo = [
+      { tipo: 'ENTRADA', nome: 'WhatsApp', faz: 'Pedido em texto livre do cliente ou vendedor', seta: '→' },
+      { tipo: 'AGENTE', nome: 'Leitura e conferência', faz: 'Identifica cliente e itens, confere saldo e limite', seta: '→' },
+      { tipo: 'SISTEMA', nome: 'ERP', faz: 'Pedido registrado com usuário do agente', seta: '→' },
+      { tipo: 'SAÍDA', nome: 'NF-e emitida', faz: 'Só quando tudo confere', seta: '' },
+      { tipo: 'EXCEÇÃO', nome: 'Fila humana', faz: 'Motivo escrito e sugestão do agente', seta: '' },
+    ];
+    const indicadores = [
+      { nome: 'Erro de nota fiscal', antes: '6,0%', depois: '3,6%', medida: 'Notas canceladas ou reemitidas sobre o total, relatório do ERP' },
+      { nome: 'Tempo pedido → nota', antes: '4h (média)', depois: '25 min', medida: 'Hora da mensagem versus hora de emissão, amostra de 500 pedidos' },
+      { nome: 'Pessoas no faturamento', antes: '3', depois: '1', medida: 'Duas realocadas para atendimento' },
+      { nome: 'Pedidos com intervenção', antes: '100%', depois: '14%', medida: 'Fila de exceções do agente, média de agosto' },
+    ];
+    const naoConta = [
+      { valor: '2 meses', texto: 'de integração. O ERP tinha API, mas a documentação estava desatualizada e o cadastro de produtos tinha 300 itens duplicados que precisaram ser limpos antes.' },
+      { valor: '1 mês', texto: 'de ajuste de regra. Na primeira semana o agente parava 60% dos pedidos. Foram três rodadas de revisão de apelidos de produto e de regras de limite até chegar aos 14%.' },
+      { valor: 'R$ 48 mil', texto: 'de projeto, mais R$ 1.200 por mês de plataforma e modelo. O retorno veio no quinto mês, contando devolução evitada e realocação de pessoas.' },
+    ];
+    const licoes = [
+      { n: '01', titulo: 'Limpe o cadastro antes do agente', texto: 'O agente é tão bom quanto o cadastro que consulta. Duplicidade e apelido não documentado viram exceção.' },
+      { n: '02', titulo: 'Comece com o agente parando muito', texto: 'Uma fila grande no início é sinal de regra conservadora, não de fracasso. Reduza aos poucos, com log.' },
+      { n: '03', titulo: 'Decida o que a pessoa nunca delega', texto: 'A empresa fixou limite de crédito como decisão humana. Isso simplificou o projeto e a conversa com o contador.' },
+    ];
+    const ficha = [
+      { rotulo: 'Empresa', valor: 'Distribuidora de alimentos, não nomeada a pedido' },
+      { rotulo: 'Porte', valor: '38 funcionários, 300 pedidos/dia' },
+      { rotulo: 'Sistema', valor: 'ERP de mercado, com API' },
+      { rotulo: 'Processo', valor: 'Pedido por WhatsApp → faturamento → NF-e' },
+      { rotulo: 'Projeto', valor: 'Março a maio de 2026' },
+      { rotulo: 'Quem fez', valor: 'Integrador independente, sem relação com a AgenticWay' },
+      { rotulo: 'Medição', valor: 'Janeiro a agosto de 2026, relatórios do ERP' },
+    ];
+    const relacionados = [
+      { setor: 'COMÉRCIO EXTERIOR', titulo: 'Importadora de Santos automatiza classificação fiscal de 2 mil itens/mês', meta: 'Caso · set/2026' },
+      { setor: 'VAREJO', titulo: 'Rede de farmácias usa agente para repor estoque em 120 lojas', meta: 'Caso · set/2026' },
+      { setor: 'INDÚSTRIA', titulo: 'O piloto que parou: metalúrgica desliga agente de cotação após três meses', meta: 'Caso · ago/2026' },
+    ];
+    return { caso, numeros, fluxo, indicadores, naoConta, licoes, ficha, relacionados };
+  }
+}
+</script>
+</body>
+</html>
