@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}</style>
+</helmet>
+<div data-screen-label="Home" style="min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- barra superior -->
+  <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
+      <a href="#" style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+        <span style="font-family:Montserrat,sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
+      </a>
+      <nav style="display:flex;gap:22px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#radar">Radar</a><a href="#operacao">Na Operação</a><a href="#">Ferramentas</a><a href="#">Análise</a><a href="#">Guia</a><a href="#empresas" style="color:#1F4E79;border-bottom:2px solid #E8785A;padding-bottom:2px">Para empresas</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- linha de data -->
+  <div style="padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
+      <span>{{ hoje }}</span><span>Agentes de IA na operação das empresas</span>
+    </div>
+  </div>
+
+  <main style="padding:0 clamp(16px,4vw,48px);flex:1">
+    <div style="max-width:1200px;margin:0 auto">
+
+      <!-- destaque + radar -->
+      <section style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:40px;padding:32px 0 40px;border-bottom:1px solid #0F2A44">
+        <article style="display:flex;flex-direction:column;gap:16px;min-width:0">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#E8785A">NA OPERAÇÃO · CASO</div>
+          <h1 style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,44px);line-height:1.1;margin:0;letter-spacing:-0.8px;text-wrap:pretty">Distribuidora do interior de SP liga agente ao ERP e corta 40% dos erros de nota fiscal</h1>
+          <p style="font-size:18px;line-height:1.55;margin:0;color:#3C4A5A;text-wrap:pretty">O agente lê pedidos do WhatsApp, confere estoque no ERP e emite a NF-e. O que a história não conta: dois meses de integração e um mês de ajuste de regra.</p>
+          <div style="width:100%;aspect-ratio:16/8;background:repeating-linear-gradient(135deg,#E5E1D8 0 10px,#EDEAE3 10px 20px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B6572;border-radius:4px">foto: operação da distribuidora</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B6572">Por Domiciano Rossi · 9 min de leitura</div>
+        </article>
+
+        <aside id="radar" style="display:flex;flex-direction:column;min-width:0">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:2px solid #0F2A44">
+            <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.5px">RADAR</span>
+            <span style="display:flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#E8785A"><span style="width:7px;height:7px;border-radius:50%;background:#E8785A"></span>atualizado hoje</span>
+          </div>
+          <sc-for list="{{ radar }}" as="n" hint-placeholder-count="6">
+            <a href="#" style="display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #DDD9D0;align-items:start">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B6572;padding-top:3px">{{ n.hora }}</span>
+              <span style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-family:Montserrat,sans-serif;font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">{{ n.titulo }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5B6572">{{ n.fonte }}</span>
+              </span>
+            </a>
+          </sc-for>
+          <a href="#" style="font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;padding:14px 0;color:#1F4E79">Ver radar completo →</a>
+        </aside>
+      </section>
+
+      <!-- destaques por editoria -->
+      <section id="operacao" style="padding:40px 0;border-bottom:1px solid #DDD9D0">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px">
+          <sc-for list="{{ destaques }}" as="d" hint-placeholder-count="3">
+            <article style="display:flex;flex-direction:column;gap:10px;min-width:0">
+              <div style="width:100%;aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#E5E1D8 0 10px,#EDEAE3 10px 20px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5B6572;border-radius:4px">{{ d.imagem }}</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#1F4E79">{{ d.editoria }}</div>
+              <h3 style="font-family:Montserrat,sans-serif;font-weight:600;font-size:19px;line-height:1.3;margin:0;letter-spacing:-0.3px;text-wrap:pretty">{{ d.titulo }}</h3>
+              <p style="margin:0;font-size:15px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ d.resumo }}</p>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5B6572">{{ d.meta }}</div>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- newsletter -->
+      <section style="padding:40px 0;border-bottom:1px solid #DDD9D0">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;align-items:center">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#E8785A">NEWSLETTER · SEXTAS</div>
+            <h2 style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(24px,2.6vw,32px);line-height:1.15;margin:0;letter-spacing:-0.5px;text-wrap:pretty">A semana dos agentes de IA, resumida para quem decide.</h2>
+            <p style="margin:0;font-size:16px;line-height:1.55;color:#3C4A5A">Cinco fatos, um caso, uma opinião. Sete minutos de leitura, sem hype.</p>
+          </div>
+          <form style="display:flex;gap:8px;flex-wrap:wrap" onSubmit="{{ onSubscribe }}">
+            <input type="email" placeholder="seu@email.com.br" required="{{ true }}" style="flex:1;min-width:200px;padding:14px 16px;font-size:15px;font-family:'Source Serif 4',serif;border:1px solid #0F2A44;background:#fff;border-radius:3px;color:#0F2A44;outline:none">
+            <button type="submit" style="padding:14px 22px;font-family:Montserrat,sans-serif;font-weight:600;font-size:14px;background:#0F2A44;color:#F7F5F0;border:0;border-radius:3px;cursor:pointer" style-hover="background:#1F4E79">{{ btnLabel }}</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- para empresas -->
+      <section id="empresas" style="padding:48px 0 56px">
+        <div style="background:#0F2A44;color:#F7F5F0;border-radius:6px;padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:center">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#F08A6E">PARA EMPRESAS</div>
+            <h2 style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);line-height:1.15;margin:0;letter-spacing:-0.5px;text-wrap:pretty">Conectamos IA aos processos que sua empresa já utiliza.</h2>
+            <p style="margin:0;font-size:16px;line-height:1.55;color:#C9D3DF;text-wrap:pretty">Quem escreve o Radar também integra. Em poucos dias, mapeamos seus processos e mostramos onde um agente gera ganho real — ligado ao ERP, CRM, WhatsApp e planilhas que você já usa.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
+              <a href="#" style="padding:14px 22px;font-family:Montserrat,sans-serif;font-weight:600;font-size:14px;background:#E8785A;color:#0F2A44;border-radius:3px" style-hover="background:#F08A6E;color:#0F2A44">Diagnóstico de Oportunidades com IA</a>
+              <a href="#" style="padding:14px 22px;font-family:Montserrat,sans-serif;font-weight:600;font-size:14px;color:#F7F5F0;border:1px solid #4A8FC7;border-radius:3px" style-hover="color:#F7F5F0;border-color:#F7F5F0">Como trabalhamos</a>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#1B3A5C;border-radius:4px;overflow:hidden">
+            <div style="background:#0F2A44;padding:18px"><div style="font-family:Montserrat,sans-serif;font-weight:600;font-size:15px;margin-bottom:4px">AI Consulting</div><div style="font-size:13px;color:#C9D3DF;line-height:1.45">Onde a IA gera valor real</div></div>
+            <div style="background:#0F2A44;padding:18px"><div style="font-family:Montserrat,sans-serif;font-weight:600;font-size:15px;margin-bottom:4px">AI Integration</div><div style="font-size:13px;color:#C9D3DF;line-height:1.45">Ligada aos sistemas atuais</div></div>
+            <div style="background:#0F2A44;padding:18px"><div style="font-family:Montserrat,sans-serif;font-weight:600;font-size:15px;margin-bottom:4px">AI Agents</div><div style="font-size:13px;color:#C9D3DF;line-height:1.45">Agentes por processo</div></div>
+            <div style="background:#0F2A44;padding:18px"><div style="font-family:Montserrat,sans-serif;font-weight:600;font-size:15px;margin-bottom:4px">AI Products</div><div style="font-size:13px;color:#C9D3DF;line-height:1.45">Do recorrente ao escalável</div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B6572">
+      <span>© 2026 AgenticWay</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="#" style="color:#5B6572">Sobre</a><a href="#" style="color:#5B6572">Editorias</a><a href="#" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;radarItems&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:8,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Radar&quot;}}">
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    const dias = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+    const meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+    const d = new Date();
+    const hoje = `${dias[d.getDay()]}, ${d.getDate()} ${meses[d.getMonth()]} ${d.getFullYear()}`;
+    const density = this.props.radarItems ?? 6;
+    const radar = [
+      { hora: '14:20', titulo: 'OpenAI libera agentes com acesso a planilhas para contas corporativas', fonte: 'OpenAI · comunicado' },
+      { hora: '11:05', titulo: 'Banco Central publica consulta sobre uso de agentes em atendimento financeiro', fonte: 'BCB · consulta pública' },
+      { hora: '09:40', titulo: 'TOTVS anuncia conector nativo de agentes para o Protheus', fonte: 'TOTVS · release' },
+      { hora: 'ontem', titulo: 'Estudo do MIT: 60% dos pilotos de agentes param na integração com sistemas legados', fonte: 'MIT Sloan · relatório' },
+      { hora: 'ontem', titulo: 'Anthropic amplia limite de contexto e reduz custo por tarefa em 30%', fonte: 'Anthropic · blog' },
+      { hora: 'ontem', titulo: 'Importadora de Santos automatiza classificação fiscal de 2 mil itens/mês', fonte: 'AgenticWay · apuração própria' },
+      { hora: '2 dias', titulo: 'Microsoft integra agentes do Copilot ao Dynamics 365 Finance', fonte: 'Microsoft · Ignite' },
+      { hora: '2 dias', titulo: 'LGPD: ANPD publica orientação sobre decisões automatizadas por IA', fonte: 'ANPD · nota técnica' },
+    ].slice(0, density);
+    const destaques = [
+      { editoria: 'FERRAMENTAS', titulo: 'Quatro plataformas de agentes testadas com o mesmo ERP: só uma passou', resumo: 'Critério único: integra com o que a empresa já tem? Detalhes de autenticação, logs e custo por tarefa.', meta: 'Comparativo · 12 min', imagem: 'imagem: bancada de testes' },
+      { editoria: 'ANÁLISE', titulo: 'Por que o "agente autônomo" ainda precisa de um humano no meio do fluxo', resumo: 'A promessa de zero intervenção esbarra em regra fiscal, exceção comercial e responsabilidade. Onde colocar o humano.', meta: 'Opinião · Domiciano Rossi', imagem: 'imagem: ilustração editorial' },
+      { editoria: 'GUIA', titulo: 'Sete perguntas para fazer a um fornecedor de agentes antes de assinar', resumo: 'De "onde ficam os dados" a "o que acontece quando o modelo muda". Lista para levar à reunião.', meta: 'Guia · atualizado set/2026', imagem: 'imagem: checklist' },
+    ];
+    return {
+      hoje, radar, destaques,
+      btnLabel: this.state.sent ? 'Inscrito ✓' : 'Assinar',
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>
