@@ -25,11 +25,12 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `DNA da Marca v2.dc.html` — documento imprimível
 - `AgenticWay Home.dc.html` — home do site (conteúdo de exemplo)
 - `AgenticWay Radar Artigo.dc.html` — página de nota do Radar (conteúdo de exemplo)
+- `AgenticWay Para Empresas.dc.html` — página de serviço "Para empresas" (conteúdo de exemplo)
 - `github.md` — repo DomicianoRossi/PROJETO, pasta `marca/`
 - `uploads/` e `marca/` — logos originais e DNA v1
 
 ## Próximos passos sugeridos
 1. ~~Página de artigo / nota do Radar~~ (feita em 20/set/2026)
-2. Página "Para empresas" completa
+2. ~~Página "Para empresas" completa~~ (feita em 20/set/2026)
 3. Template de post LinkedIn/Instagram
 4. Template da newsletter
