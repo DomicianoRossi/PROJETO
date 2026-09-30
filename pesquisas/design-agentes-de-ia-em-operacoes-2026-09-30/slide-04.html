@@ -1,0 +1,158 @@
+<!--
+  Esqueleto de peça 1080x1350 (4:5).
+
+  A direção é editorial-brutalista: grotesca pesada, número tratado como imagem,
+  fundo com grão, um acento só. Ela existe para não cair no meio-termo — que é o
+  que denuncia peça gerada, mais do que a feiura.
+
+  Estrutura:
+    .idx    régua de progresso da série + posição
+    .kicker etiqueta da peça
+    .mid    o conteúdo (ancorado na base por padrão; .alto centraliza)
+    .foot   fonte do dado
+
+  Componentes do miolo: .fig (número herói), .h (título), .body (punchline com
+  tarja), .linha (comparação de valores).
+
+  Trocar {{...}} pelo conteúdo. O render.py injeta o tema no fim do <style>.
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    /* tema claro; o render injeta escuro/fogo depois deste bloco */
+    --bg:  #efece4;  --fg:  #171412;  --ac:  #d1451c;
+    --mut: #645b4e;  --dim: #b8b0a2;  --line:#d6d0c3;  --ft: #57503f;
+    --grao:.42;      --blend:multiply;
+  }
+
+  body {
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    background:var(--bg); hyphens:none;
+    font-family:"Archivo",sans-serif; -webkit-font-smoothing:antialiased;
+  }
+
+  /* grão: atmosfera. Fundo chapado é o default preguiçoso — é o que faz a peça
+     parecer renderizada em vez de impressa */
+  .grao { position:absolute; inset:0; pointer-events:none;
+    opacity:var(--grao); mix-blend-mode:var(--blend);
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='220' height='220' filter='url(%23n)' opacity='.55'/></svg>"); }
+
+  /* foto: entra por campo no pecas.json, com véu que adensa embaixo */
+  .ph, .veil { display:none; position:absolute; inset:0; }
+  .ph   { background-size:cover; background-position:16% 30%;
+          filter:saturate(.92) contrast(1.04); }
+  /* dois véus: o gradiente dá clima, a máscara garante o contraste do bloco de
+     texto. Só o gradiente deixa o contraste variar dentro da mesma frase quando
+     a foto tem uma região clara — o pior tipo de falha de legibilidade */
+  .veil { background:
+     linear-gradient(to bottom, rgba(20,18,16,.82) 0%, rgba(20,18,16,.30) 16%,
+                                rgba(20,18,16,0) 26%),
+     linear-gradient(to bottom, rgba(20,18,16,0) 22%, rgba(20,18,16,.55) 48%,
+                                rgba(20,18,16,.92) 70%, rgba(20,18,16,.99) 84%),
+     linear-gradient(to bottom, rgba(20,18,16,.14) 0%, rgba(20,18,16,.30) 28%,
+                                rgba(20,18,16,.66) 60%, rgba(20,18,16,.74) 100%); }
+
+  .wrap { position:absolute; inset:0; z-index:2;
+          padding:74px 72px 48px; display:flex; flex-direction:column; }
+
+  /* régua de progresso: ocupa o topo com função, e marca a posição na série */
+  .idx   { display:flex; gap:8px; align-items:center; }
+  .idx i { flex:1; height:4px; background:var(--line); font-style:normal; }
+  .idx i.on { background:var(--ac); }
+  .idx b { font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:21px;
+           color:var(--ft); letter-spacing:.08em; margin-left:14px; }
+
+  .kicker { font-family:"IBM Plex Mono",monospace; font-size:22px; margin-bottom:6px; color:var(--mut);
+            letter-spacing:.22em; text-transform:uppercase; margin-top:26px; }
+
+  /* base por padrão: o respiro sobe e lê como margem editorial.
+     .alto centraliza — para peça densa, que já preenche sozinha */
+  .mid      { flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .mid.alto { justify-content:flex-end; }
+
+  /* o número é o slide. Salto radical (≈7x o corpo), nunca gradual */
+  .fig { font-weight:900; font-size:452px; line-height:.8; color:var(--fg);
+         letter-spacing:-.06em; margin-left:-14px;
+         font-variant-numeric:tabular-nums; }
+  /* numero com mais de 4 digitos: o .fig padrao passa da largura do quadro e o
+     Chrome corta sem avisar. Use .fig.longo — e confira no PNG, sempre */
+  .fig.longo { font-size:196px; letter-spacing:-.03em; }
+  .fig i { font-style:normal; color:var(--ac); vertical-align:baseline; }
+
+  /* hierarquia dentro da frase por PESO e SHADE, nunca trocando de fonte */
+  .h { font-weight:700; font-size:64px; line-height:1.3; color:var(--fg);
+       letter-spacing:-.012em; margin-top:30px; max-width:880px;
+       text-wrap:balance; }
+  .h span { font-weight:400; color:var(--mut); }
+
+  /* punchline: tarja de acento, sempre 6px, distinta do kicker do topo */
+  .body { font-size:35px; font-weight:500; line-height:1.42; color:var(--ac);
+          margin-top:28px; padding-left:24px; border-left:6px solid var(--ac); }
+
+  /* comparação: dígitos tabulares na mesma régua, rótulo alinhado */
+  /* grid de 3 colunas fixas: de, seta, para. Rótulo na quarta.
+     Em flex os eixos escorregavam linha a linha e a tabela lia como bug */
+  .linha { display:grid; grid-template-columns:196px 96px 210px 1fr;
+           align-items:baseline; border-top:1px solid var(--line); padding:44px 0; }
+  .linha:last-of-type { border-bottom:1px solid var(--line); }
+  .linha .n { font-weight:900; font-size:104px; line-height:1; color:var(--fg);
+              letter-spacing:-.045em; font-variant-numeric:tabular-nums; }
+  .linha .s { font-weight:900; font-size:104px; line-height:1; color:var(--ac);
+              text-align:center; }
+  .linha .n em { font-style:normal; font-size:.46em; color:var(--ac); }
+  .linha .r { font-size:32px; font-weight:500; color:var(--mut); padding-bottom:14px;
+              padding-left:26px; }
+  /* eixo da tabela: sem os anos, "42 → 30" não diz de que janela fala, e o leitor
+     não sabe se é queda ou crescimento. O ano é parte do dado, não decoração */
+  .eixo { display:grid; grid-template-columns:196px 96px 210px 1fr; padding-bottom:14px;
+          font-family:"IBM Plex Mono",monospace; font-size:22px; color:var(--ft);
+          letter-spacing:.1em; }
+  /* valor sem par histórico: fica na mesma tabela, mas declarado. Escondê-lo fora da
+     lista faz o leitor lê-lo como se também tivesse caído */
+  .linha.solo .n { color:var(--mut); }
+  /* o vazio da série ausente precisa ser não-numérico: um travessão na coluna do ano
+     tem a mesma geometria da seta das linhas de cima e lê como "caiu para" */
+  .linha .nd { font-family:"IBM Plex Mono",monospace; font-size:30px; color:var(--dim);
+               letter-spacing:.08em; }
+
+  /* comparação de duas medições. Barra proporcional ao valor, uma por período.
+     Uma trilha 0–100 com marcador diria "falta chegar a 100" — o oposto da tese
+     quando o ponto é justamente que o número não se moveu. O gráfico precisa
+     argumentar a favor do texto, nunca contra */
+  .escala { margin-top:26px; display:flex; flex-direction:column; gap:22px; }
+  .escala .par { display:grid; grid-template-columns:150px 1fr; align-items:center;
+                 gap:26px; }
+  .escala .par span { font-family:"IBM Plex Mono",monospace; font-size:25px;
+                      color:var(--mut); }
+  .escala .par u { display:block; height:62px; background:var(--ac); position:relative;
+                   text-decoration:none; }
+  .escala .par u b { position:absolute; right:22px; top:50%; transform:translateY(-50%);
+                     font-weight:900; font-size:40px; color:var(--bg);
+                     font-variant-numeric:tabular-nums; }
+  /* feche o bloco do gráfico com <!--/escala--> no conteudo: é por essa marca
+     que o validador sabe onde a legenda termina */
+
+  .foot { display:flex; justify-content:space-between;
+          font-family:"IBM Plex Mono",monospace; font-size:22px; color:var(--ft);
+          border-top:1px solid var(--line); padding-top:34px; }
+  /* peça com foto: o filete some no escuro, então ganha opacidade própria —
+     a alternativa seria não ter filete, e aí a peça sai do sistema */
+  .ph ~ .wrap .foot { border-top-color:rgba(242,238,231,.28); }
+:root{--bg:#F7F5F0;--fg:#0F2A44;--ac:#E8785A;--mut:#5B6572;--dim:#DDD9D0;--line:#DDD9D0;--ft:#5B6572;--grao:.22;--blend:multiply;}
+</style>
+
+<div class="ph"></div>
+<div class="veil"></div>
+<div class="grao"></div>
+
+<div class="wrap">
+  <div class="idx"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><b>04 / 9</b></div>
+  <div class="kicker">ANÁLISE · AGENTICWAY</div>
+  <div class="mid ">
+    <div class="h" style="font-size:90px;">O custo que não tem linha na planilha</div><div class="body" style="font-size:31px;">Pouco mais da metade disse gastar horas significativas da equipe revisando e corrigindo o que os agentes produzem antes de ir ao ar.</div>
+  </div>
+  <div class="foot"><span>Collibra / The Harris Poll · set/2026</span></div>
+</div>
