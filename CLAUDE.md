@@ -20,9 +20,13 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - Tipografia: Montserrat (títulos), Source Serif 4 (corpo), IBM Plex Mono (datas, editorias, metadados).
 - Imagens: placeholders listrados até haver material real.
 
+## Estrutura do repositório (agentic-way/site)
+- `site/` — o que vai ao ar. Root Directory na Vercel = `site`. `index.html` redireciona para a Home. `support.js` fica aqui e é usado também pelas pranchas.
+- `marca/` — identidade: logos, DNA v1, cores (`marca/*`), arquivos originais enviados (`marca/originais/`) e pranchas internas (`marca/pranchas/`, carregam `../../site/support.js`). Não é publicado.
+- `conteudo/` — produção editorial. As skills de conteúdo gravam em `pesquisas/` relativo à pasta da sessão: rodar `/pesquisa-conteudo`, `/copy-conteudo` e `/design-conteudo` com a sessão aberta em `conteudo/`. PNG e PDF renderizados ficam fora do git.
+
 ## Arquivos
-- `AgenticWay Marca.dc.html` — prancha de marca (1a–1e)
-- `DNA da Marca v2.dc.html` — documento imprimível
+### site/
 - `AgenticWay Home.dc.html` — home do site (conteúdo de exemplo)
 - `AgenticWay Radar Lista.dc.html` — listagem do Radar por dia, com filtro por tema
 - `AgenticWay Radar Artigo.dc.html` — página de nota do Radar (conteúdo de exemplo)
@@ -30,17 +34,22 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `AgenticWay Na Operacao Artigo.dc.html` — caso de Na Operação (números, fluxo, antes/depois, "o que a história não conta")
 - `AgenticWay Analise Lista.dc.html` — listagem de análises por tema, com réplicas publicadas
 - `AgenticWay Analise Artigo.dc.html` — opinião assinada (tese em três pontos, "onde posso estar errado", bloco de serviço ao fim)
-- `AgenticWay Analise Conta do Agente.dc.html` — primeira análise com conteúdo real (30/set/2026), gerada pela esteira pesquisa → copy; dossiê e copy em `pesquisas/`
+- `AgenticWay Analise Conta do Agente.dc.html` — primeira análise com conteúdo real (30/set/2026), gerada pela esteira pesquisa → copy; dossiê e copy em `conteudo/pesquisas/`
 - `AgenticWay Ferramentas Lista.dc.html` — listagem de Ferramentas com placar "integra?" por item e fila de testes votável
 - `AgenticWay Ferramentas Artigo.dc.html` — comparativo de Ferramentas (tabela passou/parcial/não, ficha do teste)
 - `AgenticWay Guia Lista.dc.html` — biblioteca de guias por assunto, com versão, status e atualizações recentes
 - `AgenticWay Guia Artigo.dc.html` — artigo de Guia (itens numerados, resposta boa/ruim, checklist imprimível, histórico de versões)
 - `AgenticWay Para Empresas.dc.html` — página de serviço "Para empresas" (conteúdo de exemplo)
+- `AgenticWay Sobre.dc.html` — página "Sobre" com critérios editoriais e declaração de conflito de interesse
+
+### marca/pranchas/
+- `AgenticWay Marca.dc.html` — prancha de marca (1a–1e)
+- `DNA da Marca v2.dc.html` — documento imprimível (usa `doc-page.js`, na mesma pasta)
 - `AgenticWay Posts.dc.html` — prancha de templates de post LinkedIn/Instagram (2a–2i, canvas em 50%)
 - `AgenticWay Newsletter.dc.html` — template da newsletter semanal (e-mail 600 px + painel de envio)
-- `AgenticWay Sobre.dc.html` — página "Sobre" com critérios editoriais e declaração de conflito de interesse
-- `github.md` — repo DomicianoRossi/PROJETO, pasta `marca/`
-- `uploads/` e `marca/` — logos originais e DNA v1
+
+### Raiz
+- `github.md` — repo agentic-way/site (antes DomicianoRossi/PROJETO)
 
 ## Próximos passos sugeridos
 1. ~~Página de artigo / nota do Radar~~ (feita em 20/set/2026)
