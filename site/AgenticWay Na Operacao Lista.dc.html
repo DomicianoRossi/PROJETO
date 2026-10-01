@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./aw.css">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -66,7 +67,7 @@
 
           <!-- destaque -->
           <a href="AgenticWay%20Na%20Operacao%20Artigo.dc.html" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;padding:32px 0;border-bottom:1px solid #0F2A44;align-items:center">
-            <div class="foto" style="width:100%;aspect-ratio:4/3">foto: {{ destaque.foto }}</div>
+            <div class="{{ destaque.capaClasse }}" style="width:100%;aspect-ratio:4/3"><svg class="aw-capa-marca" viewBox="30 0 140 110" aria-hidden="true"><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="#4A8FC7" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#4A8FC7"></circle><circle cx="128" cy="16" r="11" fill="#F08A6E"></circle></svg><span class="aw-capa-ed">{{ destaque.setor }}</span><span class="aw-capa-fig">{{ destaque.capaFig }}</span><span class="aw-capa-rot">Na Operação · caso</span></div>
             <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
               <span class="mono" style="font-size:11px;color:#1F4E79">{{ destaque.setor }} · {{ destaque.processo }} · MAIS RECENTE</span>
               <span style="display:flex;align-items:baseline;gap:12px">
@@ -83,8 +84,8 @@
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:32px 28px;padding-top:32px">
             <sc-for list="{{ casos }}" as="c" hint-placeholder-count="6">
               <a href="AgenticWay%20Na%20Operacao%20Artigo.dc.html" style="display:flex;flex-direction:column;gap:10px;min-width:0">
-                <div class="foto" style="width:100%;aspect-ratio:16/10;position:relative">
-                  <span>foto: {{ c.foto }}</span>
+                <div class="{{ c.capaClasse }}" style="width:100%;aspect-ratio:16/10"><svg class="aw-capa-marca" viewBox="30 0 140 110" aria-hidden="true"><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="#4A8FC7" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#4A8FC7"></circle><circle cx="128" cy="16" r="11" fill="#F08A6E"></circle></svg>
+                  <span class="aw-capa-fig">{{ c.capaFig }}</span><span class="aw-capa-rot">{{ c.setor }}</span>
                   <span class="mono" style="position:absolute;top:10px;left:10px;font-size:10px;padding:3px 7px;border-radius:2px;background:{{ c.tagBg }};color:{{ c.tagCor }}">{{ c.tag }}</span>
                 </div>
                 <span class="mono" style="font-size:11px;color:#1F4E79">{{ c.setor }} · {{ c.processo }}</span>
@@ -175,6 +176,11 @@ class Component extends DCLogic {
     const processosNomes = ['Todos', 'FATURAMENTO', 'COMERCIAL', 'FISCAL', 'ESTOQUE', 'ATENDIMENTO', 'FINANCEIRO'];
 
     const filtrados = todos.filter(c => (setor === 'Todos' || c.setor === setor) && (processo === 'Todos' || c.processo === processo));
+    // capa tipográfica: o número já aparece ao lado, então a capa destaca o processo
+    todos.forEach((c, i) => {
+      c.capaFig = c.processo.charAt(0) + c.processo.slice(1).toLowerCase();
+      c.capaClasse = c.status === 'parou' ? 'aw-capa aw-capa-papel' : (i % 2 ? 'aw-capa aw-capa-azul' : 'aw-capa');
+    });
     const destaque = filtrados[0] || todos[0];
     const casos = filtrados.slice(filtrados.length ? 1 : 0).map(c => ({
       ...c,
