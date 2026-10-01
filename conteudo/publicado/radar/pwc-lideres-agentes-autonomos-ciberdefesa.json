@@ -1,0 +1,62 @@
+{
+  "id": "pwc-lideres-agentes-autonomos-ciberdefesa",
+  "publicado_em": "2026-10-01T17:53:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "Só 22% dos líderes de segurança autorizariam agentes de IA a agir sozinhos na ciberdefesa, diz PwC",
+  "linha": "Pesquisa da PwC com 3.934 executivos em 71 países: 50% dos líderes de segurança apontam ataques a sistemas de IA entre as ameaças para as quais estão menos preparados.",
+  "linhaFina": "A edição 2027 do Global Digital Trust Insights mostra orçamento de segurança em alta e pouca confiança em dar autonomia total a agentes. Confiabilidade da tecnologia é a principal barreira citada.",
+  "fontePrimaria": "PwC",
+  "leitura": 3,
+  "resumo": [
+    "84% dos líderes de segurança e finanças ouvidos esperam aumento do orçamento de segurança cibernética nos próximos 12 meses, ante 78% no ano anterior.",
+    "50% dos líderes de segurança colocam ataques a sistemas de IA entre as ameaças para as quais estão menos preparados.",
+    "Apenas 22% autorizariam execução totalmente autônoma por agentes de IA na defesa cibernética; 55% citam confiabilidade e maturidade da tecnologia entre as três maiores barreiras."
+  ],
+  "corpo": [
+    "A PwC divulgou em 1º de outubro a edição 2027 do Global Digital Trust Insights Survey, que ouviu 3.934 executivos de negócio e tecnologia em 71 países e territórios.",
+    "Sobre agentes, o dado central é de confiança: só 22% dos líderes de segurança autorizariam execução totalmente autônoma por agentes de IA na defesa cibernética. Entre as barreiras para dar mais autonomia aos agentes nas operações de segurança, 55% citam confiabilidade e maturidade da tecnologia, 46% citam responsabilização e explicabilidade das decisões, e 44% dos CISOs citam falta de competência da equipe em supervisão e governança de IA.",
+    "Do lado das ameaças, 50% dos líderes de segurança apontam ataques a sistemas de IA entre os que estão menos preparados para enfrentar, à frente de ameaças ligadas à nuvem (40%), invasões via terceiros (34%) e ransomware (33%). Comprometimento por botnets autônomas (53%), ataques adversariais (52%) e envenenamento de dados (52%) lideram a lista de ataques com IA.",
+    "A pesquisa também mede governança: 39% têm plano de continuidade formalizado e operacional que trata especificamente de risco cibernético, e 47% concordam totalmente que risco cibernético é pauta permanente do conselho."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · AUTONOMIA",
+      "titulo": "Até a área de segurança prefere agente com aprovação humana",
+      "texto": "Se só 22% dos líderes de segurança aceitam agente agindo sozinho na própria área, é razoável que a empresa média comece agentes em outras áreas com etapa de aprovação humana."
+    },
+    {
+      "rotulo": "02 · SUPERFÍCIE",
+      "titulo": "Agente em produção é também um alvo",
+      "texto": "Ataques a sistemas de IA aparecem no topo das ameaças com menor preparo. Cada agente com acesso a ERP, e-mail ou dados de clientes entra no inventário de risco."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "Quem publica vende consultoria de segurança",
+      "texto": "A PwC presta serviços de segurança e de IA. Os números podem estar certos e ainda assim reforçar a demanda pelo serviço de quem os divulgou."
+    }
+  ],
+  "oQueFazer": [
+    "Antes de ampliar o que um agente pode fazer sozinho, vale registrar quais sistemas ele acessa, quem aprova as ações com efeito externo e como ele é desligado em caso de comportamento inesperado."
+  ],
+  "fontes": [
+    {
+      "titulo": "84% of senior leaders expect cyber budgets to rise as frontier AI models are rolled out",
+      "origem": "PwC · comunicado · 1 out 2026",
+      "url": "https://www.pwc.com/gx/en/news-room/press-releases/2026/senior-leaders-cyber-budget-rise.html"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem mediu",
+      "valor": "PwC (2027 Global Digital Trust Insights Survey)"
+    },
+    {
+      "rotulo": "Amostra",
+      "valor": "3.934 executivos de negócio e tecnologia em 71 países e territórios"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "1 out 2026"
+    }
+  ]
+}
