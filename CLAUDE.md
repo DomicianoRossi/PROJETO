@@ -25,6 +25,13 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `marca/` — identidade: logos, DNA v1, cores (`marca/*`), arquivos originais enviados (`marca/originais/`) e pranchas internas (`marca/pranchas/`, carregam `../../site/support.js`). Não é publicado.
 - `conteudo/` — produção editorial. As skills de conteúdo gravam em `pesquisas/` relativo à pasta da sessão: rodar `/pesquisa-conteudo`, `/copy-conteudo` e `/design-conteudo` com a sessão aberta em `conteudo/`. PNG e PDF renderizados ficam fora do git.
 
+## Skills do projeto (fonte: este repositório)
+- `.claude/skills/`: `radar`, `pesquisa-conteudo`, `copy-conteudo`, `design-conteudo`. Versionadas no GitHub; a nuvem (rotinas) e o computador local usam estas cópias.
+- As cópias do repositório gravam em `conteudo/pesquisas/` a partir da raiz e chamam os scripts por `.claude/skills/design-conteudo/scripts/`.
+- Existem cópias globais antigas em `~/.claude/skills/` (e `.skill` em `C:	emp`) para uso fora deste projeto. Alteração feita aqui não chega lá sozinha.
+- Chaves ficam fora do repositório: `FIRECRAWL_API_KEY` e `GEMINI_API_KEY` como variáveis do ambiente "Radar AgenticWay" na nuvem; localmente, login do Firecrawl e `~/api_keys.env`.
+- `render.py` precisa de Chrome; na nuvem pode não existir (render de carrossel é tarefa local por enquanto).
+
 ## Conteúdo como dados (em migração, começou pelo Radar em 01/out/2026)
 - Cada item publicado é um JSON em `conteudo/publicado/<editoria>/<id>.json`. Nenhum HTML é editado para publicar.
 - `python scripts/build_dados.py` valida tudo (campos, tema, fonte com https, data com fuso) e gera `site/dados/<editoria>.js`, que define `window.AW_DADOS`. Item inválido derruba o build. O `.js` gerado é commitado (a Vercel não roda build).

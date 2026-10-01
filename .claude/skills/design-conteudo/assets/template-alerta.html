@@ -1,0 +1,136 @@
+<!--
+  Estilo ALERTA — 1080x1350 (4:5).
+
+  A direção é sinalização de risco: condensada altíssima, amarelo de faixa zebrada
+  sobre preto, diagonal, sem grão. Serve a pauta de crime e perda — o formato onde
+  o volume da voz é parte da informação.
+
+  Difere do padrão (grotesca larga, papel, laranja) e dos outros dois pela largura
+  da letra: aqui tudo é comprimido, e a peça lê como placa, não como página.
+
+  Cuidado embutido: peça que grita erra feio quando o dado é morno. Use quando o
+  número justificar o volume — nunca para dar urgência a um dado que não tem.
+
+  Mesmo contrato de placeholders e classes: .idx .mid .foot e .fig/.h/.body/.linha/.eixo.
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,600;62..125,900&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:  #121110;  --fg:  #f5e93f;  --ac:  #ffffff;
+    --mut: #b6ae5e;  --dim: #565232;  --line:#332f1c;  --ft: #8f8956;
+    --grao:0;        --blend:normal;
+  }
+
+  body {
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    background:var(--bg); hyphens:none;
+    font-family:"Archivo",sans-serif; font-variation-settings:"wdth" 78;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* faixa zebrada de sinalização, no rodapé: identidade sem custar área de texto */
+  .grao { position:absolute; left:0; right:0; bottom:0; height:16px;
+    pointer-events:none;
+    background-image:repeating-linear-gradient(-45deg,
+      var(--fg) 0 22px, var(--bg) 22px 44px); }
+
+  .ph, .veil { display:none; position:absolute; inset:0; }
+  .ph   { background-size:cover; background-position:50% 32%;
+          filter:grayscale(1) contrast(1.5) brightness(.72); }
+  .veil { background:
+     linear-gradient(to bottom, rgba(18,17,16,.42) 0%, rgba(18,17,16,.66) 36%,
+                                rgba(18,17,16,.96) 70%, rgba(18,17,16,1) 88%); }
+
+  .wrap { position:absolute; inset:0; z-index:2;
+          padding:66px 68px 56px 104px; display:flex; flex-direction:column; }
+
+  /* régua VERTICAL na lateral, em barras inclinadas de sinalização. Fica fora do fluxo
+     do texto, então não custa altura — e tira do topo o gesto que os outros dois
+     templates usam lá */
+  .idx   { position:absolute; left:52px; top:118px; bottom:96px; width:22px;
+           display:flex; flex-direction:column; gap:9px; }
+  .idx i { flex:1; background:var(--line); font-style:normal;
+           transform:skewY(-14deg); }
+  .idx i.on { background:var(--fg); }
+  .idx b { position:absolute; left:-2px; top:-52px; font-family:"IBM Plex Mono",monospace;
+           font-weight:600; font-size:19px; color:var(--ft); letter-spacing:.06em;
+           white-space:nowrap; }
+
+  /* etiqueta em tarja sólida: é o gesto de placa, e o que mais separa deste estilo */
+  .kicker { display:inline-block; align-self:flex-start; margin-top:24px;
+            background:var(--fg); color:var(--bg); font-weight:900;
+            font-variation-settings:"wdth" 70; font-size:24px; letter-spacing:.14em;
+            text-transform:uppercase; padding:9px 18px 10px; }
+
+  .mid      { flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .mid.alto { justify-content:flex-end; }
+
+  /* comprimido ao máximo: o número ocupa a largura toda sem quebrar */
+  .fig { font-weight:900; font-variation-settings:"wdth" 64; font-size:330px;
+         line-height:.84; color:var(--fg); letter-spacing:-.01em; margin-left:-8px;
+         font-variant-numeric:tabular-nums; }
+  /* numero com mais de 4 digitos: o .fig padrao passa da largura do quadro e o
+     Chrome corta sem avisar. Use .fig.longo — e confira no PNG, sempre */
+  .fig.longo { font-size:172px; letter-spacing:-.02em; }
+  .fig i { font-style:normal; font-size:.24em; color:var(--ac); vertical-align:baseline;
+           font-variation-settings:"wdth" 78; margin-left:10px; letter-spacing:.01em; }
+  .fig small { display:block; font-size:.19em; font-weight:600; color:var(--mut);
+               letter-spacing:.06em; line-height:1.2; margin-top:16px;
+               font-variation-settings:"wdth" 88; }
+
+  .h { font-weight:900; font-variation-settings:"wdth" 72; font-size:66px;
+       line-height:1.12; color:var(--ac); margin-top:30px; max-width:920px;
+       letter-spacing:-.005em; word-spacing:.14em; text-transform:uppercase;
+       text-wrap:balance; }
+  .h span { font-weight:400; font-variation-settings:"wdth" 88; color:var(--mut);
+            text-transform:none; letter-spacing:0; word-spacing:normal; }
+
+  .body { font-family:"IBM Plex Mono",monospace; font-size:28px; font-weight:500;
+          line-height:1.5; color:var(--fg); margin-top:30px; padding-left:22px;
+          border-left:8px solid var(--fg); max-width:900px; }
+
+  .eixo { display:grid; grid-template-columns:200px 84px 200px 1fr; padding-bottom:12px;
+          font-family:"IBM Plex Mono",monospace; font-size:20px; color:var(--dim);
+          letter-spacing:.14em; }
+  .linha { display:grid; grid-template-columns:200px 84px 200px 1fr;
+           align-items:baseline; border-top:2px solid var(--line); padding:34px 0; }
+  .linha:last-of-type { border-bottom:2px solid var(--line); }
+  .linha .n { font-weight:900; font-variation-settings:"wdth" 66; font-size:94px;
+              line-height:1; color:var(--ac); letter-spacing:-.04em;
+              font-variant-numeric:tabular-nums; }
+  .linha .n em { font-style:normal; font-size:.42em; color:var(--fg);
+                 font-variation-settings:"wdth" 84; margin-left:6px;
+                 letter-spacing:0; }
+  .linha .s  { font-weight:900; font-size:62px; color:var(--fg); text-align:center; }
+  .linha .nd { font-family:"IBM Plex Mono",monospace; font-size:24px; color:var(--dim);
+               letter-spacing:.12em; }
+  .linha .r  { font-family:"IBM Plex Mono",monospace; font-size:25px; color:var(--mut);
+               padding-bottom:12px; padding-left:22px; }
+
+  /* ficha: valor + rótulo em duas colunas. Sem esta variante a linha cai no grid de 4
+     colunas e o rótulo vai para a última, estreita — no PNG virou uma palavra por
+     linha, com o bloco estourando o quadro. O validador passou; só o pixel mostrou */
+  .linha.ficha    { grid-template-columns:280px 1fr; padding:32px 0; }
+  .linha.ficha .n { font-size:74px; }
+  .linha.ficha .r { padding-left:0; padding-right:26px; font-size:25px; line-height:1.44; }
+
+  .foot { display:flex; justify-content:space-between;
+          font-family:"IBM Plex Mono",monospace; font-size:20px; color:var(--ft);
+          border-top:2px solid var(--line); padding-top:26px; letter-spacing:.04em; }
+</style>
+
+<div class="ph"></div>
+<div class="veil"></div>
+
+<div class="wrap">
+  <div class="idx">{{INDICE}}</div>
+  <div class="kicker">{{ETIQUETA}}</div>
+  <div class="mid {{ANCORA}}">
+    {{CONTEUDO}}
+  </div>
+  <div class="foot"><span>{{FONTE}}</span>{{ASSINATURA}}</div>
+</div>
+<div class="grao"></div>

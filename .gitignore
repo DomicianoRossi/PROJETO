@@ -6,3 +6,6 @@
 # Saídas renderizadas da esteira de conteúdo (regeráveis a partir do pecas.json)
 **/pesquisas/**/*.png
 **/pesquisas/**/*.pdf
+
+# Imagens geradas pelo Gemini antes de irem para site/img
+generated-images/

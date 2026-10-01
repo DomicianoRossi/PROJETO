@@ -1,0 +1,158 @@
+<!--
+  Esqueleto de peça 1080x1350 (4:5) — direção "tabloide".
+
+  A direção é tabloide-de-rua: o motor é a CAIXA JUSTA SOBRE FOTO SANGRADA — o texto
+  não mora numa zona reservada, ele invade a imagem com fundo colado ao contorno de
+  cada linha. Nasceu da engenharia reversa de um carrossel de referência (@stealthelook),
+  cuja receita tem seis partes: (1) foto sangrada sem véu, (2) headline em caixa preta
+  justa com linhas de larguras desiguais, (3) três níveis na mesma frase — regular,
+  bold e sublinhado, sem trocar de família, (4) selo estrelado com o CTA de swipe na
+  própria capa, (5) marca em três linhas no topo, sem caixa, (6) crédito @handle no
+  canto inferior nos internos.
+
+  Ela existe para a série cujo assunto ESTÁ NA FOTO: street style, antes/depois,
+  produto em uso, registro de rua. É a única direção que NÃO funciona em fundo chapado
+  — sem foto, sobra caixa preta no vazio.
+
+  Estrutura:
+    .kicker  a marca, três linhas, topo-esquerdo sobre a foto
+    .mid     a headline em caixa justa, ancorada embaixo
+    .foot    crédito/fonte, discreto, canto inferior
+    .idx     dots pequenos, sem régua
+
+  Componentes do miolo: .h (headline em caixa; <span> é o nível bold, <u> o sublinhado),
+  .fig (número herói, também em caixa), .body (linha de apoio em caixa menor),
+  .selo (o starburst rotacionado — texto curto, é CTA e não dado), .linha, .escala.
+
+  Trocar {{...}} pelo conteúdo. O render.py injeta o tema no fim do <style>.
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:  #111111;  --fg:  #ffffff;  --ac:  #d8f34a;
+    --mut: #d8d8d8;  --dim: #6f6f6f;  --line:#2a2a2a;  --ft: #cfcfcf;
+    --grao:.18;      --blend:normal;
+    --cx:  #000000;  /* a cor da caixa justa — é ela que define a direção */
+    --cxf: #ffffff;  /* o texto dentro da caixa */
+    /* a marca e o crédito vivem sobre a foto crua. A sombra que os separa do
+       fundo tem de inverter junto com o tema: escura sob texto claro, clara
+       sob texto escuro. Sem isso o tema claro fica com halo preto. */
+    --sombra: rgba(0,0,0,.55);
+  }
+
+  body {
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    background:var(--bg); font-family:"Inter",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; hyphens:none;
+  }
+
+  /* A FOTO É O QUADRO. Sem foto esta direção não fecha — o vazio não é campo,
+     é ausência. Por isso o .ph aqui não tem véu geral: o contraste vem da caixa. */
+  .ph { display:none; position:absolute; inset:0; background-size:cover;
+        background-position:50% 42%; filter:contrast(1.03) saturate(1.02); }
+  /* véu mínimo, só nas pontas, para marca e crédito não sumirem em foto clara.
+     Nada no miolo: a caixa justa resolve o contraste do texto sozinha. */
+  .veil { display:none; position:absolute; inset:0; background:
+     linear-gradient(to bottom, rgba(0,0,0,.34) 0%, rgba(0,0,0,0) 18%),
+     linear-gradient(to top,    rgba(0,0,0,.62) 0%, rgba(0,0,0,.22) 11%, rgba(0,0,0,0) 20%); }
+  .grao { position:absolute; inset:0; opacity:var(--grao); mix-blend-mode:var(--blend);
+    pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='.5'/></svg>"); }
+
+  .wrap { position:absolute; inset:0; padding:56px 60px 52px;
+          display:flex; flex-direction:column; }
+
+  /* a marca: três linhas, condensada, sem caixa — vive sobre a foto */
+  .kicker { font-weight:800; font-size:30px; line-height:1.02; letter-spacing:-.02em;
+            color:var(--fg); text-transform:uppercase; max-width:190px;
+            text-shadow:0 1px 3px var(--sombra), 0 2px 16px var(--sombra); }
+
+  .mid { flex:1; display:flex; flex-direction:column; justify-content:flex-end;
+         align-items:flex-start; gap:14px; padding-bottom:26px; }
+  .mid.alto { justify-content:center; }
+  /* com `topo` o bloco sobe até encostar no kicker — e a caixa justa, por ser
+     opaca, COME a etiqueta em vez de ficar atrás dela. O respiro tem de ser
+     maior que a altura da marca de três linhas. */
+  .mid.topo { justify-content:flex-start; padding-top:104px; }
+
+  /* ---- a caixa justa: o motor da direção ----
+     box-decoration-break:clone é o que faz cada linha ganhar a própria caixa, com
+     largura própria. Sem ele o fundo vira um retângulo só e a direção morre. */
+  .h, .body, .fig {
+    box-decoration-break:clone; -webkit-box-decoration-break:clone;
+    background:var(--cx); color:var(--cxf); display:inline;
+  }
+  .h { font-weight:400; font-size:66px; line-height:1.44; letter-spacing:-.02em;
+       padding:.10em .22em; }
+  .h span { font-weight:800; }          /* o nível de destaque é PESO, não cor */
+  .h u    { text-decoration:underline; text-underline-offset:.13em;
+            text-decoration-thickness:.05em; }
+  .body { font-weight:500; font-size:34px; line-height:1.5; padding:.14em .26em;
+          letter-spacing:-.01em; }
+  .fig  { font-weight:900; font-size:210px; line-height:1.16; letter-spacing:-.05em;
+          padding:.02em .10em; }
+  .fig i { font-style:normal; color:var(--ac); }
+
+  /* o selo estrelado: CTA de swipe embutido, nunca dado.
+     conic-gradient nas bordas dá o recorte de estrela sem SVG externo. */
+  .selo { position:absolute; right:74px; top:44%; width:210px; height:210px;
+          display:grid; place-items:center; text-align:center; transform:rotate(-9deg);
+          background:var(--ac); color:#111; font-weight:700; font-size:27px;
+          line-height:1.18; padding:26px; letter-spacing:-.01em;
+          clip-path:polygon(50% 0%,58% 9%,68% 3%,72% 14%,84% 11%,84% 23%,95% 25%,90% 36%,
+                            100% 42%,92% 50%,100% 58%,90% 64%,95% 75%,84% 77%,84% 89%,
+                            72% 86%,68% 97%,58% 91%,50% 100%,42% 91%,32% 97%,28% 86%,
+                            16% 89%,16% 77%,5% 75%,10% 64%,0% 58%,8% 50%,0% 42%,10% 36%,
+                            5% 25%,16% 23%,16% 11%,28% 14%,32% 3%,42% 9%); }
+  .selo u { text-decoration:underline; text-underline-offset:.12em; }
+
+  /* comparação e barras herdam a caixa, para não sair do idioma */
+  .linha { display:grid; grid-template-columns:auto 70px auto 1fr; align-items:baseline;
+           gap:0 16px; margin-top:10px; }
+  .linha .n, .linha .s { font-weight:900; font-size:88px; line-height:1.14;
+           background:var(--cx); color:var(--cxf); padding:.02em .10em;
+           box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+  .linha .s { color:var(--ac); text-align:center; }
+  .linha .n em { font-style:normal; font-size:.46em; color:var(--ac); }
+  .linha .r { font-size:26px; font-weight:500; background:var(--cx); color:var(--cxf);
+              padding:.16em .3em; align-self:end; }
+  .linha .nd { font-family:"IBM Plex Mono",monospace; font-size:24px; color:var(--dim); }
+  .linha.ficha { grid-template-columns:auto 1fr; }
+
+  .escala { margin-top:18px; display:flex; flex-direction:column; gap:14px; }
+  .escala .par { display:grid; grid-template-columns:150px 1fr; align-items:center; gap:20px; }
+  .escala .par span { font-family:"IBM Plex Mono",monospace; font-size:22px;
+                      background:var(--cx); color:var(--cxf); padding:.2em .4em; }
+  .escala .par u { display:block; height:52px; background:var(--ac); position:relative;
+                   text-decoration:none; }
+  .escala .par u b { position:absolute; right:16px; top:50%; transform:translateY(-50%);
+                     font-weight:900; font-size:32px; color:#111; }
+
+  /* rodapé: crédito discreto, canto inferior. Sem filete — a foto é o campo. */
+  .foot { display:flex; justify-content:space-between; align-items:flex-end;
+          font-family:"IBM Plex Mono",monospace; font-size:21px; color:var(--ft); font-weight:500;
+          text-shadow:0 1px 3px var(--sombra), 0 1px 14px var(--sombra); }
+
+  .idx { display:flex; gap:7px; align-items:center; margin-bottom:14px; }
+  .idx i { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.42);
+           font-style:normal; display:block; }
+  .idx i.on { background:var(--ac); }
+</style>
+
+<div class="ph"></div>
+<div class="veil"></div>
+<div class="grao"></div>
+
+<div class="wrap">
+  <div class="kicker">{{ETIQUETA}}</div>
+  <div class="mid {{ANCORA}}">
+    {{CONTEUDO}}
+  </div>
+  <!-- só os dots: o contador "NN / N" não faz parte desta direção, e
+       deixá-lo escondido no CSS o mantinha no DOM para o validador ler -->
+  <div class="idx">{{INDICE_DOTS}}</div>
+  <div class="foot"><span>{{FONTE}}</span>{{ASSINATURA}}</div>
+</div>
