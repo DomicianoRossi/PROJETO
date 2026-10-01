@@ -4,5 +4,5 @@
 .firecrawl/
 
 # Saídas renderizadas da esteira de conteúdo (regeráveis a partir do pecas.json)
-pesquisas/**/*.png
-pesquisas/**/*.pdf
+**/pesquisas/**/*.png
+**/pesquisas/**/*.pdf
