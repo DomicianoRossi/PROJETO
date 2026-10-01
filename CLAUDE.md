@@ -30,6 +30,7 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `AgenticWay Na Operacao Artigo.dc.html` — caso de Na Operação (números, fluxo, antes/depois, "o que a história não conta")
 - `AgenticWay Analise Lista.dc.html` — listagem de análises por tema, com réplicas publicadas
 - `AgenticWay Analise Artigo.dc.html` — opinião assinada (tese em três pontos, "onde posso estar errado", bloco de serviço ao fim)
+- `AgenticWay Analise Conta do Agente.dc.html` — primeira análise com conteúdo real (30/set/2026), gerada pela esteira pesquisa → copy; dossiê e copy em `pesquisas/`
 - `AgenticWay Ferramentas Lista.dc.html` — listagem de Ferramentas com placar "integra?" por item e fila de testes votável
 - `AgenticWay Ferramentas Artigo.dc.html` — comparativo de Ferramentas (tabela passou/parcial/não, ficha do teste)
 - `AgenticWay Guia Lista.dc.html` — biblioteca de guias por assunto, com versão, status e atualizações recentes
