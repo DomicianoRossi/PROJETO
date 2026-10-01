@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./dados/radar.js"></script>
+<script src="./aw.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -24,6 +26,11 @@
         <a href="AgenticWay%20Radar%20Lista.dc.html">Radar</a><a href="AgenticWay%20Na%20Operacao%20Lista.dc.html">Na Operação</a><a href="AgenticWay%20Ferramentas%20Lista.dc.html">Ferramentas</a><a href="AgenticWay%20Analise%20Lista.dc.html">Análise</a><a href="AgenticWay%20Guia%20Lista.dc.html">Guia</a><a href="AgenticWay%20Para%20Empresas.dc.html" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Para empresas</a>
       </nav>
     </div>
+  </div>
+
+  <!-- faixa de demonstração: remover quando a editoria tiver conteúdo real -->
+  <div style="background:#0F2A44;color:#F7F5F0;padding:10px clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5"><strong style="color:#F08A6E;font-weight:500">CONTEÚDO DE DEMONSTRAÇÃO</strong> · O Radar e a análise "O agente funciona. A planilha que o aprovou, não." são conteúdo real. Os demais destaques mostram o formato das editorias que estreiam em breve e não são notícias reais.</div>
   </div>
 
   <!-- linha de data -->
@@ -134,17 +141,9 @@ class Component extends DCLogic {
     const d = new Date();
     const hoje = `${dias[d.getDay()]}, ${d.getDate()} ${meses[d.getMonth()]} ${d.getFullYear()}`;
     const density = this.props.radarItems ?? 6;
-    const R = 'AgenticWay%20Radar%20Artigo.dc.html', L = 'AgenticWay%20Radar%20Lista.dc.html';
-    const radar = [
-      { hora: '14:20', titulo: 'OpenAI libera agentes com acesso a planilhas para contas corporativas', fonte: 'OpenAI · comunicado', url: L },
-      { hora: '11:05', titulo: 'Banco Central publica consulta sobre uso de agentes em atendimento financeiro', fonte: 'BCB · consulta pública', url: R },
-      { hora: '09:40', titulo: 'TOTVS anuncia conector nativo de agentes para o Protheus', fonte: 'TOTVS · release', url: L },
-      { hora: 'ontem', titulo: 'Estudo do MIT: 60% dos pilotos de agentes param na integração com sistemas legados', fonte: 'MIT Sloan · relatório', url: L },
-      { hora: 'ontem', titulo: 'Anthropic amplia limite de contexto e reduz custo por tarefa em 30%', fonte: 'Anthropic · blog', url: L },
-      { hora: 'ontem', titulo: 'Importadora de Santos automatiza classificação fiscal de 2 mil itens/mês', fonte: 'AgenticWay · apuração própria', url: L },
-      { hora: '2 dias', titulo: 'Microsoft integra agentes do Copilot ao Dynamics 365 Finance', fonte: 'Microsoft · Ignite', url: L },
-      { hora: '2 dias', titulo: 'LGPD: ANPD publica orientação sobre decisões automatizadas por IA', fonte: 'ANPD · nota técnica', url: L },
-    ].slice(0, density);
+    const radar = AW.radar().slice(0, density).map(n => ({
+      hora: n.quando.relativo, titulo: n.titulo, fonte: n.fontePrimaria, url: n.url,
+    }));
     const destaques = [
       { editoria: 'FERRAMENTAS', titulo: 'Quatro plataformas de agentes testadas com o mesmo ERP: só uma passou', resumo: 'Critério único: integra com o que a empresa já tem? Detalhes de autenticação, logs e custo por tarefa.', meta: 'Comparativo · 12 min', imagem: 'imagem: bancada de testes', url: 'AgenticWay%20Ferramentas%20Artigo.dc.html', urlLista: 'AgenticWay%20Ferramentas%20Lista.dc.html' },
       { editoria: 'ANÁLISE', titulo: 'O agente funciona. A planilha que o aprovou, não.', resumo: 'Quase 40% das empresas que mediram o resultado economizaram 10% ou menos. O problema está na conta feita antes do agente.', meta: 'Opinião · Domiciano Rossi · 4 min', imagem: 'imagem: ilustração editorial', url: 'AgenticWay%20Analise%20Conta%20do%20Agente.dc.html', urlLista: 'AgenticWay%20Analise%20Lista.dc.html' },

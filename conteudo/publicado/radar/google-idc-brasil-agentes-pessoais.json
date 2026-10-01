@@ -1,0 +1,53 @@
+{
+  "id": "google-idc-brasil-agentes-pessoais",
+  "publicado_em": "2026-10-01T17:10:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "38% dos trabalhadores brasileiros usam agentes de IA pessoais no trabalho",
+  "linha": "Estudo do Google Cloud com a IDC: 59% deles consideram a prática de baixo ou nenhum risco. 75% não sabem exatamente o que pedir às ferramentas.",
+  "linhaFina": "Segunda edição do estudo \"Work: In Progress\", do Google Cloud com a IDC. No Brasil, 17% das empresas estão em adoção consolidada de IA, contra 12% na América Latina.",
+  "fontePrimaria": "Google Cloud / IDC",
+  "leitura": 3,
+  "resumo": [
+    "38% dos trabalhadores brasileiros recorrem a agentes de IA pessoais para tarefas de trabalho, e 59% deles consideram isso de baixo ou nenhum risco.",
+    "17% das empresas brasileiras estão em adoção consolidada e 40% aceleram iniciativas internas; na América Latina, 12% e 35%.",
+    "75% relatam não saber exatamente o que pedir às ferramentas, e 62% temem ficar dispensáveis."
+  ],
+  "corpo": [
+    "O Google Cloud divulgou a segunda edição do estudo \"Work: In Progress\", feito com a IDC, com dados sobre o uso de IA no trabalho na América Latina. O recorte brasileiro foi reportado pelo Jornal do Commercio em 25 de setembro.",
+    "Entre as empresas brasileiras, 17% estão em fase de adoção consolidada de IA e 40% aceleram iniciativas internas, contra 12% e 35% na média da América Latina.",
+    "Do lado dos trabalhadores, 38% usam agentes de IA pessoais para tarefas de trabalho, e 59% deles consideram a prática de baixo ou nenhum risco. Entre os motivos para o uso fora das ferramentas oficiais estão facilidade de acesso (39%) e percepção de mais segurança e privacidade (39%); 29% apontam problemas de compatibilidade tecnológica como o maior gargalo."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · DADOS",
+      "titulo": "Agente pessoal é dado da empresa fora do controle da empresa",
+      "texto": "Se o funcionário usa um agente próprio para trabalhar, a informação que ele processa sai do ambiente aprovado."
+    },
+    {
+      "rotulo": "02 · CAPACITAÇÃO",
+      "titulo": "A barreira declarada é saber pedir",
+      "texto": "Com três em cada quatro sem saber o que pedir, treinamento rende mais do que trocar de ferramenta."
+    }
+  ],
+  "fontes": [
+    {
+      "titulo": "Brasil lidera uso de agentes de IA na América Latina em meio ao desafio da capacitação empresarial",
+      "origem": "Jornal do Commercio · 25 set 2026",
+      "url": "https://jc.uol.com.br/tecnologia/2026/09/25/brasil-lidera-uso-de-agentes-de-ia-na-america-latina-em-meio-ao-desafio-da-capacitacao-empresarial.html"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem mediu",
+      "valor": "Google Cloud, com a IDC"
+    },
+    {
+      "rotulo": "Estudo",
+      "valor": "Work: In Progress, 2ª edição"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "25 set 2026"
+    }
+  ]
+}

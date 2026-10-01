@@ -1,0 +1,50 @@
+// Funções compartilhadas pelas páginas que leem window.AW_DADOS (gerado por scripts/build_dados.py).
+(function () {
+  var DIAS = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
+  var MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+  var TEMAS = { 'REGULAÇÃO': 'Regulação', 'LANÇAMENTOS': 'Lançamentos', 'CASOS': 'Casos', 'PESQUISA': 'Pesquisa', 'MERCADO': 'Mercado' };
+  var dois = function (n) { return (n < 10 ? '0' : '') + n; };
+  var chaveDia = function (d) { return d.getFullYear() + '-' + dois(d.getMonth() + 1) + '-' + dois(d.getDate()); };
+
+  function quando(iso) {
+    var d = new Date(iso), hoje = new Date();
+    var ontem = new Date(hoje); ontem.setDate(hoje.getDate() - 1);
+    var dias = Math.round((new Date(chaveDia(hoje)) - new Date(chaveDia(d))) / 86400000);
+    var hora = dois(d.getHours()) + ':' + dois(d.getMinutes());
+    var diaRel = dias === 0 ? 'Hoje' : dias === 1 ? 'Ontem' : DIAS[d.getDay()].charAt(0).toUpperCase() + DIAS[d.getDay()].slice(1);
+    return {
+      chave: chaveDia(d),
+      hora: hora,
+      relativo: dias === 0 ? hora : dias === 1 ? 'ontem' : dias + ' dias',
+      diaRel: diaRel,
+      dataCurta: d.getDate() + ' ' + MESES[d.getMonth()],
+      dataLonga: DIAS[d.getDay()] + ', ' + d.getDate() + ' ' + MESES[d.getMonth()] + ' ' + d.getFullYear() + ' · ' + hora,
+    };
+  }
+
+  function radar() {
+    var dados = (window.AW_DADOS && window.AW_DADOS.radar) || [];
+    return dados.map(function (n) {
+      var q = quando(n.publicado_em);
+      return Object.assign({}, n, {
+        quando: q,
+        temaBonito: TEMAS[n.tema] || n.tema,
+        url: 'AgenticWay%20Radar%20Artigo.dc.html?id=' + encodeURIComponent(n.id),
+      });
+    });
+  }
+
+  function hoje() {
+    var d = new Date();
+    return DIAS[d.getDay()] + ', ' + d.getDate() + ' ' + MESES[d.getMonth()] + ' ' + d.getFullYear();
+  }
+
+  function param(nome) {
+    return new URLSearchParams(window.location.search).get(nome);
+  }
+
+  window.AW = {
+    quando: quando, radar: radar, hoje: hoje, param: param, temas: TEMAS,
+    assinatura: function () { return (window.AW_DADOS && window.AW_DADOS.assinatura) || ''; },
+  };
+})();
