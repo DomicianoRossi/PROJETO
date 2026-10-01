@@ -1,0 +1,123 @@
+<!--
+  Estilo DOSSIÊ — 1080x1350 (4:5).
+
+  A direção é documento oficial vazado: papel manila, serifa de relatório, mono para
+  tudo que é metadado, filete duplo, número tratado como cifra datilografada. Serve a
+  pauta em que a autoridade do dado é o assunto — quem contou, com que método.
+
+  Difere do template padrão (editorial-brutalista) na fonte com serifa, na paleta de
+  papel envelhecido e no carimbo. Não é o mesmo layout repintado.
+
+  Mesmo contrato de placeholders e de classes do template.html: .idx .mid .foot e
+  .fig/.h/.body/.linha/.eixo — o validar.py depende deles.
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:  #e8e1d1;  --fg:  #22201b;  --ac:  #8c2f1d;
+    --mut: #5d574a;  --dim: #a89e88;  --line:#c3b9a1;  --ft: #6b6355;
+    --grao:.5;       --blend:multiply;
+  }
+
+  body {
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    background:var(--bg); hyphens:none;
+    font-family:"Newsreader",Georgia,serif; -webkit-font-smoothing:antialiased;
+  }
+
+  /* fibra de papel, não ruído digital: baseFrequency baixa dá grão graúdo */
+  .grao { position:absolute; inset:0; pointer-events:none;
+    opacity:var(--grao); mix-blend-mode:var(--blend);
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3'/></filter><rect width='300' height='300' filter='url(%23n)' opacity='.5'/></svg>"); }
+
+  .ph, .veil { display:none; position:absolute; inset:0; }
+  .ph   { background-size:cover; background-position:50% 34%;
+          filter:grayscale(1) contrast(1.12) sepia(.34); }
+  .veil { background:
+     linear-gradient(to bottom, rgba(232,225,209,.30) 0%, rgba(232,225,209,.62) 40%,
+                                rgba(232,225,209,.95) 72%, rgba(232,225,209,.99) 88%); }
+
+  .wrap { position:absolute; inset:0; z-index:2;
+          padding:70px 76px 46px; display:flex; flex-direction:column; }
+
+  /* o índice vai para o PÉ da peça, junto da fonte: documento numera embaixo. Isso
+     tira a barra de progresso do topo, que é onde os outros templates a põem — e é a
+     posição da grade, não a cor dela, que separa uma identidade de outra */
+  .idx   { order:3; display:flex; gap:9px; align-items:center; margin-top:20px; }
+  .idx i { width:26px; height:9px; border:1.5px solid var(--line); font-style:normal; }
+  .idx i.on { background:var(--ac); border-color:var(--ac); }
+  .idx b { font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:19px;
+           color:var(--ft); letter-spacing:.14em; margin-left:auto; }
+
+  .kicker { order:0; font-family:"IBM Plex Mono",monospace; font-size:20px;
+            color:var(--ac); letter-spacing:.2em; text-transform:uppercase;
+            padding-bottom:16px; border-bottom:3px double var(--line); font-weight:600; }
+
+  .mid      { order:1; flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .mid.alto { justify-content:flex-end; }
+
+  /* a cifra em serifa: peso vem do corpo da letra, não do preto do grotesco */
+  .fig { font-weight:700; font-size:300px; line-height:.86; color:var(--fg);
+         letter-spacing:-.035em; margin-left:-8px;
+         font-variant-numeric:tabular-nums lining-nums; }
+  /* numero com mais de 4 digitos: o .fig padrao passa da largura do quadro e o
+     Chrome corta sem avisar. Use .fig.longo — e confira no PNG, sempre */
+  .fig.longo { font-size:158px; letter-spacing:-.02em; }
+  .fig i { font-style:normal; font-size:.5em; color:var(--ac);
+           vertical-align:baseline; margin-left:6px;
+           font-family:"IBM Plex Mono",monospace; font-weight:600; }
+
+  .h { font-weight:500; font-size:60px; line-height:1.24; color:var(--fg);
+       margin-top:30px; max-width:900px; text-wrap:balance; }
+  .h span { color:var(--mut); font-style:italic; }
+  .h b    { font-weight:700; font-style:normal; }
+
+  /* nota de rodapé de documento: mono pequena, recuo, marca de parágrafo */
+  .body { font-family:"IBM Plex Mono",monospace; font-size:28px; font-weight:500;
+          line-height:1.5; color:var(--ac); margin-top:32px; padding:20px 24px;
+          border:1.5px solid var(--ac); max-width:880px; }
+
+  .eixo { display:grid; grid-template-columns:200px 88px 210px 1fr; padding-bottom:12px;
+          font-family:"IBM Plex Mono",monospace; font-size:20px; color:var(--ft);
+          letter-spacing:.12em; text-transform:uppercase; }
+  .linha { display:grid; grid-template-columns:200px 88px 210px 1fr;
+           align-items:baseline; border-top:1.5px solid var(--line); padding:34px 0; }
+  .linha:last-of-type { border-bottom:1.5px solid var(--line); }
+  .linha .n { font-weight:700; font-size:92px; line-height:1; color:var(--fg);
+              letter-spacing:-.03em; font-variant-numeric:tabular-nums lining-nums; }
+  .linha .n em { font-style:normal; font-size:.5em; color:var(--ac);
+                 font-family:"IBM Plex Mono",monospace; }
+  .linha .s  { font-size:60px; color:var(--ac); text-align:center; line-height:1.4; }
+  .linha .nd { font-family:"IBM Plex Mono",monospace; font-size:26px; color:var(--dim);
+               letter-spacing:.1em; }
+  .linha .r  { font-family:"IBM Plex Mono",monospace; font-size:25px; color:var(--mut);
+               padding-bottom:12px; padding-left:22px; }
+
+  /* ficha: uma coluna de valor, uma de rótulo. O grid de 4 colunas (de/seta/para)
+     não acomoda número de 6 dígitos — a 92px, 14.029 passa dos 200px da coluna e o
+     texto vizinho é sobreposto. Para valores longos, ou sem par antes→depois, use
+     .linha.ficha: o número respira e o rótulo tem a largura toda */
+  .linha.ficha    { grid-template-columns:360px 1fr; padding:42px 0; }
+  .linha.ficha .n { font-size:76px; }
+  .linha.ficha .r { padding-left:0; font-size:27px; }
+
+  .foot { order:2; display:flex; justify-content:space-between; align-items:flex-end;
+          font-family:"IBM Plex Mono",monospace; font-size:20px; color:var(--ft);
+          border-top:3px double var(--line); padding-top:28px; letter-spacing:.04em; }
+</style>
+
+<div class="ph"></div>
+<div class="veil"></div>
+<div class="grao"></div>
+
+<div class="wrap">
+  <div class="idx">{{INDICE}}</div>
+  <div class="kicker">{{ETIQUETA}}</div>
+  <div class="mid {{ANCORA}}">
+    {{CONTEUDO}}
+  </div>
+  <div class="foot"><span>{{FONTE}}</span>{{ASSINATURA}}</div>
+</div>

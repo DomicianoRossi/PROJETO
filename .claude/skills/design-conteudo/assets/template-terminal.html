@@ -1,0 +1,120 @@
+<!--
+  Estilo TERMINAL — 1080x1350 (4:5).
+
+  A direção é painel de máquina: mono em tudo, fósforo âmbar sobre preto, grade
+  técnica visível, scanline. Serve a pauta em que o assunto é a conta que não fecha —
+  o dado aparece como leitura de instrumento, não como manchete.
+
+  Difere do padrão (grotesca pesada, papel, grão) e do dossiê (serifa, papel manila):
+  aqui não há fonte de texto, só a mono. É a peça mais fria da casa.
+
+  Mesmo contrato de placeholders e classes: .idx .mid .foot e .fig/.h/.body/.linha/.eixo.
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:  #0b0d0c;  --fg:  #f2b03c;  --ac:  #e8532e;
+    --mut: #b3a37c;  --dim: #4a4438;  --line:#2a2c26;  --ft: #7d7462;
+    --grao:.2;       --blend:screen;
+  }
+
+  body {
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    background:var(--bg); hyphens:none;
+    font-family:"IBM Plex Mono",monospace; -webkit-font-smoothing:antialiased;
+  }
+
+  /* grade técnica: dá a leitura de instrumento e mede o espaço para o olho */
+  .grid { position:absolute; inset:0; pointer-events:none; opacity:.5;
+    background-image:linear-gradient(var(--line) 1px, transparent 1px),
+                     linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:60px 60px; }
+  /* scanline horizontal, fina — o clichê do CRT vira ruído se for grossa */
+  .grao { position:absolute; inset:0; pointer-events:none; opacity:var(--grao);
+    mix-blend-mode:var(--blend);
+    background-image:repeating-linear-gradient(to bottom,
+      rgba(242,176,60,.10) 0 1px, transparent 1px 4px); }
+
+  .ph, .veil { display:none; position:absolute; inset:0; }
+  .ph   { background-size:cover; background-position:50% 34%;
+          filter:grayscale(1) contrast(1.3) brightness(.5) sepia(.7)
+                 hue-rotate(-14deg) saturate(2.2); }
+  .veil { background:
+     linear-gradient(to bottom, rgba(11,13,12,.55) 0%, rgba(11,13,12,.72) 38%,
+                                rgba(11,13,12,.96) 70%, rgba(11,13,12,1) 88%); }
+
+  .wrap { position:absolute; inset:0; z-index:2;
+          padding:70px 72px 46px; display:flex; flex-direction:column; }
+
+  /* barra de carga: blocos preenchidos, leitura de progresso de processo */
+  .idx   { display:flex; gap:6px; align-items:center; }
+  .idx i { flex:1; height:10px; background:var(--line); font-style:normal; }
+  .idx i.on { background:var(--fg); }
+  .idx b { font-weight:600; font-size:20px; color:var(--mut);
+           letter-spacing:.14em; margin-left:16px; }
+
+  /* o prompt não é enfeite: marca que a etiqueta é entrada, não título */
+  .kicker { font-size:21px; color:var(--ac); letter-spacing:.24em; font-weight:600;
+            text-transform:uppercase; margin-top:26px; }
+  .kicker::before { content:"> "; color:var(--dim); }
+
+  .mid      { flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .mid.alto { justify-content:flex-end; }
+
+  /* leitura de display: mono pesada, com brilho de fósforo */
+  .fig { font-weight:700; font-size:300px; line-height:.9; color:var(--fg);
+         letter-spacing:-.055em; margin-left:-10px; font-variant-numeric:tabular-nums;
+         text-shadow:0 0 44px rgba(242,176,60,.34); }
+  /* numero com mais de 4 digitos: o .fig padrao passa da largura do quadro e o
+     Chrome corta sem avisar. Use .fig.longo — e confira no PNG, sempre */
+  .fig.longo { font-size:150px; letter-spacing:-.03em; }
+  .fig i { font-style:normal; font-size:.44em; color:var(--ac); vertical-align:baseline;
+           text-shadow:none; }
+
+  .h { font-weight:500; font-size:46px; line-height:1.44; color:var(--fg);
+       margin-top:34px; max-width:900px; letter-spacing:-.01em; }
+  .h span { color:var(--mut); }
+  .h b    { font-weight:700; color:#ffd280; }
+
+  /* saída de erro: o único bloco com fundo, para não competir com o display */
+  .body { font-size:29px; font-weight:600; line-height:1.46; color:var(--bg);
+          background:var(--ac); margin-top:32px; padding:20px 26px; max-width:900px; }
+
+  .eixo { display:grid; grid-template-columns:190px 86px 200px 1fr; padding-bottom:14px;
+          font-size:20px; color:var(--dim); letter-spacing:.16em; }
+  .linha { display:grid; grid-template-columns:190px 86px 200px 1fr;
+           align-items:baseline; border-top:1px solid var(--line); padding:36px 0; }
+  .linha:last-of-type { border-bottom:1px solid var(--line); }
+  .linha .n { font-weight:700; font-size:82px; line-height:1; color:var(--fg);
+              letter-spacing:-.05em; font-variant-numeric:tabular-nums; }
+  .linha .n em { font-style:normal; font-size:.44em; color:var(--ac); }
+  .linha .s  { font-weight:700; font-size:60px; color:var(--ac); text-align:center; }
+  .linha .nd { font-size:24px; color:var(--dim); letter-spacing:.12em; }
+  .linha .r  { font-size:25px; color:var(--mut); padding-bottom:12px; padding-left:22px; }
+
+  /* ficha: valor + rotulo em duas colunas. O grid de 4 (de/seta/para) nao acomoda
+     numero longo nem rotulo comprido — ver a nota no template-dossie */
+  .linha.ficha    { grid-template-columns:300px 1fr; padding:42px 0; }
+  .linha.ficha .n { font-size:66px; }
+  .linha.ficha .r { padding-left:0; padding-right:26px; font-size:24px; line-height:1.42; }
+
+  .foot { display:flex; justify-content:space-between; font-size:20px; color:var(--ft);
+          border-top:1px solid var(--line); padding-top:28px; letter-spacing:.05em; }
+</style>
+
+<div class="ph"></div>
+<div class="veil"></div>
+<div class="grid"></div>
+<div class="grao"></div>
+
+<div class="wrap">
+  <div class="idx">{{INDICE}}</div>
+  <div class="kicker">{{ETIQUETA}}</div>
+  <div class="mid {{ANCORA}}">
+    {{CONTEUDO}}
+  </div>
+  <div class="foot"><span>{{FONTE}}</span>{{ASSINATURA}}</div>
+</div>

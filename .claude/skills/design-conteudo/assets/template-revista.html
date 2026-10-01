@@ -1,0 +1,231 @@
+<!--
+  Esqueleto de peça 1080x1350 (4:5) — direção "revista".
+
+  A direção é editorial-de-revista: o motor é o CONTRASTE ENTRE DUAS LETRAS —
+  serifa display gigante contra grotesca pequena — e não o peso de uma só. Nasceu
+  da engenharia reversa de um carrossel de referência (Grow With Alex), cuja
+  receita tem seis partes: (1) serifa display herói, (2) numeral por extenso na
+  vertical, (3) subtítulo em serifa itálica, (4) textura no fundo — nunca chapado,
+  (5) header de três colunas, (6) mockup inclinado com anotação.
+
+  Ela existe para a série que precisa parecer EDIÇÃO, não post: quando o assunto
+  tem partes numeradas (um a seis) e cada parte merece uma página.
+
+  Estrutura:
+    .head   header de três colunas (data · marca · papel)
+    .ord    numeral por extenso, vertical, na canaleta esquerda
+    .mid    o conteúdo
+    .foot   fonte do dado
+
+  Componentes do miolo: .fig (número herói), .h (título grotesca), .h .serif
+  (o nível secundário em serifa itálica), .hero (serifa display gigante, para capa
+  e CTA), .body (punchline), .linha (comparação), .escala (barras).
+
+  Trocar {{...}} pelo conteúdo. O render.py injeta o tema no fim do <style>.
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    /* papel texturizado; o render injeta noite/laranja depois deste bloco */
+    --bg:  #efede8;  --fg:  #14161a;  --ac:  #ff5a1f;
+    --mut: #5b5f66;  --dim: #b6b2a8;  --line:#d5d1c6;  --ft: #6c6f75;
+    --grao:.5;       --blend:multiply;
+    --tex: .05;      /* opacidade da trama; a textura é parte da direção */
+  }
+
+  body {
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    background:var(--bg); hyphens:none;
+    font-family:"Inter",sans-serif; -webkit-font-smoothing:antialiased;
+  }
+
+  .grao { position:absolute; inset:0; pointer-events:none;
+    opacity:var(--grao); mix-blend-mode:var(--blend);
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='220' height='220' filter='url(%23n)' opacity='.55'/></svg>"); }
+
+  /* trama: o que separa "revista" de "slide". Fundo chapado é o que denuncia a
+     peça gerada — aqui a superfície sempre tem tecido, linho no claro e ripado
+     no escuro. Duas camadas cruzadas em vez de uma: uma só lê como listra. */
+  .trama { position:absolute; inset:0; pointer-events:none; opacity:var(--tex);
+    background-image:
+      repeating-linear-gradient(90deg, currentColor 0 1px, transparent 1px 5px),
+      repeating-linear-gradient(0deg,  currentColor 0 1px, transparent 1px 7px);
+    color:var(--fg); }
+
+  .ph, .veil { display:none; position:absolute; inset:0; }
+  .ph   { background-size:cover; background-position:50% 32%;
+          filter:saturate(1.02) contrast(1.05); }
+  .veil { background:
+     linear-gradient(to bottom, rgba(10,12,16,.72) 0%, rgba(10,12,16,.18) 22%,
+                                rgba(10,12,16,0) 34%),
+     linear-gradient(to bottom, rgba(10,12,16,0) 30%, rgba(10,12,16,.42) 56%,
+                                rgba(10,12,16,.88) 78%, rgba(10,12,16,.96) 100%); }
+  /* âncora de topo inverte o véu: adensa em cima, onde o texto está, e devolve a
+     foto embaixo. Sem isto o assunto da imagem sai afogado no escuro. */
+  body:has(.mid.topo) .veil { background:
+     linear-gradient(to bottom, rgba(10,12,16,.90) 0%, rgba(10,12,16,.78) 26%,
+                                rgba(10,12,16,.34) 48%, rgba(10,12,16,.06) 68%,
+                                rgba(10,12,16,.22) 100%); }
+
+  .wrap { position:absolute; inset:0; z-index:2;
+          padding:58px 72px 54px; display:flex; flex-direction:column; }
+
+  /* header de três colunas: data à esquerda, marca ao centro, papel à direita.
+     É o que faz cada peça ler como página de uma mesma edição */
+  .head { display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+          font-family:"Inter",sans-serif; font-weight:700; font-size:19px;
+          letter-spacing:.14em; text-transform:uppercase; color:var(--ft); }
+  .head span:last-child { text-align:right; }
+
+  /* numeral por extenso, vertical, na canaleta: dá ritmo à série sem trocar o
+     layout de página em página. Precisa de largura própria — girar um elemento
+     de largura automática colapsa a coluna */
+  .corpo { flex:1; display:grid; grid-template-columns:var(--gut,0px) 1fr; gap:0; }
+  .corpo.comord { --gut:186px; }
+  .ord { position:relative; }
+  .ord b {
+    position:absolute; top:34px; left:50%;
+    transform:translateX(-50%) rotate(180deg);
+    writing-mode:vertical-rl; text-orientation:mixed;
+    font-weight:900; font-size:128px; line-height:.86; color:var(--ac);
+    letter-spacing:-.03em; text-transform:uppercase; font-style:normal;
+  }
+
+  .mid      { display:flex; flex-direction:column; justify-content:center; }
+  .mid.alto { justify-content:flex-end; }
+  /* âncora de topo: para a peça cuja foto ocupa o rodapé e deixa o alto livre */
+  .mid.topo { justify-content:flex-start; padding-top:52px; }
+
+  .fig { font-weight:900; font-size:400px; line-height:.8; color:var(--fg);
+         letter-spacing:-.055em; margin-left:-12px;
+         font-variant-numeric:tabular-nums; }
+  .fig.longo { font-size:180px; letter-spacing:-.03em; }
+  .fig i { font-style:normal; color:var(--ac); vertical-align:baseline; }
+
+  /* o título é grotesca apertada; o nível secundário troca de LETRA, não só de
+     peso — é essa troca que carrega a direção inteira */
+  .h { font-weight:800; font-size:62px; line-height:1.14; color:var(--fg);
+       letter-spacing:-.026em; max-width:820px; text-wrap:balance; }
+  .h span { display:block; font-family:"Instrument Serif",serif; font-style:italic;
+            font-weight:400; font-size:.78em; line-height:1.12; color:var(--mut);
+            letter-spacing:0; margin-top:14px; }
+
+  /* serifa display herói: capa e CTA. Sobe até encostar nas bordas de propósito */
+  .hero { font-family:"Instrument Serif",serif; font-weight:400; font-style:normal;
+          font-size:250px; line-height:.84; color:var(--fg);
+          letter-spacing:-.035em; margin:6px 0;
+          max-width:100%; overflow-wrap:break-word; }
+  .hero em { font-style:italic; }
+  /* a linha pequena que se apoia na serifa gigante — sempre grotesca, sempre menor */
+  .sobre { font-weight:800; font-size:54px; line-height:1; letter-spacing:-.02em;
+           color:var(--fg); }
+  /* a linha que fecha embaixo da serifa precisa de folga própria: a display tem
+     descendente longa e, sem esta margem, o "p"/"g" do herói encavala nela */
+  .sob   { font-weight:800; font-size:44px; line-height:1.1; letter-spacing:-.02em;
+           color:var(--fg); text-align:right; margin-top:22px; }
+
+  .body { font-size:33px; font-weight:600; line-height:1.4; color:var(--fg);
+          margin-top:26px; padding-left:22px; border-left:7px solid var(--ac);
+          max-width:840px; }
+
+  .linha { display:grid; grid-template-columns:196px 96px 210px 1fr;
+           align-items:baseline; border-top:1px solid var(--line); padding:40px 0; }
+  .linha:last-of-type { border-bottom:1px solid var(--line); }
+  .linha .n { font-weight:900; font-size:100px; line-height:1; color:var(--fg);
+              letter-spacing:-.045em; font-variant-numeric:tabular-nums; }
+  .linha .s { font-weight:900; font-size:100px; line-height:1; color:var(--ac);
+              text-align:center; }
+  .linha .n em { font-style:normal; font-size:.46em; color:var(--ac); }
+  .linha .r { font-family:"Instrument Serif",serif; font-size:31px; font-weight:400;
+              color:var(--mut); padding-bottom:12px; padding-left:24px; }
+  .linha.solo .n { color:var(--mut); }
+  .linha .nd { font-family:"IBM Plex Mono",monospace; font-size:28px; color:var(--dim);
+               letter-spacing:.08em; }
+  .eixo { display:grid; grid-template-columns:196px 96px 210px 1fr; padding-bottom:12px;
+          font-family:"IBM Plex Mono",monospace; font-size:21px; color:var(--ft);
+          letter-spacing:.1em; }
+
+  .escala { margin-top:24px; display:flex; flex-direction:column; gap:20px; }
+  .escala .par { display:grid; grid-template-columns:150px 1fr; align-items:center; gap:24px; }
+  .escala .par span { font-family:"IBM Plex Mono",monospace; font-size:24px; color:var(--mut); }
+  .escala .par u { display:block; height:58px; background:var(--ac); position:relative;
+                   text-decoration:none; }
+  .escala .par u b { position:absolute; right:20px; top:50%; transform:translateY(-50%);
+                     font-weight:900; font-size:38px; color:var(--bg);
+                     font-variant-numeric:tabular-nums; }
+
+  /* rótulos da base da capa: três provas curtas, separadas por filete */
+  .selos { display:flex; gap:0; margin-top:34px;
+           border-top:1px solid color-mix(in srgb, var(--fg) 26%, transparent); }
+  .selos b { flex:1; padding:26px 0 0; font-weight:800; font-size:30px;
+             letter-spacing:-.01em; color:var(--fg); text-align:center; }
+  .selos b + b { border-left:1px solid color-mix(in srgb, var(--fg) 26%, transparent); }
+
+  /* filetes derivados do próprio --fg, não de um rgba fixo "de foto": `.ph ~ .wrap`
+     casa mesmo sem foto (display:none não impede o seletor de irmão), e clareava o
+     header de TODA peça de fundo claro. A peça com foto pede tema escuro — daí sai
+     o contraste, sem regra condicional que mente. */
+  /* ---- os dois recursos da página de cor chapada ----
+     O problema da peça de cor cheia não é ter vazio: é ter vazio ACIDENTAL. Brodovitch
+     tratava o branco como um dos três elementos primários, e Müller-Brockmann só
+     conseguia quebrar a grade porque havia grade. Estes dois componentes existem para
+     declarar o campo vazio em vez de decorá-lo. */
+
+  /* marca d'água tipográfica: a palavra em tom-sobre-tom, gigante, sangrando pela
+     borda. Ocupa o campo sem acrescentar um segundo assunto — e como é a palavra que
+     a peça NEGA, ela trabalha a favor do texto em vez de competir com ele. */
+  .marca {
+    position:absolute; left:-52px; top:104px; z-index:-1; pointer-events:none;
+    font-family:"Instrument Serif",serif; font-style:italic; font-weight:400;
+    font-size:330px; line-height:.78; letter-spacing:-.045em;
+    color:var(--fg); opacity:.085; white-space:nowrap;
+  }
+
+  /* régua: um filete com marcador de acento. É a referência que faz o vazio acima
+     dele ler como campo composto, e não como sobra de diagramação. */
+  .regua { position:relative; height:1px; margin-bottom:30px;
+           background:color-mix(in srgb, var(--fg) 32%, transparent); }
+  .regua::before { content:""; position:absolute; left:0; top:-6px;
+                   width:13px; height:13px; background:var(--ac); }
+
+  /* mockup inclinado: a peça mostrando outra peça. É o que faz a série ler como
+     trabalho em vez de slide. As imagens são PNGs da própria série — nunca uma
+     tela desenhada, que seria fabricar um artefato que não existe. */
+  .mocks { display:flex; gap:26px; margin-top:32px; align-items:flex-start; }
+  .mocks img { display:block; width:236px; height:auto; border-radius:3px;
+               box-shadow:0 26px 54px rgba(0,0,0,.34); }
+  .mocks img:nth-child(1) { transform:rotate(-5.5deg); }
+  .mocks img:nth-child(2) { transform:rotate(3.5deg) translateY(16px); }
+  .mocks img:nth-child(3) { transform:rotate(-2deg) translateY(6px); }
+
+  /* anotação: rótulo ligado ao mockup por um filete, como marcação de revisão */
+  .calls { display:flex; flex-direction:column; gap:20px; padding-top:18px; }
+  .calls b { display:flex; align-items:center; gap:14px; font-weight:800;
+             font-size:26px; color:var(--fg); letter-spacing:-.01em; }
+  .calls b::before { content:""; display:block; width:44px; height:3px;
+                     background:var(--ac); flex:none; }
+
+  .foot { display:flex; justify-content:space-between; align-items:baseline;
+          font-family:"IBM Plex Mono",monospace; font-size:21px; color:var(--ft);
+          border-top:1px solid color-mix(in srgb, var(--fg) 26%, transparent);
+          padding-top:28px; margin-top:26px; }
+</style>
+
+<div class="ph"></div>
+<div class="veil"></div>
+<div class="trama"></div>
+<div class="grao"></div>
+
+<div class="wrap">
+  <div class="head">{{ETIQUETA}}</div>
+  <div class="corpo {{ANCORA_ORD}}">
+    <div class="ord">{{ORDINAL}}</div>
+    <div class="mid {{ANCORA}}">
+      {{CONTEUDO}}
+    </div>
+  </div>
+  <div class="foot"><span>{{FONTE}}</span>{{ASSINATURA}}</div>
+</div>
