@@ -1,0 +1,13 @@
+/* Capa tipográfica: substitui as caixas de imagem. Gerada a partir dos dados do item,
+   sem foto de terceiros. Tons: navy (padrão), azul, papel. */
+.aw-capa{position:relative;overflow:hidden;border-radius:4px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:clamp(14px,2.2vw,26px);background:#0F2A44;color:#F7F5F0;box-sizing:border-box;container-type:inline-size}
+.aw-capa-azul{background:#1F4E79}
+.aw-capa-papel{background:#EFEBE3;color:#0F2A44;box-shadow:inset 0 0 0 1px #DDD9D0}
+.aw-capa-ed{position:absolute;top:clamp(14px,2.2vw,26px);left:clamp(14px,2.2vw,26px);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#9DC1E2}
+.aw-capa-papel .aw-capa-ed{color:#1F4E79}
+.aw-capa-fig{font-family:Montserrat,sans-serif;font-weight:700;font-size:min(64px,11.5cqi);overflow-wrap:anywhere;line-height:.95;letter-spacing:-.03em}
+.aw-capa-grande .aw-capa-fig{font-size:min(104px,18cqi)}
+.aw-capa-rot{font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.4;color:#B9C3CE;max-width:30ch}
+.aw-capa-papel .aw-capa-rot{color:#5B6572}
+.aw-capa-marca{position:absolute;top:clamp(12px,2vw,22px);right:clamp(14px,2.2vw,26px);width:34px;opacity:.55}
+.aw-capa-papel .aw-capa-marca{opacity:.8}

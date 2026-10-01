@@ -18,7 +18,7 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - Wordmark: Montserrat 600, "Agentic" navy + "Way" coral.
 - Cores: Navy #0F2A44 · Azul #1F4E79 · Azul claro #4A8FC7 · Coral #E8785A · Coral claro #F08A6E (sobre escuro) · Papel #F7F5F0 · Cinza #5B6572 · Linha #DDD9D0. Regra: um coral por tela.
 - Tipografia: Montserrat (títulos), Source Serif 4 (corpo), IBM Plex Mono (datas, editorias, metadados).
-- Imagens: placeholders listrados até haver material real.
+- Imagens: padrão completo em `conteudo/padroes/imagens.md` (ler antes de criar qualquer imagem ou página). Resumo: capa tipográfica (`site/aw.css`) na Home e nas listagens; imagem do Gemini só em matéria de Na Operação, cena genérica, com legenda 8px "Imagem ilustrativa gerada por IA (Gemini). Não retrata a empresa do caso."; nunca foto de terceiros.
 
 ## Estrutura do repositório (agentic-way/site)
 - `site/` — o que vai ao ar. Root Directory na Vercel = `site`. `index.html` redireciona para a Home. `support.js` fica aqui e é usado também pelas pranchas.

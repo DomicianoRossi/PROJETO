@@ -51,7 +51,7 @@
             <span>Por {{ caso.autor }}</span><span>{{ caso.leitura }} min de leitura</span><span>Apuração: {{ caso.apuracao }}</span>
           </div>
         </div>
-        <div style="width:100%;aspect-ratio:16/7;background:repeating-linear-gradient(135deg,#E5E1D8 0 10px,#EDEAE3 10px 20px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B6572;border-radius:4px;margin-top:12px">foto: {{ caso.foto }}</div>
+        <figure style="margin:12px 0 0;display:flex;flex-direction:column;gap:8px"><img src="{{ caso.imagem }}" alt="{{ caso.imagemAlt }}" style="width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:4px;display:block;background:#EFEBE3"><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#5B6572">{{ caso.imagemLegenda }}</figcaption></figure>
         <!-- números do caso -->
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#DDD9D0;border:1px solid #DDD9D0;border-radius:4px;overflow:hidden">
           <sc-for list="{{ numeros }}" as="n" hint-placeholder-count="5">
@@ -197,7 +197,9 @@ class Component extends DCLogic {
       autor: 'Domiciano Rossi',
       leitura: 9,
       apuracao: 'visita e entrevistas, ago/2026',
-      foto: 'setor de faturamento da distribuidora, com a tela do ERP',
+      imagem: 'img/na-operacao/distribuidora-faturamento-ia.png',
+      imagemAlt: 'Setor de faturamento de uma distribuidora, com funcionários de costas trabalhando em mesas e o estoque ao fundo',
+      imagemLegenda: 'Imagem ilustrativa gerada por IA (Gemini). Não retrata a empresa do caso.',
       abertura: 'A distribuidora tem 38 funcionários, 1.200 itens em estoque e recebe cerca de 300 pedidos por dia, quase todos por WhatsApp. Até março, três pessoas do faturamento passavam o dia lendo mensagens, digitando pedidos no ERP e emitindo nota. O erro de nota, item trocado, quantidade errada, cliente sem limite, chegava a 6% e custava, em devolução e reemissão, o equivalente a um salário e meio por mês.',
       problema: 'O gargalo não era o ERP, que já tinha cadastro, estoque e emissão de NF-e funcionando. Era a entrada: pedido em texto livre, com apelido de produto, quantidade em caixa ou unidade sem dizer qual, e cliente que às vezes pedia pelo vendedor, às vezes direto. Cada pedido exigia interpretação, e a interpretação variava com a pessoa e com a hora do dia.',
       solucao: 'O agente entrou entre o WhatsApp e o ERP. Lê a mensagem, identifica cliente e itens usando o cadastro e o histórico de compras, confere saldo e limite de crédito e monta o pedido no ERP com o usuário próprio. Se tudo confere, a NF-e é emitida. Se algo não confere, o pedido para na fila de uma pessoa, com o motivo escrito. Nada é emitido sem saldo ou sem limite.',
