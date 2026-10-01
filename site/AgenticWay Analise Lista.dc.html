@@ -54,7 +54,7 @@
         <div style="min-width:0;display:flex;flex-direction:column">
 
           <!-- mais recente -->
-          <a href="AgenticWay%20Analise%20Artigo.dc.html" style="display:flex;flex-direction:column;gap:14px;padding:36px 0;border-bottom:1px solid #0F2A44">
+          <a href="{{ destaque.url }}" style="display:flex;flex-direction:column;gap:14px;padding:36px 0;border-bottom:1px solid #0F2A44">
             <span class="mono" style="font-size:11px;color:#1F4E79">{{ destaque.tema }} · MAIS RECENTE · {{ destaque.data }}</span>
             <span class="sans" style="font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.1;letter-spacing:-0.8px;text-wrap:pretty">{{ destaque.titulo }}</span>
             <span style="font-size:18px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ destaque.linhaFina }}</span>
@@ -68,7 +68,7 @@
 
           <!-- anteriores -->
           <sc-for list="{{ itens }}" as="i" hint-placeholder-count="5">
-            <a href="AgenticWay%20Analise%20Artigo.dc.html" style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:20px;padding:26px 0;border-bottom:1px solid #DDD9D0;align-items:start">
+            <a href="{{ i.url }}" style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:20px;padding:26px 0;border-bottom:1px solid #DDD9D0;align-items:start">
               <span style="display:flex;flex-direction:column;gap:4px">
                 <span class="mono" style="font-size:12px;color:#5B6572">{{ i.data }}</span>
                 <span class="mono" style="font-size:11px;color:#1F4E79">{{ i.tema }}</span>
@@ -141,6 +141,7 @@ class Component extends DCLogic {
   state = { sent: false, tema: 'Todos' };
   renderVals() {
     const todos = [
+      { tema: 'CUSTO', data: '30 set 2026', url: 'AgenticWay%20Analise%20Conta%20do%20Agente.dc.html', titulo: 'O agente funciona. A planilha que o aprovou, não.', linhaFina: 'Noventa por cento das empresas vão aumentar o orçamento de IA de novo. Quase 40% das que mediram o resultado economizaram 10% ou menos. O problema está na conta feita antes do agente.', frase: '"Diminuir em 30% o esforço de uma tarefa não significa reduzir em 30% o custo do processo." — Lucas Brossi, Bain & Company', autor: 'Domiciano Rossi', leitura: 4, replicas: 0 },
       { tema: 'OPERAÇÃO', data: '18 set 2026', titulo: 'Por que o "agente autônomo" ainda precisa de um humano no meio do fluxo', linhaFina: 'A promessa de zero intervenção esbarra em regra fiscal, exceção comercial e responsabilidade. A pergunta útil não é se, é onde.', frase: '"O agente que funciona não é o que decide tudo. É o que sabe exatamente quando parar e explica por quê."', autor: 'Domiciano Rossi', leitura: 8, replicas: 0 },
       { tema: 'MERCADO', data: '11 set 2026', titulo: 'O conector nativo é a nova licença: por que o ERP vai decidir qual agente você usa', linhaFina: 'Quando o fornecedor do ERP lança conector oficial, a escolha da plataforma de agentes deixa de ser sua. Isso é bom e ruim.', frase: '"Quem controla a porta do sistema controla quem entra. Os ERPs entenderam isso antes das plataformas de IA."', autor: 'Domiciano Rossi', leitura: 7, replicas: 2 },
       { tema: 'CUSTO', data: '4 set 2026', titulo: 'Custo por tarefa é o número que ninguém coloca na proposta', linhaFina: 'Licença mensal é a parte visível. O consumo de modelo por execução é a parte que cresce com o sucesso do projeto.', frase: '"Um agente que funciona custa mais a cada mês, porque é usado mais. Quem não previu isso vai cancelar no sexto."', autor: 'Domiciano Rossi', leitura: 6, replicas: 1 },
@@ -152,6 +153,8 @@ class Component extends DCLogic {
     const temas = ['Todos', 'OPERAÇÃO', 'MERCADO', 'CUSTO', 'PESQUISA', 'REGULAÇÃO'];
     const bonito = (s) => s === 'Todos' ? 'Todos' : s.charAt(0) + s.slice(1).toLowerCase();
     const filtrados = todos.filter(a => tema === 'Todos' || a.tema === tema);
+    // análises sem página própria ainda apontam para a página-modelo
+    todos.forEach(a => { a.url = a.url || 'AgenticWay%20Analise%20Artigo.dc.html'; });
     const destaque = filtrados[0] || todos[0];
     const itens = filtrados.slice(filtrados.length ? 1 : 0).map(a => ({ ...a, replicas: a.replicas ? ` · ${a.replicas} ${a.replicas === 1 ? 'réplica' : 'réplicas'}` : '' }));
     const vazio = filtrados.length === 0 ? 'Nenhuma análise com esse tema ainda.' : '';
