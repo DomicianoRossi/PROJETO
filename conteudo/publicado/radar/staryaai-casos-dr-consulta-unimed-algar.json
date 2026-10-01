@@ -1,0 +1,57 @@
+{
+  "id": "staryaai-casos-dr-consulta-unimed-algar",
+  "publicado_em": "2026-10-01T17:05:00-03:00",
+  "tema": "CASOS",
+  "titulo": "Fornecedora StaryaAI divulga resultados de agentes no dr.consulta, na Unimed Paraná e no Grupo Algar",
+  "linha": "Segundo a empresa, conversão de programa no dr.consulta foi de 5% para 30%. Os números são da fornecedora; os clientes não os confirmaram publicamente.",
+  "linhaFina": "Os dados foram apresentados pela StaryaAI, que desenvolve os agentes, e reportados pela Adnews. Nenhum dos clientes citados confirmou os números no material publicado.",
+  "fontePrimaria": "StaryaAI (fornecedora), via Adnews",
+  "leitura": 3,
+  "resumo": [
+    "No dr.consulta, segundo a StaryaAI, a conversão do Programa de Saúde subiu de 5% para 30%, com mais de 3 milhões de mensagens e 75 mil conversões.",
+    "Numa operação da Unicall para a Unimed Paraná, o tempo médio de atendimento nos fluxos cobertos caiu de oito para dois minutos, e 12% das chamadas foram resolvidas pela IA no primeiro mês.",
+    "Com Brain e Grupo Algar, cinco agentes estavam em produção, com meta de chegar a 50 até dezembro de 2026."
+  ],
+  "corpo": [
+    "Em material reportado pela Adnews em 28 de setembro, a StaryaAI, que desenvolve agentes de IA para atendimento, vendas e processos internos, apresentou resultados de projetos com clientes.",
+    "Os números citados são da própria fornecedora: no dr.consulta, a conversão do Programa de Saúde teria passado de 5% para 30%; na operação da Unicall para a Unimed Paraná, o tempo médio de atendimento nos fluxos cobertos teria caído de oito para dois minutos; com Brain e o Grupo Algar, cinco agentes estariam em produção, com meta de 50 até dezembro de 2026.",
+    "No mesmo material, o CTO da StaryaAI, Vinícius Reis, afirma que conversão, tempo de atendimento, resolutividade, custo, qualidade e necessidade de intervenção humana importam mais do que uma demonstração visualmente impressionante."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · FONTE",
+      "titulo": "Número de fornecedor é ponto de partida, não prova",
+      "texto": "Os resultados vêm de quem vende os agentes. Até o cliente confirmar, eles valem como relato."
+    },
+    {
+      "rotulo": "02 · MÉTRICA",
+      "titulo": "As métricas citadas são de negócio",
+      "texto": "Conversão, tempo de atendimento e resolução são os indicadores que a própria fornecedora diz importar mais do que a demonstração."
+    }
+  ],
+  "fontes": [
+    {
+      "titulo": "Agentes de IA avançam nas empresas, mas governança ainda limita adoção em escala",
+      "origem": "Adnews · 28 set 2026",
+      "url": "https://adnews.com.br/post/agentes-de-ia-avancam-nas-empresas-mas-governanca-ainda-limita-adocao-em-escala"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem divulgou",
+      "valor": "StaryaAI, fornecedora dos agentes"
+    },
+    {
+      "rotulo": "Clientes citados",
+      "valor": "dr.consulta, Unicall/Unimed Paraná, Grupo Algar"
+    },
+    {
+      "rotulo": "Confirmação",
+      "valor": "Não confirmada pelos clientes"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "28 set 2026"
+    }
+  ]
+}

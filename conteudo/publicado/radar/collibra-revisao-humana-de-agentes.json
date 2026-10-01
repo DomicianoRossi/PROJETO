@@ -1,0 +1,63 @@
+{
+  "id": "collibra-revisao-humana-de-agentes",
+  "publicado_em": "2026-10-01T17:15:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "76% das empresas travaram ao levar agentes do piloto para a produção, diz Collibra",
+  "linha": "Pouco mais da metade gasta horas significativas revisando o que os agentes produzem. A Collibra chama isso de \"imposto da alucinação\".",
+  "linhaFina": "Pesquisa da Collibra com a Harris Poll ouviu mais de 300 decisores de dados e IA nos Estados Unidos. Na mesma semana, a empresa lançou produtos para reduzir esse custo.",
+  "fontePrimaria": "Collibra / The Harris Poll",
+  "leitura": 3,
+  "resumo": [
+    "76% das organizações encontraram bloqueios críticos para levar agentes do piloto à produção nos últimos 12 meses.",
+    "Pouco mais da metade gasta horas significativas da equipe revisando e corrigindo saídas de agentes antes de irem ao ar; nas empresas acima de US$ 100 milhões de receita, 64%.",
+    "72% dizem que, quando a iniciativa de IA falha, a causa quase sempre é base de dados desalinhada ou ruim."
+  ],
+  "corpo": [
+    "A Collibra, empresa de governança de dados, divulgou em setembro uma pesquisa feita pela The Harris Poll com mais de 300 decisores de dados, privacidade e IA nos Estados Unidos.",
+    "Segundo o levantamento, 76% das organizações encontraram bloqueios críticos ao tentar levar agentes do piloto para a produção nos últimos 12 meses. Pouco mais da metade gasta horas significativas da equipe revisando e corrigindo o que os agentes produzem antes de ir ao ar, e 87% dizem gastar tempo relevante reverificando o contexto com que os agentes trabalham.",
+    "A empresa chama esse custo de \"imposto da alucinação\". Em 23 de setembro, a Collibra anunciou novos recursos de produto voltados a reduzi-lo."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · CUSTO",
+      "titulo": "Revisão humana precisa entrar na conta do projeto",
+      "texto": "Se metade das empresas revisa a saída dos agentes, um business case que supõe automação total está incompleto."
+    },
+    {
+      "rotulo": "02 · DADOS",
+      "titulo": "O gargalo citado é o dado, não o modelo",
+      "texto": "A causa apontada para as falhas é a base de dados, o que desloca o esforço para antes do agente."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "Pesquisa e produto saíram juntos",
+      "texto": "A Collibra publicou o dado e lançou a solução na mesma semana. Vale ler os números com isso em mente."
+    }
+  ],
+  "fontes": [
+    {
+      "titulo": "Collibra Survey Finds 76% of Organizations Hit Roadblocks Scaling AI Agents",
+      "origem": "BigDATAwire · set 2026",
+      "url": "https://www.hpcwire.com/bigdatawire/this-just-in/collibra-survey-finds-76-of-organizations-hit-roadblocks-scaling-ai-agents/"
+    },
+    {
+      "titulo": "Collibra Launches New Capabilities to Reduce the Hallucination Tax on Enterprise AI",
+      "origem": "Collibra · comunicado · 23 set 2026",
+      "url": "https://www.collibra.com/company/newsroom/press-releases/collibra-launches-new-capabilities-to-reduce-the-hallucination-tax-on-enterprise-ai"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem mediu",
+      "valor": "Collibra, com The Harris Poll"
+    },
+    {
+      "rotulo": "Amostra",
+      "valor": "300+ decisores de dados e IA nos EUA"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "set 2026"
+    }
+  ]
+}

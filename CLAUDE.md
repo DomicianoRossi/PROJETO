@@ -25,6 +25,18 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `marca/` — identidade: logos, DNA v1, cores (`marca/*`), arquivos originais enviados (`marca/originais/`) e pranchas internas (`marca/pranchas/`, carregam `../../site/support.js`). Não é publicado.
 - `conteudo/` — produção editorial. As skills de conteúdo gravam em `pesquisas/` relativo à pasta da sessão: rodar `/pesquisa-conteudo`, `/copy-conteudo` e `/design-conteudo` com a sessão aberta em `conteudo/`. PNG e PDF renderizados ficam fora do git.
 
+## Conteúdo como dados (em migração, começou pelo Radar em 01/out/2026)
+- Cada item publicado é um JSON em `conteudo/publicado/<editoria>/<id>.json`. Nenhum HTML é editado para publicar.
+- `python scripts/build_dados.py` valida tudo (campos, tema, fonte com https, data com fuso) e gera `site/dados/<editoria>.js`, que define `window.AW_DADOS`. Item inválido derruba o build. O `.js` gerado é commitado (a Vercel não roda build).
+- As páginas carregam `dados/<editoria>.js` e `aw.js` (datas, endereços, assinatura) antes do `support.js`. Uma página por editoria mostra qualquer item via `?id=`.
+- Assinatura do conteúdo gerado: "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi" (em `build_dados.py`).
+- Aprovação humana = merge do pull request que traz o JSON. Rotinas abrem PR, não publicam direto.
+- Já migrados: Radar (lista, nota, bloco da Home). Ainda com conteúdo de exemplo fixo no HTML: Na Operação, Ferramentas, Análise (exceto a análise real), Guia, destaques da Home.
+
+## Decisões da automação (01/out/2026)
+- Ferramentas vira relato documentado (documentação e relatos de usuários), nunca "testamos" sem teste real.
+- Ordem: dados + Radar primeiro; depois skills /radar, /publicar e rotina agendada; depois as demais editorias.
+
 ## Arquivos
 ### site/
 - `AgenticWay Home.dc.html` — home do site (conteúdo de exemplo)
