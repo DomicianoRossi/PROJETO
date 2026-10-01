@@ -1,0 +1,68 @@
+{
+  "id": "openai-dots-agentes-sempre-ativos",
+  "publicado_em": "2026-10-01T21:15:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "OpenAI lança os dots, agentes que trabalham 24 horas, e prepara versão para áreas da empresa com integração ao Microsoft Agent 365",
+  "linha": "Dots começaram a chegar em 29 de setembro aos planos Pro e Business Premium; no Enterprise, o administrador precisa ativar o beta. Os dots especialistas, para compras, faturas e atendimento, começam em pilotos.",
+  "linhaFina": "Segundo a OpenAI, cada dot tem computador próprio na nuvem, conecta-se a mais de 4.000 aplicativos e pede aprovação para ações que afetam contas ou compartilham informação.",
+  "fontePrimaria": "OpenAI",
+  "leitura": 3,
+  "resumo": [
+    "A OpenAI anunciou os dots em 29 de setembro de 2026: agentes sempre ativos, com computador e navegador próprios na nuvem, que funcionam pelo ChatGPT, Slack e Teams.",
+    "O primeiro dot está incluído nos planos Pro e Business Premium. No Enterprise, o beta vem desligado por padrão e depende do administrador do espaço de trabalho.",
+    "Os dots especialistas têm identidade e credenciais próprias, e a OpenAI testou o conceito internamente em compras, processamento de faturas, e-mail marketing, atendimento e contratos. Estão em pilotos com engenharia da OpenAI."
+  ],
+  "corpo": [
+    "Em comunicado de 29 de setembro, a OpenAI descreve os dots como agentes sempre ativos movidos pelo GPT-6 Astra. Cada um tem computador e navegador próprios na nuvem, que o usuário pode abrir para inspecionar o trabalho, e conecta-se por plugins a mais de 4.000 aplicativos. Quando o usuário não está interagindo, o dot faz o que a empresa chama de pesquisa proativa, com ferramentas restritas a leitura nos aplicativos conectados.",
+    "Sobre controle, a OpenAI diz que os dots têm regras internas para quando agir sozinhos e quando pedir aprovação, que o usuário pode definir Regras Personalizadas para permitir, exigir aprovação ou bloquear ações, e que tarefas sensíveis, como trocar senha, ficam sempre com a pessoa. A empresa também diz que não usa conteúdo de espaços Business, Enterprise e Edu para melhorar modelos por padrão, e que os dots podem cometer erros: o trabalho consequente deve ser revisado.",
+    "Para organizações, a OpenAI apresenta os dots especialistas, com identidade própria para controle de acesso e integração com sistemas de registro da empresa. Eles começam em pilotos em que engenheiros da OpenAI definem com o cliente responsabilidades, ferramentas e fluxo de aprovação. A OpenAI diz trabalhar com a Microsoft para integrá-los ao Agent 365, de modo que possam ser geridos pelas ferramentas de governança que a empresa já usa.",
+    "Na Central de Ajuda, a OpenAI informa que o plano Pro recebe dots em mercados fora do Espaço Econômico Europeu, Suíça e Reino Unido, e que o Business Premium tem dots em todas as regiões em que o ChatGPT é compatível. A liberação é gradual e pode levar dias para chegar a cada conta. A página não traz lista de países nem preço por dot adicional."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · GOVERNANÇA",
+      "titulo": "Agente com credenciais próprias exige dono, escopo e registro",
+      "texto": "O dot especialista é descrito como ator com identidade e acesso a sistemas da empresa. A pergunta prática é quem aprova o escopo e quem responde pelas ações."
+    },
+    {
+      "rotulo": "02 · ADMINISTRAÇÃO",
+      "titulo": "No Enterprise, a decisão é do administrador",
+      "texto": "O beta vem desligado por padrão. Empresas com ChatGPT Enterprise podem definir política antes de ligar, em vez de descobrir uso informal depois."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "Os exemplos de uso são da própria OpenAI",
+      "texto": "O comunicado traz casos internos e de um testador. Não há medição independente de resultado nem preço dos dots adicionais."
+    }
+  ],
+  "fontes": [
+    {
+      "titulo": "Introducing dots",
+      "origem": "OpenAI · comunicado · 29 set 2026",
+      "url": "https://openai.com/index/introducing-dots/"
+    },
+    {
+      "titulo": "Getting started with your dot",
+      "origem": "OpenAI · Central de Ajuda",
+      "url": "https://help.openai.com/articles/20001530"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem divulgou",
+      "valor": "OpenAI"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "29 set 2026"
+    },
+    {
+      "rotulo": "Disponibilidade",
+      "valor": "Pro (fora de EEE, Suíça e Reino Unido), Business Premium, beta no Enterprise"
+    },
+    {
+      "rotulo": "Dots especialistas",
+      "valor": "pilotos com a OpenAI"
+    }
+  ]
+}
