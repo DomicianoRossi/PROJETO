@@ -3,6 +3,145 @@ window.AW_DADOS = window.AW_DADOS || {};
 window.AW_DADOS.assinatura = "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi";
 window.AW_DADOS.radar = [
  {
+  "id": "openai-dots-agentes-sempre-ativos",
+  "publicado_em": "2026-10-01T21:15:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "OpenAI lança os dots, agentes que trabalham 24 horas, e prepara versão para áreas da empresa com integração ao Microsoft Agent 365",
+  "linha": "Dots começaram a chegar em 29 de setembro aos planos Pro e Business Premium; no Enterprise, o administrador precisa ativar o beta. Os dots especialistas, para compras, faturas e atendimento, começam em pilotos.",
+  "linhaFina": "Segundo a OpenAI, cada dot tem computador próprio na nuvem, conecta-se a mais de 4.000 aplicativos e pede aprovação para ações que afetam contas ou compartilham informação.",
+  "fontePrimaria": "OpenAI",
+  "leitura": 3,
+  "resumo": [
+   "A OpenAI anunciou os dots em 29 de setembro de 2026: agentes sempre ativos, com computador e navegador próprios na nuvem, que funcionam pelo ChatGPT, Slack e Teams.",
+   "O primeiro dot está incluído nos planos Pro e Business Premium. No Enterprise, o beta vem desligado por padrão e depende do administrador do espaço de trabalho.",
+   "Os dots especialistas têm identidade e credenciais próprias, e a OpenAI testou o conceito internamente em compras, processamento de faturas, e-mail marketing, atendimento e contratos. Estão em pilotos com engenharia da OpenAI."
+  ],
+  "corpo": [
+   "Em comunicado de 29 de setembro, a OpenAI descreve os dots como agentes sempre ativos movidos pelo GPT-6 Astra. Cada um tem computador e navegador próprios na nuvem, que o usuário pode abrir para inspecionar o trabalho, e conecta-se por plugins a mais de 4.000 aplicativos. Quando o usuário não está interagindo, o dot faz o que a empresa chama de pesquisa proativa, com ferramentas restritas a leitura nos aplicativos conectados.",
+   "Sobre controle, a OpenAI diz que os dots têm regras internas para quando agir sozinhos e quando pedir aprovação, que o usuário pode definir Regras Personalizadas para permitir, exigir aprovação ou bloquear ações, e que tarefas sensíveis, como trocar senha, ficam sempre com a pessoa. A empresa também diz que não usa conteúdo de espaços Business, Enterprise e Edu para melhorar modelos por padrão, e que os dots podem cometer erros: o trabalho consequente deve ser revisado.",
+   "Para organizações, a OpenAI apresenta os dots especialistas, com identidade própria para controle de acesso e integração com sistemas de registro da empresa. Eles começam em pilotos em que engenheiros da OpenAI definem com o cliente responsabilidades, ferramentas e fluxo de aprovação. A OpenAI diz trabalhar com a Microsoft para integrá-los ao Agent 365, de modo que possam ser geridos pelas ferramentas de governança que a empresa já usa.",
+   "Na Central de Ajuda, a OpenAI informa que o plano Pro recebe dots em mercados fora do Espaço Econômico Europeu, Suíça e Reino Unido, e que o Business Premium tem dots em todas as regiões em que o ChatGPT é compatível. A liberação é gradual e pode levar dias para chegar a cada conta. A página não traz lista de países nem preço por dot adicional."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · GOVERNANÇA",
+    "titulo": "Agente com credenciais próprias exige dono, escopo e registro",
+    "texto": "O dot especialista é descrito como ator com identidade e acesso a sistemas da empresa. A pergunta prática é quem aprova o escopo e quem responde pelas ações."
+   },
+   {
+    "rotulo": "02 · ADMINISTRAÇÃO",
+    "titulo": "No Enterprise, a decisão é do administrador",
+    "texto": "O beta vem desligado por padrão. Empresas com ChatGPT Enterprise podem definir política antes de ligar, em vez de descobrir uso informal depois."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "Os exemplos de uso são da própria OpenAI",
+    "texto": "O comunicado traz casos internos e de um testador. Não há medição independente de resultado nem preço dos dots adicionais."
+   }
+  ],
+  "fontes": [
+   {
+    "titulo": "Introducing dots",
+    "origem": "OpenAI · comunicado · 29 set 2026",
+    "url": "https://openai.com/index/introducing-dots/"
+   },
+   {
+    "titulo": "Getting started with your dot",
+    "origem": "OpenAI · Central de Ajuda",
+    "url": "https://help.openai.com/articles/20001530"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem divulgou",
+    "valor": "OpenAI"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "29 set 2026"
+   },
+   {
+    "rotulo": "Disponibilidade",
+    "valor": "Pro (fora de EEE, Suíça e Reino Unido), Business Premium, beta no Enterprise"
+   },
+   {
+    "rotulo": "Dots especialistas",
+    "valor": "pilotos com a OpenAI"
+   }
+  ]
+ },
+ {
+  "id": "meta-whatsapp-cobranca-mensagens-servico",
+  "publicado_em": "2026-10-01T21:10:00-03:00",
+  "tema": "MERCADO",
+  "titulo": "Meta passa a cobrar por resposta de atendimento no WhatsApp Business, inclusive as geradas por agentes de IA de terceiros",
+  "linha": "Desde 1º de outubro, mensagens de serviço na API do WhatsApp Business são cobradas por mensagem entregue, com 1.000 gratuitas por mês por número. A Meta oferece o Meta Business Agent, de cobrança própria, como alternativa.",
+  "linhaFina": "Respostas dentro da janela de 24 horas, enviadas por pessoas ou por IA de terceiros, deixam de ser gratuitas. A comparação de custo que favorece o agente da própria Meta vem da Meta.",
+  "fontePrimaria": "Meta (documentação do WhatsApp Business Platform)",
+  "leitura": 3,
+  "resumo": [
+   "Desde 1º de outubro de 2026, a Meta cobra por mensagem entregue todas as mensagens de serviço (não template) na API do WhatsApp Business. Elas não eram cobradas desde 1º de novembro de 2024.",
+   "Cada número de telefone de negócio tem 1.000 mensagens de serviço gratuitas por mês, sem acúmulo. A cobrança começa na mensagem 1.001.",
+   "As mensagens de utilidade enviadas em resposta ao cliente, dentro da janela de 24 horas, também voltam a ser cobradas. Estavam gratuitas desde 1º de julho de 2025."
+  ],
+  "corpo": [
+   "Segundo a documentação de preços da Meta, atualizada em 30 de setembro, a mudança vale para mensagens enviadas dentro da janela de atendimento de 24 horas, que se abre e reinicia a cada mensagem do cliente. A Meta cobra apenas mensagens entregues, e só mensagens da empresa para o usuário. A taxa de serviço é a mesma da mensagem de utilidade e de autenticação no mercado correspondente; no exemplo da própria Meta para o Brasil, o valor é 0,68 centavo de dólar por mensagem.",
+   "A cobrança vale tanto para resposta digitada por atendente quanto para resposta gerada por uma solução de IA de terceiros conectada à API. Toda mensagem não template passa a cair em uma de duas categorias: serviço, ou Meta Business Agent, o agente de IA da própria Meta, que desde 1º de agosto tem cobrança por consumo de tokens. Para cada mensagem vale uma cobrança só. Mensagens trocadas na janela gratuita aberta por anúncio que leva ao WhatsApp continuam sem custo de entrega.",
+   "A Meta avisou que empresas e provedores sem forma de pagamento cadastrada até 30 de setembro deixariam de ter entregues as mensagens de serviço que excedam a franquia gratuita.",
+   "Na própria documentação, a Meta compara 10.000 mensagens de IA em resposta a usuários no Brasil: cerca de US$ 968 com IA de terceiros, somando entrega e custo estimado do modelo, contra US$ 400 a US$ 500 com o Meta Business Agent. A própria Meta declara que o custo da IA de terceiros é estimativa baseada em informação pública."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · CUSTO",
+    "titulo": "Atendimento por WhatsApp com IA ganha uma linha nova na conta",
+    "texto": "Quem usa agente de IA de terceiros sobre a API passa a pagar a Meta por resposta, além do fornecedor. Vale levantar quantas mensagens de serviço cada número entrega por mês e comparar com a franquia de 1.000."
+   },
+   {
+    "rotulo": "02 · FORNECEDOR",
+    "titulo": "Confira com o provedor quem recebe a fatura e o que mudou nela",
+    "texto": "A cobrança é da Meta, mas muitas empresas contratam por um provedor de soluções. A forma de repasse, e se há pagamento cadastrado, depende do contrato."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "A comparação com o agente da Meta é da Meta",
+    "texto": "A Meta vende o Meta Business Agent e define as regras de cobrança da plataforma. As estimativas de custo de IA de terceiros no comparativo não são medição independente."
+   }
+  ],
+  "oQueFazer": [
+   "Peça ao provedor o volume mensal de mensagens de serviço por número e a primeira fatura com a nova categoria. A documentação da Meta indica que a categoria aparece nos webhooks de status e na API de análise de preços."
+  ],
+  "fontes": [
+   {
+    "titulo": "Pricing on the WhatsApp Business Platform",
+    "origem": "Meta for Developers · documentação · atualizada em 30 set 2026",
+    "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing"
+   },
+   {
+    "titulo": "Upcoming pricing updates for Meta Business Agent, service and utility messages",
+    "origem": "Meta for Developers · documentação · atualizada em 28 set 2026",
+    "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem divulgou",
+    "valor": "Meta, na documentação da plataforma"
+   },
+   {
+    "rotulo": "Vigência",
+    "valor": "1 out 2026"
+   },
+   {
+    "rotulo": "Franquia",
+    "valor": "1.000 mensagens de serviço por mês por número, sem acúmulo"
+   },
+   {
+    "rotulo": "Observação",
+    "valor": "o comparativo de custo com o Meta Business Agent é estimativa da Meta"
+   }
+  ]
+ },
+ {
   "id": "neoassist-agentes-vivara-koin",
   "publicado_em": "2026-10-01T17:53:00-03:00",
   "tema": "CASOS",

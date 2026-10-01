@@ -1,0 +1,71 @@
+{
+  "id": "meta-whatsapp-cobranca-mensagens-servico",
+  "publicado_em": "2026-10-01T21:10:00-03:00",
+  "tema": "MERCADO",
+  "titulo": "Meta passa a cobrar por resposta de atendimento no WhatsApp Business, inclusive as geradas por agentes de IA de terceiros",
+  "linha": "Desde 1º de outubro, mensagens de serviço na API do WhatsApp Business são cobradas por mensagem entregue, com 1.000 gratuitas por mês por número. A Meta oferece o Meta Business Agent, de cobrança própria, como alternativa.",
+  "linhaFina": "Respostas dentro da janela de 24 horas, enviadas por pessoas ou por IA de terceiros, deixam de ser gratuitas. A comparação de custo que favorece o agente da própria Meta vem da Meta.",
+  "fontePrimaria": "Meta (documentação do WhatsApp Business Platform)",
+  "leitura": 3,
+  "resumo": [
+    "Desde 1º de outubro de 2026, a Meta cobra por mensagem entregue todas as mensagens de serviço (não template) na API do WhatsApp Business. Elas não eram cobradas desde 1º de novembro de 2024.",
+    "Cada número de telefone de negócio tem 1.000 mensagens de serviço gratuitas por mês, sem acúmulo. A cobrança começa na mensagem 1.001.",
+    "As mensagens de utilidade enviadas em resposta ao cliente, dentro da janela de 24 horas, também voltam a ser cobradas. Estavam gratuitas desde 1º de julho de 2025."
+  ],
+  "corpo": [
+    "Segundo a documentação de preços da Meta, atualizada em 30 de setembro, a mudança vale para mensagens enviadas dentro da janela de atendimento de 24 horas, que se abre e reinicia a cada mensagem do cliente. A Meta cobra apenas mensagens entregues, e só mensagens da empresa para o usuário. A taxa de serviço é a mesma da mensagem de utilidade e de autenticação no mercado correspondente; no exemplo da própria Meta para o Brasil, o valor é 0,68 centavo de dólar por mensagem.",
+    "A cobrança vale tanto para resposta digitada por atendente quanto para resposta gerada por uma solução de IA de terceiros conectada à API. Toda mensagem não template passa a cair em uma de duas categorias: serviço, ou Meta Business Agent, o agente de IA da própria Meta, que desde 1º de agosto tem cobrança por consumo de tokens. Para cada mensagem vale uma cobrança só. Mensagens trocadas na janela gratuita aberta por anúncio que leva ao WhatsApp continuam sem custo de entrega.",
+    "A Meta avisou que empresas e provedores sem forma de pagamento cadastrada até 30 de setembro deixariam de ter entregues as mensagens de serviço que excedam a franquia gratuita.",
+    "Na própria documentação, a Meta compara 10.000 mensagens de IA em resposta a usuários no Brasil: cerca de US$ 968 com IA de terceiros, somando entrega e custo estimado do modelo, contra US$ 400 a US$ 500 com o Meta Business Agent. A própria Meta declara que o custo da IA de terceiros é estimativa baseada em informação pública."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · CUSTO",
+      "titulo": "Atendimento por WhatsApp com IA ganha uma linha nova na conta",
+      "texto": "Quem usa agente de IA de terceiros sobre a API passa a pagar a Meta por resposta, além do fornecedor. Vale levantar quantas mensagens de serviço cada número entrega por mês e comparar com a franquia de 1.000."
+    },
+    {
+      "rotulo": "02 · FORNECEDOR",
+      "titulo": "Confira com o provedor quem recebe a fatura e o que mudou nela",
+      "texto": "A cobrança é da Meta, mas muitas empresas contratam por um provedor de soluções. A forma de repasse, e se há pagamento cadastrado, depende do contrato."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "A comparação com o agente da Meta é da Meta",
+      "texto": "A Meta vende o Meta Business Agent e define as regras de cobrança da plataforma. As estimativas de custo de IA de terceiros no comparativo não são medição independente."
+    }
+  ],
+  "oQueFazer": [
+    "Peça ao provedor o volume mensal de mensagens de serviço por número e a primeira fatura com a nova categoria. A documentação da Meta indica que a categoria aparece nos webhooks de status e na API de análise de preços."
+  ],
+  "fontes": [
+    {
+      "titulo": "Pricing on the WhatsApp Business Platform",
+      "origem": "Meta for Developers · documentação · atualizada em 30 set 2026",
+      "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing"
+    },
+    {
+      "titulo": "Upcoming pricing updates for Meta Business Agent, service and utility messages",
+      "origem": "Meta for Developers · documentação · atualizada em 28 set 2026",
+      "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem divulgou",
+      "valor": "Meta, na documentação da plataforma"
+    },
+    {
+      "rotulo": "Vigência",
+      "valor": "1 out 2026"
+    },
+    {
+      "rotulo": "Franquia",
+      "valor": "1.000 mensagens de serviço por mês por número, sem acúmulo"
+    },
+    {
+      "rotulo": "Observação",
+      "valor": "o comparativo de custo com o Meta Business Agent é estimativa da Meta"
+    }
+  ]
+}
