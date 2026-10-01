@@ -41,7 +41,7 @@ window.AW_DADOS.radar = [
   "fontes": [
    {
     "titulo": "Vivara e Koin comemoram resultados do uso de agentes de IA",
-    "origem": "ClienteSA · matéria · out 2026",
+    "origem": "ClienteSA · matéria · 1 out 2026",
     "url": "https://portal.clientesa.com.br/vivara-e-koin-comemoram-resultados-do-uso-de-agentes-de-ia/"
    }
   ],
@@ -56,7 +56,7 @@ window.AW_DADOS.radar = [
    },
    {
     "rotulo": "Divulgação",
-    "valor": "out 2026, portal ClienteSA"
+    "valor": "1 out 2026, portal ClienteSA"
    }
   ]
  },

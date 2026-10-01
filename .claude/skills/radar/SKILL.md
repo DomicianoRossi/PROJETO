@@ -25,7 +25,7 @@ Rodada com zero notas é um resultado válido quando nada novo e verificável ap
    ```bash
    python .claude/skills/radar/scripts/existentes.py
    ```
-   Ele imprime id, data, título e URLs de fonte de cada nota publicada, e a data da mais recente. A janela de busca vai da nota mais recente até agora (no mínimo 24 horas, no máximo 7 dias).
+   Ele imprime id, data, título e URLs de fonte de cada nota publicada. A repetição é decidida pelo conteúdo (mesmo fato, mesma pesquisa, mesma URL), não pela data: notas escritas na mesma tarde podem cobrir notícias de dias diferentes.
 
 ## Passo 2 — Buscar
 
@@ -40,11 +40,13 @@ Faça de 4 a 6 buscas com ângulos diferentes, porque uma busca só devolve o co
 - casos de empresas com nome e número
 - o contraditório: crítica, projeto cancelado, incidente
 
-Use o filtro de tempo do Firecrawl (`--tbs qdr:d` para um dia, `qdr:w` para uma semana) conforme a janela do Passo 1. Exemplo:
+Busque a última semana (`--tbs qdr:w`) e, na escolha, aceite só notícia divulgada nos últimos 3 dias que ainda não esteja publicada. Uma janela fixa evita perder notícia quando a rodada anterior foi recente, e a checagem de repetição do Passo 3 cuida do resto. Exemplo:
 
 ```bash
-firecrawl search "agentes de IA empresas Brasil" --sources news,web --tbs qdr:w --country BR --limit 10 -o .firecrawl/radar-1.json
+firecrawl search "agentes de IA empresas Brasil" --sources news,web --tbs qdr:w --country BR --limit 10 --json -o .firecrawl/radar-1.json
 ```
+
+Sem `--json`, a saída é texto, mesmo com extensão `.json`. Rode os `firecrawl scrape` **um de cada vez**: em paralelo, arquivos se perdem e um site bloqueado derruba o lote. Alguns sites são bloqueados pelo Firecrawl (ZDNet, por exemplo); nesse caso, procure a mesma informação na origem (comunicado, relatório) em vez de insistir.
 
 ## Passo 3 — Escolher as pautas
 
@@ -53,7 +55,11 @@ Para cada candidata, abra a página (scrape) e responda:
 1. **É novo?** Compare com a saída de `existentes.py`: mesmo fato, mesma pesquisa ou mesma URL de fonte é repetição, mesmo com título diferente.
 2. **Tem fonte primária?** O ideal é o próprio documento: comunicado da empresa, relatório da pesquisa, norma no site do órgão. Matéria de veículo serve quando ela cita a origem com clareza; nesse caso, procure e prefira a origem. Agregador, post de rede social e blog de fornecedor anônimo não servem como única fonte.
 3. **Muda algo para empresa média brasileira?** Notícia internacional entra quando afeta ferramenta, custo, regra ou decisão de quem opera aqui. Rodada de investimento, troca de executivo e anúncio sem data ou sem produto ficam de fora, a não ser que mudem algo concreto.
-4. **Quem afirma o número?** Se só o fornecedor diz que o cliente economizou X, a nota pode sair, mas atribui o número ao fornecedor no título ou na linha, e a ficha registra "Confirmação: não confirmada pelo cliente".
+4. **Está disponível ou vale para o Brasil?** Lançamento restrito a outros países e pesquisa só com público estrangeiro entram apenas se a consequência para a empresa brasileira for clara e dita na nota; caso contrário, descarte.
+5. **A pesquisa diz como mediu?** Pesquisa sem amostra declarada, ou ainda não publicada, não entra. Quem mediu, quantos e onde precisam estar na fonte, porque vão para a ficha.
+6. **Quem afirma o número?** Se só o fornecedor diz que o cliente economizou X, a nota pode sair, mas atribui o número ao fornecedor no título ou na linha, e a ficha registra `{"rotulo": "Confirmação", "valor": "não confirmada pelo cliente"}`, com esse texto exato.
+
+Quando a origem (fornecedor, empresa) não tem comunicado público e o fato só aparece numa matéria, a nota pode sair com a matéria como fonte, desde que o título e a `fontePrimaria` digam quem afirmou e por qual veículo ("NeoAssist, via ClienteSA").
 
 Fique com no máximo 5, priorizando Brasil e o que tiver consequência prática mais clara. Registre as descartadas com o motivo em uma linha, porque o editor precisa saber o que ficou de fora.
 
@@ -65,7 +71,11 @@ Regras de conteúdo, e por que existem:
 
 - **Número entra igual à fonte.** "17.412" não vira "quase 18 mil". Arredondar é inventar, e o leitor que conferir vai achar outro número.
 - **Todo número, nome e data do texto está numa fonte listada em `fontes`.** O validador confere formato, não verdade; a verdade é responsabilidade sua.
-- **`publicado_em` é a hora desta rodada** (fuso `-03:00`), não a data da notícia. A data em que a fonte divulgou vai na `ficha`, como "Divulgação".
+- **`publicado_em` é a hora desta rodada** (fuso `-03:00`), não a data da notícia. A data em que a fonte divulgou vai na `ficha`, como "Divulgação", no formato `1 out 2026`. Se a página não mostra a data, procure nos metadados antes de deixar vaga:
+  ```bash
+  curl -s -A 'Mozilla/5.0' "<url>" | grep -oE '"datePublished":"[^"]+"|article:published_time" content="[^"]+'
+  ```
+  Cuidado com datas na barra lateral da página: costumam ser de outras matérias.
 - **Tema** é um destes: REGULAÇÃO, LANÇAMENTOS, CASOS, PESQUISA, MERCADO.
 - **`consequencias`** são leitura editorial (o que observar, o que muda), não fato novo. Podem dizer que a fonte tem interesse no resultado — isso é informação útil para o leitor, não ataque.
 - **Tom do site:** analítico, direto, sem hype, sem exclamação, sem emoji. Anglicismo só quando não houver termo em português de uso corrente. Nada de "revolucionário", "nova era", "game changer".
@@ -86,7 +96,7 @@ Depois, releia cada nota contra a página da fonte uma última vez, procurando e
 ```bash
 git checkout -b radar/$(date +%Y-%m-%d-%H%M)
 git add conteudo/publicado/radar/ site/dados/radar.js
-git commit -m "Radar: <n> notas de <data>"
+git commit -m "Radar: <n> notas de AAAA-MM-DD"
 git push -u origin HEAD
 ```
 
