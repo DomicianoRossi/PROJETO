@@ -51,7 +51,7 @@
             <span>Por {{ caso.autor }}</span><span>{{ caso.leitura }} min de leitura</span><span>Apuração: {{ caso.apuracao }}</span>
           </div>
         </div>
-        <figure style="margin:12px 0 0;display:flex;flex-direction:column;gap:8px"><img src="{{ caso.imagem }}" alt="{{ caso.imagemAlt }}" style="width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:4px;display:block;background:#EFEBE3"><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5B6572">{{ caso.imagemLegenda }}</figcaption></figure>
+        <figure style="margin:12px 0 0;display:flex;flex-direction:column;gap:8px"><img src="{{ caso.imagem }}" alt="{{ caso.imagemAlt }}" style="width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:4px;display:block;background:#EFEBE3"><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#5B6572">{{ caso.imagemLegenda }}</figcaption></figure>
         <!-- números do caso -->
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#DDD9D0;border:1px solid #DDD9D0;border-radius:4px;overflow:hidden">
           <sc-for list="{{ numeros }}" as="n" hint-placeholder-count="5">
