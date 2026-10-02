@@ -19,12 +19,11 @@ O que torna uma análise boa: uma afirmação clara, que nem todo mundo faria, s
 ## Passo 1 — Preparar e ler a semana
 
 1. Na raiz do repositório, atualize o `main`. Se houver alteração pendente, pare e avise.
-2. Liste as análises já publicadas (para não repetir tese) e o material da semana:
+2. Veja o material da semana e as análises já publicadas:
    ```bash
-   grep -h '"titulo"\|"tema"' conteudo/publicado/analise/*.json 2>/dev/null
    python .claude/skills/analise/scripts/semana.py
    ```
-   O `semana.py` imprime as notas do Radar e os casos de Na Operação dos últimos 7 dias, com título, fatos centrais e fontes.
+   O script imprime as notas do Radar e os casos de Na Operação dos últimos 7 dias (título, fatos e fontes), as análises já publicadas (título, tema e tese, para não repetir) e a **data de publicação**: a sexta-feira seguinte, ou hoje se hoje for sexta. Use essa data em `publicado_em` (às 07:00, `-03:00`) e no nome do branch.
 3. Leia `references/esquema.md` e uma análise publicada como exemplo de formato e tom.
 
 ## Passo 2 — Escolher a tese
@@ -32,7 +31,7 @@ O que torna uma análise boa: uma afirmação clara, que nem todo mundo faria, s
 Leia o material da semana procurando uma tensão: dois fatos que, juntos, dizem algo que nenhum diz sozinho; um número que contradiz o discurso do mercado; uma decisão que a empresa média vai ter de tomar.
 
 Escreva três teses candidatas em uma frase cada e escolha a que passar nestes testes:
-- **É uma afirmação, não um tema.** "Agentes no atendimento" é tema; "o custo do WhatsApp vai decidir qual agente de atendimento a empresa usa, antes da qualidade" é tese.
+- **É uma afirmação, não um tema.** "Agentes no setor jurídico" é tema; "o escritório médio vai contratar agente pelo preço por documento, não pela precisão" é tese. (O exemplo é ilustrativo: não o use como ponto de partida.)
 - **Alguém sério discordaria.** Se ninguém discorda, não é opinião.
 - **Os fatos da semana sustentam**, com pesquisa complementar se precisar (Firecrawl ou WebSearch; fonte aberta e lida, como no Radar).
 - **Importa para a empresa média brasileira**, com consequência prática.
@@ -59,6 +58,8 @@ O formato é fixo porque a página tem lugar para cada parte (veja `references/e
 
 Regras, e por quê:
 - **Todo número e fato tem fonte em `fontes`.** Opinião é livre; fato não.
+- **Números que vêm de notas e casos já publicados:** os que sustentam a tese, confira de novo na fonte original (eles vão ganhar peso de argumento); os periféricos podem ser usados como estão nas notas, com a mesma atribuição.
+- **Fonte complementar que contradiz a primária:** fique com a primária (o documento de quem decide o preço, a regra, o resultado), não use a que diverge e mencione a divergência no PR.
 - **Número igual à fonte**, sem arredondar nem calcular o que a fonte não afirmou.
 - **Atribua o que é de alguém.** Se só o fornecedor afirma, a frase diz isso.
 - **Voz:** primeira pessoa do singular é a voz da redação ("o que me interessa", "eu faria"), porque os títulos fixos da página são "Onde posso estar errado" e "O que eu faria". Não finja experiência pessoal: nada de "visitei", "conversei com clientes", "na minha consultoria".
@@ -76,7 +77,7 @@ Corrija até passar. Releia o texto contra as fontes procurando número, nome e 
 ## Passo 5 — Abrir o pull request
 
 ```bash
-git checkout -b analise/$(date +%Y-%m-%d)
+git checkout -b analise/<data de publicação AAAA-MM-DD, a do semana.py>
 git add conteudo/publicado/analise/ site/dados/analise.js
 git commit -m "Análise: <título>"
 git push -u origin HEAD

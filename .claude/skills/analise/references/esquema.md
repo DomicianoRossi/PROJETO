@@ -5,7 +5,7 @@ O validador é `scripts/build_dados.py` (função `valida_analise`). Em caso de 
 | Campo | Tipo | Regra |
 |---|---|---|
 | `id` | texto | igual ao nome do arquivo, kebab-case sem acento |
-| `publicado_em` | texto | ISO 8601 com fuso; a rotina roda na quinta, use a sexta seguinte às 07:00 (`2026-10-09T07:00:00-03:00`) |
+| `publicado_em` | texto | ISO 8601 com fuso; use a data de publicação que o `semana.py` imprime, às 07:00 (`2026-10-09T07:00:00-03:00`) |
 | `tema` | texto | OPERAÇÃO, MERCADO, CUSTO, PESQUISA ou REGULAÇÃO |
 | `titulo`, `linhaFina`, `frase` | texto | ver SKILL.md |
 | `leitura` | inteiro | 4 a 6 |

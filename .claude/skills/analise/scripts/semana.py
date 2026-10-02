@@ -48,3 +48,16 @@ for c in casos:
     for f in c["fontes"]:
         print(f"   fonte: {f['origem']} — {f['url']}")
     print()
+
+analises = sorted((json.loads(p.read_text(encoding="utf-8")) for p in (PUB / "analise").glob("*.json")),
+                  key=lambda d: d["publicado_em"], reverse=True)
+print(f"== ANÁLISES JÁ PUBLICADAS: {len(analises)} (não repetir tese)\n")
+for a in analises:
+    print(f"[{a['id']}] {a['publicado_em'][:10]} · {a['tema']} · {a['titulo']}")
+    for t in a["tese"]:
+        print(f"   tese: {t}")
+    print()
+
+hoje = datetime.now(timezone(timedelta(hours=-3))).date()
+sexta = hoje + timedelta(days=(4 - hoje.weekday()) % 7)
+print(f"== DATA DE PUBLICAÇÃO: {sexta.isoformat()} (publicado_em {sexta.isoformat()}T07:00:00-03:00)")
