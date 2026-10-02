@@ -97,8 +97,102 @@ def valida_radar(caminho, item):
     return erros
 
 
+SETORES = ["DISTRIBUIÇÃO", "INDÚSTRIA", "LOGÍSTICA", "COMÉRCIO EXTERIOR", "VAREJO",
+           "SERVIÇOS", "SAÚDE", "FINANÇAS", "AGRO", "TECNOLOGIA"]
+PROCESSOS = ["FATURAMENTO", "COMERCIAL", "FISCAL", "ESTOQUE", "ATENDIMENTO",
+             "FINANCEIRO", "COMPRAS", "RH", "JURÍDICO", "OPERAÇÃO"]
+STATUS_CASO = ["em-operacao", "piloto", "parou"]
+
+ESQUEMA_CASO = {
+    "id": (str, True), "publicado_em": (str, True),
+    "setor": (str, True), "processo": (str, True), "status": (str, True),
+    "empresa": (str, True),             # nome da empresa do caso (caso público tem empresa nomeada)
+    "titulo": (str, True), "linhaFina": (str, True),
+    "resumo": (str, True),              # 1 a 2 frases para a listagem
+    "leitura": (int, True),
+    "abertura": (str, True), "problema": (str, True), "solucao": (str, True), "resultado": (str, True),
+    "humano": (str, False),             # onde a pessoa continua no processo
+    "citacao": (dict, False),           # {texto, quem} — fala publicada na fonte, com quem disse
+    "numeros": (list, True),            # 1 a 5 {valor, legenda, quemMediu}
+    "fluxo": (list, True),              # 2 a 6 {tipo, nome, faz}
+    "indicadores": (list, False),       # {nome, antes, depois, medida}
+    "naoConta": (list, True),           # 1 a 3 {valor, texto}: o que a fonte omite
+    "licoes": (list, True),             # 2 a 3 {titulo, texto}
+    "ficha": (list, True),              # {rotulo, valor}
+    "comoApuramos": (str, True),        # fontes reais; diz que não houve visita nem entrevista
+    "transparencia": (str, True),       # relação da fonte com o resultado, conflitos
+    "fontes": (list, True),             # >= 1 {titulo, origem, url}
+    "imagem": (dict, False),            # {arquivo, alt, modelo, prompt} — gerada por IA, ver conteudo/padroes/imagens.md
+}
+
+
+def _campos(caminho, item, esquema):
+    erros = []
+    for campo, (tipo, obrig) in esquema.items():
+        if campo not in item:
+            if obrig:
+                erros.append(erro(caminho, f"falta o campo '{campo}'"))
+            continue
+        if not isinstance(item[campo], tipo):
+            erros.append(erro(caminho, f"'{campo}' deveria ser {tipo.__name__}"))
+    extras = set(item) - set(esquema)
+    if extras:
+        erros.append(erro(caminho, f"campos desconhecidos: {', '.join(sorted(extras))}"))
+    return erros
+
+
+def _lista(caminho, item, campo, chaves, minimo, maximo):
+    v = item.get(campo, [])
+    erros = []
+    if not minimo <= len(v) <= maximo:
+        erros.append(erro(caminho, f"{campo} precisa de {minimo} a {maximo} itens"))
+    for x in v:
+        if not isinstance(x, dict) or set(x) != set(chaves):
+            erros.append(erro(caminho, f"cada item de {campo} tem exatamente: {', '.join(chaves)}"))
+            break
+    return erros
+
+
+def valida_caso(caminho, item):
+    erros = _campos(caminho, item, ESQUEMA_CASO)
+    if erros:
+        return erros
+    if item["id"] != caminho.stem or not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", item["id"]):
+        erros.append(erro(caminho, "id deve ser kebab-case sem acento e igual ao nome do arquivo"))
+    try:
+        if datetime.fromisoformat(item["publicado_em"]).tzinfo is None:
+            erros.append(erro(caminho, "publicado_em sem fuso horário"))
+    except ValueError:
+        erros.append(erro(caminho, "publicado_em não é ISO 8601"))
+    for campo, lista in (("setor", SETORES), ("processo", PROCESSOS), ("status", STATUS_CASO)):
+        if item[campo] not in lista:
+            erros.append(erro(caminho, f"{campo} '{item[campo]}' fora de {lista}"))
+    erros += _lista(caminho, item, "numeros", ["valor", "legenda", "quemMediu"], 1, 5)
+    erros += _lista(caminho, item, "fluxo", ["tipo", "nome", "faz"], 2, 6)
+    erros += _lista(caminho, item, "indicadores", ["nome", "antes", "depois", "medida"], 0, 6)
+    erros += _lista(caminho, item, "naoConta", ["valor", "texto"], 1, 3)
+    erros += _lista(caminho, item, "licoes", ["titulo", "texto"], 2, 3)
+    erros += _lista(caminho, item, "ficha", ["rotulo", "valor"], 3, 10)
+    erros += _lista(caminho, item, "fontes", ["titulo", "origem", "url"], 1, 8)
+    for f in item["fontes"]:
+        if isinstance(f, dict) and not str(f.get("url", "")).startswith("https://"):
+            erros.append(erro(caminho, f"fonte sem URL https: {f.get('url')}"))
+    if "citacao" in item and set(item["citacao"]) != {"texto", "quem"}:
+        erros.append(erro(caminho, "citacao tem exatamente: texto, quem"))
+    if "imagem" in item:
+        im = item["imagem"]
+        if set(im) != {"arquivo", "alt", "modelo", "prompt"}:
+            erros.append(erro(caminho, "imagem tem exatamente: arquivo, alt, modelo, prompt"))
+        elif not (RAIZ / "site" / im["arquivo"]).exists():
+            erros.append(erro(caminho, f"imagem não encontrada em site/{im['arquivo']}"))
+    if re.search(r"\b(visitamos|entrevistamos|conversamos com)\b", item["comoApuramos"], re.I):
+        erros.append(erro(caminho, "comoApuramos promete visita ou entrevista; casos de fontes públicas não podem"))
+    return erros
+
+
 def carrega(editoria, validador):
     pasta = FONTE / editoria
+    pasta.mkdir(parents=True, exist_ok=True)
     itens, erros = [], []
     for caminho in sorted(pasta.glob("*.json")):
         try:
@@ -115,26 +209,37 @@ def carrega(editoria, validador):
     return itens, erros
 
 
+EDITORIAS = [("radar", "valida_radar", "notas"), ("na-operacao", "valida_caso", "casos")]
+
+
 def main():
     so_checar = "--checar" in sys.argv
-    radar, erros = carrega("radar", valida_radar)
+    resultados, erros = {}, []
+    for editoria, validador, nome in EDITORIAS:
+        itens, e = carrega(editoria, globals()[validador])
+        resultados[editoria] = itens
+        erros += e
     if erros:
         print("REPROVADO", file=sys.stderr)
         for e in erros:
             print("  " + e, file=sys.stderr)
         sys.exit(1)
-    print(f"ok: radar com {len(radar)} notas")
+    for editoria, _, nome in EDITORIAS:
+        print(f"ok: {editoria} com {len(resultados[editoria])} {nome}")
     if so_checar:
         return
     SAIDA.mkdir(parents=True, exist_ok=True)
-    corpo = (
-        "// Gerado por scripts/build_dados.py. Não edite à mão: edite conteudo/publicado/.\n"
-        "window.AW_DADOS = window.AW_DADOS || {};\n"
-        f"window.AW_DADOS.assinatura = {json.dumps(ASSINATURA, ensure_ascii=False)};\n"
-        f"window.AW_DADOS.radar = {json.dumps(radar, ensure_ascii=False, indent=1)};\n"
-    )
-    (SAIDA / "radar.js").write_text(corpo, encoding="utf-8")
-    print(f"gerado: {(SAIDA / 'radar.js').relative_to(RAIZ)}")
+    for editoria, _, _ in EDITORIAS:
+        chave = editoria.replace("-", "_")
+        corpo = (
+            "// Gerado por scripts/build_dados.py. Não edite à mão: edite conteudo/publicado/.\n"
+            "window.AW_DADOS = window.AW_DADOS || {};\n"
+            f"window.AW_DADOS.assinatura = {json.dumps(ASSINATURA, ensure_ascii=False)};\n"
+            f"window.AW_DADOS.{chave} = {json.dumps(resultados[editoria], ensure_ascii=False, indent=1)};\n"
+        )
+        destino = SAIDA / f"{editoria}.js"
+        destino.write_text(corpo, encoding="utf-8")
+        print(f"gerado: {destino.relative_to(RAIZ)}")
 
 
 if __name__ == "__main__":
