@@ -28,7 +28,7 @@ Exemplo de histórico depois de uma revisão:
 "versao": "1.1",
 "historico": [
   {"data": "out/2026", "versao": "1.1", "texto": "item 04 atualizado: a Meta passou a cobrar por resposta de atendimento no WhatsApp Business desde 1º de outubro."},
-  {"data": "out/2026", "versao": "1.0", "texto": "Publicação."}
+  {"data": "out/2026", "versao": "1.0", "texto": "Publicação. Parte da nota do Radar \"<título da nota>\"."}
 ]
 ```
 

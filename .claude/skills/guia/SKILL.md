@@ -39,6 +39,7 @@ Para cada guia, compare os itens com o que saiu desde a última atualização. U
 Não revise por estilo. Revisão é mudança de conteúdo, e cada uma vira linha no histórico que o leitor vê.
 
 Ao revisar:
+- **data do histórico**: mês e ano no formato `out/2026`, pela hora de São Paulo.
 - **versão**: correção pequena ou acréscimo pontual sobe o decimal (1.0 → 1.1); mudança de item, item novo ou removido sobe o decimal também; reescrita do guia sobe o inteiro (1.x → 2.0);
 - `atualizado_em` = agora;
 - nova entrada **no começo** de `historico`: `{"data": "out/2026", "versao": "1.1", "texto": "o que mudou e por quê, citando o fato novo"}`;
@@ -64,6 +65,8 @@ Ao revisar:
 - `anote`: o que a pessoa escreve para comparar depois
 
 **Regras, e por quê:**
+- **Releia a fonte original de todo fato que entrar no guia**, mesmo que ele já esteja numa nota ou análise do site. O guia fica no ar por meses e é revisado; ele precisa apontar para a origem, não para a nota.
+- **Fontes que mostram o mesmo dado em escalas diferentes** (por exemplo, 1.000 e 10.000 mensagens): use uma só, a mesma que o site já publicou, e diga a escala no texto.
 - **Fato tem fonte.** Número, regra, preço e nome de norma vêm de fonte aberta e lida, listada em `fontes`. O guia não pode dizer "60% dos pilotos param na integração" sem dizer quem mediu; se não houver fonte, escreva sem o número.
 - **Orientação é editorial, e pode ser.** "Peça o log de uma semana" é recomendação da redação, não fato; não precisa de fonte, mas também não pode se apresentar como regra de mercado.
 - **Nada inventado sobre leitores ou especialistas.** Sem "a pedido de leitores", "revisado por advogado" ou "segundo especialistas" sem nome. O histórico da versão 1.0 diz "Publicação." e, se for o caso, de qual nota ou caso o guia partiu.
@@ -84,7 +87,9 @@ Corrija até passar. Releia o que é fato contra as fontes.
 ```bash
 git checkout -b guia/$(date +%Y-%m-%d)
 git add conteudo/publicado/guia/ site/dados/guia.js
-git commit -m "Guia: <novo: título> <revisões: id vX.Y>"
+git commit -m "Guia: novo — <título>"            # rodada só com guia novo
+# ou "Guia: revisões — <id> v1.1, <id> v2.0"   # rodada só com revisões
+# ou "Guia: novo — <título>; revisões — <id> v1.1"
 git push -u origin HEAD
 ```
 

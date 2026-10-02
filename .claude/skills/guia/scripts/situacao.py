@@ -51,4 +51,5 @@ novos = [("RADAR", n["publicado_em"], n["titulo"], n["id"]) for n in ler("radar"
 novos = sorted((x for x in novos if datetime.fromisoformat(x[1]) > desde), key=lambda x: x[1], reverse=True)
 print(f"== PUBLICADO DESDE {desde.date()} (pode exigir revisão de guia): {len(novos)}\n")
 for ed, quando, titulo, id_ in novos:
-    print(f"{quando[:10]} · {ed} · {titulo}  [{id_}]")
+    futuro = "  (agendado: data de publicação ainda não chegou)" if datetime.fromisoformat(quando) > agora else ""
+    print(f"{quando[:10]} · {ed} · {titulo}  [{id_}]{futuro}")
