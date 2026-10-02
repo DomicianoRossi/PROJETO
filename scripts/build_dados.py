@@ -190,6 +190,50 @@ def valida_caso(caminho, item):
     return erros
 
 
+TEMAS_ANALISE = ["OPERAÇÃO", "MERCADO", "CUSTO", "PESQUISA", "REGULAÇÃO"]
+
+ESQUEMA_ANALISE = {
+    "id": (str, True), "publicado_em": (str, True), "tema": (str, True),
+    "titulo": (str, True), "linhaFina": (str, True),
+    "frase": (str, True),               # frase de destaque para a listagem, presente no texto
+    "leitura": (int, True),
+    "tese": (list, True),               # exatamente 3 frases
+    "p1": (str, True), "p2": (str, True), "h1": (str, True), "p3": (str, True), "p4": (str, True),
+    "destaque": (str, True),            # citação em bloco; se for fala de alguém, com o nome
+    "h2": (str, True), "p5": (str, True), "p6": (str, True), "h3": (str, True), "p7": (str, True),
+    "pontos": (list, True),             # 3 {rotulo, titulo, texto}
+    "contra": (str, True),              # "Onde posso estar errado"
+    "fechamento": (str, True),          # "O que eu faria"
+    "fontes": (list, True),             # >= 2 {titulo, origem, url}
+    "baseadoEm": (list, False),         # ids de notas do Radar e casos de Na Operação usados
+}
+
+
+def valida_analise(caminho, item):
+    erros = _campos(caminho, item, ESQUEMA_ANALISE)
+    if erros:
+        return erros
+    if item["id"] != caminho.stem or not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", item["id"]):
+        erros.append(erro(caminho, "id deve ser kebab-case sem acento e igual ao nome do arquivo"))
+    try:
+        if datetime.fromisoformat(item["publicado_em"]).tzinfo is None:
+            erros.append(erro(caminho, "publicado_em sem fuso horário"))
+    except ValueError:
+        erros.append(erro(caminho, "publicado_em não é ISO 8601"))
+    if item["tema"] not in TEMAS_ANALISE:
+        erros.append(erro(caminho, f"tema '{item['tema']}' fora de {TEMAS_ANALISE}"))
+    if len(item["tese"]) != 3:
+        erros.append(erro(caminho, "tese precisa de exatamente 3 frases"))
+    erros += _lista(caminho, item, "pontos", ["rotulo", "titulo", "texto"], 3, 3)
+    erros += _lista(caminho, item, "fontes", ["titulo", "origem", "url"], 2, 12)
+    for f in item["fontes"]:
+        if isinstance(f, dict) and not str(f.get("url", "")).startswith("https://"):
+            erros.append(erro(caminho, f"fonte sem URL https: {f.get('url')}"))
+    if len(item["contra"]) < 200:
+        erros.append(erro(caminho, "'contra' (Onde posso estar errado) precisa argumentar de verdade: mínimo 200 caracteres"))
+    return erros
+
+
 def carrega(editoria, validador):
     pasta = FONTE / editoria
     pasta.mkdir(parents=True, exist_ok=True)
@@ -209,7 +253,8 @@ def carrega(editoria, validador):
     return itens, erros
 
 
-EDITORIAS = [("radar", "valida_radar", "notas"), ("na-operacao", "valida_caso", "casos")]
+EDITORIAS = [("radar", "valida_radar", "notas"), ("na-operacao", "valida_caso", "casos"),
+             ("analise", "valida_analise", "análises")]
 
 
 def main():

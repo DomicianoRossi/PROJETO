@@ -52,6 +52,16 @@
     });
   }
 
+  function analises() {
+    var dados = (window.AW_DADOS && window.AW_DADOS.analise) || [];
+    return dados.map(function (a) {
+      return Object.assign({}, a, {
+        quando: quando(a.publicado_em),
+        url: 'AgenticWay%20Analise%20Artigo.dc.html?id=' + encodeURIComponent(a.id),
+      });
+    });
+  }
+
   function hoje() {
     var d = new Date();
     return DIAS[d.getDay()] + ', ' + d.getDate() + ' ' + MESES[d.getMonth()] + ' ' + d.getFullYear();
@@ -62,7 +72,7 @@
   }
 
   window.AW = {
-    quando: quando, radar: radar, casos: casos, hoje: hoje, param: param, temas: TEMAS,
+    quando: quando, radar: radar, casos: casos, analises: analises, hoje: hoje, param: param, temas: TEMAS,
     assinatura: function () { return (window.AW_DADOS && window.AW_DADOS.assinatura) || ''; },
   };
 })();

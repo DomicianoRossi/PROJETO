@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./dados/radar.js"></script>
 <script src="./dados/na-operacao.js"></script>
+<script src="./dados/analise.js"></script>
 <script src="./aw.js"></script>
 <link rel="stylesheet" href="./aw.css">
 <script src="./support.js"></script>
@@ -143,6 +144,12 @@ class Component extends DCLogic {
     const d = new Date();
     const hoje = `${dias[d.getDay()]}, ${d.getDate()} ${meses[d.getMonth()]} ${d.getFullYear()}`;
     const density = this.props.radarItems ?? 6;
+    const ua = AW.analises()[0];
+    const analiseCard = ua ? {
+      capaClasse: 'aw-capa', capaEd: 'ANÁLISE · OPINIÃO', capaFig: ua.tema.charAt(0) + ua.tema.slice(1).toLowerCase(), capaRot: 'opinião da semana, com fontes',
+      editoria: 'ANÁLISE', titulo: ua.titulo, resumo: ua.linhaFina, meta: 'Opinião · ' + ua.leitura + ' min',
+      url: ua.url, urlLista: 'AgenticWay%20Analise%20Lista.dc.html',
+    } : { capaClasse: 'aw-capa', capaEd: 'ANÁLISE', capaFig: '', capaRot: '', editoria: 'ANÁLISE', titulo: 'Análise estreia em breve', resumo: '', meta: '', url: 'AgenticWay%20Analise%20Lista.dc.html', urlLista: 'AgenticWay%20Analise%20Lista.dc.html' };
     const ultimo = AW.casos()[0];
     const caso = ultimo ? {
       url: ultimo.url, titulo: ultimo.titulo, linhaFina: ultimo.linhaFina, numero: ultimo.numero, numeroLegenda: ultimo.numeroLegenda,
@@ -156,7 +163,7 @@ class Component extends DCLogic {
     }));
     const destaques = [
       { capaClasse: 'aw-capa aw-capa-azul', capaEd: 'FERRAMENTAS · COMPARATIVO', capaFig: '1 de 4', capaRot: 'plataformas passou com o mesmo ERP', editoria: 'FERRAMENTAS', titulo: 'Quatro plataformas de agentes testadas com o mesmo ERP: só uma passou', resumo: 'Critério único: integra com o que a empresa já tem? Detalhes de autenticação, logs e custo por tarefa.', meta: 'Comparativo · 12 min', imagem: 'imagem: bancada de testes', url: 'AgenticWay%20Ferramentas%20Artigo.dc.html', urlLista: 'AgenticWay%20Ferramentas%20Lista.dc.html' },
-      { capaClasse: 'aw-capa', capaEd: 'ANÁLISE · OPINIÃO', capaFig: '7%', capaRot: 'das empresas rodam agentes totalmente autônomos (Bain)', editoria: 'ANÁLISE', titulo: 'O agente funciona. A planilha que o aprovou, não.', resumo: 'Quase 40% das empresas que mediram o resultado economizaram 10% ou menos. O problema está na conta feita antes do agente.', meta: 'Opinião · Domiciano Rossi · 4 min', imagem: 'imagem: ilustração editorial', url: 'AgenticWay%20Analise%20Conta%20do%20Agente.dc.html', urlLista: 'AgenticWay%20Analise%20Lista.dc.html' },
+      analiseCard,
       { capaClasse: 'aw-capa aw-capa-papel', capaEd: 'GUIA · CHECKLIST', capaFig: '7', capaRot: 'perguntas para o fornecedor antes de assinar', editoria: 'GUIA', titulo: 'Sete perguntas para fazer a um fornecedor de agentes antes de assinar', resumo: 'De "onde ficam os dados" a "o que acontece quando o modelo muda". Lista para levar à reunião.', meta: 'Guia · atualizado set/2026', imagem: 'imagem: checklist', url: 'AgenticWay%20Guia%20Artigo.dc.html', urlLista: 'AgenticWay%20Guia%20Lista.dc.html' },
     ];
     return {
