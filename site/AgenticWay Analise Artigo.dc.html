@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./dados/analise.js"></script>
+<script src="./aw.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -24,11 +26,6 @@
         <a href="AgenticWay%20Radar%20Lista.dc.html">Radar</a><a href="AgenticWay%20Na%20Operacao%20Lista.dc.html">Na Operação</a><a href="AgenticWay%20Ferramentas%20Lista.dc.html">Ferramentas</a><a href="AgenticWay%20Analise%20Lista.dc.html" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Análise</a><a href="AgenticWay%20Guia%20Lista.dc.html">Guia</a><a href="AgenticWay%20Para%20Empresas.dc.html">Para empresas</a>
       </nav>
     </div>
-  </div>
-
-  <!-- faixa de demonstração: remover quando a editoria tiver conteúdo real -->
-  <div style="background:#0F2A44;color:#F7F5F0;padding:10px clamp(16px,4vw,48px)">
-    <div style="max-width:1200px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5"><strong style="color:#F08A6E;font-weight:500">CONTEÚDO DE DEMONSTRAÇÃO</strong> · Este texto mostra o formato da editoria e não é uma análise publicada.</div>
   </div>
 
   <!-- linha de contexto -->
@@ -116,7 +113,7 @@
             <div class="mono" style="font-size:11px;color:#5B6572;margin-bottom:10px">O QUE ESTA ANÁLISE CITA</div>
             <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px">
               <sc-for list="{{ referencias }}" as="f" hint-placeholder-count="3">
-                <li style="font-size:14px;line-height:1.45;display:flex;gap:10px;flex-wrap:wrap"><a href="AgenticWay%20Analise%20Lista.dc.html" style="border-bottom:1px solid #4A8FC7">{{ f.titulo }}</a><span class="mono" style="font-size:11px;color:#5B6572;padding-top:3px">{{ f.origem }}</span></li>
+                <li style="font-size:14px;line-height:1.45;display:flex;gap:10px;flex-wrap:wrap"><a href="{{ f.url }}" target="_blank" rel="noopener" style="border-bottom:1px solid #4A8FC7">{{ f.titulo }}</a><span class="mono" style="font-size:11px;color:#5B6572;padding-top:3px">{{ f.origem }}</span></li>
               </sc-for>
             </ul>
           </div>
@@ -142,7 +139,7 @@
           <div style="display:flex;flex-direction:column">
             <div class="lat-h">OUTRAS ANÁLISES</div>
             <sc-for list="{{ relacionados }}" as="r" hint-placeholder-count="3">
-              <a href="AgenticWay%20Analise%20Lista.dc.html" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
+              <a href="{{ r.url }}" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
                 <span class="sans" style="font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">{{ r.titulo }}</span>
                 <span class="mono" style="font-size:11px;color:#5B6572">{{ r.meta }}</span>
               </a>
@@ -180,52 +177,24 @@
 class Component extends DCLogic {
   state = { sent: false };
   renderVals() {
+    const todas = AW.analises();
+    const a = todas.find(x => x.id === AW.param('id')) || todas[0];
     const autor = {
-      nome: 'Domiciano Rossi',
-      papel: 'Fundador da AgenticWay · integra sistemas há mais de uma década',
-      bio: 'Escreve o Radar e as análises da AgenticWay. Antes de escrever sobre agentes, passou anos ligando ERP, CRM e sistemas fiscais de empresas médias, e continua fazendo isso.',
+      nome: 'Redação de agentes AgenticWay',
+      papel: 'Editor responsável: Domiciano Rossi',
+      bio: 'As análises são escritas por agentes de IA a partir do que o Radar e a Na Operação publicaram na semana, com pesquisa complementar. Domiciano Rossi, fundador da AgenticWay, é o editor responsável e aprova cada tese antes de ela ir ao ar.',
     };
-    const analise = {
-      data: 'sexta-feira, 18 set 2026',
-      titulo: 'Por que o "agente autônomo" ainda precisa de um humano no meio do fluxo',
-      linhaFina: 'A promessa de zero intervenção esbarra em regra fiscal, exceção comercial e responsabilidade. A pergunta útil não é se, é onde.',
-      leitura: 8,
-      p1: 'Toda apresentação de agente de IA que vi neste ano tinha um slide com a palavra "autônomo". Em nenhuma delas o fornecedor conseguiu responder, sem hesitar, o que acontece quando o agente emite uma nota fiscal errada para um cliente que não tinha limite de crédito. A resposta verdadeira é: a empresa paga, e alguém explica ao contador.',
-      p2: 'Não escrevo isso contra os agentes. Escrevo porque, nos casos que apuramos, os que funcionam têm uma característica em comum que o marketing esconde: uma pessoa em um ponto bem escolhido do fluxo. Não em todos os pontos, o que mataria o ganho. Em um ou dois, escolhidos com critério.',
-      h1: 'O que a autonomia esconde',
-      p3: 'Um agente decide com base em dados e regra. Nas empresas médias que conhecemos, os dados têm cadastro duplicado, apelido de produto que só o vendedor entende e limite de crédito que "depende". A regra existe, mas metade está na cabeça de quem opera. O agente não erra por ser burro; erra por confiar em um cadastro que a própria empresa não confia.',
-      p4: 'Somam-se a isso três coisas que nenhum modelo resolve: a responsabilidade fiscal é da empresa, a exceção comercial é decisão de negócio e o cliente quer falar com alguém quando dá errado. O Banco Central acaba de escrever isso em minuta de resolução: atos com efeito patrimonial exigem confirmação humana. Não é conservadorismo; é a descrição do que já acontece em quem opera bem.',
-      destaque: 'O agente que funciona não é o que decide tudo. É o que sabe exatamente quando parar e explica por quê.',
-      h2: 'Onde a pessoa entra, e onde não entra',
-      p5: 'A distribuidora do caso desta semana colocou a pessoa em um lugar só: a fila de exceções. Tudo o que confere, o agente emite. Tudo o que não confere, para com o motivo escrito. Catorze por cento dos pedidos passam por uma pessoa; oitenta e seis por cento não passam por ninguém. O ganho está nos oitenta e seis; a segurança, nos catorze.',
-      p6: 'O erro comum é o contrário: pedir aprovação humana para tudo, por medo, e chamar isso de agente. Aí o ganho some, a pessoa vira carimbadora e o projeto é cancelado em seis meses por "não ter dado resultado". A previsão do Gartner de que metade dos projetos será cancelada até 2028 tem essa causa entre as principais, e ela é de desenho, não de tecnologia.',
-      h3: 'Três lugares onde a pessoa costuma pertencer',
-      p7: 'Não há fórmula, mas há padrão. Nos casos que apuramos, a pessoa fica em ao menos um destes três pontos, e quase nunca em mais do que dois.',
-      contra: 'A tese pode envelhecer. Modelos ficam mais confiáveis, cadastros ficam mais limpos e reguladores podem aceitar controles automáticos no lugar da confirmação humana, como aceitaram em outras áreas. Se em dois anos a fila de exceções da distribuidora estiver em 2%, a pessoa ali será quase decorativa, e o argumento terá de ser refeito. Por ora, o que vi em campo aponta na direção contrária.',
-      fechamento: 'Se eu fosse desenhar um agente hoje para uma empresa média, começaria pela pergunta "o que a pessoa nunca vai delegar" e escreveria a resposta no contrato antes de escrever uma linha de instrução para o modelo. Depois deixaria o agente parar muito no início e reduziria a fila com log na mão, semana a semana. É menos elegante que "autônomo". Funciona.',
-    };
-    const tese = [
-      'Agentes que funcionam em empresas médias têm uma pessoa em um ou dois pontos do fluxo, escolhidos com critério, e em nenhum outro.',
-      'Regra fiscal, exceção comercial e responsabilidade não são limitações técnicas; são decisões de negócio que o modelo não pode tomar.',
-      'O erro simétrico, aprovação humana para tudo, mata o ganho e explica boa parte dos projetos cancelados.',
-    ];
-    const pontos = [
-      { rotulo: '01 · EFEITO PATRIMONIAL', titulo: 'Antes de emitir, pagar ou liberar crédito', texto: 'Onde o erro custa dinheiro ou multa. O agente prepara; a pessoa confirma. É o que o BC está propondo para o setor financeiro.' },
-      { rotulo: '02 · EXCEÇÃO', titulo: 'Quando a regra não cobre o caso', texto: 'Cliente novo, produto desconhecido, pedido fora do padrão. O agente para, escreve o motivo e sugere. A pessoa decide.' },
-      { rotulo: '03 · RELAÇÃO', titulo: 'Quando o cliente pede uma pessoa', texto: 'Transferência imediata, sem insistir. A qualidade do agente se mede também pela facilidade de sair dele.' },
-    ];
-    const referencias = [
-      { titulo: 'Distribuidora do interior de SP liga agente ao ERP e corta 40% dos erros de nota fiscal', origem: 'AgenticWay · Na Operação · 14 set' },
-      { titulo: 'Edital de Consulta Pública nº 112/2026', origem: 'BCB · documento oficial' },
-      { titulo: 'Metade dos projetos de agentes será cancelada até 2028', origem: 'Gartner · previsão · set/2026' },
-    ];
-    const relacionados = [
-      { titulo: 'O conector nativo é a nova licença: por que o ERP vai decidir qual agente você usa', meta: 'Análise · 11 set' },
-      { titulo: 'Custo por tarefa é o número que ninguém coloca na proposta', meta: 'Análise · 4 set' },
-      { titulo: 'O que o MIT mediu e o que os fornecedores vão dizer sobre isso', meta: 'Análise · 28 ago' },
-    ];
+    if (!a) {
+      return { autor, analise: { titulo: 'Análise não encontrada', data: '', linhaFina: '', leitura: 0 }, tese: [], pontos: [], referencias: [], relacionados: [],
+        btnLabel: 'Assinar', onSubscribe: (e) => e.preventDefault() };
+    }
+    document.title = a.titulo + ' · Análise AgenticWay';
+    const analise = Object.assign({}, a, { data: a.quando.dataLonga.split(' · ')[0] });
+    const relacionados = todas.filter(x => x.id !== a.id).slice(0, 3).map(x => ({
+      titulo: x.titulo, meta: 'Análise · ' + x.quando.dataCurta, url: x.url,
+    }));
     return {
-      autor, analise, tese, pontos, referencias, relacionados,
+      autor, analise, tese: a.tese, pontos: a.pontos, referencias: a.fontes, relacionados,
       btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
       onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
     };

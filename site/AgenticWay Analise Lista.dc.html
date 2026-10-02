@@ -3,13 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./dados/analise.js"></script>
+<script src="./aw.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}</style>
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.aw-oculto{display:none!important}</style>
 </helmet>
 <div data-screen-label="Análise · Lista" style="min-height:100vh;display:flex;flex-direction:column">
 
@@ -24,11 +26,6 @@
         <a href="AgenticWay%20Radar%20Lista.dc.html">Radar</a><a href="AgenticWay%20Na%20Operacao%20Lista.dc.html">Na Operação</a><a href="AgenticWay%20Ferramentas%20Lista.dc.html">Ferramentas</a><a href="AgenticWay%20Analise%20Lista.dc.html" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Análise</a><a href="AgenticWay%20Guia%20Lista.dc.html">Guia</a><a href="AgenticWay%20Para%20Empresas.dc.html">Para empresas</a>
       </nav>
     </div>
-  </div>
-
-  <!-- faixa de demonstração: remover quando a editoria tiver conteúdo real -->
-  <div style="background:#0F2A44;color:#F7F5F0;padding:10px clamp(16px,4vw,48px)">
-    <div style="max-width:1200px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5"><strong style="color:#F08A6E;font-weight:500">CONTEÚDO DE DEMONSTRAÇÃO</strong> · Só "O agente funciona. A planilha que o aprovou, não." é uma análise publicada. As demais mostram o formato da editoria e não são reais.</div>
   </div>
 
   <!-- linha de contexto -->
@@ -97,13 +94,13 @@
             <div style="display:flex;gap:14px;align-items:flex-start;padding-top:6px">
               <div style="width:56px;height:56px;border-radius:50%;background:repeating-linear-gradient(135deg,#E5E1D8 0 6px,#EDEAE3 6px 12px);flex-shrink:0"></div>
               <div style="display:flex;flex-direction:column;gap:4px">
-                <span class="sans" style="font-weight:700;font-size:15px">Domiciano Rossi</span>
-                <span style="font-size:13px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">Fundador da AgenticWay. Integra sistemas de empresas médias há mais de uma década e continua integrando. A opinião dele vem daí, e o conflito de interesse está declarado na página Sobre.</span>
+                <span class="sans" style="font-weight:700;font-size:15px">Redação de agentes AgenticWay</span>
+                <span style="font-size:13px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">As análises são escritas por agentes de IA a partir do que o Radar e a Na Operação publicaram na semana. Domiciano Rossi, fundador da AgenticWay, é o editor responsável e aprova cada tese antes de ela ir ao ar. Conflito de interesse declarado na página Sobre.</span>
               </div>
             </div>
           </div>
 
-          <div style="display:flex;flex-direction:column">
+          <div class="{{ classeReplicas }}" style="display:flex;flex-direction:column">
             <div class="lat-h">RÉPLICAS PUBLICADAS</div>
             <sc-for list="{{ replicas }}" as="r" hint-placeholder-count="3">
               <a href="AgenticWay%20Analise%20Artigo.dc.html" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
@@ -145,32 +142,20 @@
 class Component extends DCLogic {
   state = { sent: false, tema: 'Todos' };
   renderVals() {
-    const todos = [
-      { tema: 'CUSTO', data: '30 set 2026', url: 'AgenticWay%20Analise%20Conta%20do%20Agente.dc.html', titulo: 'O agente funciona. A planilha que o aprovou, não.', linhaFina: 'Noventa por cento das empresas vão aumentar o orçamento de IA de novo. Quase 40% das que mediram o resultado economizaram 10% ou menos. O problema está na conta feita antes do agente.', frase: '"Diminuir em 30% o esforço de uma tarefa não significa reduzir em 30% o custo do processo." — Lucas Brossi, Bain & Company', autor: 'Domiciano Rossi', leitura: 4, replicas: 0 },
-      { tema: 'OPERAÇÃO', data: '18 set 2026', titulo: 'Por que o "agente autônomo" ainda precisa de um humano no meio do fluxo', linhaFina: 'A promessa de zero intervenção esbarra em regra fiscal, exceção comercial e responsabilidade. A pergunta útil não é se, é onde.', frase: '"O agente que funciona não é o que decide tudo. É o que sabe exatamente quando parar e explica por quê."', autor: 'Domiciano Rossi', leitura: 8, replicas: 0 },
-      { tema: 'MERCADO', data: '11 set 2026', titulo: 'O conector nativo é a nova licença: por que o ERP vai decidir qual agente você usa', linhaFina: 'Quando o fornecedor do ERP lança conector oficial, a escolha da plataforma de agentes deixa de ser sua. Isso é bom e ruim.', frase: '"Quem controla a porta do sistema controla quem entra. Os ERPs entenderam isso antes das plataformas de IA."', autor: 'Domiciano Rossi', leitura: 7, replicas: 2 },
-      { tema: 'CUSTO', data: '4 set 2026', titulo: 'Custo por tarefa é o número que ninguém coloca na proposta', linhaFina: 'Licença mensal é a parte visível. O consumo de modelo por execução é a parte que cresce com o sucesso do projeto.', frase: '"Um agente que funciona custa mais a cada mês, porque é usado mais. Quem não previu isso vai cancelar no sexto."', autor: 'Domiciano Rossi', leitura: 6, replicas: 1 },
-      { tema: 'PESQUISA', data: '28 ago 2026', titulo: 'O que o MIT mediu e o que os fornecedores vão dizer sobre isso', linhaFina: '60% dos pilotos param na integração. A resposta do mercado será "não com a nossa plataforma". A pergunta certa é outra.', frase: '"O estudo não mede plataformas. Mede empresas. E as empresas têm o cadastro que têm."', autor: 'Domiciano Rossi', leitura: 7, replicas: 0 },
-      { tema: 'REGULAÇÃO', data: '21 ago 2026', titulo: 'A ANPD escreveu para os bancos, mas a sua distribuidora deveria ler', linhaFina: 'A orientação sobre decisões automatizadas vale para qualquer empresa que use agente para decidir algo sobre um cliente.', frase: '"Regulação chega primeiro a quem tem mais a perder. Depois vira padrão para todo mundo, sem aviso."', autor: 'Domiciano Rossi', leitura: 6, replicas: 3 },
-      { tema: 'OPERAÇÃO', data: '14 ago 2026', titulo: 'Limpe o cadastro antes de contratar o agente, ou pague para o agente descobrir que ele está sujo', linhaFina: 'A maior parte do custo de integração que vemos nos casos é limpeza de dado, disfarçada de projeto de IA.', frase: '"O agente é um espelho do cadastro. Ninguém gosta do que vê na primeira semana."', autor: 'Domiciano Rossi', leitura: 5, replicas: 1 },
-    ];
+    const todos = AW.analises().map(a => Object.assign({}, a, {
+      data: a.quando.dataCurta + ' ' + a.publicado_em.slice(0, 4), autor: 'Agentes AgenticWay', replicas: 0,
+    }));
     const { tema } = this.state;
-    const temas = ['Todos', 'OPERAÇÃO', 'MERCADO', 'CUSTO', 'PESQUISA', 'REGULAÇÃO'];
+    const temas = ['Todos', ...new Set(todos.map(a => a.tema))];
     const bonito = (s) => s === 'Todos' ? 'Todos' : s.charAt(0) + s.slice(1).toLowerCase();
     const filtrados = todos.filter(a => tema === 'Todos' || a.tema === tema);
-    // análises sem página própria ainda apontam para a página-modelo
-    todos.forEach(a => { a.url = a.url || 'AgenticWay%20Analise%20Artigo.dc.html'; });
-    const destaque = filtrados[0] || todos[0];
+    const destaque = filtrados[0] || todos[0] || { tema: '', data: '', titulo: 'Nenhuma análise publicada ainda.', linhaFina: '', frase: '', autor: '', leitura: 0, url: 'AgenticWay%20Analise%20Lista.dc.html' };
     const itens = filtrados.slice(filtrados.length ? 1 : 0).map(a => ({ ...a, replicas: a.replicas ? ` · ${a.replicas} ${a.replicas === 1 ? 'réplica' : 'réplicas'}` : '' }));
     const vazio = filtrados.length === 0 ? 'Nenhuma análise com esse tema ainda.' : '';
     const filtros = temas.map(t => ({ rotulo: bonito(t), classe: t === tema ? 'chip chip-on' : 'chip', onClick: () => this.setState({ tema: t }) }));
-    const replicas = [
-      { sobre: 'O conector nativo é a nova licença', titulo: 'O conector nativo não prende ninguém; a falta de API é que prende', autor: 'Gerente de TI de uma distribuidora, nome sob sigilo' },
-      { sobre: 'A ANPD escreveu para os bancos', titulo: 'A orientação da ANPD não tem força de norma, e isso muda a leitura', autor: 'Advogada de proteção de dados, São Paulo' },
-      { sobre: 'Custo por tarefa', titulo: 'Custo por tarefa cai com cache e com instrução curta; a conta não é linear', autor: 'Integrador, Curitiba' },
-    ];
+    const replicas = [];
     return {
-      total: todos.length, destaque, itens, vazio, filtros, replicas,
+      total: todos.length, destaque, itens, vazio, filtros, replicas, classeReplicas: replicas.length ? '' : 'aw-oculto',
       btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
       onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
     };
