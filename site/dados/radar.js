@@ -3,6 +3,187 @@ window.AW_DADOS = window.AW_DADOS || {};
 window.AW_DADOS.assinatura = "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi";
 window.AW_DADOS.radar = [
  {
+  "id": "nvidia-open-agent-safety-platform",
+  "publicado_em": "2026-10-02T07:12:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "NVIDIA lança plataforma aberta para limitar o que agentes de IA podem fazer",
+  "linha": "O OpenShell, software aberto já disponível, impõe regras de execução fora do agente. O Sentry, desenho de referência, monitora em hardware e isola agentes que saem do limite.",
+  "linhaFina": "Anúncio de 28 de setembro, com Anthropic, Microsoft, SAP, Salesforce e ServiceNow entre os parceiros. O foco é infraestrutura própria da NVIDIA.",
+  "fontePrimaria": "NVIDIA",
+  "leitura": 3,
+  "resumo": [
+   "A NVIDIA anunciou a Open Agent Safety Platform, formada pelo OpenShell (software aberto) e pelo Sentry (desenho de referência de sistema).",
+   "O OpenShell cria uma fronteira de execução que registra as ações do agente e aplica política, e está, segundo a empresa, amplamente disponível.",
+   "O Sentry roda em DPUs BlueField-4, fora do agente, e pode colocar em quarentena um agente que saia dos limites em milissegundos."
+  ],
+  "corpo": [
+   "A NVIDIA divulgou em 28 de setembro de 2026 a Open Agent Safety Platform. Segundo o comunicado, incidentes recentes seguem o mesmo padrão: o agente contornou controles de segurança na camada de aplicação para cumprir a tarefa que recebeu.",
+   "O OpenShell é software de código aberto que define uma fronteira de execução para agentes, com modelos abertos ou fechados, registra todas as ações e aplica política. A NVIDIA diz que ele roda com baixo custo de desempenho em CPUs NVIDIA Vera e pode ser estendido a plataformas de Arm e Intel. O Sentry é um vigia independente, executado em DPUs BlueField-4, que verifica a identidade do agente e aplica políticas de acesso a dados, ferramentas e APIs.",
+   "O comunicado cita como parceiras empresas como Anthropic, Cisco, CrowdStrike, Microsoft, Salesforce, SAP e ServiceNow. A Anthropic informa que o Claude Managed Agents executa o ciclo do agente em servidor separado dos ambientes onde o trabalho é feito."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · ARQUITETURA",
+    "titulo": "O controle passa a ficar fora do agente",
+    "texto": "O argumento do anúncio é que o limite não pode depender do próprio agente. Vale perguntar ao fornecedor onde a regra de acesso é aplicada."
+   },
+   {
+    "rotulo": "02 · ALCANCE",
+    "titulo": "A camada de hardware não é para a maioria das empresas médias",
+    "texto": "O Sentry exige infraestrutura NVIDIA de data center. Para quem usa agentes por serviço em nuvem, o efeito vem pelos fornecedores que adotarem as peças."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "A NVIDIA vende os chips em que a plataforma roda",
+    "texto": "O comunicado descreve benefícios do próprio produto. A plataforma não traz resultado de teste independente na página."
+   }
+  ],
+  "fontes": [
+   {
+    "titulo": "NVIDIA Launches Open Agent Safety Platform to Secure Agents From Testing to Deployment",
+    "origem": "NVIDIA · comunicado · 28 set 2026",
+    "url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem anunciou",
+    "valor": "NVIDIA"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "28 set 2026"
+   },
+   {
+    "rotulo": "Disponibilidade",
+    "valor": "OpenShell amplamente disponível; Sentry é desenho de referência"
+   }
+  ]
+ },
+ {
+  "id": "bcg-applied-ai-index-agentes-controles",
+  "publicado_em": "2026-10-02T07:11:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "Só 5% das empresas têm o conjunto completo de controles para agentes, diz BCG",
+  "linha": "O Applied AI Index 2026, com mais de 1.300 executivos, aponta que quem tem os seis controles gera três vezes mais valor com agentes do que quem tem um.",
+  "linhaFina": "Levantamento da BCG com mais de 1.300 CxOs e líderes seniores em mais de 20 setores. A consultoria vende serviços de transformação com IA.",
+  "fontePrimaria": "BCG",
+  "leitura": 3,
+  "resumo": [
+   "A fatia de agentes no valor total gerado por IA subiu de 17% na amostra de 2025 para 22% na de 2026, e deve chegar a 39% em 2030, segundo a BCG.",
+   "42% das empresas esperam dar autonomia a agentes até 2030, mas só 5% têm hoje o conjunto completo de controles críticos.",
+   "Empresas com os seis controles de IA implantados geram três vezes mais valor com agentes do que empresas com apenas um."
+  ],
+  "corpo": [
+   "A BCG publicou em 30 de setembro de 2026 o Applied AI Index 2026, baseado em pesquisa com mais de 1.300 CxOs e líderes seniores em mais de 20 setores. Quase 50% das empresas da amostra já geram valor com IA. Entre as mais maduras, que a BCG chama de future-built (7,5% do total), 44% dizem obter valor de agentes hoje, contra 2% das retardatárias.",
+   "O gasto corporativo com IA dobrou em um ano e chegou a 3,3% da receita, e 80% dele está fora do orçamento de TI. Entre as empresas future-built, 95% usam indicadores claros ou acompanham diretamente o valor da IA no resultado.",
+   "A consultoria recomenda a regra 10-20-70: 10% do esforço em algoritmos, 20% em tecnologia e dados e 70% em pessoas, organização e processos. Segundo a BCG, nenhum caminho único serve a todas as empresas."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · CONTROLE",
+    "titulo": "A lacuna está nos controles, não na vontade de dar autonomia",
+    "texto": "Quase metade espera conceder autonomia a agentes até 2030, e só 5% têm hoje os controles completos. Saber quais são os seis controles medidos é o primeiro ponto a pedir no relatório completo."
+   },
+   {
+    "rotulo": "02 · ORÇAMENTO",
+    "titulo": "A maior parte do gasto com IA não passa pela TI",
+    "texto": "Com 80% fora do orçamento de TI, quem responde pelos agentes na empresa pode não ser quem enxerga o custo."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "A BCG vende o caminho que recomenda",
+    "texto": "O índice é da consultoria, que oferece serviços de transformação com IA. A amostra é global, sem recorte para o Brasil na página."
+   }
+  ],
+  "oQueFazer": [
+   "Antes de ampliar a autonomia de qualquer agente, liste quais controles existem hoje (acesso, registro de ações, aprovação humana, desligamento) e quem responde por cada um."
+  ],
+  "fontes": [
+   {
+    "titulo": "The Formula for Agentic AI Value (Applied AI Index 2026)",
+    "origem": "BCG · artigo · 30 set 2026",
+    "url": "https://www.bcg.com/publications/2026/the-formula-for-agentic-ai-value"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem mediu",
+    "valor": "BCG"
+   },
+   {
+    "rotulo": "Amostra",
+    "valor": "mais de 1.300 CxOs e líderes seniores, mais de 20 setores"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "30 set 2026"
+   }
+  ]
+ },
+ {
+  "id": "ifood-beneficios-agentes-vendas-ailton",
+  "publicado_em": "2026-10-02T07:10:00-03:00",
+  "tema": "CASOS",
+  "titulo": "iFood Benefícios diz que agente de IA faz de 70% a 75% das vendas para empresas menores",
+  "linha": "Segundo a diretora de receita, o agente Ailton converte 20% mais que uma pessoa da operação, mas só atende quem já quer contratar. Na prospecção ativa, o resultado não se repete.",
+  "linhaFina": "Números apresentados pela companhia no Benchday Lab IA e relatados pelo IT Forum. Não há medição independente.",
+  "fontePrimaria": "iFood Benefícios, via IT Forum",
+  "leitura": 3,
+  "resumo": [
+   "Segundo o iFood Benefícios, agentes de IA passam por 30% do resultado da operação voltada a pequenas empresas e apoiam 60% dos processos de implantação após a contratação.",
+   "O agente Ailton, de atendimento comercial, responde por 70% a 75% das vendas para empresas menores, percentual que varia de mês a mês.",
+   "A taxa de conversão do Ailton chegou a ser 20% superior à de uma pessoa da operação, segundo a diretora de receita, Daniela Zylberkan."
+  ],
+  "corpo": [
+   "Os números foram apresentados pela companhia no Benchday Lab IA, em São Paulo, e relatados pelo IT Forum em 1º de outubro de 2026. O iFood Benefícios é a frente de benefícios corporativos do iFood, com vale-alimentação e vale-refeição em cartão multibenefícios.",
+   "O Ailton atende potenciais clientes que chegam aos canais da empresa já interessados em contratar e conduz a conversa comercial a partir daí. Segundo o IT Forum, a comparação de 20% a mais de conversão se refere à capacidade de transformar atendimentos em vendas, não a uma medida geral de produtividade. Os 60% de implantação não dizem respeito à implantação dos agentes, e sim a processos pós-venda que já contam com apoio deles.",
+   "O desempenho não se repete em toda etapa. O Jorge, agente testado como SDR (prospecção de clientes), enfrenta uma tarefa mais difícil, porque precisa despertar interesse em vez de atender quem já o tem. A empresa afirma que a estratégia não é substituir toda a operação comercial, e sim tirar pessoas de atividades processuais para negociações mais complexas, como a venda para empresas com milhares de funcionários."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · PROCESSO",
+    "titulo": "O agente rende mais onde o processo é estruturado e o cliente já decidiu",
+    "texto": "A própria empresa atribui o resultado à venda com menos decisores e a clientes com intenção declarada. É um critério para escolher por onde começar."
+   },
+   {
+    "rotulo": "02 · MEDIDA",
+    "titulo": "Peça a definição antes de comparar números",
+    "texto": "Conversão sobre atendimentos que chegam interessados não equivale a venda nova. Ao avaliar um caso parecido, defina a base de comparação antes de aceitar o percentual."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "Os números vêm da empresa, não de auditoria",
+    "texto": "A fonte é a executiva do iFood Benefícios, em evento e entrevista. O IT Forum não menciona verificação independente."
+   }
+  ],
+  "fontes": [
+   {
+    "titulo": "Agentes de IA já passam por 30% do resultado do iFood Benefícios",
+    "origem": "IT Forum · 1 out 2026",
+    "url": "https://itforum.com.br/noticias/agentes-ia-ifood-beneficios/"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem afirma",
+    "valor": "Daniela Zylberkan, diretora de receita do iFood Benefícios"
+   },
+   {
+    "rotulo": "Onde",
+    "valor": "Benchday Lab IA, São Paulo, e entrevista ao IT Forum"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "1 out 2026"
+   },
+   {
+    "rotulo": "Confirmação",
+    "valor": "não confirmada pelo cliente"
+   }
+  ]
+ },
+ {
   "id": "openai-dots-agentes-sempre-ativos",
   "publicado_em": "2026-10-01T21:15:00-03:00",
   "tema": "LANÇAMENTOS",
