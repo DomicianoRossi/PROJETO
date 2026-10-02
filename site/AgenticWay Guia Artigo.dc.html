@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./dados/guia.js"></script>
+<script src="./aw.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -26,11 +28,6 @@
     </div>
   </div>
 
-  <!-- faixa de demonstração: remover quando a editoria tiver conteúdo real -->
-  <div style="background:#0F2A44;color:#F7F5F0;padding:10px clamp(16px,4vw,48px)">
-    <div style="max-width:1200px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5"><strong style="color:#F08A6E;font-weight:500">CONTEÚDO DE DEMONSTRAÇÃO</strong> · Esta editoria estreia em breve. Os textos abaixo mostram o formato da seção e não são notícias reais.</div>
-  </div>
-
   <!-- linha de contexto -->
   <div style="padding:0 clamp(16px,4vw,48px)">
     <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
@@ -47,7 +44,7 @@
         <h1 class="sans" style="font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:1.1;margin:0;letter-spacing:-0.8px;text-wrap:pretty">{{ guia.titulo }}</h1>
         <p style="font-size:20px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">{{ guia.linhaFina }}</p>
         <div class="mono" style="display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#5B6572;padding-top:6px;border-top:1px solid #DDD9D0">
-          <span>Por {{ guia.autor }}</span><span>{{ guia.leitura }} min de leitura</span><span>{{ guia.itens.length }} itens</span><a href="#" style="color:#1F4E79">Imprimir ou salvar em PDF</a>
+          <span>{{ guia.autor }}</span><span>{{ guia.leitura }} min de leitura</span><span>{{ guia.itens.length }} itens</span><a href="#" style="color:#1F4E79">Imprimir ou salvar em PDF</a>
         </div>
       </header>
 
@@ -114,6 +111,12 @@
 
           <!-- histórico -->
           <div style="margin-top:28px;padding-top:16px;border-top:1px solid #DDD9D0">
+            <div class="mono" style="font-size:11px;color:#5B6572;margin-bottom:8px">FONTES</div>
+            <sc-for list="{{ fontes }}" as="fo" hint-placeholder-count="2">
+              <div style="display:flex;gap:10px;flex-wrap:wrap;padding:4px 0;font-size:13px;line-height:1.5"><a href="{{ fo.url }}" target="_blank" rel="noopener" style="border-bottom:1px solid #4A8FC7">{{ fo.titulo }}</a><span class="mono" style="font-size:11px;color:#5B6572;padding-top:2px">{{ fo.origem }}</span></div>
+            </sc-for>
+          </div>
+          <div style="margin-top:28px;padding-top:16px;border-top:1px solid #DDD9D0">
             <div class="mono" style="font-size:11px;color:#5B6572;margin-bottom:8px">HISTÓRICO DE ATUALIZAÇÕES</div>
             <sc-for list="{{ guia.historico }}" as="h" hint-placeholder-count="2">
               <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:6px 0;font-size:13px;line-height:1.5;color:#3C4A5A">
@@ -139,7 +142,7 @@
           <div style="display:flex;flex-direction:column">
             <div class="lat-h">OUTROS GUIAS</div>
             <sc-for list="{{ relacionados }}" as="r" hint-placeholder-count="3">
-              <a href="AgenticWay%20Guia%20Lista.dc.html" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
+              <a href="{{ r.url }}" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
                 <span class="sans" style="font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty">{{ r.titulo }}</span>
                 <span class="mono" style="font-size:11px;color:#5B6572">{{ r.meta }}</span>
               </a>
@@ -171,42 +174,23 @@
 class Component extends DCLogic {
   state = { sent: false };
   renderVals() {
-    const guia = {
-      tema: 'Contratação',
-      temaUpper: 'CONTRATAÇÃO',
-      slug: 'sete-perguntas-fornecedor',
-      atualizado: 'set/2026',
-      versao: '1.2',
-      titulo: 'Sete perguntas para fazer a um fornecedor de agentes antes de assinar',
-      linhaFina: 'De "onde ficam os dados" a "o que acontece quando o modelo muda". Cada pergunta vem com a resposta que tranquiliza e a que preocupa.',
-      autor: 'Domiciano Rossi',
-      leitura: 9,
-      paraQuem: 'Quem vai decidir ou assinar: dono, diretor de operações, gerente de TI. Não exige conhecimento técnico; exige fazer a pergunta e anotar a resposta.',
-      comoUsar: 'Leve a lista impressa. Faça as sete perguntas na mesma reunião, nesta ordem. Uma resposta que preocupa não elimina o fornecedor; duas ou mais, sim.',
-      abertura: 'A maioria das reuniões de venda de agentes de IA é uma demonstração: o fornecedor mostra o agente respondendo bem a uma pergunta que ele escolheu. As perguntas abaixo tiram a conversa da demonstração e a levam para o que vai acontecer no seu sistema, com os seus dados e a sua regra.',
-      itens: [
-        { id: 'p1', n: '01', curta: 'Onde ficam os dados', pergunta: 'Onde ficam os nossos dados e o que sai para o modelo?', porque: 'O agente precisa ler dados para agir. A pergunta é quais, por quanto tempo e para onde vão. Isso define o risco de LGPD e o que você vai responder ao cliente que perguntar.', boa: 'Os dados ficam no seu ambiente; para o modelo vai só o trecho necessário à tarefa; nada é usado para treinar; há lista do que sai.', ruim: '"Fica tudo na nossa nuvem, é seguro." Sem lista, sem prazo de retenção, sem dizer se treina com os seus dados.', anote: 'o nome do provedor do modelo, o país do servidor e a política de retenção, por escrito.' },
-        { id: 'p2', n: '02', curta: 'Integração com o sistema atual', pergunta: 'Como o agente entra no nosso ERP ou CRM, e com que usuário?', porque: 'É onde 60% dos pilotos param. Se a integração for "vemos depois", o preço da proposta não é o preço do projeto.', boa: 'Conector documentado para o seu sistema, ou API com exemplo funcionando; o agente usa um usuário próprio com permissão limitada.', ruim: '"Integramos com qualquer sistema." Sem citar o seu, sem falar de usuário e permissão, sem estimar o esforço.', anote: 'se a integração está no escopo e no preço, e quem é responsável por ela.' },
-        { id: 'p3', n: '03', curta: 'O que acontece quando o modelo muda', pergunta: 'O que acontece quando o modelo de IA muda ou é descontinuado?', porque: 'Modelos mudam a cada poucos meses. Se a regra de negócio estiver presa ao modelo, cada mudança é um projeto novo.', boa: 'A regra fica separada do modelo; trocar de modelo é configuração, testada antes de virar produção; há mais de um provedor homologado.', ruim: '"Usamos sempre o melhor modelo do mercado." Sem dizer como a troca é testada nem o que acontece com o comportamento do agente.', anote: 'quantos provedores estão homologados e como a troca é comunicada.' },
-        { id: 'p4', n: '04', curta: 'Registro do que o agente fez', pergunta: 'Que registro fica de cada ação do agente?', porque: 'Quando algo der errado, você precisa saber o que o agente leu, decidiu e fez. O Banco Central está propondo isso como exigência; outros reguladores tendem a seguir.', boa: 'Log por ação com data, versão do modelo, dados consultados e instrução de origem; acessível a você sem pedir ao fornecedor.', ruim: '"Guardamos o histórico da conversa." Só a resposta, sem os dados consultados; acesso só via chamado.', anote: 'peça para ver um log real de uma ação, não um exemplo de slide.' },
-        { id: 'p5', n: '05', curta: 'Onde entra a pessoa', pergunta: 'Em que ponto do fluxo uma pessoa confirma, e como o agente escala exceção?', porque: 'Ato com efeito financeiro ou fiscal precisa de confirmação humana. Um agente "autônomo" sem esse ponto é um risco, não uma vantagem.', boa: 'Pontos de confirmação configuráveis por tipo de ação; exceção vai para uma pessoa nomeada com o motivo; o agente não tenta de novo sozinho.', ruim: '"O agente resolve tudo sem intervenção." Ou o oposto: tudo precisa de aprovação, e o ganho some.', anote: 'quais ações vão exigir confirmação e quem recebe as exceções.' },
-        { id: 'p6', n: '06', curta: 'Custo por tarefa', pergunta: 'Quanto custa cada execução, e como isso muda com o volume?', porque: 'Licença mensal é só parte da conta. Agentes consomem modelo por tarefa; o custo cresce com o volume e com o tamanho do que o agente lê.', boa: 'Custo por execução medido em caso parecido com o seu; teto configurável; relatório de consumo por processo.', ruim: '"Depende do uso." Sem número de referência, sem teto, sem relatório.', anote: 'custo por execução estimado para o seu volume mensal e o que acontece ao passar do teto.' },
-        { id: 'p7', n: '07', curta: 'Quem responde pelo erro', pergunta: 'Quando o agente errar, quem responde, e o que o contrato diz sobre isso?', porque: 'Perante o cliente e o fisco, a empresa responde. A pergunta é o que o fornecedor assume: correção, prazo, acesso ao log, ressarcimento.', boa: 'SLA de correção por gravidade, acesso permanente ao log, cláusula clara de responsabilidade por falha do sistema.', ruim: '"Nunca aconteceu." Contrato sem SLA, com limitação total de responsabilidade e sem garantia de acesso ao log ao fim do contrato.', anote: 'a cláusula de responsabilidade e o SLA, antes de assinar; leve ao jurídico.' },
-      ],
-      fechamento: 'Nenhuma dessas perguntas exige entender de IA. Todas exigem que o fornecedor fale do seu sistema, do seu processo e do seu risco, em vez de falar da tecnologia dele. Quem responde bem às sete vai ser um parceiro razoável mesmo quando algo der errado, e algo vai dar errado.',
-      historico: [
-        { data: 'set/2026', texto: 'Versão 1.2: pergunta 04 atualizada com a consulta pública do Banco Central sobre registro auditável.' },
-        { data: 'jul/2026', texto: 'Versão 1.1: acrescentada a pergunta 06 sobre custo por tarefa, a pedido de leitores.' },
-        { data: 'jun/2026', texto: 'Versão 1.0: publicação.' },
-      ],
-    };
-    const relacionados = [
-      { titulo: 'Glossário de agentes de IA para quem opera empresa', meta: 'Guia · atualizado ago/2026' },
-      { titulo: 'Como medir se um agente está dando resultado: cinco indicadores', meta: 'Guia · atualizado jul/2026' },
-      { titulo: 'Checklist de LGPD para agentes que leem dados de cliente', meta: 'Guia · em revisão' },
-    ];
+    const todos = AW.guias();
+    const g = todos.find(x => x.id === AW.param('id')) || todos[0];
+    if (!g) {
+      return { guia: { titulo: 'Guia não encontrado', itens: [], historico: [] }, fontes: [], relacionados: [], btnLabel: 'Assinar', onSubscribe: (e) => e.preventDefault() };
+    }
+    document.title = g.titulo + ' · Guia AgenticWay';
+    const tema = g.assunto.charAt(0) + g.assunto.slice(1).toLowerCase();
+    const guia = Object.assign({}, g, {
+      tema, temaUpper: g.assunto, slug: g.id, autor: AW.assinatura(),
+      itens: g.itens.map((i, k) => Object.assign({ id: 'p' + (k + 1), n: String(k + 1).padStart(2, '0') }, i)),
+      historico: g.historico.map(h => ({ data: h.data, texto: 'Versão ' + h.versao + ': ' + h.texto })),
+    });
+    const relacionados = todos.filter(x => x.id !== g.id).slice(0, 3).map(x => ({
+      titulo: x.titulo, meta: 'Guia · atualizado ' + x.atualizado, url: x.url,
+    }));
     return {
-      guia, relacionados,
+      guia, fontes: g.fontes, relacionados,
       btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
       onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
     };

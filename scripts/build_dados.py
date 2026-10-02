@@ -234,6 +234,54 @@ def valida_analise(caminho, item):
     return erros
 
 
+ASSUNTOS_GUIA = ["CONTRATAÇÃO", "CUSTO", "MEDIÇÃO", "RISCO E LGPD", "INTEGRAÇÃO", "VOCABULÁRIO"]
+FORMATOS_GUIA = ["PERGUNTAS", "CHECKLIST", "INDICADORES", "PASSO A PASSO", "GLOSSÁRIO"]
+
+ESQUEMA_GUIA = {
+    "id": (str, True), "publicado_em": (str, True), "atualizado_em": (str, True),
+    "versao": (str, True),              # "1.0", "1.1" ... sobe a cada revisão publicada
+    "emRevisao": (bool, False),         # true quando o editor marcou o guia para revisão
+    "assunto": (str, True), "formato": (str, True),
+    "titulo": (str, True), "linhaFina": (str, True),
+    "resumo": (str, True),              # 1 a 2 frases para a listagem
+    "leitura": (int, True),
+    "paraQuem": (str, True), "comoUsar": (str, True), "abertura": (str, True),
+    "itens": (list, True),              # 3 a 12 {curta, pergunta, porque, boa, ruim, anote}
+    "fechamento": (str, True),
+    "historico": (list, True),          # >= 1 {data, versao, texto}, mais recente primeiro
+    "fontes": (list, True),             # >= 1 {titulo, origem, url}
+}
+
+
+def valida_guia(caminho, item):
+    erros = _campos(caminho, item, ESQUEMA_GUIA)
+    if erros:
+        return erros
+    if item["id"] != caminho.stem or not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", item["id"]):
+        erros.append(erro(caminho, "id deve ser kebab-case sem acento e igual ao nome do arquivo"))
+    for campo in ("publicado_em", "atualizado_em"):
+        try:
+            if datetime.fromisoformat(item[campo]).tzinfo is None:
+                erros.append(erro(caminho, f"{campo} sem fuso horário"))
+        except ValueError:
+            erros.append(erro(caminho, f"{campo} não é ISO 8601"))
+    if not re.fullmatch(r"\d+\.\d+", item["versao"]):
+        erros.append(erro(caminho, "versao no formato 1.0, 1.1, 2.0"))
+    if item["assunto"] not in ASSUNTOS_GUIA:
+        erros.append(erro(caminho, f"assunto '{item['assunto']}' fora de {ASSUNTOS_GUIA}"))
+    if item["formato"] not in FORMATOS_GUIA:
+        erros.append(erro(caminho, f"formato '{item['formato']}' fora de {FORMATOS_GUIA}"))
+    erros += _lista(caminho, item, "itens", ["curta", "pergunta", "porque", "boa", "ruim", "anote"], 3, 12)
+    erros += _lista(caminho, item, "historico", ["data", "versao", "texto"], 1, 50)
+    erros += _lista(caminho, item, "fontes", ["titulo", "origem", "url"], 1, 15)
+    for f in item["fontes"]:
+        if isinstance(f, dict) and not str(f.get("url", "")).startswith("https://"):
+            erros.append(erro(caminho, f"fonte sem URL https: {f.get('url')}"))
+    if item["historico"] and isinstance(item["historico"][0], dict) and item["historico"][0].get("versao") != item["versao"]:
+        erros.append(erro(caminho, "a primeira entrada do historico deve ser a versão atual"))
+    return erros
+
+
 def carrega(editoria, validador):
     pasta = FONTE / editoria
     pasta.mkdir(parents=True, exist_ok=True)
@@ -254,7 +302,8 @@ def carrega(editoria, validador):
 
 
 EDITORIAS = [("radar", "valida_radar", "notas"), ("na-operacao", "valida_caso", "casos"),
-             ("analise", "valida_analise", "análises")]
+             ("analise", "valida_analise", "análises"),
+             ("guia", "valida_guia", "guias")]
 
 
 def main():
