@@ -23,37 +23,38 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 ## Estrutura do repositório (agentic-way/site)
 - `site/` — o que vai ao ar. Root Directory na Vercel = `site`. `index.html` redireciona para a Home. `support.js` fica aqui e é usado também pelas pranchas.
 - `marca/` — identidade: logos, DNA v1, cores (`marca/*`), arquivos originais enviados (`marca/originais/`) e pranchas internas (`marca/pranchas/`, carregam `../../site/support.js`). Não é publicado.
-- `conteudo/` — produção editorial. As skills de conteúdo gravam em `pesquisas/` relativo à pasta da sessão: rodar `/pesquisa-conteudo`, `/copy-conteudo` e `/design-conteudo` com a sessão aberta em `conteudo/`. PNG e PDF renderizados ficam fora do git.
+- `conteudo/` — produção editorial: `publicado/<editoria>/` (JSON do que está no ar), `pesquisas/` (dossiês, copies, carrosséis; PNG e PDF fora do git) e `padroes/` (**`decisoes.md`: todas as decisões e o porquê — ler antes de mudar algo**; `imagens.md`).
 
 ## Skills do projeto (fonte: este repositório)
-- `.claude/skills/`: `radar`, `pesquisa-conteudo`, `copy-conteudo`, `design-conteudo`. Versionadas no GitHub; a nuvem (rotinas) e o computador local usam estas cópias.
+- `.claude/skills/`: `radar`, `na-operacao`, `analise`, `guia` (editorias, usadas pelas rotinas) e `pesquisa-conteudo`, `copy-conteudo`, `design-conteudo` (carrossel e peças avulsas). Versionadas no GitHub; a nuvem (rotinas) e o computador local usam estas cópias.
 - As cópias do repositório gravam em `conteudo/pesquisas/` a partir da raiz e chamam os scripts por `.claude/skills/design-conteudo/scripts/`.
 - Existem cópias globais antigas em `~/.claude/skills/` (e `.skill` em `C:	emp`) para uso fora deste projeto. Alteração feita aqui não chega lá sozinha.
 - Chaves ficam fora do repositório: `FIRECRAWL_API_KEY` e `GEMINI_API_KEY` como variáveis do ambiente "Radar AgenticWay" na nuvem; localmente, login do Firecrawl e `~/api_keys.env`.
 - `render.py` precisa de Chrome; na nuvem pode não existir (render de carrossel é tarefa local por enquanto).
 
-## Conteúdo como dados (em migração, começou pelo Radar em 01/out/2026)
+## Conteúdo como dados
 - Cada item publicado é um JSON em `conteudo/publicado/<editoria>/<id>.json`. Nenhum HTML é editado para publicar.
 - `python scripts/build_dados.py` valida tudo (campos, tema, fonte com https, data com fuso) e gera `site/dados/<editoria>.js`, que define `window.AW_DADOS`. Item inválido derruba o build. O `.js` gerado é commitado (a Vercel não roda build).
 - As páginas carregam `dados/<editoria>.js` e `aw.js` (datas, endereços, assinatura) antes do `support.js`. Uma página por editoria mostra qualquer item via `?id=`.
 - Assinatura do conteúdo gerado: "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi" (em `build_dados.py`).
 - Aprovação humana = merge do pull request que traz o JSON. Rotinas abrem PR, não publicam direto.
-- Já migrados: Radar (lista, nota, bloco da Home). Ainda com conteúdo de exemplo fixo no HTML: Na Operação, Ferramentas, Análise (exceto a análise real), Guia, destaques da Home.
+- Migrados e com conteúdo real: Radar, Na Operação, Análise, Guia e a Home (radar, destaque de Na Operação, cards de Análise e Guia). Ainda de demonstração, com faixa: Ferramentas (listagem, artigo e card da Home).
 
-## Decisões da automação (01/out/2026)
-- Ferramentas vira relato documentado (documentação e relatos de usuários), nunca "testamos" sem teste real.
-- Ordem: dados + Radar primeiro; depois skills /radar, /publicar e rotina agendada; depois as demais editorias.
+## Decisões e rotinas
+- Registro completo em `conteudo/padroes/decisoes.md` (proposta editorial, rotinas, arquitetura, padrões de página, como trabalhar com o editor).
+- Rotinas na nuvem (conta Max do app): Radar diário 7h, Na Operação segunda 8h, Guia quarta 8h, Análise quinta 17h. Todas abrem PR; o merge é a aprovação.
+- Pendentes em 02/out/2026: editoria Ferramentas (relato documentado) e newsletter de sexta (precisa de serviço de envio; o formulário "Assinar" ainda não guarda e-mails).
 
 ## Arquivos
 ### site/
-- `AgenticWay Home.dc.html` — home do site (conteúdo de exemplo)
+- `AgenticWay Home.dc.html` — home do site (dados reais; card de Ferramentas ainda de demonstração)
 - `AgenticWay Radar Lista.dc.html` — listagem do Radar por dia, com filtro por tema
-- `AgenticWay Radar Artigo.dc.html` — página de nota do Radar (conteúdo de exemplo)
+- `AgenticWay Radar Artigo.dc.html` — página de nota do Radar (`?id=`)
 - `AgenticWay Na Operacao Lista.dc.html` — listagem de casos com filtro por setor e processo, destaque e marca "parou"
 - `AgenticWay Na Operacao Artigo.dc.html` — caso de Na Operação (números, fluxo, antes/depois, "o que a história não conta")
-- `AgenticWay Analise Lista.dc.html` — listagem de análises por tema, com réplicas publicadas
+- `AgenticWay Analise Lista.dc.html` — listagem de análises por tema (réplicas aparecem quando houver)
 - `AgenticWay Analise Artigo.dc.html` — opinião assinada (tese em três pontos, "onde posso estar errado", bloco de serviço ao fim)
-- `AgenticWay Analise Conta do Agente.dc.html` — primeira análise com conteúdo real (30/set/2026), gerada pela esteira pesquisa → copy; dossiê e copy em `conteudo/pesquisas/`
+- `AgenticWay Analise Conta do Agente.dc.html` — redirecionamento para `Analise Artigo?id=agente-funciona-planilha-nao` (endereço antigo que pode ter circulado)
 - `AgenticWay Ferramentas Lista.dc.html` — listagem de Ferramentas com placar "integra?" por item e fila de testes votável
 - `AgenticWay Ferramentas Artigo.dc.html` — comparativo de Ferramentas (tabela passou/parcial/não, ficha do teste)
 - `AgenticWay Guia Lista.dc.html` — biblioteca de guias por assunto, com versão, status e atualizações recentes
