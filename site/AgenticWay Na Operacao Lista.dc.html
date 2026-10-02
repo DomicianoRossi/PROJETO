@@ -12,7 +12,7 @@
 <x-dc>
 <helmet>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.foto{background:repeating-linear-gradient(135deg,#E5E1D8 0 10px,#EDEAE3 10px 20px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5B6572;border-radius:4px}</style>
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.foto{background:repeating-linear-gradient(135deg,#E5E1D8 0 10px,#EDEAE3 10px 20px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5B6572;border-radius:4px}.aw-oculto{display:none!important}</style>
 </helmet>
 <div data-screen-label="Na Operação · Lista" style="min-height:100vh;display:flex;flex-direction:column">
 
@@ -47,11 +47,11 @@
           <p style="font-size:19px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">Setor, processo, resultado e o que a história não conta. Inclui os que pararam. Montados a partir de fontes públicas, dizendo sempre quem mediu cada número.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <div class="{{ classeFiltroSetor }}" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
             <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px;min-width:64px">SETOR</span>
             <sc-for list="{{ filtrosSetor }}" as="f" hint-placeholder-count="6"><button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button></sc-for>
           </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <div class="{{ classeFiltroProcesso }}" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
             <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px;min-width:64px">PROCESSO</span>
             <sc-for list="{{ filtrosProcesso }}" as="f" hint-placeholder-count="6"><button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button></sc-for>
           </div>
@@ -190,6 +190,7 @@ class Component extends DCLogic {
     ];
 
     return {
+      classeFiltroSetor: setoresNomes.length > 2 ? '' : 'aw-oculto', classeFiltroProcesso: processosNomes.length > 2 ? '' : 'aw-oculto',
       total: todos.length, totalTexto: todos.length + (todos.length === 1 ? ' caso publicado' : ' casos publicados'), destaque, casos, vazio, filtrosSetor, filtrosProcesso, setores, regras,
       btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
       onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
