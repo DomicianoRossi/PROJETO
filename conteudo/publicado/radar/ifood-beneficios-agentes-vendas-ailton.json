@@ -1,0 +1,62 @@
+{
+  "id": "ifood-beneficios-agentes-vendas-ailton",
+  "publicado_em": "2026-10-02T07:10:00-03:00",
+  "tema": "CASOS",
+  "titulo": "iFood Benefícios diz que agente de IA faz de 70% a 75% das vendas para empresas menores",
+  "linha": "Segundo a diretora de receita, o agente Ailton converte 20% mais que uma pessoa da operação, mas só atende quem já quer contratar. Na prospecção ativa, o resultado não se repete.",
+  "linhaFina": "Números apresentados pela companhia no Benchday Lab IA e relatados pelo IT Forum. Não há medição independente.",
+  "fontePrimaria": "iFood Benefícios, via IT Forum",
+  "leitura": 3,
+  "resumo": [
+    "Segundo o iFood Benefícios, agentes de IA passam por 30% do resultado da operação voltada a pequenas empresas e apoiam 60% dos processos de implantação após a contratação.",
+    "O agente Ailton, de atendimento comercial, responde por 70% a 75% das vendas para empresas menores, percentual que varia de mês a mês.",
+    "A taxa de conversão do Ailton chegou a ser 20% superior à de uma pessoa da operação, segundo a diretora de receita, Daniela Zylberkan."
+  ],
+  "corpo": [
+    "Os números foram apresentados pela companhia no Benchday Lab IA, em São Paulo, e relatados pelo IT Forum em 1º de outubro de 2026. O iFood Benefícios é a frente de benefícios corporativos do iFood, com vale-alimentação e vale-refeição em cartão multibenefícios.",
+    "O Ailton atende potenciais clientes que chegam aos canais da empresa já interessados em contratar e conduz a conversa comercial a partir daí. Segundo o IT Forum, a comparação de 20% a mais de conversão se refere à capacidade de transformar atendimentos em vendas, não a uma medida geral de produtividade. Os 60% de implantação não dizem respeito à implantação dos agentes, e sim a processos pós-venda que já contam com apoio deles.",
+    "O desempenho não se repete em toda etapa. O Jorge, agente testado como SDR (prospecção de clientes), enfrenta uma tarefa mais difícil, porque precisa despertar interesse em vez de atender quem já o tem. A empresa afirma que a estratégia não é substituir toda a operação comercial, e sim tirar pessoas de atividades processuais para negociações mais complexas, como a venda para empresas com milhares de funcionários."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · PROCESSO",
+      "titulo": "O agente rende mais onde o processo é estruturado e o cliente já decidiu",
+      "texto": "A própria empresa atribui o resultado à venda com menos decisores e a clientes com intenção declarada. É um critério para escolher por onde começar."
+    },
+    {
+      "rotulo": "02 · MEDIDA",
+      "titulo": "Peça a definição antes de comparar números",
+      "texto": "Conversão sobre atendimentos que chegam interessados não equivale a venda nova. Ao avaliar um caso parecido, defina a base de comparação antes de aceitar o percentual."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "Os números vêm da empresa, não de auditoria",
+      "texto": "A fonte é a executiva do iFood Benefícios, em evento e entrevista. O IT Forum não menciona verificação independente."
+    }
+  ],
+  "fontes": [
+    {
+      "titulo": "Agentes de IA já passam por 30% do resultado do iFood Benefícios",
+      "origem": "IT Forum · 1 out 2026",
+      "url": "https://itforum.com.br/noticias/agentes-ia-ifood-beneficios/"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem afirma",
+      "valor": "Daniela Zylberkan, diretora de receita do iFood Benefícios"
+    },
+    {
+      "rotulo": "Onde",
+      "valor": "Benchday Lab IA, São Paulo, e entrevista ao IT Forum"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "1 out 2026"
+    },
+    {
+      "rotulo": "Confirmação",
+      "valor": "não confirmada pelo cliente"
+    }
+  ]
+}

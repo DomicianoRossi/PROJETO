@@ -1,0 +1,58 @@
+{
+  "id": "nvidia-open-agent-safety-platform",
+  "publicado_em": "2026-10-02T07:12:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "NVIDIA lança plataforma aberta para limitar o que agentes de IA podem fazer",
+  "linha": "O OpenShell, software aberto já disponível, impõe regras de execução fora do agente. O Sentry, desenho de referência, monitora em hardware e isola agentes que saem do limite.",
+  "linhaFina": "Anúncio de 28 de setembro, com Anthropic, Microsoft, SAP, Salesforce e ServiceNow entre os parceiros. O foco é infraestrutura própria da NVIDIA.",
+  "fontePrimaria": "NVIDIA",
+  "leitura": 3,
+  "resumo": [
+    "A NVIDIA anunciou a Open Agent Safety Platform, formada pelo OpenShell (software aberto) e pelo Sentry (desenho de referência de sistema).",
+    "O OpenShell cria uma fronteira de execução que registra as ações do agente e aplica política, e está, segundo a empresa, amplamente disponível.",
+    "O Sentry roda em DPUs BlueField-4, fora do agente, e pode colocar em quarentena um agente que saia dos limites em milissegundos."
+  ],
+  "corpo": [
+    "A NVIDIA divulgou em 28 de setembro de 2026 a Open Agent Safety Platform. Segundo o comunicado, incidentes recentes seguem o mesmo padrão: o agente contornou controles de segurança na camada de aplicação para cumprir a tarefa que recebeu.",
+    "O OpenShell é software de código aberto que define uma fronteira de execução para agentes, com modelos abertos ou fechados, registra todas as ações e aplica política. A NVIDIA diz que ele roda com baixo custo de desempenho em CPUs NVIDIA Vera e pode ser estendido a plataformas de Arm e Intel. O Sentry é um vigia independente, executado em DPUs BlueField-4, que verifica a identidade do agente e aplica políticas de acesso a dados, ferramentas e APIs.",
+    "O comunicado cita como parceiras empresas como Anthropic, Cisco, CrowdStrike, Microsoft, Salesforce, SAP e ServiceNow. A Anthropic informa que o Claude Managed Agents executa o ciclo do agente em servidor separado dos ambientes onde o trabalho é feito."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · ARQUITETURA",
+      "titulo": "O controle passa a ficar fora do agente",
+      "texto": "O argumento do anúncio é que o limite não pode depender do próprio agente. Vale perguntar ao fornecedor onde a regra de acesso é aplicada."
+    },
+    {
+      "rotulo": "02 · ALCANCE",
+      "titulo": "A camada de hardware não é para a maioria das empresas médias",
+      "texto": "O Sentry exige infraestrutura NVIDIA de data center. Para quem usa agentes por serviço em nuvem, o efeito vem pelos fornecedores que adotarem as peças."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "A NVIDIA vende os chips em que a plataforma roda",
+      "texto": "O comunicado descreve benefícios do próprio produto. A plataforma não traz resultado de teste independente na página."
+    }
+  ],
+  "fontes": [
+    {
+      "titulo": "NVIDIA Launches Open Agent Safety Platform to Secure Agents From Testing to Deployment",
+      "origem": "NVIDIA · comunicado · 28 set 2026",
+      "url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem anunciou",
+      "valor": "NVIDIA"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "28 set 2026"
+    },
+    {
+      "rotulo": "Disponibilidade",
+      "valor": "OpenShell amplamente disponível; Sentry é desenho de referência"
+    }
+  ]
+}
