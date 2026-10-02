@@ -32,7 +32,7 @@
   <!-- linha de contexto -->
   <div style="padding:0 clamp(16px,4vw,48px)">
     <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
-      <span>Na Operação / Todos os casos</span><span>{{ total }} casos publicados · um por semana</span>
+      <span>Na Operação / Todos os casos</span><span>{{ totalTexto }} · um por semana</span>
     </div>
   </div>
 
@@ -190,7 +190,7 @@ class Component extends DCLogic {
     ];
 
     return {
-      total: todos.length, destaque, casos, vazio, filtrosSetor, filtrosProcesso, setores, regras,
+      total: todos.length, totalTexto: todos.length + (todos.length === 1 ? ' caso publicado' : ' casos publicados'), destaque, casos, vazio, filtrosSetor, filtrosProcesso, setores, regras,
       btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
       onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
     };

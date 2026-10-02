@@ -31,7 +31,7 @@
   <!-- linha de contexto -->
   <div style="padding:0 clamp(16px,4vw,48px)">
     <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
-      <span>Guia / Referência prática</span><span>{{ total }} guias · mantidos com data e versão</span>
+      <span>Guia / Referência prática</span><span>{{ totalTexto }} · mantidos com data e versão</span>
     </div>
   </div>
 
@@ -60,7 +60,7 @@
                 <span class="sans" style="font-weight:700;font-size:15px;letter-spacing:0.3px">{{ g.nome }}</span>
                 <span class="mono" style="font-size:12px;color:#5B6572">{{ g.qtd }}</span>
               </div>
-              <div class="aw-grade" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:transparent;border:1px solid #DDD9D0;border-top:0;border-radius:0 0 4px 4px;overflow:hidden">
+              <div class="aw-grade" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:transparent;overflow:visible">
                 <sc-for list="{{ g.guias }}" as="u" hint-placeholder-count="3">
                   <a href="{{ u.url }}" style="background:#F7F5F0;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0" style-hover="background:#EFEDE6">
                     <span style="display:flex;justify-content:space-between;gap:8px;align-items:center">
@@ -148,7 +148,7 @@ class Component extends DCLogic {
     const mudancas = todos.flatMap(g => g.historico.map(h => ({ data: h.data, guia: g.titulo, oque: 'v' + h.versao + ': ' + h.texto, url: g.url })))
       .slice(0, 6);
     return {
-      total: todos.length, grupos, vazio, filtros, mudancas,
+      total: todos.length, totalTexto: todos.length + (todos.length === 1 ? ' guia' : ' guias'), grupos, vazio, filtros, mudancas,
       btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
       onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
     };
