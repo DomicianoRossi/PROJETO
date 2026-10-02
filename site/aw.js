@@ -62,6 +62,23 @@
     });
   }
 
+  var MESES_ABREV = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+  function mesAno(iso) { var d = new Date(iso); return MESES_ABREV[d.getMonth()] + '/' + d.getFullYear(); }
+
+  function guias() {
+    var dados = (window.AW_DADOS && window.AW_DADOS.guia) || [];
+    var agora = new Date();
+    return dados.map(function (g) {
+      var novo = (agora - new Date(g.publicado_em)) / 86400000 < 15;
+      return Object.assign({}, g, {
+        atualizadoQuando: quando(g.atualizado_em),
+        atualizado: mesAno(g.atualizado_em),
+        status: g.emRevisao ? 'revisao' : (novo ? 'novo' : 'atual'),
+        url: 'AgenticWay%20Guia%20Artigo.dc.html?id=' + encodeURIComponent(g.id),
+      });
+    }).sort(function (a, b) { return a.atualizado_em < b.atualizado_em ? 1 : -1; });
+  }
+
   function hoje() {
     var d = new Date();
     return DIAS[d.getDay()] + ', ' + d.getDate() + ' ' + MESES[d.getMonth()] + ' ' + d.getFullYear();
@@ -72,7 +89,7 @@
   }
 
   window.AW = {
-    quando: quando, radar: radar, casos: casos, analises: analises, hoje: hoje, param: param, temas: TEMAS,
+    quando: quando, radar: radar, casos: casos, analises: analises, guias: guias, hoje: hoje, param: param, temas: TEMAS,
     assinatura: function () { return (window.AW_DADOS && window.AW_DADOS.assinatura) || ''; },
   };
 })();
