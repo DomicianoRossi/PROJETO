@@ -24,7 +24,7 @@ Um caso por semana. Melhor nenhum do que um caso fraco: se a busca não achar um
 1. Na raiz do repositório, atualize o `main` (`git checkout main && git pull`). Se houver alteração pendente, pare e avise.
 2. Veja o que já foi publicado, para não repetir empresa nem caso:
    ```bash
-   ls conteudo/publicado/na-operacao/ && grep -h '"empresa"\|"titulo"' conteudo/publicado/na-operacao/*.json
+   grep -h '"empresa"\|"titulo"' conteudo/publicado/na-operacao/*.json 2>/dev/null || echo "nenhum caso publicado ainda"
    ```
 3. Leia o esquema e o exemplo em `references/esquema.md` antes de escrever.
 
@@ -47,6 +47,7 @@ Um candidato só passa se tiver tudo isto:
 3. **Ao menos um número com quem mediu.** Se o único número é do fornecedor, o caso pode entrar, mas o título e o `quemMediu` dizem isso.
 4. **Fonte aberta e lida.** Você abriu a página e o que vai escrever está lá.
 5. **Novo:** empresa e caso ainda não publicados aqui; fonte dos últimos 30 dias.
+7. **Fala em evento não é caso.** Executivo citando número em palestra, sem processo, sistema ou período de medição, fica como reserva, não como caso.
 6. **Relevante para empresa média brasileira:** empresa brasileira, ou caso de fora com consequência clara para quem opera aqui.
 
 Quando houver mais de um, prefira: Brasil; número medido pela empresa ou por terceiro; caso que parou ou que mostra custo e prazo; setor ainda pouco coberto na editoria.
@@ -55,10 +56,13 @@ Uma acusação contra empresa identificada (fraude, vazamento, demissão em mass
 
 ## Passo 4 — Escrever o caso
 
-Arquivo `conteudo/publicado/na-operacao/<id>.json`, `id` em kebab-case sem acento com a empresa e o processo (`ifood-beneficios-agentes-vendas`). O esquema completo está em `references/esquema.md`.
+Arquivo `conteudo/publicado/na-operacao/<id>.json` (escreva o JSON com a ferramenta de escrita de arquivo, não com heredoc no terminal: aspas e acentos quebram), `id` em kebab-case sem acento com a empresa e o processo (`ifood-beneficios-agentes-vendas`). O esquema completo está em `references/esquema.md`.
 
 Regras de conteúdo, e por quê:
 
+- **Setor é o da empresa, processo é o do agente.** Fabricante com agente no atendimento: setor INDÚSTRIA, processo ATENDIMENTO.
+- **Número calculado não entra.** Se a fonte diz 51,7% resolvidos, não escreva os 48,3% restantes: a fonte não afirmou isso.
+- **Reportagem que só repete o comunicado não é segunda fonte independente.** Liste as duas, mas o `transparencia` diz que a matéria reproduz os números da empresa.
 - **Número igual à fonte**, com `quemMediu` dizendo de onde veio ("empresa, em comunicado", "fornecedor X, em estudo de caso", "veículo Y"). Arredondar é inventar.
 - **Fluxo** descreve o processo como a fonte descreve. Se a fonte não diz qual sistema, escreva "sistema de gestão da empresa (não informado)" em vez de supor.
 - **Indicadores antes/depois** só com os dois valores na fonte. Se a fonte só dá o depois, não invente o antes: deixe a lista vazia.
@@ -77,7 +81,7 @@ echo '{"prompt":"<cena genérica do setor e processo, em inglês>. Computer moni
   | python .claude/skills/design-conteudo/scripts/gerar_fundo.py --model flash --aspect-ratio 16:9 --no-open
 ```
 
-O script lê `GEMINI_API_KEY` do ambiente (localmente, carregue com `set -a; . ~/api_keys.env; set +a`). Mova o PNG de `generated-images/` para `site/img/na-operacao/<id>-ia.png`, abra a imagem e confira: nenhuma tela legível, nenhum texto ou logotipo, nenhum rosto identificável, nada que pareça a empresa real (fachada, uniforme, produto com marca). Se falhar, gere de novo uma vez; se falhar de novo, publique sem imagem e diga isso no PR. Registre no campo `imagem`: arquivo (`img/na-operacao/<id>-ia.png`), alt descrevendo a cena, modelo e o prompt usado.
+Nesta skill a imagem é gerada sem perguntar: a rodada já foi pedida, e o editor aprova no PR. Rode o script a partir de `.firecrawl/` (`cd .firecrawl`), para a pasta `generated-images/` ficar fora do repositório; o arquivo sai com o nome `meta_ad_draft_*.png`, que é só o padrão do script. O script lê `GEMINI_API_KEY` do ambiente (localmente, carregue com `set -a; . ~/api_keys.env; set +a`). Mova o PNG de `.firecrawl/generated-images/` para `site/img/na-operacao/<id>-ia.png`, abra a imagem e confira: nenhuma tela legível, nenhum texto ou logotipo, nenhum rosto identificável, nada que pareça a empresa real (fachada, uniforme, produto com marca). Se falhar, gere de novo uma vez; se falhar de novo, publique sem imagem e diga isso no PR. Registre no campo `imagem`: arquivo (`img/na-operacao/<id>-ia.png`), alt descrevendo a cena, modelo e o prompt usado.
 
 Se `GEMINI_API_KEY` não existir, publique sem imagem e registre no PR.
 

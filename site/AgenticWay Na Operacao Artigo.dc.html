@@ -28,11 +28,6 @@
     </div>
   </div>
 
-  <!-- faixa de demonstração: remover quando a editoria tiver conteúdo real -->
-  <div style="background:#0F2A44;color:#F7F5F0;padding:10px clamp(16px,4vw,48px)">
-    <div style="max-width:1200px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5"><strong style="color:#F08A6E;font-weight:500">CONTEÚDO DE DEMONSTRAÇÃO</strong> · Esta editoria estreia em breve. Os textos abaixo mostram o formato da seção e não são notícias reais.</div>
-  </div>
-
   <!-- linha de contexto -->
   <div style="padding:0 clamp(16px,4vw,48px)">
     <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
@@ -214,7 +209,7 @@ class Component extends DCLogic {
       setor: c.setorBonito, data: c.quando.dataLonga.split(' · ')[0], titulo: c.titulo, linhaFina: c.linhaFina,
       autor: AW.assinatura(), leitura: c.leitura, apuracao: 'fontes públicas, sem visita ou entrevista',
       imagem: c.imagem ? c.imagem.arquivo : '', imagemAlt: c.imagem ? c.imagem.alt : '',
-      imagemLegenda: 'Imagem ilustrativa gerada por IA (' + (c.imagem ? c.imagem.modelo : 'Gemini') + '). Não retrata a empresa do caso.',
+      imagemLegenda: 'Imagem ilustrativa gerada por IA (Gemini). Não retrata a empresa do caso.',
       abertura: c.abertura, problema: c.problema, solucao: c.solucao, resultado: c.resultado,
       humano: c.humano || '', citacao: c.citacao ? '"' + c.citacao.texto + '" — ' + c.citacao.quem : '',
       comoApuramos: c.comoApuramos, transparencia: c.transparencia,
