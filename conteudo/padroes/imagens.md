@@ -27,8 +27,8 @@ Definido em 01/out/2026, depois de testar capas tipográficas na Home e nas list
 
 ## Imagem gerada pelo Gemini
 
-- Script: `~/.claude/skills/design-conteudo/scripts/gerar_fundo.py --model flash --aspect-ratio 16:9 --no-open`. A chave `GEMINI_API_KEY` é carregada do `.env` (localmente, `~/api_keys.env`, sem exibir o valor).
-- Cada geração custa crédito do Gemini. Fora das rotinas, perguntar antes de gerar.
+- Script: `.claude/skills/design-conteudo/scripts/gerar_fundo.py --model flash --aspect-ratio 16:9 --no-open`. A chave `GEMINI_API_KEY` é carregada do `.env` (localmente, `~/api_keys.env`, sem exibir o valor).
+- Cada geração custa crédito do Gemini. Rotinas e rodadas pedidas de editoria (como /na-operacao) geram sem perguntar, e o editor aprova no PR; fora disso, perguntar antes de gerar.
 - Prompt em inglês, descrevendo um ambiente genérico do setor do caso, sempre com: "Computer monitors turned away or out of focus with no readable content. No text, no lettering, no logos, no signage, no readable screens, no identifiable faces." Estilo: "realistic editorial photo, shallow depth of field, calm, not staged, not stock-photo". Tons próximos da paleta (navy e papel).
 - Antes de publicar, abrir a imagem e conferir: nenhuma tela legível, nenhum texto ou logotipo, nenhum rosto identificável. Se falhar, gerar de novo ou ficar sem imagem.
 - Arquivo: `site/img/<editoria>/<id-do-item>-ia.png`.

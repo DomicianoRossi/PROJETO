@@ -34,6 +34,24 @@
     });
   }
 
+  var bonito = function (s) { return s.charAt(0) + s.slice(1).toLowerCase(); };
+
+  function casos() {
+    var dados = (window.AW_DADOS && window.AW_DADOS.na_operacao) || [];
+    return dados.map(function (c, i) {
+      var q = quando(c.publicado_em);
+      return Object.assign({}, c, {
+        quando: q,
+        setorBonito: bonito(c.setor),
+        processoBonito: bonito(c.processo),
+        url: 'AgenticWay%20Na%20Operacao%20Artigo.dc.html?id=' + encodeURIComponent(c.id),
+        numero: c.numeros[0].valor,
+        numeroLegenda: c.numeros[0].legenda,
+        capaClasse: c.status === 'parou' ? 'aw-capa aw-capa-papel' : (i % 2 ? 'aw-capa aw-capa-azul' : 'aw-capa'),
+      });
+    });
+  }
+
   function hoje() {
     var d = new Date();
     return DIAS[d.getDay()] + ', ' + d.getDate() + ' ' + MESES[d.getMonth()] + ' ' + d.getFullYear();
@@ -44,7 +62,7 @@
   }
 
   window.AW = {
-    quando: quando, radar: radar, hoje: hoje, param: param, temas: TEMAS,
+    quando: quando, radar: radar, casos: casos, hoje: hoje, param: param, temas: TEMAS,
     assinatura: function () { return (window.AW_DADOS && window.AW_DADOS.assinatura) || ''; },
   };
 })();

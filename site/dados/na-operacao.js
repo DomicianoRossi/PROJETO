@@ -1,0 +1,144 @@
+// Gerado por scripts/build_dados.py. Não edite à mão: edite conteudo/publicado/.
+window.AW_DADOS = window.AW_DADOS || {};
+window.AW_DADOS.assinatura = "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi";
+window.AW_DADOS.na_operacao = [
+ {
+  "id": "lg-brasil-atendimento-agente-voz",
+  "publicado_em": "2026-10-01T21:13:32-03:00",
+  "setor": "INDÚSTRIA",
+  "processo": "ATENDIMENTO",
+  "status": "em-operacao",
+  "empresa": "LG Electronics Brasil",
+  "titulo": "LG Brasil troca a URA por um agente de voz e diz que ele resolveu 51,7% das ligações no primeiro mês",
+  "linhaFina": "O número é da própria empresa, cobre menos de um mês de operação e não vem com custo, satisfação do cliente nem comparação com a URA antiga.",
+  "resumo": "A LG Brasil colocou no telefone um agente de voz feito por time interno com a API de áudio em tempo real da OpenAI. Segundo a empresa, foram mais de 13.200 atendimentos desde 1º de setembro, com 51,7% resolvidos sem transferência.",
+  "leitura": 5,
+  "abertura": "A LG Electronics opera no Brasil desde 1996, com fábrica em Manaus, cerca de três mil colaboradores e call center próprio, segundo o comunicado da empresa. O atendimento ao consumidor já tinha uma persona de IA, a LiGi.IA, no WhatsApp. O telefone seguia com a URA, os menus de opções.",
+  "problema": "A empresa descreve o problema pelo que o agente substitui: menus de URA, tempo de espera e transferências entre áreas. O comunicado não traz números do canal de voz antes do agente, como tempo médio de espera, taxa de abandono ou volume de transferências.",
+  "solucao": "O VoiceBot AI Agent atende as ligações em linguagem natural, no lugar dos menus. Foi desenvolvido pelo time interno de AI eXperience (AX) da LG Brasil com a API de áudio em tempo real da OpenAI. Segundo a empresa, entende o contexto da conversa, ajusta as respostas ao tom de voz do cliente e cobre a jornada da pré-compra ao agendamento de instalação e reparo. Funciona 24 horas por dia, sete dias por semana. O comunicado não diz a quais sistemas internos o agente se conecta para consultar pedidos ou agendar visitas.",
+  "resultado": "Desde o lançamento, em 1º de setembro, até o comunicado de 30 de setembro, foram mais de 13.200 atendimentos, e em 51,7% deles a solicitação foi resolvida pela IA sem transferência para um atendente, segundo a LG. Os números são da empresa e não foram auditados por terceiros. Com esse resultado, a matriz na Coreia do Sul escolheu a LG Brasil para liderar a expansão da solução, primeiro para a América Latina e depois para outros mercados.",
+  "humano": "O atendente humano continua disponível de segunda a sexta, das 8h às 20h, para quem preferir ou quando a demanda exige. Fora desse horário, quem liga fala só com o agente. A empresa não detalhou o que aconteceu com os atendimentos fora dos 51,7%: quantos foram transferidos e quantos terminaram sem solução.",
+  "citacao": {
+   "texto": "Nosso objetivo não é apenas automatizar o atendimento. Queremos usar a inteligência artificial para reduzir o esforço do cliente e tornar cada contato com a LG mais humano, ágil e resolutivo.",
+   "quem": "Marconi Filho, diretor de Atendimento ao Cliente e AI eXperience da LG América Latina, no comunicado de 30/set/2026"
+  },
+  "numeros": [
+   {
+    "valor": "51,7%",
+    "legenda": "das solicitações resolvidas pela IA sem transferência para atendente",
+    "quemMediu": "LG Brasil, em comunicado"
+   },
+   {
+    "valor": "13.200",
+    "legenda": "atendimentos (mais de) entre 1º de setembro e 30 de setembro de 2026",
+    "quemMediu": "LG Brasil, em comunicado"
+   }
+  ],
+  "fluxo": [
+   {
+    "tipo": "ENTRADA",
+    "nome": "Ligação do cliente",
+    "faz": "O consumidor liga para a central de atendimento da LG e é atendido sem menu de URA."
+   },
+   {
+    "tipo": "AGENTE",
+    "nome": "VoiceBot AI Agent",
+    "faz": "Conversa em linguagem natural, interpreta o contexto e o tom de voz e trata dúvidas de pré-compra e pedidos de instalação e reparo."
+   },
+   {
+    "tipo": "SISTEMA",
+    "nome": "API de áudio em tempo real da OpenAI",
+    "faz": "Processa a voz durante a conversa. Os sistemas internos consultados pelo agente não foram informados."
+   },
+   {
+    "tipo": "SAÍDA",
+    "nome": "Solicitação resolvida",
+    "faz": "Em 51,7% dos atendimentos, segundo a LG, o caso termina sem transferência."
+   },
+   {
+    "tipo": "EXCEÇÃO",
+    "nome": "Transferência para atendente",
+    "faz": "Quando a demanda exige ou o cliente prefere, a ligação vai para uma pessoa, de segunda a sexta, das 8h às 20h."
+   }
+  ],
+  "indicadores": [],
+  "naoConta": [
+   {
+    "valor": "Comparação",
+    "texto": "a empresa não divulgou os indicadores da URA anterior, então não dá para saber quanto os 51,7% representam de melhora."
+   },
+   {
+    "valor": "Qualidade",
+    "texto": "não há dado de satisfação do cliente, de recontato nem de como a resolução foi definida e medida."
+   },
+   {
+    "valor": "Custo e prazo",
+    "texto": "não foram informados o custo do projeto, o gasto com a API nem quanto tempo levou a implantação."
+   }
+  ],
+  "licoes": [
+   {
+    "titulo": "Taxa de resolução sem base não é ganho",
+    "texto": "Antes de ligar um agente de atendimento, guarde os números do canal antigo. Sem eles, 51,7% é uma foto, não uma comparação."
+   },
+   {
+    "titulo": "Defina o que é resolver",
+    "texto": "Ligação sem transferência pode ser problema resolvido ou cliente que desistiu. Medir recontato nos dias seguintes separa os dois."
+   },
+   {
+    "titulo": "O horário do humano é decisão de produto",
+    "texto": "Com o agente 24 horas e pessoas só em horário comercial, à noite e no fim de semana a IA é o único canal. Vale decidir isso de propósito e acompanhar o que acontece nesses horários."
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Empresa",
+    "valor": "LG Electronics Brasil"
+   },
+   {
+    "rotulo": "Setor",
+    "valor": "Indústria (eletroeletrônicos)"
+   },
+   {
+    "rotulo": "Processo",
+    "valor": "Atendimento ao consumidor por telefone"
+   },
+   {
+    "rotulo": "Sistema",
+    "valor": "API de áudio em tempo real da OpenAI; sistemas internos não informados"
+   },
+   {
+    "rotulo": "Quem fez",
+    "valor": "Time interno de AI eXperience (AX) da LG Brasil"
+   },
+   {
+    "rotulo": "Status",
+    "valor": "Em operação desde 1º de setembro de 2026"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "Comunicado da empresa (PR Newswire), 30/set/2026"
+   }
+  ],
+  "comoApuramos": "Lemos o comunicado da LG Electronics Brasil distribuído pela PR Newswire em 30 de setembro de 2026 e a reportagem do IT Forum publicada em 1º de outubro de 2026, que reproduz os mesmos números atribuindo-os à companhia. Todos os números e falas deste caso estão nessas duas fontes. Não houve visita nem entrevista: o caso foi montado apenas com fontes públicas.",
+  "transparencia": "A fonte primária é a própria LG, divulgando um projeto feito pelo seu time e o resultado do primeiro mês. A reportagem do IT Forum repete os dados da empresa, sem medição independente. A OpenAI, fornecedora da API, não aparece nas fontes comentando o caso.",
+  "fontes": [
+   {
+    "titulo": "LG Brasil expande atendimento com inteligência artificial para o canal de voz e lidera projeto global da marca",
+    "origem": "LG Electronics Brasil, via PR Newswire, 30/set/2026",
+    "url": "https://www.prnewswire.com/br/comunicados-para-a-imprensa/lg-brasil-expande-atendimento-com-inteligencia-artificial-para-o-canal-de-voz-e-lidera-projeto-global-da-marca-302894847.html"
+   },
+   {
+    "titulo": "LG Brasil resolve 51,7% dos atendimentos com agente de voz com IA",
+    "origem": "IT Forum, 01/out/2026",
+    "url": "https://itforum.com.br/noticias/lg-brasil-agente-voz-ia-atendimento/"
+   }
+  ],
+  "imagem": {
+   "arquivo": "img/na-operacao/lg-brasil-atendimento-agente-voz-ia.png",
+   "alt": "Fone de ouvido com microfone sobre uma mesa de madeira em primeiro plano; ao fundo, fora de foco, atendentes em baias de um call center ao entardecer.",
+   "modelo": "gemini-3.1-flash-image",
+   "prompt": "A quiet customer service call center in Brazil at dusk, empty headset resting on a desk in the foreground, a few agents working softly in the blurred background. Computer monitors turned away or out of focus with no readable content. No text, no lettering, no logos, no signage, no readable screens, no identifiable faces. Style: realistic editorial photo, shallow depth of field, calm, not staged, not stock-photo, muted navy and warm paper tones"
+  }
+ }
+];
