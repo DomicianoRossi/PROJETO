@@ -11,7 +11,7 @@
 <x-dc>
 <helmet>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.corpo p{margin:0 0 24px;font-size:19px;line-height:1.7;color:#1E2A38;text-wrap:pretty}.corpo h2{font-family:Montserrat,sans-serif;font-weight:700;font-size:23px;line-height:1.25;margin:40px 0 16px;letter-spacing:-0.3px}.corpo .destaque{margin:36px 0;padding:24px 0;border-top:1px solid #0F2A44;border-bottom:1px solid #0F2A44;font-family:Montserrat,sans-serif;font-weight:600;font-size:26px;line-height:1.3;letter-spacing:-0.5px;text-wrap:pretty}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.aw-grade>*{box-shadow:0 0 0 1px #DDD9D0}</style>
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.corpo p{margin:0 0 24px;font-size:19px;line-height:1.7;color:#1E2A38;text-wrap:pretty}.corpo h2{font-family:Montserrat,sans-serif;font-weight:700;font-size:23px;line-height:1.25;margin:40px 0 16px;letter-spacing:-0.3px}.corpo .destaque{margin:36px 0;padding:24px 0;border-top:1px solid #0F2A44;border-bottom:1px solid #0F2A44;font-family:Montserrat,sans-serif;font-weight:600;font-size:26px;line-height:1.3;letter-spacing:-0.5px;text-wrap:pretty}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.aw-grade>*{box-shadow:0 0 0 1px #DDD9D0}.aw-oculto{display:none!important}</style>
 </helmet>
 <div data-screen-label="Análise · Opinião" style="min-height:100vh;display:flex;flex-direction:column">
 
@@ -136,7 +136,7 @@
             <p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Análise é onde a AgenticWay toma posição, com nome. As demais editorias relatam; esta opina. Os fatos citados têm fonte; a conclusão é do autor e pode mudar, e quando mudar será em nova análise, não em edição silenciosa.</p>
           </div>
 
-          <div style="display:flex;flex-direction:column">
+          <div class="{{ classeOutros }}" style="display:flex;flex-direction:column">
             <div class="lat-h">OUTRAS ANÁLISES</div>
             <sc-for list="{{ relacionados }}" as="r" hint-placeholder-count="3">
               <a href="{{ r.url }}" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
@@ -194,6 +194,7 @@ class Component extends DCLogic {
       titulo: x.titulo, meta: 'Análise · ' + x.quando.dataCurta, url: x.url,
     }));
     return {
+      classeOutros: relacionados.length ? '' : 'aw-oculto',
       autor, analise, tese: a.tese, pontos: a.pontos, referencias: a.fontes, relacionados,
       btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
       onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },

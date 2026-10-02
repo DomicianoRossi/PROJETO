@@ -163,7 +163,7 @@
             </sc-for>
           </div>
 
-          <div style="display:flex;flex-direction:column">
+          <div class="{{ classeOutros }}" style="display:flex;flex-direction:column">
             <div class="lat-h">OUTROS CASOS</div>
             <sc-for list="{{ relacionados }}" as="r" hint-placeholder-count="3">
               <a href="{{ r.url }}" style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #DDD9D0">
@@ -220,6 +220,7 @@ class Component extends DCLogic {
       setor: x.setor, titulo: x.titulo, meta: 'Caso · ' + x.quando.dataCurta, url: x.url,
     }));
     return {
+      classeOutros: relacionados.length ? '' : 'aw-oculto',
       caso, numeros: c.numeros, fluxo, indicadores: c.indicadores || [], naoConta: c.naoConta, licoes, ficha: c.ficha,
       fontes: c.fontes, relacionados,
       classeImagem: c.imagem ? '' : 'aw-oculto',
