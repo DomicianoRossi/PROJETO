@@ -22,7 +22,7 @@ Registro das decisões tomadas e do porquê, para valer em situações semelhant
 | Guia | guia novo a cada 2 semanas + revisão semanal com versão e histórico | quarta 8h (`0 11 * * 3`); `situacao.py` decide o modo | `/guia` |
 | Análise | 1 opinião por semana, tese a partir do que saiu na semana | quinta 17h (`0 20 * * 4`), publica na sexta 7h | `/analise` |
 | Ferramentas | 1 comparativo ou avaliação a cada 2 semanas, seis critérios fixos, marcas documentado / com ressalva / não documentado, cada uma com fonte; nunca teste próprio | terça 8h (`0 11 * * 2`); `situacao.py` decide se é semana | `/ferramentas` |
-| Newsletter | pendente (sextas) | — | — |
+| Newsletter | resumo da semana (3–5 fatos do Radar, 1 caso, 1 opinião, até 4 "também no site"); só o que já foi publicado, números conferidos contra o item; rascunho no Buttondown, o editor envia | sexta 7h (`0 10 * * 5`) | `/newsletter` |
 
 - **Toda rotina abre PR; nunca faz merge nem push no `main`.** O merge é a aprovação do editor.
 - **Rodada sem material bom não abre PR** ("rodada sem notas", "semana sem caso"…). Melhor nenhum do que fraco.
@@ -30,6 +30,9 @@ Registro das decisões tomadas e do porquê, para valer em situações semelhant
 - Rotinas na conta Max do aplicativo (domiciano.rossi@gmail.com), ambiente de nuvem **"Radar AgenticWay"** (rede liberada para abrir as fontes; variáveis `FIRECRAWL_API_KEY` e `GEMINI_API_KEY`). O ambiente "Default" fica restrito.
 - **Ao criar rotina pela API, remover os conectores que o servidor anexa sozinho** (Gmail, Drive, Calendar etc.). Rotina que lê a web não deve ter acesso a e-mail e arquivos.
 - Modelo das rotinas: Sonnet 5.5.
+
+- **Newsletter no Buttondown (conta agenticway, entrada pelo Google).** A rotina só cria rascunho; a chave da API tem Emails = leitura e escrita e **Sending desligado**, então nada sai sem o clique do editor. O formulário "Assinar" usa o endereço público de inscrição (com confirmação por e-mail) e nunca leva chave ao site. A newsletter mantém o bloco discreto "Para empresas" ao fim (exceção à regra de serviço só em Análise, já prevista no template). (03/out/2026)
+- **Chaves nunca em print.** Em 03/out/2026 duas chaves vazaram em prints e foram trocadas.
 
 ## 3. Arquitetura do site
 

@@ -26,7 +26,7 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `conteudo/` — produção editorial: `publicado/<editoria>/` (JSON do que está no ar), `pesquisas/` (dossiês, copies, carrosséis; PNG e PDF fora do git) e `padroes/` (**`decisoes.md`: todas as decisões e o porquê — ler antes de mudar algo**; `imagens.md`).
 
 ## Skills do projeto (fonte: este repositório)
-- `.claude/skills/`: `radar`, `na-operacao`, `analise`, `guia`, `ferramentas` (editorias, usadas pelas rotinas) e `pesquisa-conteudo`, `copy-conteudo`, `design-conteudo` (carrossel e peças avulsas). Versionadas no GitHub; a nuvem (rotinas) e o computador local usam estas cópias.
+- `.claude/skills/`: `radar`, `na-operacao`, `analise`, `guia`, `ferramentas`, `newsletter` (editorias, usadas pelas rotinas) e `pesquisa-conteudo`, `copy-conteudo`, `design-conteudo` (carrossel e peças avulsas). Versionadas no GitHub; a nuvem (rotinas) e o computador local usam estas cópias.
 - As cópias do repositório gravam em `conteudo/pesquisas/` a partir da raiz e chamam os scripts por `.claude/skills/design-conteudo/scripts/`.
 - Existem cópias globais antigas em `~/.claude/skills/` (e `.skill` em `C:	emp`) para uso fora deste projeto. Alteração feita aqui não chega lá sozinha.
 - Chaves ficam fora do repositório: `FIRECRAWL_API_KEY` e `GEMINI_API_KEY` como variáveis do ambiente "Radar AgenticWay" na nuvem; localmente, login do Firecrawl e `~/api_keys.env`.
@@ -43,7 +43,7 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 ## Decisões e rotinas
 - Registro completo em `conteudo/padroes/decisoes.md` (proposta editorial, rotinas, arquitetura, padrões de página, como trabalhar com o editor).
 - Rotinas na nuvem (conta Max do app): Radar diário 7h, Na Operação segunda 8h, Ferramentas terça 8h (a cada 2 semanas), Guia quarta 8h, Análise quinta 17h. Todas abrem PR; o merge é a aprovação.
-- Pendente em 03/out/2026: newsletter de sexta (precisa de serviço de envio; o formulário "Assinar" ainda não guarda e-mails).
+- Newsletter: Buttondown (buttondown.com/agenticway); rotina de sexta 7h cria rascunho e o editor envia. `BUTTONDOWN_API_KEY` no ambiente da nuvem e em `~/api_keys.env`. O formulário "Assinar" inscreve com confirmação por e-mail.
 
 ## Arquivos
 ### site/

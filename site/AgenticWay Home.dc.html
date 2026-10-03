@@ -177,8 +177,8 @@ class Component extends DCLogic {
     ];
     return {
       hoje, radar, destaques, caso,
-      btnLabel: this.state.sent ? 'Inscrito ✓' : 'Assinar',
-      onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      btnLabel: this.state.sent === 'erro' ? 'Tente de novo' : this.state.sent ? 'Confira seu e-mail' : 'Assinar',
+      onSubscribe: (e) => AW.assinar(e, (ok) => this.setState({ sent: ok ? true : 'erro' })),
     };
   }
 }
