@@ -79,6 +79,19 @@
     }).sort(function (a, b) { return a.atualizado_em < b.atualizado_em ? 1 : -1; });
   }
 
+  var MARCAS = { 'documentado': ['■', 'ok'], 'ressalva': ['◪', 'parcial'], 'nao-documentado': ['□', 'nao'] };
+
+  function ferramentas() {
+    var dados = (window.AW_DADOS && window.AW_DADOS.ferramentas) || [];
+    return dados.map(function (a) {
+      return Object.assign({}, a, {
+        quando: quando(a.publicado_em),
+        url: 'AgenticWay%20Ferramentas%20Artigo.dc.html?id=' + encodeURIComponent(a.id),
+        marca: function (m) { return MARCAS[m] || MARCAS['nao-documentado']; },
+      });
+    });
+  }
+
   function hoje() {
     var d = new Date();
     return DIAS[d.getDay()] + ', ' + d.getDate() + ' ' + MESES[d.getMonth()] + ' ' + d.getFullYear();
@@ -89,7 +102,7 @@
   }
 
   window.AW = {
-    quando: quando, radar: radar, casos: casos, analises: analises, guias: guias, hoje: hoje, param: param, temas: TEMAS,
+    quando: quando, radar: radar, casos: casos, analises: analises, guias: guias, ferramentas: ferramentas, hoje: hoje, param: param, temas: TEMAS,
     assinatura: function () { return (window.AW_DADOS && window.AW_DADOS.assinatura) || ''; },
   };
 })();
