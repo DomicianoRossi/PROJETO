@@ -54,7 +54,7 @@ def e(s):
 
 
 def valida(ed):
-    obrig = {"assunto": 60, "preheader": 110, "titulo": 90, "abertura": 900}
+    obrig = {"assunto": 60, "preheader": 110, "abertura": 900}
     for campo, limite in obrig.items():
         if not isinstance(ed.get(campo), str) or not ed[campo].strip():
             erro(f"campo '{campo}' obrigatório")
@@ -98,8 +98,7 @@ def bloco_titulo(rotulo):
 def monta(ed, numero):
     partes = [
         f'<div style="max-width:600px;margin:0 auto;font-family:{SERIF};color:#1A2733;font-size:16px;line-height:1.6">',
-        f'<p style="margin:0 0 4px;font-family:{MONO};font-size:12px;color:{CINZA}">EDIÇÃO {numero} · A SEMANA DOS AGENTES DE IA, PARA QUEM DECIDE</p>',
-        f'<h1 style="margin:8px 0 16px;font-family:{SANS};font-weight:700;font-size:26px;line-height:1.25;color:{NAVY}">{e(ed["titulo"])}</h1>',
+        f'<p style="margin:0 0 16px;font-family:{MONO};font-size:12px;color:{CINZA}">EDIÇÃO {numero} · A SEMANA DOS AGENTES DE IA, PARA QUEM DECIDE</p>',
     ]
     for par in ed["abertura"].split("\n\n"):
         partes.append(f'<p style="margin:0 0 14px">{e(par.strip())}</p>')
@@ -109,8 +108,9 @@ def monta(ed, numero):
         d = item("radar", f["id"])
         partes.append(
             f'<p style="margin:0 0 18px"><span style="font-family:{MONO};font-size:12px;color:{CORAL if n == 1 else CINZA}">{n:02d}</span> '
-            f'<a href="{url("radar", f["id"])}" style="font-family:{SANS};font-weight:700;color:{NAVY};text-decoration:none">{e(d["titulo"])}</a><br>'
-            f'{e(f["texto"])} <span style="font-family:{MONO};font-size:11px;color:{CINZA}">Fonte: {e(d.get("fontePrimaria", ""))}</span></p>')
+            f'<strong style="font-family:{SANS};color:{NAVY}">{e(d["titulo"])}</strong><br>'
+            f'{e(f["texto"])} <span style="font-family:{MONO};font-size:11px;color:{CINZA}">Fonte: {e(d.get("fontePrimaria", ""))} · </span>'
+            f'<a href="{url("radar", f["id"])}" style="font-size:14px;color:{AZUL}">Ler a nota →</a></p>')
 
     if ed.get("caso"):
         d = item("na-operacao", ed["caso"]["id"])
@@ -131,7 +131,7 @@ def monta(ed, numero):
         for t in ed["tambem"]:
             d = item(t["editoria"], t["id"])
             partes.append(f'<p style="margin:0 0 8px"><span style="font-family:{MONO};font-size:11px;color:{CINZA}">{NOMES[t["editoria"]]}</span> '
-                          f'<a href="{url(t["editoria"], d["id"])}" style="color:{NAVY}">{e(d["titulo"])}</a></p>')
+                          f'{e(d["titulo"])} <a href="{url(t["editoria"], d["id"])}" style="font-size:14px;color:{AZUL}">Ler →</a></p>')
 
     partes += [
         f'<p style="margin:36px 0 0;padding:16px;border:1px solid {LINHA};font-size:14px;color:#3C4A5A">'
