@@ -1,0 +1,73 @@
+{
+  "id": "microsoft-copilot-business-cobranca-por-uso-adiada",
+  "publicado_em": "2026-10-03T07:10:00-03:00",
+  "tema": "MERCADO",
+  "titulo": "Microsoft adia para 1º de dezembro a cobrança por uso ligada por padrão no Copilot Business; Brasil fica fora no início",
+  "linha": "Parceiros que vendem o Copilot Business passarão a receber o pagamento por consumo ativado de fábrica, com limite padrão de 4.000 créditos por usuário ao mês. A mudança, antes prevista para 2 de novembro, não chega de início ao Brasil.",
+  "linhaFina": "O aviso aos parceiros, de 1º de outubro, também cita Copilot Cowork, Work IQ APIs e GitHub Copilot Harness como serviços cobrados por consumo.",
+  "fontePrimaria": "Microsoft (Partner Center)",
+  "leitura": 3,
+  "resumo": [
+    "A Microsoft mudou de 2 de novembro para 1º de dezembro de 2026 a data em que a cobrança por uso (pay-as-you-go) passa a vir ativada por padrão nas novas licenças do Microsoft 365 Copilot Business vendidas pelo programa de revendedores CSP.",
+    "O limite de gasto padrão será de 4.000 Copilot Credits por usuário ao mês, ajustável por administradores. Com 100 usuários, o teto padrão é de 400.000 créditos mensais.",
+    "A mudança começa em mercados selecionados e, no início, não estará disponível no Brasil, nem em Austrália, Bélgica, França, Alemanha, Índia, Itália, Coreia, Países Baixos, Polônia e Espanha."
+  ],
+  "corpo": [
+    "Em aviso aos parceiros publicado em 1º de outubro de 2026, a Microsoft informou que a cobrança por uso será ativada por padrão para novas licenças do Microsoft 365 Copilot Business, inclusive ofertas avulsas e pacotes, contratadas pelo CSP (Cloud Solution Provider). A data anterior era 2 de novembro; a nova é 1º de dezembro. Em 2 de novembro, a empresa vai liberar ambientes de teste (sandbox) no Partner Center para os parceiros se prepararem.",
+    "O modelo é o de licença por usuário mais consumo. Entre os serviços elegíveis à cobrança por uso, o aviso cita Copilot Cowork, Work IQ APIs e GitHub Copilot Harness. O limite de gasto padrão é de 4.000 Copilot Credits por usuário ao mês, que os administradores podem alterar. Segundo a CRN, que cobriu o aviso em 2 de outubro, os planos Copilot Business custam de US$ 18 a US$ 32 por usuário ao mês, e o parceiro pode zerar o limite para desligar a cobrança por uso.",
+    "A cobrança é por consumo real: o teto é um limite, não um valor fixo. A CRN registra ainda que os encargos de uso passam pela fatura do parceiro CSP, que responde por todos os valores da conta, inclusive consumo inesperado, e que o usuário que atinge o limite pode pedir mais créditos para aprovação do administrador.",
+    "Sobre disponibilidade, o aviso diz que a mudança será liberada primeiro a clientes elegíveis em mercados com suporte e que, inicialmente, não estará disponível em Austrália, Bélgica, Brasil, França, Alemanha, Índia, Itália, Coreia, Países Baixos, Polônia e Espanha. A Microsoft diz que divulgará mais informações conforme a disponibilidade se ampliar."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · BRASIL",
+      "titulo": "O padrão automático não vale de início para quem compra no país",
+      "texto": "A exclusão citada no aviso é do padrão ativado de fábrica. O aviso não detalha se empresas brasileiras podem contratar o consumo manualmente; vale perguntar isso ao revendedor antes de planejar orçamento."
+    },
+    {
+      "rotulo": "02 · ORÇAMENTO",
+      "titulo": "Agente de uso prolongado deixa de caber só no preço da licença",
+      "texto": "Quem usa Cowork ou APIs sobre dados de trabalho passa a ter custo variável. O limite padrão de 4.000 créditos por usuário serve de teto, mas o gasto real depende do uso, e é isso que a TI precisa estimar."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "A Microsoft vende o modelo que anuncia",
+      "texto": "O aviso apresenta o consumo ligado por padrão como menos atrito e mais adoção para o parceiro, e cita incentivo de ativação do Cowork. A leitura do cliente sobre custo pode ser diferente da leitura do vendedor."
+    }
+  ],
+  "oQueFazer": [
+    "Se a empresa usa ou pretende contratar Copilot por um revendedor, vale perguntar por escrito: a cobrança por uso vem ligada ou desligada, qual o limite por usuário, quem recebe o aviso ao atingi-lo e se o Brasil está dentro da regra no momento da compra."
+  ],
+  "fontes": [
+    {
+      "titulo": "October 2026 announcements — Partner Center (Update: usage-based billing is default on for new Microsoft 365 Copilot Business licenses)",
+      "origem": "Microsoft Learn · aviso aos parceiros · 1 out 2026",
+      "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-october"
+    },
+    {
+      "titulo": "Microsoft Delays Default Copilot Usage-Based Billing To Dec. 1, Adds Spending Cap Option",
+      "origem": "CRN · 2 out 2026",
+      "url": "https://www.crn.com/news/ai/2026/microsoft-delays-default-copilot-usage-based-billing-to-dec-1-adds-spending-cap-option"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem afirma",
+      "valor": "Microsoft, em aviso aos parceiros CSP"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "1 out 2026"
+    }
+  ],
+  "datas": [
+    {
+      "quando": "2 nov 2026",
+      "evento": "Ambientes de teste (sandbox) do Partner Center liberados para parceiros"
+    },
+    {
+      "quando": "1 dez 2026",
+      "evento": "Cobrança por uso ativada por padrão em novas licenças Copilot Business via CSP, em mercados com suporte"
+    }
+  ]
+}

@@ -3,6 +3,140 @@ window.AW_DADOS = window.AW_DADOS || {};
 window.AW_DADOS.assinatura = "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi";
 window.AW_DADOS.radar = [
  {
+  "id": "globo-700-agentes-cobertura-eleicoes",
+  "publicado_em": "2026-10-03T07:12:00-03:00",
+  "tema": "CASOS",
+  "titulo": "Globo diz ter criado 700 agentes de IA para a cobertura das eleições, com validação humana, segundo o Valor",
+  "linha": "Segundo o Valor Econômico, os agentes ajudam as redações em produção de conteúdo, decupagem, monitoramento de fontes e checagem de imagens; o g1 vai publicar 95 mil páginas automatizadas com a apuração.",
+  "linhaFina": "Executivos da Globo disseram ao jornal que nenhum conteúdo sai 100% produzido por IA e que a empresa usa modelos da OpenAI e do Google em ambiente controlado.",
+  "fontePrimaria": "Globo, via Valor Econômico",
+  "leitura": 3,
+  "resumo": [
+   "A Globo criou 700 agentes de IA, na ferramenta GloboIA, para automatizar tarefas nas redações da cobertura eleitoral, segundo reportagem do Valor de 2 de outubro.",
+   "O g1 vai publicar 95 mil páginas automatizadas com resultados da apuração em todas as zonas eleitorais e cerca de 1,6 mil páginas dedicadas a candidatos eleitos.",
+   "Os executivos afirmam que há validação humana em todo o conteúdo e que a empresa não desenvolveu modelo próprio: usa modelos da OpenAI e do Google."
+  ],
+  "corpo": [
+   "A reportagem do Valor Econômico, publicada em 2 de outubro, diz que a Globo criou 700 agentes de IA para automatizar tarefas nas redações e aumentar a produção e a distribuição de conteúdo sobre as eleições. As equipes de São Paulo, Rio de Janeiro, Minas Gerais, Pernambuco e Distrito Federal usam a ferramenta GloboIA em tarefas como produção de conteúdo, decupagem, monitoramento de fontes e checagem da qualidade das imagens.",
+   "Entre os destaques da cobertura estão 95 mil páginas automatizadas no portal g1, com os resultados da apuração em todas as zonas eleitorais do país, e cerca de 1,6 mil páginas dedicadas aos candidatos eleitos. O conteúdo será liberado à medida que o Tribunal Superior Eleitoral (TSE) divulgar os dados da apuração, no domingo (4). A cobertura inclui ainda vídeos automatizados sobre o desempenho eleitoral em mais de 5,5 mil municípios, com narração em voz sintética.",
+   "Segundo o diretor de tecnologia para conteúdo e regionais da Globo, Felipe Correia, a estrutura tecnológica da cobertura reúne cerca de 500 profissionais e usa modelos de IA da OpenAI e do Google em ambiente controlado; a empresa não desenvolveu modelo próprio. O coordenador da cobertura no g1, José Lopes, afirmou ao Valor: \"Não vamos publicar conteúdos 100% produzidos por IA, a validação humana sempre está presente\". Segundo Lopes, a iniciativa começou em 2022 e foi ampliada em 2024."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · ESCALA",
+    "titulo": "O ganho descrito é de volume, não de corte de equipe",
+    "texto": "As páginas e os vídeos citados são conteúdo que a reportagem descreve como ampliação de produção, feito por uma estrutura de cerca de 500 profissionais. A reportagem não informa custo nem tempo economizado."
+   },
+   {
+    "rotulo": "02 · CONTROLE",
+    "titulo": "Validação humana e ambiente controlado aparecem como condição declarada",
+    "texto": "Os dois executivos citam supervisão humana e ambiente controlado. A reportagem não descreve como a revisão é feita nas 95 mil páginas, o que é a pergunta prática para quem pensa em automação de documentos em volume."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "Os números vêm da própria empresa",
+    "texto": "As cifras foram dadas por executivos da Globo ao Valor e não foram verificadas de forma independente. Não há dado de erro, retrabalho ou resultado de negócio."
+   }
+  ],
+  "oQueFazer": [
+   "Para empresas médias que geram documentos padronizados em volume, como relatórios, fichas ou comunicados, o caso indica a pergunta a fazer a qualquer fornecedor: quem revisa, em que amostra e com que registro de erros."
+  ],
+  "fontes": [
+   {
+    "titulo": "Globo cria agentes de IA para ampliar conteúdo sobre as eleições",
+    "origem": "Valor Econômico · 2 out 2026",
+    "url": "https://valor.globo.com/empresas/noticia/2026/10/02/globo-cria-agentes-de-ia-para-ampliar-conteudo-sobre-as-eleicoes.ghtml"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem afirma",
+    "valor": "Globo (José Lopes e Felipe Correia), em entrevista ao Valor"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "2 out 2026"
+   },
+   {
+    "rotulo": "Confirmação",
+    "valor": "não confirmada de forma independente"
+   }
+  ]
+ },
+ {
+  "id": "microsoft-copilot-business-cobranca-por-uso-adiada",
+  "publicado_em": "2026-10-03T07:10:00-03:00",
+  "tema": "MERCADO",
+  "titulo": "Microsoft adia para 1º de dezembro a cobrança por uso ligada por padrão no Copilot Business; Brasil fica fora no início",
+  "linha": "Parceiros que vendem o Copilot Business passarão a receber o pagamento por consumo ativado de fábrica, com limite padrão de 4.000 créditos por usuário ao mês. A mudança, antes prevista para 2 de novembro, não chega de início ao Brasil.",
+  "linhaFina": "O aviso aos parceiros, de 1º de outubro, também cita Copilot Cowork, Work IQ APIs e GitHub Copilot Harness como serviços cobrados por consumo.",
+  "fontePrimaria": "Microsoft (Partner Center)",
+  "leitura": 3,
+  "resumo": [
+   "A Microsoft mudou de 2 de novembro para 1º de dezembro de 2026 a data em que a cobrança por uso (pay-as-you-go) passa a vir ativada por padrão nas novas licenças do Microsoft 365 Copilot Business vendidas pelo programa de revendedores CSP.",
+   "O limite de gasto padrão será de 4.000 Copilot Credits por usuário ao mês, ajustável por administradores. Com 100 usuários, o teto padrão é de 400.000 créditos mensais.",
+   "A mudança começa em mercados selecionados e, no início, não estará disponível no Brasil, nem em Austrália, Bélgica, França, Alemanha, Índia, Itália, Coreia, Países Baixos, Polônia e Espanha."
+  ],
+  "corpo": [
+   "Em aviso aos parceiros publicado em 1º de outubro de 2026, a Microsoft informou que a cobrança por uso será ativada por padrão para novas licenças do Microsoft 365 Copilot Business, inclusive ofertas avulsas e pacotes, contratadas pelo CSP (Cloud Solution Provider). A data anterior era 2 de novembro; a nova é 1º de dezembro. Em 2 de novembro, a empresa vai liberar ambientes de teste (sandbox) no Partner Center para os parceiros se prepararem.",
+   "O modelo é o de licença por usuário mais consumo. Entre os serviços elegíveis à cobrança por uso, o aviso cita Copilot Cowork, Work IQ APIs e GitHub Copilot Harness. O limite de gasto padrão é de 4.000 Copilot Credits por usuário ao mês, que os administradores podem alterar. Segundo a CRN, que cobriu o aviso em 2 de outubro, os planos Copilot Business custam de US$ 18 a US$ 32 por usuário ao mês, e o parceiro pode zerar o limite para desligar a cobrança por uso.",
+   "A cobrança é por consumo real: o teto é um limite, não um valor fixo. A CRN registra ainda que os encargos de uso passam pela fatura do parceiro CSP, que responde por todos os valores da conta, inclusive consumo inesperado, e que o usuário que atinge o limite pode pedir mais créditos para aprovação do administrador.",
+   "Sobre disponibilidade, o aviso diz que a mudança será liberada primeiro a clientes elegíveis em mercados com suporte e que, inicialmente, não estará disponível em Austrália, Bélgica, Brasil, França, Alemanha, Índia, Itália, Coreia, Países Baixos, Polônia e Espanha. A Microsoft diz que divulgará mais informações conforme a disponibilidade se ampliar."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · BRASIL",
+    "titulo": "O padrão automático não vale de início para quem compra no país",
+    "texto": "A exclusão citada no aviso é do padrão ativado de fábrica. O aviso não detalha se empresas brasileiras podem contratar o consumo manualmente; vale perguntar isso ao revendedor antes de planejar orçamento."
+   },
+   {
+    "rotulo": "02 · ORÇAMENTO",
+    "titulo": "Agente de uso prolongado deixa de caber só no preço da licença",
+    "texto": "Quem usa Cowork ou APIs sobre dados de trabalho passa a ter custo variável. O limite padrão de 4.000 créditos por usuário serve de teto, mas o gasto real depende do uso, e é isso que a TI precisa estimar."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "A Microsoft vende o modelo que anuncia",
+    "texto": "O aviso apresenta o consumo ligado por padrão como menos atrito e mais adoção para o parceiro, e cita incentivo de ativação do Cowork. A leitura do cliente sobre custo pode ser diferente da leitura do vendedor."
+   }
+  ],
+  "oQueFazer": [
+   "Se a empresa usa ou pretende contratar Copilot por um revendedor, vale perguntar por escrito: a cobrança por uso vem ligada ou desligada, qual o limite por usuário, quem recebe o aviso ao atingi-lo e se o Brasil está dentro da regra no momento da compra."
+  ],
+  "fontes": [
+   {
+    "titulo": "October 2026 announcements — Partner Center (Update: usage-based billing is default on for new Microsoft 365 Copilot Business licenses)",
+    "origem": "Microsoft Learn · aviso aos parceiros · 1 out 2026",
+    "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-october"
+   },
+   {
+    "titulo": "Microsoft Delays Default Copilot Usage-Based Billing To Dec. 1, Adds Spending Cap Option",
+    "origem": "CRN · 2 out 2026",
+    "url": "https://www.crn.com/news/ai/2026/microsoft-delays-default-copilot-usage-based-billing-to-dec-1-adds-spending-cap-option"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem afirma",
+    "valor": "Microsoft, em aviso aos parceiros CSP"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "1 out 2026"
+   }
+  ],
+  "datas": [
+   {
+    "quando": "2 nov 2026",
+    "evento": "Ambientes de teste (sandbox) do Partner Center liberados para parceiros"
+   },
+   {
+    "quando": "1 dez 2026",
+    "evento": "Cobrança por uso ativada por padrão em novas licenças Copilot Business via CSP, em mercados com suporte"
+   }
+  ]
+ },
+ {
   "id": "openai-dots-agentes-sempre-ativos",
   "publicado_em": "2026-10-01T21:15:00-03:00",
   "tema": "LANÇAMENTOS",
