@@ -158,8 +158,8 @@ class Component extends DCLogic {
       total: todos.length, totalTexto: todos.length + (todos.length === 1 ? ' avaliação' : ' avaliações'),
       itens, vazio, filtrosTipo, filtrosCat, bancada,
       classeFiltroTipo: tipos.length > 2 ? '' : 'aw-oculto', classeFiltroCat: cats.length > 2 ? '' : 'aw-oculto',
-      btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
-      onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      btnLabel: this.state.sent === 'erro' ? 'Tente de novo' : this.state.sent ? 'Confira seu e-mail' : 'Assinar',
+      onSubscribe: (e) => AW.assinar(e, (ok) => this.setState({ sent: ok ? true : 'erro' })),
     };
   }
 }

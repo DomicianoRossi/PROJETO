@@ -92,6 +92,17 @@
     });
   }
 
+  // Inscrição na newsletter (Buttondown, com confirmação por e-mail). A chave da API nunca vai ao site:
+  // o formulário público de inscrição do Buttondown não precisa dela.
+  function assinar(e, pronto) {
+    e.preventDefault();
+    var campo = e.target.querySelector('input[type=email]');
+    var dados = new FormData();
+    dados.append('email', campo ? campo.value : '');
+    fetch('https://buttondown.com/api/emails/embed-subscribe/agenticway', { method: 'POST', body: dados, mode: 'no-cors' })
+      .then(function () { pronto(true); }, function () { pronto(false); });
+  }
+
   function hoje() {
     var d = new Date();
     return DIAS[d.getDay()] + ', ' + d.getDate() + ' ' + MESES[d.getMonth()] + ' ' + d.getFullYear();
@@ -102,7 +113,7 @@
   }
 
   window.AW = {
-    quando: quando, radar: radar, casos: casos, analises: analises, guias: guias, ferramentas: ferramentas, hoje: hoje, param: param, temas: TEMAS,
+    quando: quando, radar: radar, casos: casos, analises: analises, guias: guias, ferramentas: ferramentas, hoje: hoje, param: param, assinar: assinar, temas: TEMAS,
     assinatura: function () { return (window.AW_DADOS && window.AW_DADOS.assinatura) || ''; },
   };
 })();

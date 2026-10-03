@@ -9,3 +9,6 @@
 
 # Imagens geradas pelo Gemini antes de irem para site/img
 generated-images/
+edicao.json
+previa.html
+__pycache__/
