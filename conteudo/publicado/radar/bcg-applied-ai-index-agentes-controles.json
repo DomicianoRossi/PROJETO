@@ -1,0 +1,61 @@
+{
+  "id": "bcg-applied-ai-index-agentes-controles",
+  "publicado_em": "2026-10-02T07:11:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "Só 5% das empresas têm o conjunto completo de controles para agentes, diz BCG",
+  "linha": "O Applied AI Index 2026, com mais de 1.300 executivos, aponta que quem tem os seis controles gera três vezes mais valor com agentes do que quem tem um.",
+  "linhaFina": "Levantamento da BCG com mais de 1.300 CxOs e líderes seniores em mais de 20 setores. A consultoria vende serviços de transformação com IA.",
+  "fontePrimaria": "BCG",
+  "leitura": 3,
+  "resumo": [
+    "A fatia de agentes no valor total gerado por IA subiu de 17% na amostra de 2025 para 22% na de 2026, e deve chegar a 39% em 2030, segundo a BCG.",
+    "42% das empresas esperam dar autonomia a agentes até 2030, mas só 5% têm hoje o conjunto completo de controles críticos.",
+    "Empresas com os seis controles de IA implantados geram três vezes mais valor com agentes do que empresas com apenas um."
+  ],
+  "corpo": [
+    "A BCG publicou em 30 de setembro de 2026 o Applied AI Index 2026, baseado em pesquisa com mais de 1.300 CxOs e líderes seniores em mais de 20 setores. Quase 50% das empresas da amostra já geram valor com IA. Entre as mais maduras, que a BCG chama de future-built (7,5% do total), 44% dizem obter valor de agentes hoje, contra 2% das retardatárias.",
+    "O gasto corporativo com IA dobrou em um ano e chegou a 3,3% da receita, e 80% dele está fora do orçamento de TI. Entre as empresas future-built, 95% usam indicadores claros ou acompanham diretamente o valor da IA no resultado.",
+    "A consultoria recomenda a regra 10-20-70: 10% do esforço em algoritmos, 20% em tecnologia e dados e 70% em pessoas, organização e processos. Segundo a BCG, nenhum caminho único serve a todas as empresas."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · CONTROLE",
+      "titulo": "A lacuna está nos controles, não na vontade de dar autonomia",
+      "texto": "Quase metade espera conceder autonomia a agentes até 2030, e só 5% têm hoje os controles completos. Saber quais são os seis controles medidos é o primeiro ponto a pedir no relatório completo."
+    },
+    {
+      "rotulo": "02 · ORÇAMENTO",
+      "titulo": "A maior parte do gasto com IA não passa pela TI",
+      "texto": "Com 80% fora do orçamento de TI, quem responde pelos agentes na empresa pode não ser quem enxerga o custo."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "A BCG vende o caminho que recomenda",
+      "texto": "O índice é da consultoria, que oferece serviços de transformação com IA. A amostra é global, sem recorte para o Brasil na página."
+    }
+  ],
+  "oQueFazer": [
+    "Antes de ampliar a autonomia de qualquer agente, liste quais controles existem hoje (acesso, registro de ações, aprovação humana, desligamento) e quem responde por cada um."
+  ],
+  "fontes": [
+    {
+      "titulo": "The Formula for Agentic AI Value (Applied AI Index 2026)",
+      "origem": "BCG · artigo · 30 set 2026",
+      "url": "https://www.bcg.com/publications/2026/the-formula-for-agentic-ai-value"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem mediu",
+      "valor": "BCG"
+    },
+    {
+      "rotulo": "Amostra",
+      "valor": "mais de 1.300 CxOs e líderes seniores, mais de 20 setores"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "30 set 2026"
+    }
+  ]
+}
