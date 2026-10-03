@@ -25,9 +25,8 @@ Grave `edicao.json` na raiz do repositório (o arquivo não é commitado) com es
 
 ```json
 {
-  "assunto": "até 60 caracteres: o fato mais importante da semana, sem clickbait",
+  "assunto": "até 60 caracteres: o fato ou a ideia que amarra a semana, sem clickbait (é o título do e-mail)",
   "preheader": "até 110 caracteres: complementa o assunto, não repete",
-  "titulo": "até 90 caracteres: a ideia que amarra a semana",
   "abertura": "1 ou 2 parágrafos (separados por linha em branco), até 900 caracteres no total",
   "fatos": [{"id": "<id de nota do Radar>", "texto": "1 ou 2 frases, até 320 caracteres"}],
   "caso": {"id": "<id de Na Operação>", "texto": "até 600 caracteres"},
