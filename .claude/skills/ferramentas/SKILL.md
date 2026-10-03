@@ -48,6 +48,11 @@ Regras, e por quê:
 - **Toda marca documentado ou ressalva aponta para uma fonte** (`fonte`: número na lista `fontes`, começando em 1). Abra e leia a página; não marque pelo resumo da busca.
 - **A nota é curta e concreta** (até ~140 caracteres): o que está documentado e o limite. "SSO SAML só no plano Enterprise" serve; "boa autenticação" não.
 - **Preço igual à fonte**, com moeda e unidade. Não converta moeda nem calcule custo por tarefa que a fonte não dá; se só existe "fale com vendas", diga isso.
+- **Preço com período e moeda.** Diga se é cobrança mensal ou anual ("US$ 69/mês na cobrança anual"). Preço por faixa: dê a faixa de entrada e diga que sobe com o volume. Se a página mostra moeda diferente conforme a região, diga isso em vez de escolher uma.
+- **Uma fonte por célula: a principal.** Se a resposta junta duas páginas, cite a que sustenta a marca e ponha a outra em `fontes` também (fonte listada sem célula é permitida quando o texto a usa).
+- **O que cada critério exige.** *Log por ação*: `documentado` só se há registro por execução do que cada passo fez, consultável pela empresa; só histórico com retenção curta ou só trilha de mudanças na conta é `ressalva`. *Dados*: trata dos dados do cliente que passam pelo fluxo (onde ficam, DPA, se o fornecedor treina modelo com eles); política só do assistente de IA do próprio fornecedor não basta e a nota deve dizer de qual se trata.
+- **Sem superlativo sem fonte**: "a mais usada", "líder", "a mais barata" só com fonte que meça isso.
+- **Categoria:** PLATAFORMAS DE AGENTES é produto cujo centro é o agente (montar, orquestrar); AUTOMAÇÃO é plataforma de fluxos que ganhou agentes.
 - **Número do fornecedor é do fornecedor.** "Reduz 70% do tempo" no site da empresa não entra como fato; no máximo, atribuído.
 - **Nada de leitores ou especialistas inventados.** Sem "pedido de leitores", "segundo especialistas".
 - **Conflito de interesse:** a AgenticWay vende serviço de integração e não revende nenhuma ferramenta. Se isso mudar, o texto precisa dizer.

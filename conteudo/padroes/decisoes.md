@@ -11,7 +11,7 @@ Registro das decisões tomadas e do porquê, para valer em situações semelhant
 - **Acusação contra empresa ou pessoa identificada** só com fonte oficial ou dois veículos independentes; na dúvida, fica para o editor decidir no PR.
 - **Fala de executivo em evento não é caso; reportagem que só repete o comunicado não é segunda fonte independente.**
 - **Conteúdo de demonstração no ar leva faixa "CONTEÚDO DE DEMONSTRAÇÃO"** até a editoria ter conteúdo real; a faixa sai quando entra o primeiro item real. *Por quê:* exemplos inventados tinham aparência de notícia real.
-- **Ferramentas é relato documentado** (documentação oficial e relatos de usuários), nunca "testamos" sem teste real.
+- **Ferramentas é relato documentado** (documentação oficial e relatos de usuários), nunca "testamos" sem teste real. "Não documentado" não quer dizer que a ferramenta não faz, e a página diz isso. Preço com período de cobrança e moeda como a fonte mostra; sem superlativo sem fonte (03/out/2026).
 
 ## 2. Editorias e rotinas
 
@@ -21,7 +21,7 @@ Registro das decisões tomadas e do porquê, para valer em situações semelhant
 | Na Operação | 1 caso por semana, empresa nomeada, fontes públicas, imagem do Gemini | segunda 8h (`0 11 * * 1`) | `/na-operacao` |
 | Guia | guia novo a cada 2 semanas + revisão semanal com versão e histórico | quarta 8h (`0 11 * * 3`); `situacao.py` decide o modo | `/guia` |
 | Análise | 1 opinião por semana, tese a partir do que saiu na semana | quinta 17h (`0 20 * * 4`), publica na sexta 7h | `/analise` |
-| Ferramentas | pendente | — | — |
+| Ferramentas | 1 comparativo ou avaliação a cada 2 semanas, seis critérios fixos, marcas documentado / com ressalva / não documentado, cada uma com fonte; nunca teste próprio | terça 8h (`0 11 * * 2`); `situacao.py` decide se é semana | `/ferramentas` |
 | Newsletter | pendente (sextas) | — | — |
 
 - **Toda rotina abre PR; nunca faz merge nem push no `main`.** O merge é a aprovação do editor.

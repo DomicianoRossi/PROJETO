@@ -13,13 +13,13 @@ window.AW_DADOS.ferramentas = [
   "linha": "Zapier cobra por tarefa e hospeda nos EUA; n8n cobra por execução e pode rodar no servidor da empresa.",
   "leitura": 6,
   "abertura": "Quem quer pôr um agente de IA para mexer em CRM, planilha ou e-mail costuma chegar a duas plataformas de automação: Zapier e n8n. As duas já têm agentes, aprovação humana e milhares de integrações. A escolha raramente se decide pelo que o agente faz na demonstração, e sim por quatro perguntas de operação: quem entra com qual login, o que fica registrado, onde ficam os dados e quanto custa quando o volume cresce.",
-  "metodo": "Lemos as páginas de preços, a central de ajuda e a documentação oficial de cada fornecedor, além das páginas de privacidade e de processamento de dados, em outubro de 2026. Escolhemos Zapier e n8n porque têm preço público, aceitam contratação direta do Brasil e são as plataformas de automação mais usadas para ligar agentes a sistemas que a empresa já tem. Nenhuma ferramenta foi instalada ou usada; cada marca reflete o que a página citada descreve, não comportamento observado. Ausência de documentação não significa ausência do recurso.",
+  "metodo": "Lemos as páginas de preços, a central de ajuda e a documentação oficial de cada fornecedor, além das páginas de privacidade e de processamento de dados, em outubro de 2026. Escolhemos Zapier e n8n porque têm preço público, aceitam contratação direta do Brasil e as duas documentam agentes de IA ligados a aplicativos que a empresa já usa. Nenhuma ferramenta foi instalada ou usada; cada marca reflete o que a página citada descreve, não comportamento observado. Ausência de documentação não significa ausência do recurso.",
   "ferramentas": [
    {
     "nome": "Zapier",
     "fornecedor": "Zapier Inc.",
     "tipo": "SaaS (nuvem do fornecedor)",
-    "preco": "Free US$ 0/mês (100 tarefas); Professional a partir de US$ 19,99/mês; Team a partir de US$ 69/mês; Enterprise sob consulta",
+    "preco": "Free US$ 0/mês (100 tarefas); Professional a partir de US$ 19,99/mês e Team a partir de US$ 69/mês, ambos com cobrança anual (mensal custa mais); Enterprise sob consulta",
     "resumo": "Catálogo amplo e aprovação humana nos planos pagos; dados só nos EUA",
     "texto": "O Zapier cobra por tarefa, e a página de preços diz que passos de IA, código e SDK seguem o mesmo modelo por tarefa. O catálogo passa de 9.000 aplicativos. A aprovação humana é um passo próprio (Human in the Loop), disponível a partir do plano Professional. SSO SAML aparece a partir do plano Team. Os dados ficam em servidores da AWS nos Estados Unidos, e o fornecedor diz não oferecer hospedagem só na União Europeia."
    },
@@ -27,7 +27,7 @@ window.AW_DADOS.ferramentas = [
     "nome": "n8n",
     "fornecedor": "n8n GmbH",
     "tipo": "SaaS ou instalado no servidor da empresa",
-    "preco": "Starter US$ 20/mês (2,5 mil execuções, cobrança anual); Pro US$ 50/mês (10 mil); Business 667€/mês (40 mil, só self-hosted); Enterprise sob consulta",
+    "preco": "Starter 20/mês (2,5 mil execuções); Pro 50/mês (10 mil); Business 667/mês (40 mil, só self-hosted), todos com cobrança anual, em dólar ou euro conforme a região; Enterprise sob consulta",
     "resumo": "Cobra por execução e roda no servidor da empresa; governança só nos planos altos",
     "texto": "O n8n cobra por execução completa de fluxo, independentemente do número de passos, e todos os planos incluem usuários e integrações ilimitados. Pode rodar na nuvem do fornecedor ou no servidor da empresa. A aprovação humana antes de o agente usar uma ferramenta está documentada, com canais como Slack, Teams, e-mail e WhatsApp. SSO, SAML e LDAP começam no plano Business, e o envio de logs para sistemas externos só no Enterprise."
    }
@@ -39,12 +39,12 @@ window.AW_DADOS.ferramentas = [
     "celulas": [
      {
       "marca": "ressalva",
-      "nota": "SAML SSO só a partir do plano Team (a partir de US$ 69/mês)",
+      "nota": "SAML SSO só a partir do plano Team (US$ 69/mês na cobrança anual)",
       "fonte": 1
      },
      {
       "marca": "ressalva",
-      "nota": "SSO, SAML e LDAP só a partir do Business (667€/mês, self-hosted); Pro tem papéis de administrador",
+      "nota": "SSO, SAML e LDAP só a partir do Business (667/mês, só self-hosted); Pro tem papéis de administrador",
       "fonte": 4
      }
     ]
@@ -124,7 +124,7 @@ window.AW_DADOS.ferramentas = [
      },
      {
       "marca": "documentado",
-      "nota": "Cobra por execução completa, não por passo: US$ 20/mês por 2,5 mil execuções no Starter anual",
+      "nota": "Cobra por execução completa, não por passo: 20/mês por 2,5 mil execuções no Starter, cobrança anual",
       "fonte": 4
      }
     ]
