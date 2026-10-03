@@ -282,6 +282,73 @@ def valida_guia(caminho, item):
     return erros
 
 
+TIPOS_FERRAMENTA = ["COMPARATIVO", "AVALIAÇÃO"]
+CATEGORIAS_FERRAMENTA = ["PLATAFORMAS DE AGENTES", "CONECTORES ERP", "LEITURA DE DOCUMENTOS", "WHATSAPP",
+                         "PLANILHAS", "ATENDIMENTO", "AUTOMAÇÃO"]
+CRITERIOS_FERRAMENTA = ["Autenticação", "Log por ação", "Conector", "Humano no fluxo", "Dados", "Custo por tarefa"]
+MARCAS_FERRAMENTA = ["documentado", "ressalva", "nao-documentado"]
+
+ESQUEMA_FERRAMENTA = {
+    "id": (str, True), "publicado_em": (str, True),
+    "consultadoEm": (str, True),        # mês em que a documentação foi lida, ex. "out/2026"
+    "tipo": (str, True), "categoria": (str, True),
+    "titulo": (str, True), "linhaFina": (str, True),
+    "linha": (str, True),               # 1 a 2 frases para a listagem
+    "leitura": (int, True),
+    "abertura": (str, True), "metodo": (str, True),
+    "ferramentas": (list, True),        # 1 a 6 {nome, fornecedor, tipo, preco, resumo, texto}
+    "criterios": (list, True),          # os 6 critérios fixos, na ordem, {criterio, pergunta, celulas}
+    "conclusao1": (str, True), "conclusao2": (str, True),
+    "ficha": (list, True),              # {rotulo, valor}
+    "fontes": (list, True),             # {titulo, origem, url}; células apontam pelo número (1 = primeira)
+    "correcoes": (list, False),         # {data, texto}: correções aceitas depois da publicação
+}
+
+
+def valida_ferramenta(caminho, item):
+    erros = _campos(caminho, item, ESQUEMA_FERRAMENTA)
+    if erros:
+        return erros
+    if item["id"] != caminho.stem or not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", item["id"]):
+        erros.append(erro(caminho, "id deve ser kebab-case sem acento e igual ao nome do arquivo"))
+    try:
+        if datetime.fromisoformat(item["publicado_em"]).tzinfo is None:
+            erros.append(erro(caminho, "publicado_em sem fuso horário"))
+    except ValueError:
+        erros.append(erro(caminho, "publicado_em não é ISO 8601"))
+    if item["tipo"] not in TIPOS_FERRAMENTA:
+        erros.append(erro(caminho, f"tipo '{item['tipo']}' fora de {TIPOS_FERRAMENTA}"))
+    if item["categoria"] not in CATEGORIAS_FERRAMENTA:
+        erros.append(erro(caminho, f"categoria '{item['categoria']}' fora de {CATEGORIAS_FERRAMENTA}"))
+    erros += _lista(caminho, item, "ferramentas", ["nome", "fornecedor", "tipo", "preco", "resumo", "texto"], 1, 6)
+    erros += _lista(caminho, item, "fontes", ["titulo", "origem", "url"], 1, 30)
+    erros += _lista(caminho, item, "ficha", ["rotulo", "valor"], 2, 10)
+    for f in item["fontes"]:
+        if isinstance(f, dict) and not str(f.get("url", "")).startswith("https://"):
+            erros.append(erro(caminho, f"fonte sem URL https: {f.get('url')}"))
+    nomes = [c.get("criterio") for c in item["criterios"] if isinstance(c, dict)]
+    if nomes != CRITERIOS_FERRAMENTA:
+        erros.append(erro(caminho, f"criterios devem ser exatamente, nesta ordem: {CRITERIOS_FERRAMENTA}"))
+    n_ferr, n_fontes = len(item["ferramentas"]), len(item["fontes"])
+    for c in item["criterios"]:
+        if not isinstance(c, dict) or set(c) != {"criterio", "pergunta", "celulas"}:
+            erros.append(erro(caminho, "cada critério tem criterio, pergunta e celulas")); continue
+        if len(c["celulas"]) != n_ferr:
+            erros.append(erro(caminho, f"'{c['criterio']}': uma célula por ferramenta ({n_ferr})"))
+        for cel in c["celulas"]:
+            if not isinstance(cel, dict) or set(cel) != {"marca", "nota", "fonte"}:
+                erros.append(erro(caminho, f"'{c['criterio']}': célula tem marca, nota e fonte")); continue
+            if cel["marca"] not in MARCAS_FERRAMENTA:
+                erros.append(erro(caminho, f"'{c['criterio']}': marca '{cel['marca']}' fora de {MARCAS_FERRAMENTA}"))
+            if cel["marca"] != "nao-documentado" and not (isinstance(cel["fonte"], int) and 1 <= cel["fonte"] <= n_fontes):
+                erros.append(erro(caminho, f"'{c['criterio']}': marca '{cel['marca']}' precisa apontar para uma fonte (1 a {n_fontes})"))
+    if "correcoes" in item:
+        erros += _lista(caminho, item, "correcoes", ["data", "texto"], 0, 50)
+    if re.search(r"\b(testamos|testado|testada|instalamos|bancada)\b", item["metodo"] + " " + item["abertura"], re.I):
+        erros.append(erro(caminho, "abertura/metodo falam em teste próprio; Ferramentas é relato documentado"))
+    return erros
+
+
 def carrega(editoria, validador):
     pasta = FONTE / editoria
     pasta.mkdir(parents=True, exist_ok=True)
@@ -303,7 +370,8 @@ def carrega(editoria, validador):
 
 EDITORIAS = [("radar", "valida_radar", "notas"), ("na-operacao", "valida_caso", "casos"),
              ("analise", "valida_analise", "análises"),
-             ("guia", "valida_guia", "guias")]
+             ("guia", "valida_guia", "guias"),
+             ("ferramentas", "valida_ferramenta", "avaliações")]
 
 
 def main():

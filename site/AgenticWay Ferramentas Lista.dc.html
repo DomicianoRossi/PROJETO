@@ -3,13 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./dados/ferramentas.js"></script>
+<script src="./aw.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.ok{color:#0F2A44}.parcial{color:#5B6572}.nao{color:#8A93A0}</style>
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.chip{font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid #0F2A44;border-radius:3px;cursor:pointer;background:transparent;color:#0F2A44;white-space:nowrap}.chip:hover{background:#DDD9D0}.chip-on{background:#0F2A44;color:#F7F5F0}.chip-on:hover{background:#1F4E79}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.ok{color:#0F2A44}.parcial{color:#5B6572}.nao{color:#8A93A0}.aw-oculto{display:none!important}</style>
 </helmet>
 <div data-screen-label="Ferramentas · Lista" style="min-height:100vh;display:flex;flex-direction:column">
 
@@ -26,15 +28,10 @@
     </div>
   </div>
 
-  <!-- faixa de demonstração: remover quando a editoria tiver conteúdo real -->
-  <div style="background:#0F2A44;color:#F7F5F0;padding:10px clamp(16px,4vw,48px)">
-    <div style="max-width:1200px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5"><strong style="color:#F08A6E;font-weight:500">CONTEÚDO DE DEMONSTRAÇÃO</strong> · Esta editoria estreia em breve. Os textos abaixo mostram o formato da seção e não são notícias reais.</div>
-  </div>
-
   <!-- linha de contexto -->
   <div style="padding:0 clamp(16px,4vw,48px)">
     <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
-      <span>Ferramentas / Comparativos e avaliações</span><span>{{ total }} publicações · a cada duas semanas</span>
+      <span>Ferramentas / Comparativos e avaliações</span><span>{{ totalTexto }} · a cada duas semanas</span>
     </div>
   </div>
 
@@ -46,20 +43,20 @@
         <div style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:40px;align-items:end">
           <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
             <div class="mono" style="font-size:12px;color:#E8785A">FERRAMENTAS</div>
-            <h1 class="sans" style="font-weight:700;font-size:clamp(34px,4.4vw,56px);line-height:1;margin:0;letter-spacing:-1.4px">Testadas com um critério só.</h1>
-            <p style="font-size:19px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">Integra com o que a empresa já tem? Cada plataforma passa pelo mesmo ERP, o mesmo usuário restrito e as mesmas tarefas. Sem nota de estrelas, sem patrocínio.</p>
+            <h1 class="sans" style="font-weight:700;font-size:clamp(34px,4.4vw,56px);line-height:1;margin:0;letter-spacing:-1.4px">Avaliadas com um critério só.</h1>
+            <p style="font-size:19px;line-height:1.5;margin:0;color:#3C4A5A;text-wrap:pretty">Integra com o que a empresa já tem? Cada ferramenta é lida pelos mesmos seis critérios, na documentação oficial e em relatos públicos, com fonte para cada marca. Não testamos e não damos nota de estrelas. Sem patrocínio.</p>
           </div>
           <div style="border:1px solid #0F2A44;border-radius:4px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0">
             <span class="sans" style="font-weight:700;font-size:12px;letter-spacing:0.5px">COMO LER O RESULTADO</span>
-            <span class="mono" style="font-size:12px;line-height:1.8"><span class="ok">■ passou</span> · rodou no ERP de teste sem código extra<br><span class="parcial">◪ parcial</span> · precisou de código ou intervenção manual<br><span class="nao">□ não passou</span> · não completou ou completou sem log</span>
+            <span class="mono" style="font-size:12px;line-height:1.8"><span class="ok">■ documentado</span> · a documentação oficial descreve<br><span class="parcial">◪ com ressalva</span> · descreve em parte, com limite ou custo extra<br><span class="nao">□ não documentado</span> · não encontramos na documentação pública</span>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <div class="{{ classeFiltroTipo }}" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
             <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px;min-width:80px">TIPO</span>
             <sc-for list="{{ filtrosTipo }}" as="f" hint-placeholder-count="3"><button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button></sc-for>
           </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <div class="{{ classeFiltroCat }}" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
             <span class="mono" style="font-size:11px;color:#5B6572;margin-right:6px;min-width:80px">CATEGORIA</span>
             <sc-for list="{{ filtrosCat }}" as="f" hint-placeholder-count="6"><button class="{{ f.classe }}" onClick="{{ f.onClick }}">{{ f.rotulo }}</button></sc-for>
           </div>
@@ -70,12 +67,12 @@
 
         <div style="min-width:0;display:flex;flex-direction:column">
           <sc-for list="{{ itens }}" as="i" hint-placeholder-count="6">
-            <a href="AgenticWay%20Ferramentas%20Artigo.dc.html" style="display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:28px;padding:28px 0;border-bottom:1px solid #DDD9D0;align-items:start">
+            <a href="{{ i.url }}" style="display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:28px;padding:28px 0;border-bottom:1px solid #DDD9D0;align-items:start">
               <span style="display:flex;flex-direction:column;gap:8px;min-width:0">
                 <span class="mono" style="font-size:11px;color:#1F4E79">{{ i.tipo }} · {{ i.categoria }}</span>
                 <span class="sans" style="font-weight:700;font-size:clamp(19px,2vw,24px);line-height:1.2;letter-spacing:-0.4px;text-wrap:pretty">{{ i.titulo }}</span>
                 <span style="font-size:15px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ i.linha }}</span>
-                <span class="mono" style="font-size:11px;color:#5B6572">{{ i.data }} · {{ i.leitura }} min · testado com {{ i.testadoCom }}</span>
+                <span class="mono" style="font-size:11px;color:#5B6572">{{ i.data }} · {{ i.leitura }} min · documentação de {{ i.testadoCom }}</span>
               </span>
               <span style="display:flex;flex-direction:column;gap:6px;border-left:1px solid #DDD9D0;padding-left:20px;min-width:0">
                 <span class="mono" style="font-size:10px;color:#5B6572">INTEGRA COM O QUE A EMPRESA JÁ TEM?</span>
@@ -92,25 +89,19 @@
         <aside style="min-width:0;padding-top:28px;display:flex;flex-direction:column;gap:36px">
 
           <div style="display:flex;flex-direction:column;gap:8px">
-            <div class="lat-h">A BANCADA</div>
+            <div class="lat-h">OS SEIS CRITÉRIOS</div>
             <sc-for list="{{ bancada }}" as="b" hint-placeholder-count="4">
               <div style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:10px;padding:8px 0;border-bottom:1px solid #DDD9D0;font-size:13px;line-height:1.45">
                 <span class="mono" style="font-size:11px;color:#5B6572;padding-top:2px">{{ b.rotulo }}</span><span style="text-wrap:pretty">{{ b.valor }}</span>
               </div>
             </sc-for>
-            <a href="AgenticWay%20Ferramentas%20Artigo.dc.html" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79;margin-top:4px">Metodologia completa →</a>
+            <a href="AgenticWay%20Sobre.dc.html#criterios" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79;margin-top:4px">Critérios editoriais →</a>
           </div>
 
           <div style="display:flex;flex-direction:column">
-            <div class="lat-h">O QUE TESTAR A SEGUIR</div>
-            <p style="margin:10px 0 4px;font-size:13px;line-height:1.5;color:#3C4A5A">Pedidos de leitores. Os mais votados entram na fila.</p>
-            <sc-for list="{{ pedidos }}" as="p" hint-placeholder-count="4">
-              <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #DDD9D0;align-items:start">
-                <span style="font-size:14px;line-height:1.4;text-wrap:pretty">{{ p.texto }}</span>
-                <button class="mono" onClick="{{ p.onClick }}" style="font-size:11px;padding:4px 8px;border:1px solid #0F2A44;border-radius:3px;background:{{ p.bg }};color:{{ p.cor }};cursor:pointer;white-space:nowrap">{{ p.votos }} ▲</button>
-              </div>
-            </sc-for>
-            <a href="mailto:ferramentas@agenticway.com.br" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79;padding-top:12px">Sugerir um teste →</a>
+            <div class="lat-h">O QUE AVALIAR A SEGUIR</div>
+            <p style="margin:10px 0 4px;font-size:13px;line-height:1.5;color:#3C4A5A">Sugira uma ferramenta ou categoria para a próxima avaliação.</p>
+            <a href="mailto:ferramentas@agenticway.com.br" class="sans" style="font-weight:600;font-size:13px;color:#1F4E79;padding-top:12px">Sugerir uma avaliação →</a>
           </div>
 
           <div style="border:1px solid #0F2A44;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px">
@@ -122,7 +113,7 @@
             </form>
           </div>
 
-          <div class="mono" style="font-size:11px;color:#5B6572;line-height:1.7;border-top:1px solid #DDD9D0;padding-top:12px">Nenhuma ferramenta paga para ser testada ou para aparecer aqui. Fornecedores recebem o resultado antes da publicação e têm direito de resposta.</div>
+          <div class="mono" style="font-size:11px;color:#5B6572;line-height:1.7;border-top:1px solid #DDD9D0;padding-top:12px">Nenhuma ferramenta paga para aparecer aqui. Fornecedores podem enviar correção ou documentação que não encontramos para ferramentas@agenticway.com.br.</div>
         </aside>
       </section>
     </div>
@@ -138,44 +129,35 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { sent: false, tipo: 'Todos', cat: 'Todos', votados: {} };
+  state = { sent: false, tipo: 'Todos', cat: 'Todos' };
   renderVals() {
-    const P = (nome, marca, nota) => ({ nome, marca, nota, classe: marca === '■' ? 'ok' : marca === '◪' ? 'parcial' : 'nao' });
-    const todos = [
-      { tipo: 'COMPARATIVO', categoria: 'PLATAFORMAS DE AGENTES', titulo: 'Quatro plataformas de agentes testadas com o mesmo ERP: só uma passou', linha: 'Mesmas três tarefas, mesmo usuário restrito. Uma completou tudo com log; duas precisaram de código; uma não leu o pedido.', data: '10 set 2026', leitura: 12, testadoCom: 'ERP de mercado', placar: [P('Plataforma A', '■', 'passou'), P('Plataforma B', '◪', 'parcial'), P('Plataforma C', '◪', 'parcial'), P('Plataforma D', '□', 'não')] },
-      { tipo: 'AVALIAÇÃO', categoria: 'CONECTORES ERP', titulo: 'O conector da TOTVS para o Protheus: o que expõe de log e o que esconde', linha: 'Autenticação e permissão resolvidas. O log registra a ação, mas não os dados consultados, o que fica aquém do que o BC propõe.', data: '27 ago 2026', leitura: 8, testadoCom: 'Protheus 12', placar: [P('Autenticação', '■', 'nativa'), P('Log por ação', '◪', 'sem dados'), P('Custo', '■', 'previsível')] },
-      { tipo: 'COMPARATIVO', categoria: 'LEITURA DE DOCUMENTOS', titulo: 'Três ferramentas de leitura de nota fiscal: qual entende a NF-e de verdade', linha: 'Cem notas reais, com CFOP, ST e desconto. Duas leram o XML; a terceira só o PDF, e errou imposto em 11% dos casos.', data: '13 ago 2026', leitura: 10, testadoCom: '100 NF-e reais', placar: [P('Ferramenta A', '■', 'XML'), P('Ferramenta B', '■', 'XML'), P('Ferramenta C', '□', 'só PDF')] },
-      { tipo: 'COMPARATIVO', categoria: 'WHATSAPP', titulo: 'Agentes no WhatsApp: cinco plataformas e um só critério, integra com o CRM?', linha: 'Todas respondem bem. Só duas gravam a conversa no CRM com o cliente certo; as outras criam contato duplicado.', data: '30 jul 2026', leitura: 11, testadoCom: 'CRM de mercado', placar: [P('Duas', '■', 'gravam no CRM'), P('Duas', '◪', 'duplicam'), P('Uma', '□', 'não integra')] },
-      { tipo: 'AVALIAÇÃO', categoria: 'PLANILHAS', titulo: 'Agente da OpenAI com acesso a planilhas: útil e perigoso pelo mesmo motivo', linha: 'Lê e escreve em planilha compartilhada sem controle de versão nem permissão por célula. Para operação, exige regra fora da planilha.', data: '16 jul 2026', leitura: 7, testadoCom: 'planilha de pedidos real', placar: [P('Leitura', '■', 'boa'), P('Escrita', '◪', 'sem trilha'), P('Permissão', '□', 'não há')] },
-      { tipo: 'AVALIAÇÃO', categoria: 'CONECTORES ERP', titulo: 'Conector genérico por automação de tela: funciona até a tela mudar', linha: 'Sete de dez execuções corretas; as três falhas vieram de tela lenta. Sem log estruturado, só gravação.', data: '2 jul 2026', leitura: 8, testadoCom: 'ERP de mercado', placar: [P('Autenticação', '■', 'login de tela'), P('Estabilidade', '◪', '7/10'), P('Log', '□', 'só vídeo')] },
-    ];
+    const todos = AW.ferramentas().map(a => Object.assign({}, a, {
+      data: a.quando.dataCurta + ' ' + a.publicado_em.slice(0, 4), testadoCom: a.consultadoEm,
+      placar: a.ferramentas.map((f, k) => {
+        const [marca, classe] = a.marca(a.criterios[2].celulas[k].marca);
+        return { nome: f.nome, marca, classe, nota: a.criterios[2].celulas[k].nota };
+      }),
+    }));
     const { tipo, cat } = this.state;
-    const tipos = ['Todos', 'COMPARATIVO', 'AVALIAÇÃO'];
-    const cats = ['Todos', 'PLATAFORMAS DE AGENTES', 'CONECTORES ERP', 'LEITURA DE DOCUMENTOS', 'WHATSAPP', 'PLANILHAS'];
     const bonito = (s) => s === 'Todos' ? 'Todos' : s.charAt(0) + s.slice(1).toLowerCase();
+    const tipos = ['Todos', ...new Set(todos.map(i => i.tipo))];
+    const cats = ['Todos', ...new Set(todos.map(i => i.categoria))];
     const itens = todos.filter(i => (tipo === 'Todos' || i.tipo === tipo) && (cat === 'Todos' || i.categoria === cat));
     const filtrosTipo = tipos.map(t => ({ rotulo: bonito(t), classe: t === tipo ? 'chip chip-on' : 'chip', onClick: () => this.setState({ tipo: t }) }));
     const filtrosCat = cats.map(c => ({ rotulo: bonito(c), classe: c === cat ? 'chip chip-on' : 'chip', onClick: () => this.setState({ cat: c }) }));
-    const vazio = itens.length === 0 ? 'Nada testado nessa combinação ainda. Sugira um teste na coluna ao lado.' : '';
+    const vazio = todos.length === 0 ? 'A primeira avaliação sai em breve.' : (itens.length === 0 ? 'Nada avaliado nessa combinação ainda.' : '');
     const bancada = [
-      { rotulo: 'ERP', valor: 'Sistema de mercado em ambiente de teste, com API' },
-      { rotulo: 'Base', valor: '1.200 itens e 300 clientes anonimizados de uma distribuidora' },
-      { rotulo: 'Usuário', valor: 'Perfil vendedor, sem acesso a custo' },
-      { rotulo: 'Tarefas', valor: 'Ler pedido, emitir orçamento, escalar exceção; dez repetições cada' },
+      { rotulo: 'Autenticação', valor: 'Usa o usuário e a permissão do sistema da empresa?' },
+      { rotulo: 'Log por ação', valor: 'Registra o que consultou e o que fez?' },
+      { rotulo: 'Conector', valor: 'Liga ao ERP, CRM ou WhatsApp sem código?' },
+      { rotulo: 'Humano no fluxo', valor: 'Escala exceção para uma pessoa, com motivo?' },
+      { rotulo: 'Dados', valor: 'Onde ficam e o que sai para o modelo?' },
+      { rotulo: 'Custo por tarefa', valor: 'Preço público, previsível com o volume?' },
     ];
-    const base = [
-      { id: 'a', texto: 'Agentes de cobrança ligados ao financeiro do ERP', votos: 41 },
-      { id: 'b', texto: 'Ferramentas de extração de dados de contrato para o jurídico', votos: 29 },
-      { id: 'c', texto: 'Conector do Dynamics 365 para agentes do Copilot', votos: 22 },
-      { id: 'd', texto: 'Plataformas de agente para e-mail de compras', votos: 17 },
-    ];
-    const pedidos = base.map(p => {
-      const v = !!this.state.votados[p.id];
-      return { texto: p.texto, votos: p.votos + (v ? 1 : 0), bg: v ? '#0F2A44' : 'transparent', cor: v ? '#F7F5F0' : '#0F2A44',
-        onClick: () => this.setState({ votados: { ...this.state.votados, [p.id]: !v } }) };
-    });
     return {
-      total: todos.length, itens, vazio, filtrosTipo, filtrosCat, bancada, pedidos,
+      total: todos.length, totalTexto: todos.length + (todos.length === 1 ? ' avaliação' : ' avaliações'),
+      itens, vazio, filtrosTipo, filtrosCat, bancada,
+      classeFiltroTipo: tipos.length > 2 ? '' : 'aw-oculto', classeFiltroCat: cats.length > 2 ? '' : 'aw-oculto',
       btnLabel: this.state.sent ? 'Inscrito' : 'Assinar',
       onSubscribe: (e) => { e.preventDefault(); this.setState({ sent: true }); },
     };

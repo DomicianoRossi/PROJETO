@@ -7,6 +7,7 @@
 <script src="./dados/na-operacao.js"></script>
 <script src="./dados/analise.js"></script>
 <script src="./dados/guia.js"></script>
+<script src="./dados/ferramentas.js"></script>
 <script src="./aw.js"></script>
 <link rel="stylesheet" href="./aw.css">
 <script src="./support.js"></script>
@@ -30,11 +31,6 @@
         <a href="AgenticWay%20Radar%20Lista.dc.html">Radar</a><a href="AgenticWay%20Na%20Operacao%20Lista.dc.html">Na Operação</a><a href="AgenticWay%20Ferramentas%20Lista.dc.html">Ferramentas</a><a href="AgenticWay%20Analise%20Lista.dc.html">Análise</a><a href="AgenticWay%20Guia%20Lista.dc.html">Guia</a><a href="AgenticWay%20Para%20Empresas.dc.html" style="color:#1F4E79;border-bottom:2px solid #1F4E79;padding-bottom:2px">Para empresas</a>
       </nav>
     </div>
-  </div>
-
-  <!-- faixa de demonstração: remover quando a editoria tiver conteúdo real -->
-  <div style="background:#0F2A44;color:#F7F5F0;padding:10px clamp(16px,4vw,48px)">
-    <div style="max-width:1200px;margin:0 auto;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5"><strong style="color:#F08A6E;font-weight:500">CONTEÚDO DE DEMONSTRAÇÃO</strong> · Radar, Na Operação, Análise e Guia são conteúdo real. O card de Ferramentas mostra o formato da editoria, que estreia em breve, e não é notícia real.</div>
   </div>
 
   <!-- linha de data -->
@@ -145,6 +141,12 @@ class Component extends DCLogic {
     const d = new Date();
     const hoje = `${dias[d.getDay()]}, ${d.getDate()} ${meses[d.getMonth()]} ${d.getFullYear()}`;
     const density = this.props.radarItems ?? 6;
+    const uf = AW.ferramentas()[0];
+    const ferrCard = uf ? {
+      capaClasse: 'aw-capa aw-capa-azul', capaEd: 'FERRAMENTAS · ' + uf.tipo, capaFig: String(uf.ferramentas.length), capaRot: (uf.ferramentas.length === 1 ? 'ferramenta' : 'ferramentas') + ', seis critérios, fonte em cada marca',
+      editoria: 'FERRAMENTAS', titulo: uf.titulo, resumo: uf.linha, meta: uf.tipo.charAt(0) + uf.tipo.slice(1).toLowerCase() + ' · ' + uf.leitura + ' min',
+      url: uf.url, urlLista: 'AgenticWay%20Ferramentas%20Lista.dc.html',
+    } : { capaClasse: 'aw-capa aw-capa-azul', capaEd: 'FERRAMENTAS', capaFig: '', capaRot: '', editoria: 'FERRAMENTAS', titulo: 'Ferramentas estreia em breve', resumo: '', meta: '', url: 'AgenticWay%20Ferramentas%20Lista.dc.html', urlLista: 'AgenticWay%20Ferramentas%20Lista.dc.html' };
     const ug = AW.guias()[0];
     const guiaCard = ug ? {
       capaClasse: 'aw-capa aw-capa-papel', capaEd: 'GUIA · ' + ug.formato, capaFig: String(ug.itens.length), capaRot: ug.formato === 'PERGUNTAS' ? 'perguntas, com resposta boa e ruim' : 'itens para levar à reunião',
@@ -169,7 +171,7 @@ class Component extends DCLogic {
       hora: n.quando.relativo, titulo: n.titulo, fonte: n.fontePrimaria, url: n.url,
     }));
     const destaques = [
-      { capaClasse: 'aw-capa aw-capa-azul', capaEd: 'FERRAMENTAS · COMPARATIVO', capaFig: '1 de 4', capaRot: 'plataformas passou com o mesmo ERP', editoria: 'FERRAMENTAS', titulo: 'Quatro plataformas de agentes testadas com o mesmo ERP: só uma passou', resumo: 'Critério único: integra com o que a empresa já tem? Detalhes de autenticação, logs e custo por tarefa.', meta: 'Comparativo · 12 min', imagem: 'imagem: bancada de testes', url: 'AgenticWay%20Ferramentas%20Artigo.dc.html', urlLista: 'AgenticWay%20Ferramentas%20Lista.dc.html' },
+      ferrCard,
       analiseCard,
       guiaCard,
     ];
