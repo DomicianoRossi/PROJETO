@@ -61,6 +61,7 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 - `AgenticWay Guia Artigo.dc.html` — artigo de Guia (itens numerados, resposta boa/ruim, checklist imprimível, histórico de versões)
 - `AgenticWay Para Empresas.dc.html` — página de serviço "Para empresas" (conteúdo de exemplo)
 - `AgenticWay Sobre.dc.html` — página "Sobre" com critérios editoriais e declaração de conflito de interesse
+- `AgenticWay Como Funciona.dc.html` — página pública "Como a AgenticWay funciona": agentes escrevem, editor aprova; ciclo, o que os agentes não fazem, a semana e cada editoria em detalhe (versão interna: `conteudo/padroes/rotinas.md`)
 
 ### marca/pranchas/
 - `AgenticWay Marca.dc.html` — prancha de marca (1a–1e)
@@ -84,4 +85,4 @@ Marca de Domiciano Rossi. Pivô (set/2026): começar como **mídia especializada
 10. ~~Listagens de Ferramentas, Análise e Guia~~ (feitas em 20/set/2026)
 
 ## Navegação entre páginas
-- Links relativos entre os `.dc.html`, com `%20` no lugar dos espaços. Nav e rodapé iguais em todas as páginas: logo → Home; editorias → listagem; itens de listagem → página-modelo; relacionados de artigo → listagem; rodapé → Sobre, Sobre#criterios, Para Empresas#contato. E-mails em `mailto:`. Só "LinkedIn", "Carregar notas anteriores", "Casos anteriores" e "Imprimir" ficam em `#`.
+- Links relativos entre os `.dc.html`, com `%20` no lugar dos espaços. Nav e rodapé iguais em todas as páginas: logo → Home; editorias → listagem; itens de listagem → página-modelo; relacionados de artigo → listagem; rodapé → Sobre, Como Funciona, Sobre#criterios, Para Empresas#contato. E-mails em `mailto:`. Só "LinkedIn", "Carregar notas anteriores", "Casos anteriores" e "Imprimir" ficam em `#`.
