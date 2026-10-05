@@ -1,0 +1,137 @@
+{
+ "id": "la-moda-inspecao-qualidade-agentes",
+ "publicado_em": "2026-10-05T09:00:00-03:00",
+ "setor": "INDÚSTRIA",
+ "processo": "OPERAÇÃO",
+ "status": "piloto",
+ "empresa": "La Moda",
+ "titulo": "La Moda diz, em evento do fornecedor, que dois agentes cortaram a inspeção de qualidade de 12–15 horas para cinco em uma prova de conceito",
+ "linhaFina": "O número vem do relato de um painel organizado pela Rimini Street, que vende a solução. É uma prova de conceito, sem custo, sem escala e sem medição independente.",
+ "resumo": "A La Moda, do setor de moda, testou com a Rimini Street e a ServiceNow uma solução com dois agentes de IA sobre o SAP para a inspeção de qualidade. Segundo o fornecedor, o ciclo caiu de 12–15 horas para cinco, redução de 67%.",
+ "leitura": 5,
+ "abertura": "A La Moda é uma empresa brasileira do setor de moda. Segundo o relato publicado pela Rimini Street, ela trata o SAP como sistema de registro e conformidade e prefere construir inovação ao redor dele, e não dentro dele. Rômulo Banhe, responsável de tecnologia da empresa, participou de um painel no evento Street Smart Brazil, em São Paulo, para falar de uma prova de conceito recém-concluída.",
+ "problema": "O processo de inspeção de qualidade levava de 12 a 15 horas por ciclo e exigia muito esforço manual, segundo a fonte. A La Moda já tinha tentado o mesmo projeto internamente e, depois de seis meses, ele ainda não estava pronto, conforme o relato de Banhe.",
+ "solucao": "A Rimini Street e a ServiceNow montaram em menos de 45 dias uma solução com dois agentes de IA, uma interface de baixo código e integração direta com os dados que a empresa já tinha. A solução usa a plataforma ServiceNow como camada de fluxo sobre o SAP, sem alterá-lo. O texto não detalha o que cada um dos dois agentes faz, quais dados lê nem o que entrega. A Rimini diz que simplificou antes as 12 etapas do processo e só depois aplicou IA onde havia ganho. A equipe pediu especificamente uma versão para celular.",
+ "resultado": "Segundo a Rimini Street, o processo passou a levar cinco horas, redução de 67% frente às 12 a 15 horas anteriores. A fonte afirma ainda que a economia prevista só nesse caso de uso cobre a licença anual da ServiceNow necessária para uma implantação completa, sem dar o valor da economia nem o da licença.",
+ "humano": "A fonte não diz quanto da inspeção continua com pessoas, nem quem aprova o resultado dos agentes. A versão para celular indica que a equipe segue operando o processo.",
+ "numeros": [
+  {
+   "valor": "12–15 h → 5 h",
+   "legenda": "duração de um ciclo de inspeção de qualidade, antes e depois, na prova de conceito",
+   "quemMediu": "Rimini Street, em relato de painel publicado em 25/set/2026"
+  },
+  {
+   "valor": "67%",
+   "legenda": "de redução no tempo do processo",
+   "quemMediu": "Rimini Street, em relato de painel publicado em 25/set/2026"
+  },
+  {
+   "valor": "45 dias",
+   "legenda": "(menos de) para entregar a solução com dois agentes de IA",
+   "quemMediu": "Rimini Street, em relato de painel publicado em 25/set/2026"
+  }
+ ],
+ "fluxo": [
+  {
+   "tipo": "ENTRADA",
+   "nome": "Inspeção de qualidade",
+   "faz": "O ciclo de inspeção começa com a equipe da La Moda, em processo que antes levava de 12 a 15 horas."
+  },
+  {
+   "tipo": "AGENTE",
+   "nome": "Dois agentes de IA",
+   "faz": "A fonte informa que são dois agentes, sem descrever a função de cada um."
+  },
+  {
+   "tipo": "SISTEMA",
+   "nome": "ServiceNow sobre o SAP",
+   "faz": "A ServiceNow serve de camada de fluxo e interface de baixo código, com integração direta aos dados existentes. O SAP continua como sistema de registro e conformidade."
+  },
+  {
+   "tipo": "SAÍDA",
+   "nome": "Ciclo de cinco horas",
+   "faz": "Segundo a Rimini Street, o processo simplificado e com agentes leva cinco horas, com versão para celular."
+  }
+ ],
+ "indicadores": [
+  {
+   "nome": "Duração do ciclo de inspeção",
+   "antes": "12–15 h",
+   "depois": "5 h",
+   "medida": "Rimini Street, em relato de painel; prova de conceito"
+  }
+ ],
+ "naoConta": [
+  {
+   "valor": "Medição",
+   "texto": "o texto não diz quantos ciclos foram medidos, em que período, nem quem fez a medição. O número é narrado em painel pelo fornecedor, sem dado de apoio."
+  },
+  {
+   "valor": "Custo",
+   "texto": "não foram divulgados o custo do projeto, o valor da licença da ServiceNow nem a economia prevista que a cobriria."
+  },
+  {
+   "valor": "Escala",
+   "texto": "trata-se de uma prova de conceito. A fonte não diz se a solução foi para produção, em quantas unidades, nem o que cada agente faz e com que supervisão."
+  }
+ ],
+ "licoes": [
+  {
+   "titulo": "Simplificar antes de automatizar",
+   "texto": "A Rimini diz que reduziu as 12 etapas do processo antes de aplicar IA. Parte do ganho de 67% pode vir dessa simplificação, e a fonte não separa as duas coisas."
+  },
+  {
+   "titulo": "Pedir a medição por trás do percentual",
+   "texto": "Antes de comparar com o seu processo, pergunte ao fornecedor quantos ciclos foram medidos, em que período e por quem. Um percentual de painel não substitui isso."
+  },
+  {
+   "titulo": "Camada sobre o ERP é decisão de arquitetura",
+   "texto": "A La Moda manteve o SAP intacto e pôs o fluxo ao redor. Isso reduz risco no sistema de registro, mas cria dependência de outra plataforma e de outra licença."
+  }
+ ],
+ "ficha": [
+  {
+   "rotulo": "Empresa",
+   "valor": "La Moda"
+  },
+  {
+   "rotulo": "Setor",
+   "valor": "Moda (porte e atividade exata não informados pela fonte)"
+  },
+  {
+   "rotulo": "Processo",
+   "valor": "Inspeção de qualidade"
+  },
+  {
+   "rotulo": "Sistema",
+   "valor": "SAP (sistema de registro) com ServiceNow como camada de fluxo"
+  },
+  {
+   "rotulo": "Quem fez",
+   "valor": "Rimini Street e ServiceNow"
+  },
+  {
+   "rotulo": "Status",
+   "valor": "Prova de conceito concluída; produção não informada"
+  },
+  {
+   "rotulo": "Divulgação",
+   "valor": "Relato de painel no blog da Rimini Street, 25/set/2026"
+  }
+ ],
+ "comoApuramos": "Lemos o texto publicado no blog da Rimini Street em 25 de setembro de 2026 sobre o evento Street Smart Brazil, em São Paulo. Todos os números vêm do relato do fornecedor, e não encontramos outra fonte com os mesmos dados. Não houve visita nem entrevista.",
+ "transparencia": "A fonte é a Rimini Street, que vende a solução e organizou o evento. O número não foi publicado pela La Moda e não há medição independente.",
+ "fontes": [
+  {
+   "titulo": "Street Smart Brazil 2026: Brazil's Pragmatic Path to Agentic AI ERP",
+   "origem": "Rimini Street (blog), 25/set/2026",
+   "url": "https://www.riministreet.com/blog/street-smart-brazil-2026-brazils-pragmatic-path-to-agentic-ai-erp/"
+  }
+ ],
+ "imagem": {
+  "arquivo": "img/na-operacao/la-moda-inspecao-qualidade-agentes-ia.png",
+  "alt": "Mesa de madeira em oficina de confecção com tecidos dobrados, um tablet com a tela apagada e um caderno; ao fundo, fora de foco, pessoas de costas e araras de roupas.",
+  "modelo": "gemini-3.1-flash-image",
+  "prompt": "A quiet apparel quality inspection table in a garment workshop, folded fabric samples and a tablet lying flat, clothing racks softly blurred in the background, late afternoon light. Computer monitors turned away or out of focus with no readable content. No text, no lettering, no logos, no signage, no readable screens, no identifiable faces. Style: realistic editorial photo, shallow depth of field, calm, not staged, not stock-photo, muted navy and warm paper tones"
+ }
+}
