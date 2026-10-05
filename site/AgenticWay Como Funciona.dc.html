@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como a AgenticWay funciona</title>
+<meta name="description" content="A AgenticWay é apurada e escrita por agentes de IA e aprovada por um editor humano antes de ir ao ar. Quem faz o quê, quando, com que fontes e o que os agentes não fazem.">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F7F5F0;font-family:'Source Serif 4',Georgia,serif;color:#0F2A44}a{color:#0F2A44;text-decoration:none}a:hover{color:#E8785A}.mono{font-family:'IBM Plex Mono',monospace}.sans{font-family:Montserrat,sans-serif}.rotulo{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B6572}.h2{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(24px,2.6vw,32px);line-height:1.15;margin:0;letter-spacing:-0.5px;text-wrap:pretty}.corpo p{margin:0 0 18px;font-size:17px;line-height:1.6;color:#1E2A38;text-wrap:pretty}.lat-h{font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;padding-bottom:10px;border-bottom:2px solid #0F2A44}.aw-grade>*{box-shadow:0 0 0 1px #DDD9D0}.duas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:48px}.lnk{border-bottom:1px solid #4A8FC7}</style>
+</helmet>
+<div data-screen-label="Como funciona" style="min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- barra superior -->
+  <div style="border-bottom:1px solid #0F2A44;padding:0 clamp(16px,4vw,48px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px">
+      <a href="AgenticWay%20Home.dc.html" style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="30 0 140 110" width="40" style="display:block"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0.35" stop-color="#1F4E79"></stop><stop offset="0.65" stop-color="#E8785A"></stop></linearGradient></defs><path d="M50,70 C50,42 80,42 100,70 C120,98 150,98 150,70 C150,42 120,42 100,70 C80,98 50,98 50,70 Z" fill="none" stroke="url(#gl)" stroke-width="15"></path><circle cx="72" cy="16" r="11" fill="#1F4E79"></circle><circle cx="128" cy="16" r="11" fill="#E8785A"></circle></svg>
+        <span class="sans" style="font-weight:600;font-size:20px;letter-spacing:-0.5px"><span>Agentic</span><span style="color:#E8785A">Way</span></span>
+      </a>
+      <nav class="sans" style="display:flex;gap:22px;font-size:13px;font-weight:500;flex-wrap:wrap;justify-content:flex-end">
+        <a href="AgenticWay%20Radar%20Lista.dc.html">Radar</a><a href="AgenticWay%20Na%20Operacao%20Lista.dc.html">Na Operação</a><a href="AgenticWay%20Ferramentas%20Lista.dc.html">Ferramentas</a><a href="AgenticWay%20Analise%20Lista.dc.html">Análise</a><a href="AgenticWay%20Guia%20Lista.dc.html">Guia</a><a href="AgenticWay%20Para%20Empresas.dc.html">Para empresas</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- linha de contexto -->
+  <div style="padding:0 clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
+      <span><a href="AgenticWay%20Sobre.dc.html" style="color:#5B6572">Sobre</a> / Como funciona</span><span>Atualizado em out/2026</span>
+    </div>
+  </div>
+
+  <main style="padding:0 clamp(16px,4vw,48px);flex:1">
+    <div style="max-width:1200px;margin:0 auto">
+
+      <!-- abertura -->
+      <header class="duas" style="padding:48px 0 40px;border-bottom:1px solid #0F2A44;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+          <div class="mono" style="font-size:12px;color:#E8785A">COMO FUNCIONA</div>
+          <h1 class="sans" style="font-weight:700;font-size:clamp(30px,4vw,50px);line-height:1.08;margin:0;letter-spacing:-1px;text-wrap:pretty">Apurado e escrito por agentes de IA. Aprovado por uma pessoa antes de ir ao ar.</h1>
+          <p style="font-size:19px;line-height:1.55;margin:0;color:#3C4A5A;text-wrap:pretty;max-width:640px">Um site sobre agentes de IA feito por agentes de IA, e que diz isso em toda página. Aqui está quem faz o quê, quando, com que fontes, e o que os agentes não fazem.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <div class="lat-h">EM UMA LINHA</div>
+          <sc-for list="{{ linhas }}" as="l" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid #DDD9D0;font-size:14px;line-height:1.45">
+              <span class="mono" style="font-size:11px;color:#5B6572;padding-top:3px">{{ l.rotulo }}</span>
+              <span style="text-wrap:pretty">{{ l.valor }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </header>
+
+      <!-- por que assim -->
+      <section class="duas" style="padding:48px 0;border-bottom:1px solid #DDD9D0">
+        <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+          <div class="rotulo">POR QUE ASSIM</div>
+          <h2 class="h2">Se agentes vão entrar na operação das empresas, este site é um deles em operação.</h2>
+        </div>
+        <div class="corpo" style="min-width:0">
+          <p>A AgenticWay acompanha o que agentes de IA mudam no trabalho de uma empresa média. Fazer o site com agentes é a forma mais honesta de mostrar, na prática, o que eles fazem bem, onde precisam de regra e onde precisam de uma pessoa.</p>
+          <p>Por isso o desenho é o mesmo que recomendamos a qualquer empresa: o agente faz a pesquisa e o rascunho, um programa confere o formato, e uma pessoa aprova antes de qualquer coisa chegar ao leitor. Nenhum texto vai ao ar sozinho.</p>
+          <p>Todo conteúdo leva a assinatura: <em>Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi</em>.</p>
+        </div>
+      </section>
+
+      <!-- o ciclo -->
+      <section style="padding:48px 0;border-bottom:1px solid #DDD9D0">
+        <div style="display:flex;flex-direction:column;gap:10px;max-width:720px;margin-bottom:28px">
+          <div class="rotulo">O CICLO DE CADA PUBLICAÇÃO</div>
+          <h2 class="h2">Quatro passos, os mesmos para todas as editorias.</h2>
+        </div>
+        <div class="aw-grade" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:transparent;overflow:visible">
+          <sc-for list="{{ ciclo }}" as="c" hint-placeholder-count="4">
+            <div style="background:#F7F5F0;padding:22px;display:flex;flex-direction:column;gap:8px">
+              <span class="sans" style="font-weight:700;font-size:28px;line-height:1;color:#DDD9D0">{{ c.n }}</span>
+              <span class="sans" style="font-weight:600;font-size:16px;line-height:1.35">{{ c.titulo }}</span>
+              <span style="font-size:14px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">{{ c.texto }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:20px 0 0;font-size:15px;line-height:1.55;color:#3C4A5A;max-width:760px;text-wrap:pretty">Quando a pesquisa não encontra nada novo e verificável, a rodada termina sem publicar e registra o que descartou e por quê. Melhor nenhuma nota do que uma fraca.</p>
+      </section>
+
+      <!-- o que os agentes não fazem -->
+      <section class="duas" style="padding:48px 0;border-bottom:1px solid #DDD9D0">
+        <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+          <div class="rotulo">O QUE OS AGENTES NÃO FAZEM</div>
+          <h2 class="h2">E por isso o site nunca diz que fez.</h2>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Um agente lê, compara e escreve. Não sai da sala. Prometer o contrário seria a mentira que este site critica.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <sc-for list="{{ naoFaz }}" as="x" hint-placeholder-count="6">
+            <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:16px;padding:14px 0;border-top:1px solid #DDD9D0;align-items:start">
+              <span class="sans" style="font-weight:600;font-size:15px;line-height:1.4">{{ x.titulo }}</span>
+              <span style="font-size:14px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">{{ x.texto }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- a semana -->
+      <section style="padding:48px 0;border-bottom:1px solid #DDD9D0">
+        <div style="display:flex;flex-direction:column;gap:10px;max-width:720px;margin-bottom:28px">
+          <div class="rotulo">A SEMANA DA REDAÇÃO</div>
+          <h2 class="h2">Cada editoria tem dia e hora. O editor aprova cada uma.</h2>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ semana }}" as="s" hint-placeholder-count="6">
+            <a href="{{ s.url }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:6px 24px;padding:14px 0;border-top:1px solid #DDD9D0;align-items:baseline">
+              <span class="mono" style="font-size:12px;color:#1F4E79">{{ s.quando }}</span>
+              <span class="sans" style="font-weight:700;font-size:17px">{{ s.nome }}</span>
+              <span style="font-size:14px;line-height:1.5;color:#3C4A5A;text-wrap:pretty">{{ s.entrega }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- cada editoria -->
+      <section style="padding:48px 0;border-bottom:1px solid #DDD9D0">
+        <div style="display:flex;flex-direction:column;gap:10px;max-width:720px;margin-bottom:28px">
+          <div class="rotulo">CADA EDITORIA, EM DETALHE</div>
+          <h2 class="h2">O que o agente procura, de onde tira e o que você encontra.</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px 48px">
+          <sc-for list="{{ editorias }}" as="e" hint-placeholder-count="6">
+            <div id="{{ e.ancora }}" style="display:flex;flex-direction:column;gap:12px;padding-top:14px;border-top:2px solid #0F2A44;min-width:0">
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap">
+                <a href="{{ e.url }}" class="sans" style="font-weight:700;font-size:21px;letter-spacing:-0.3px">{{ e.nome }}</a>
+                <span class="mono" style="font-size:11px;color:#1F4E79">{{ e.quando }}</span>
+              </div>
+              <p style="margin:0;font-size:15px;line-height:1.55;text-wrap:pretty">{{ e.paraQue }}</p>
+              <sc-for list="{{ e.blocos }}" as="b" hint-placeholder-count="3">
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <span class="mono" style="font-size:11px;color:#5B6572">{{ b.rotulo }}</span>
+                  <span style="font-size:14px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">{{ b.texto }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- regras e correções -->
+      <section style="padding:48px 0 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:48px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="rotulo">AS REGRAS</div>
+          <h2 class="h2" style="font-size:22px">Fato tem fonte. Quem afirma, assina.</h2>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Número entra igual ao da fonte, sem arredondar. Se só a empresa ou o fornecedor afirma, o texto diz isso. Acusação contra empresa ou pessoa só com fonte oficial ou dois veículos independentes. Os critérios completos estão em <a href="AgenticWay%20Sobre.dc.html#criterios" class="lnk">Critérios editoriais</a>.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="rotulo">CORREÇÕES</div>
+          <h2 class="h2" style="font-size:22px">Agente erra. A correção fica registrada.</h2>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Toda correção de fato aparece no texto com data e o que mudou. Viu um erro? Escreva para <a href="mailto:correcoes@agenticway.com.br" class="lnk">correcoes@agenticway.com.br</a>.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="rotulo">CONFLITO DE INTERESSE</div>
+          <h2 class="h2" style="font-size:22px">Vendemos integração. Não vendemos espaço.</h2>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">A AgenticWay oferece serviço de integração de IA, e diz isso em <a href="AgenticWay%20Para%20Empresas.dc.html" class="lnk">Para empresas</a>, ao fim das análises e no rodapé da newsletter. Nenhuma ferramenta paga para aparecer.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
+    <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
+      <span>© 2026 AgenticWay</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="AgenticWay%20Sobre.dc.html" style="color:#5B6572">Sobre</a><a href="AgenticWay%20Como%20Funciona.dc.html" style="color:#5B6572">Como funciona</a><a href="AgenticWay%20Sobre.dc.html#criterios" style="color:#5B6572">Critérios editoriais</a><a href="AgenticWay%20Para%20Empresas.dc.html#contato" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const linhas = [
+      { rotulo: 'Quem escreve', valor: 'Agentes de IA, que pesquisam, leem as fontes e redigem.' },
+      { rotulo: 'Quem aprova', valor: 'Domiciano Rossi, editor responsável, item por item, antes de publicar.' },
+      { rotulo: 'Ritmo', valor: 'Radar todo dia; uma editoria por dia útil; newsletter na sexta.' },
+      { rotulo: 'Sem material', valor: 'Não publica. Registra o que descartou e por quê.' },
+    ];
+    const ciclo = [
+      { n: '1', titulo: 'Pesquisa', texto: 'O agente busca na web por vários ângulos, inclusive o contraditório, e abre cada página que vai citar. O que não leu, não usa.' },
+      { n: '2', titulo: 'Escrita', texto: 'Escreve num formato fixo por editoria, com cada fonte listada e com link. Número igual ao da fonte.' },
+      { n: '3', titulo: 'Conferência automática', texto: 'Um programa recusa o texto se faltar fonte, data ou campo, ou se aparecer o que um agente não faz, como "testamos" ou "visitamos".' },
+      { n: '4', titulo: 'Aprovação humana', texto: 'O editor recebe o texto, o que foi descartado e os pontos de dúvida. Só o que ele aprova vai ao ar.' },
+    ];
+    const naoFaz = [
+      { titulo: 'Não visitam nem entrevistam', texto: 'Casos são montados com fontes públicas: comunicados, estudos e reportagens. O texto diz isso, em "Como apuramos".' },
+      { titulo: 'Não testam ferramentas', texto: 'Ferramentas lê a documentação oficial e relatos públicos. Cada marca na tabela aponta para a fonte; "não documentado" quer dizer que não encontramos.' },
+      { titulo: 'Não inventam fontes nem pessoas', texto: 'Nada de "segundo especialistas" sem nome ou "a pedido de leitores". Fala só entra se estiver publicada, com quem disse.' },
+      { titulo: 'Não calculam o que a fonte não disse', texto: 'Se a empresa diz 51,7% resolvidos, o texto não afirma os 48,3% restantes. Arredondar e deduzir é inventar.' },
+      { titulo: 'Não publicam sozinhos', texto: 'Todo texto passa pelo editor antes de ir ao ar. A newsletter fica como rascunho até ele enviar.' },
+      { titulo: 'Não fingem experiência', texto: 'A Análise usa a primeira pessoa da redação ("eu faria"), mas nunca "visitei", "conversei com clientes" ou "na minha experiência".' },
+    ];
+    const semana = [
+      { quando: 'TODO DIA · 7H', nome: 'Radar', entrega: 'Até cinco notas curtas sobre o que aconteceu.', url: 'AgenticWay%20Radar%20Lista.dc.html' },
+      { quando: 'SEGUNDA · 8H', nome: 'Na Operação', entrega: 'Um caso de empresa nomeada usando agentes num processo.', url: 'AgenticWay%20Na%20Operacao%20Lista.dc.html' },
+      { quando: 'TERÇA · 8H, QUINZENAL', nome: 'Ferramentas', entrega: 'Um comparativo: isso integra com o que a empresa já tem?', url: 'AgenticWay%20Ferramentas%20Lista.dc.html' },
+      { quando: 'QUARTA · 8H', nome: 'Guia', entrega: 'Guia novo a cada duas semanas; revisão dos existentes quando algo muda.', url: 'AgenticWay%20Guia%20Lista.dc.html' },
+      { quando: 'SEXTA · 7H', nome: 'Análise', entrega: 'Uma opinião sobre a semana, com "onde posso estar errado".', url: 'AgenticWay%20Analise%20Lista.dc.html' },
+      { quando: 'SEXTA', nome: 'Newsletter', entrega: 'A semana resumida por e-mail, com link para cada texto.', url: 'AgenticWay%20Home.dc.html#newsletter' },
+    ];
+    const editorias = [
+      { nome: 'Radar', ancora: 'radar', quando: 'DIÁRIO', url: 'AgenticWay%20Radar%20Lista.dc.html',
+        paraQue: 'O que aconteceu com agentes de IA e o que isso muda para uma empresa média brasileira.',
+        blocos: [
+          { rotulo: 'O QUE O AGENTE PROCURA', texto: 'Empresas brasileiras usando agentes; lançamentos para ERP, CRM, WhatsApp e planilhas; regras do Banco Central, ANPD, Receita e CVM; pesquisas com dado novo; casos com nome e número; críticas, projetos cancelados e incidentes.' },
+          { rotulo: 'DE ONDE TIRA', texto: 'Da fonte primária sempre que existe: comunicado, relatório, norma. Reportagem vale quando cita a origem. Agregador e rede social não servem sozinhos.' },
+          { rotulo: 'O QUE VOCÊ ENCONTRA', texto: 'Até cinco notas por dia, divulgadas nos últimos três dias, com o que muda, o que fazer e uma ficha com quem divulgou, quando e como mediu.' },
+        ] },
+      { nome: 'Na Operação', ancora: 'na-operacao', quando: 'SEMANAL', url: 'AgenticWay%20Na%20Operacao%20Lista.dc.html',
+        paraQue: 'Uma empresa real colocou um agente num processo. O que mudou, como foi medido e o que a história não conta.',
+        blocos: [
+          { rotulo: 'O QUE O AGENTE PROCURA', texto: 'Casos dos últimos 30 dias com empresa nomeada, processo concreto e ao menos um número com quem mediu. Casos que pararam também entram, e costumam ser os mais úteis.' },
+          { rotulo: 'DE ONDE TIRA', texto: 'Comunicados das empresas, estudos de caso de fornecedores e reportagens. Quando o número é só do fornecedor, o título diz.' },
+          { rotulo: 'O QUE VOCÊ ENCONTRA', texto: 'Números com quem mediu, o fluxo do processo, antes e depois, o que a história não conta (custo, prazo, o que ainda passa por pessoa) e lições. A imagem é ilustrativa, gerada por IA, e diz isso.' },
+        ] },
+      { nome: 'Ferramentas', ancora: 'ferramentas', quando: 'QUINZENAL', url: 'AgenticWay%20Ferramentas%20Lista.dc.html',
+        paraQue: 'Para quem vai escolher entre ferramentas de agentes, uma pergunta: integra com o que a empresa já tem?',
+        blocos: [
+          { rotulo: 'O QUE O AGENTE PROCURA', texto: 'De duas a seis ferramentas da mesma categoria, avaliadas pelos mesmos seis critérios: autenticação, registro de cada ação, conector, pessoa no fluxo, dados e custo por tarefa.' },
+          { rotulo: 'DE ONDE TIRA', texto: 'Documentação oficial, página de preços, central de segurança e relatos públicos de usuários. Nenhuma ferramenta é instalada ou testada.' },
+          { rotulo: 'O QUE VOCÊ ENCONTRA', texto: 'Uma tabela com documentado, com ressalva ou não documentado, cada marca com a fonte numerada, e para quem cada opção faz sentido. Sem nota de estrelas.' },
+        ] },
+      { nome: 'Guia', ancora: 'guia', quando: 'SEMANAL', url: 'AgenticWay%20Guia%20Lista.dc.html',
+        paraQue: 'O que levar para a reunião com o fornecedor, para o jurídico, para a planilha de custo. E que continua certo.',
+        blocos: [
+          { rotulo: 'O QUE O AGENTE FAZ', texto: 'A cada duas semanas, um guia novo a partir do que o site publicou: perguntas, checklist, indicadores, passo a passo ou glossário. Toda semana, revisa os guias quando um preço, uma regra ou um caso novo muda algo.' },
+          { rotulo: 'DE ONDE TIRA', texto: 'Fatos com fonte aberta; a orientação é da redação e se apresenta assim. Não é aconselhamento jurídico.' },
+          { rotulo: 'O QUE VOCÊ ENCONTRA', texto: 'Cada item com o porquê, a resposta que tranquiliza, a que preocupa e o que anotar. Versão, histórico de mudanças e checklist para imprimir.' },
+        ] },
+      { nome: 'Análise', ancora: 'analise', quando: 'SEMANAL', url: 'AgenticWay%20Analise%20Lista.dc.html',
+        paraQue: 'Onde a AgenticWay toma posição. As outras editorias relatam; esta opina, uma vez por semana.',
+        blocos: [
+          { rotulo: 'O QUE O AGENTE FAZ', texto: 'Lê o que saiu na semana, procura dois fatos que juntos dizem algo novo e escolhe uma tese da qual alguém sério discordaria. O editor assina a tese ao aprovar.' },
+          { rotulo: 'DE ONDE TIRA', texto: 'Das notas e casos da semana e de pesquisa complementar, sempre com fonte. Opinião é livre; fato não.' },
+          { rotulo: 'O QUE VOCÊ ENCONTRA', texto: 'A tese em três pontos, o argumento, três ações práticas, "Onde posso estar errado" (inclusive o interesse de quem publicou os dados) e "O que eu faria".' },
+        ] },
+      { nome: 'Newsletter', ancora: 'newsletter', quando: 'SEXTA', url: 'AgenticWay%20Home.dc.html#newsletter',
+        paraQue: 'A semana resumida para quem não entrou no site. Sete minutos de leitura.',
+        blocos: [
+          { rotulo: 'O QUE O AGENTE FAZ', texto: 'Escolhe de três a cinco fatos do Radar, o caso, a análise e o que mais saiu, e escreve os resumos. Um programa confere se todo número do e-mail está no texto original.' },
+          { rotulo: 'DE ONDE TIRA', texto: 'Só do que o site já publicou e o editor já aprovou. A newsletter não traz fato novo.' },
+          { rotulo: 'COMO CHEGA', texto: 'O agente deixa o e-mail como rascunho; o editor lê e envia. Assinatura com confirmação por e-mail; para sair, um clique no rodapé.' },
+        ] },
+    ];
+    return { linhas, ciclo, naoFaz, semana, editorias };
+  }
+}
+</script>
+</body>
+</html>

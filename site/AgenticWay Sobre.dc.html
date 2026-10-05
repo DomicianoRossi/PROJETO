@@ -29,7 +29,7 @@
   <!-- linha de contexto -->
   <div style="padding:0 clamp(16px,4vw,48px)">
     <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:12px;color:#5B6572;border-bottom:1px solid #DDD9D0;flex-wrap:wrap">
-      <span>Sobre / A AgenticWay</span><span>Atualizado em set/2026</span>
+      <span>Sobre / A AgenticWay</span><span>Atualizado em out/2026</span>
     </div>
   </div>
 
@@ -110,6 +110,7 @@
         <div style="display:flex;flex-direction:column;gap:10px;max-width:720px;margin-bottom:28px">
           <div class="rotulo">AS CINCO EDITORIAS</div>
           <h2 class="h2">Cada publicação pertence a uma delas.</h2>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:#3C4A5A;text-wrap:pretty">Quem faz cada uma, quando e com que fontes: <a href="AgenticWay%20Como%20Funciona.dc.html" style="border-bottom:1px solid #4A8FC7">Como a AgenticWay funciona</a>.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px">
           <sc-for list="{{ editorias }}" as="e" hint-placeholder-count="5">
@@ -164,7 +165,7 @@
   <footer style="border-top:1px solid #0F2A44;padding:20px clamp(16px,4vw,48px)">
     <div class="mono" style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#5B6572">
       <span>© 2026 AgenticWay</span>
-      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="AgenticWay%20Sobre.dc.html" style="color:#5B6572">Sobre</a><a href="AgenticWay%20Sobre.dc.html#criterios" style="color:#5B6572">Critérios editoriais</a><a href="AgenticWay%20Para%20Empresas.dc.html#contato" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="AgenticWay%20Sobre.dc.html" style="color:#5B6572">Sobre</a><a href="AgenticWay%20Como%20Funciona.dc.html" style="color:#5B6572">Como funciona</a><a href="AgenticWay%20Sobre.dc.html#criterios" style="color:#5B6572">Critérios editoriais</a><a href="AgenticWay%20Para%20Empresas.dc.html#contato" style="color:#5B6572">Contato</a><a href="#" style="color:#5B6572">LinkedIn</a></span>
     </div>
   </footer>
 </div>
@@ -180,17 +181,17 @@ class Component extends DCLogic {
     ];
     const autor = {
       nome: 'Domiciano Rossi',
-      papel: 'Fundador · escreve o Radar e as análises',
+      papel: 'Fundador · editor responsável',
       cidade: 'São Paulo, SP',
       bio1: 'Desenvolvedor e integrador de sistemas há mais de uma década, com projetos em ERP, CRM e sistemas fiscais e logísticos de empresas médias. Passou a trabalhar com agentes de IA quando os primeiros pilotos de clientes começaram a parar no mesmo lugar: a integração com o que já existia.',
-      bio2: 'Criou a AgenticWay para responder, em público e com fonte, às perguntas que ouvia em reunião: isso funciona de verdade, quanto custa, o que quebra. Escreve tudo o que sai aqui até que a redação cresça.',
+      bio2: 'Criou a AgenticWay para responder, em público e com fonte, às perguntas que ouvia em reunião: isso funciona de verdade, quanto custa, o que quebra. O conteúdo é apurado e escrito por agentes de IA; ele é o editor responsável e aprova cada publicação antes de ir ao ar.',
     };
     const criterios = [
-      { n: '01', titulo: 'Entra o que tem fonte verificável', texto: 'Comunicado, documento, relatório, entrevista ou apuração própria. Rumor e print de rede social não são fonte.' },
+      { n: '01', titulo: 'Entra o que tem fonte verificável', texto: 'Comunicado, documento, relatório, norma ou reportagem que cite a origem, sempre com link. Rumor e print de rede social não são fonte.' },
       { n: '02', titulo: 'Entra o que tem efeito plausível na operação', texto: 'O teste é uma pergunta: isso muda algo em um processo comercial, financeiro, logístico ou de atendimento de uma empresa média? Se não, fica de fora.' },
       { n: '03', titulo: 'Número só quando tem fonte', texto: 'Percentual, prazo e custo aparecem com origem e contexto. Sem fonte, a frase vai sem número.' },
       { n: '04', titulo: 'Dizemos quando é hype', texto: 'Lançamento sem cliente, demonstração sem integração e promessa sem prazo são descritos assim. Não usamos o adjetivo do release.' },
-      { n: '05', titulo: 'Opinião é assinada e fica em Análise', texto: 'Radar, Na Operação, Ferramentas e Guia relatam. Análise opina, com nome. As duas coisas não se misturam na mesma peça.' },
+      { n: '05', titulo: 'Opinião é assinada e fica em Análise', texto: 'Radar, Na Operação, Ferramentas e Guia relatam. Análise opina, e o editor assina a tese. As duas coisas não se misturam na mesma peça.' },
       { n: '06', titulo: 'Termo técnico aparece uma vez e é explicado', texto: 'Escrevemos em português claro. Anglicismo só quando não há equivalente em uso. Sem emoji, sem ponto de exclamação.' },
       { n: '07', titulo: 'Caso conta o que a história não conta', texto: 'Todo caso publicado traz o custo escondido: tempo de integração, ajuste de regra, o que ainda depende de gente.' },
     ];
@@ -199,7 +200,7 @@ class Component extends DCLogic {
       { nome: 'Na Operação', url: 'AgenticWay%20Na%20Operacao%20Lista.dc.html', cadencia: 'SEMANAL', texto: 'Casos reais de agentes em empresas: setor, processo, resultado e o que a história não conta.' },
       { nome: 'Ferramentas', url: 'AgenticWay%20Ferramentas%20Lista.dc.html', cadencia: 'QUINZENAL', texto: 'Lançamentos e comparativos, avaliados por um critério: integra com o que a empresa já tem?' },
       { nome: 'Análise', url: 'AgenticWay%20Analise%20Lista.dc.html', cadencia: 'SEMANAL', texto: 'Opinião assinada. Onde a marca toma posição e diz quando algo é hype.' },
-      { nome: 'Guia', url: 'AgenticWay%20Guia%20Lista.dc.html', cadencia: 'MENSAL', texto: 'Referência prática: perguntas para fornecedor, checklists, glossário. Atualizado com data.' },
+      { nome: 'Guia', url: 'AgenticWay%20Guia%20Lista.dc.html', cadencia: 'QUINZENAL', texto: 'Referência prática: perguntas para fornecedor, checklists, glossário. Revisado quando algo muda, com versão e data.' },
     ];
     const etapas = [
       { n: '1', etapa: 'Radar', faz: 'Notas diárias e curadoria do que importa.', ganha: 'Acompanhar o assunto sem ler tudo.' },
