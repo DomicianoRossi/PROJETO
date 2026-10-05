@@ -5,7 +5,7 @@ window.AW_DADOS.na_operacao = [
  {
   "id": "la-moda-inspecao-qualidade-agentes",
   "publicado_em": "2026-10-05T09:00:00-03:00",
-  "setor": "INDÚSTRIA",
+  "setor": "VAREJO",
   "processo": "OPERAÇÃO",
   "status": "piloto",
   "empresa": "La Moda",
