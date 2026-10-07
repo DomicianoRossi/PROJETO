@@ -3,6 +3,68 @@ window.AW_DADOS = window.AW_DADOS || {};
 window.AW_DADOS.assinatura = "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi";
 window.AW_DADOS.radar = [
  {
+  "id": "sailpoint-79-agentes-producao-2-seguranca-especifica",
+  "publicado_em": "2026-10-07T07:10:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "79% das empresas já têm agentes em produção, mas só 2% usam segurança de identidade feita para eles, diz SailPoint",
+  "linha": "Pesquisa da SailPoint com 340 líderes de identidade, TI, segurança e risco: 85% ainda usam ferramentas de identidade que não foram desenhadas para agentes.",
+  "linhaFina": "A fornecedora de segurança de identidade divulgou em 6 de outubro a quinta edição do relatório Horizons of Identity Security. Só 43% dizem ter processos maduros para o acesso de agentes.",
+  "fontePrimaria": "SailPoint",
+  "leitura": 3,
+  "resumo": [
+   "79% das organizações ouvidas já têm agentes de IA em produção, e apenas 2% usam ferramentas de segurança de identidade criadas para gerenciá-los.",
+   "Agentes já representam 22% de todas as contas não humanas, e 85% das organizações seguem com ferramentas de identidade legadas, não desenhadas para agentes.",
+   "Só 15% conseguem liberar acesso a contas não humanas em tempo real, e 43% dizem ter processos maduros para o acesso de agentes."
+  ],
+  "corpo": [
+   "A SailPoint, empresa de segurança de identidade listada na Nasdaq, divulgou em 6 de outubro, na conferência Navigate, a quinta edição do relatório Horizons of Identity Security. A base é uma pesquisa global feita pela própria SailPoint com 340 líderes sêniores de identidade, TI, segurança cibernética e risco. O comunicado não informa a distribuição por país nem o período de coleta.",
+   "O relatório classifica as organizações em cinco níveis de maturidade, do Horizonte 1 (sem programa formal) ao Horizonte 5 (integrado ao ecossistema). Para identidades de pessoas, a parcela no Horizonte 1 caiu de 45% em 2022 para 23% hoje. Para agentes, 54% das organizações estão nesse nível inicial.",
+   "Segundo a pesquisa, 87% avaliam como capazes ou melhores seus controles de acesso para pessoas, contra 43% que dizem ter processos maduros para o acesso de agentes. Também aparece uma diferença de percepção: 80% dos líderes acham que a lacuna de suas ferramentas é moderada ou menor, mas só 15% conseguem liberar acesso a contas não humanas em tempo real. 57% confiam em cumprir exigências regulatórias, e 43% se dizem preparados para apresentar evidência verificável numa auditoria ligada a IA.",
+   "Entre as empresas que investiram em proteger identidades não humanas, 62% relatam ganhos de produtividade medidos e 46% dizem que a implantação de IA ficou mais segura e rápida. A SailPoint afirma que o problema de base é visibilidade: gestão do ciclo de vida de credenciais, descoberta de IA não autorizada e monitoramento em tempo real aparecem como obstáculos severos."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · ACESSO",
+    "titulo": "Agente precisa de dono e de permissão com prazo",
+    "texto": "Um agente que acessa ERP, planilhas ou e-mail usa credenciais como qualquer usuário. Sem saber quem criou e quem responde por ele, a empresa não consegue revogar o acesso quando algo dá errado."
+   },
+   {
+    "rotulo": "02 · AUDITORIA",
+    "titulo": "Evidência por ação é o ponto fraco declarado",
+    "texto": "O dado de que 43% se dizem preparados para uma auditoria ligada a IA indica que o registro do que cada agente fez ainda é lacuna, mesmo entre quem já opera agentes."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "Quem publica vende a solução",
+    "texto": "A SailPoint vende segurança de identidade, e a amostra de 340 líderes é pequena e sem recorte por país divulgado. Os números servem como indício, não como retrato do mercado brasileiro."
+   }
+  ],
+  "oQueFazer": [
+   "Antes de contratar ferramenta nova, vale levantar com a TI quais agentes existem na empresa, em nome de quem acessam cada sistema e se o registro de ações permite reconstruir uma decisão. Isso responde, na prática, às perguntas que o relatório aponta como lacuna."
+  ],
+  "fontes": [
+   {
+    "titulo": "SailPoint Report Finds 79% of Enterprises Run AI Agents in Production, Yet Only 2% Have Deployed Purpose-built Security",
+    "origem": "SailPoint · comunicado via GlobeNewswire · 6 out 2026",
+    "url": "https://www.globenewswire.com/news-release/2026/10/06/3375448/0/en/sailpoint-report-finds-79-of-enterprises-run-ai-agents-in-production-yet-only-2-have-deployed-purpose-built-security.html"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem mediu",
+    "valor": "SailPoint"
+   },
+   {
+    "rotulo": "Amostra",
+    "valor": "340 líderes sêniores de identidade, TI, segurança e risco, em pesquisa global"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "6 out 2026"
+   }
+  ]
+ },
+ {
   "id": "openai-notifica-100-organizacoes-agentes",
   "publicado_em": "2026-10-05T07:10:00-03:00",
   "tema": "MERCADO",
