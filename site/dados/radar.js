@@ -3,6 +3,196 @@ window.AW_DADOS = window.AW_DADOS || {};
 window.AW_DADOS.assinatura = "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi";
 window.AW_DADOS.radar = [
  {
+  "id": "ploomes-estudio-ia-crm-implantacao-28-dias",
+  "publicado_em": "2026-10-08T07:12:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "Ploomes diz que o Estúdio IA reduz a implantação de CRM de 4,6 meses para 28 dias",
+  "linha": "A empresa brasileira de CRM investe R$ 25 milhões na arquitetura, que usa IA para criar telas, integrar sistemas e registrar interações; o prazo é projeção da própria empresa.",
+  "linhaFina": "Segundo o IT Forum, o Estúdio IA Ploomes será apresentado ao mercado em outubro de 2026. A redução de até 80% é estimativa do CEO.",
+  "fontePrimaria": "Ploomes, via IT Forum",
+  "leitura": 3,
+  "resumo": [
+   "A Ploomes diz investir R$ 25 milhões no Estúdio IA, em que a IA cria telas, integra ferramentas e registra o histórico de interações de vendedores com clientes.",
+   "A empresa afirma que o tempo de implantação cai até 80%, de 4,6 meses em média para cerca de 28 dias, estimativa do CEO para a maioria dos cenários.",
+   "O lançamento ao mercado está previsto para outubro de 2026."
+  ],
+  "corpo": [
+   "Segundo reportagem do IT Forum de 7 de outubro, a Ploomes, que se apresenta como a maior empresa de CRM da América Latina, investe R$ 25 milhões no Estúdio IA Ploomes. A arquitetura tem quatro frentes: o Integrador, que monta fluxos com agentes de IA e ferramentas como Slack e Gmail; o Construtor de Telas, que gera telas, dashboards e formulários a partir de texto; o CPQ em Branco, em que a IA lê arquivos da empresa para transformar regras de preço em campos de proposta ligados ao ERP; e o Radar Ploomes, que transcreve chamadas, WhatsApp, e-mail e calendário e os vincula ao cliente.",
+   "O CEO e fundador, Matheus Pagani, afirma que nenhum dado dos clientes é usado para treinar os modelos. A redução de 4,6 meses para 28 dias é projetada para a maioria dos cenários de implantação, segundo ele. A reportagem não traz medição de cliente nem avaliação independente.",
+   "Para contextualizar o problema, o IT Forum cita pesquisa da Deloitte com 115 executivos brasileiros: 58% das empresas implementaram no máximo 20% dos pilotos de IA, e 23% levaram 40% ou mais deles para a operação."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · PRAZO",
+    "titulo": "O número é meta do fornecedor, não resultado medido",
+    "texto": "A reportagem apresenta 28 dias como projeção do CEO. Antes de contar com ele, vale pedir ao fornecedor casos de clientes com prazo efetivamente medido."
+   },
+   {
+    "rotulo": "02 · DADOS",
+    "titulo": "Gravação de interações exige decisão sobre privacidade",
+    "texto": "O Radar Ploomes transcreve chamadas e mensagens de vendedores com clientes. A empresa que adotar precisa definir base legal e aviso, o que a reportagem não detalha."
+   }
+  ],
+  "fontes": [
+   {
+    "titulo": "Ploomes investe R$ 25 milhões em nova IA para CRM no Brasil",
+    "origem": "IT Forum · 7 out 2026",
+    "url": "https://itforum.com.br/noticias/ploomes-inteligencia-artificial-crm/"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem afirma",
+    "valor": "Ploomes, via IT Forum"
+   },
+   {
+    "rotulo": "Lançamento",
+    "valor": "outubro de 2026"
+   },
+   {
+    "rotulo": "Confirmação",
+    "valor": "não confirmada pelo cliente"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "7 out 2026"
+   }
+  ]
+ },
+ {
+  "id": "riverbed-ti-autonoma-77-aprovacao-humana",
+  "publicado_em": "2026-10-08T07:11:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "Riverbed: 77% hesitam em deixar a IA decidir na operação de TI sem aprovação humana, e só 19% das operações são automatizadas",
+  "linha": "Pesquisa encomendada pela Riverbed ouviu 1.200 profissionais em sete países: 90% querem TI autônoma, mas só 17% têm visibilidade totalmente unificada.",
+  "linhaFina": "O levantamento foi feito pela Coleman Parkes Research em julho de 2026 e divulgado pela fornecedora de observabilidade em 6 de outubro.",
+  "fontePrimaria": "Riverbed / Coleman Parkes Research",
+  "leitura": 3,
+  "resumo": [
+   "90% dos entrevistados querem usar IA agêntica para operações de TI autônomas, mas 77% dizem que a organização hesita em deixar a IA tomar decisões operacionais sem aprovação humana.",
+   "Em média, 19% das operações de TI estão automatizadas hoje, e só 8% relatam operações com IA em toda a empresa.",
+   "Só 17% têm visibilidade totalmente unificada entre redes, aplicações e dispositivos; 21% avaliam como excelente a qualidade dos seus dados."
+  ],
+  "corpo": [
+   "A Riverbed, fornecedora de observabilidade e AIOps, divulgou em 6 de outubro o Riverbed Global Survey 2026: The State of Autonomous IT Operations. A pesquisa ouviu 1.200 gestores de negócio, líderes de TI e especialistas técnicos em sete países, em empresas com receita anual média de US$ 2,3 bilhões, e foi conduzida pela Coleman Parkes Research em julho de 2026.",
+   "Entre os respondentes, 76% consideram a IA agêntica crítica ou muito importante para a estratégia de TI, 63% aumentaram o investimento e 91% dizem que a IA atendeu ou superou as expectativas de retorno. Ao mesmo tempo, 77% dizem que a organização hesita em permitir que a IA tome decisões operacionais sem aprovação humana, e 69% preferem IA supervisionada por pessoas.",
+   "Os obstáculos citados são segurança e conformidade (55%), risco de interrupção da operação (45%) e falta de confiança nas decisões da IA (39%). Só 41% dizem que seus ambientes estão totalmente preparados para IA, e 23% avaliam como excelente a granularidade dos dados."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · APROVAÇÃO",
+    "titulo": "Humano no fluxo segue sendo a regra na TI",
+    "texto": "Mesmo entre quem planeja operação autônoma, a maioria não libera decisão sem aprovação. Para a empresa média, desenhar quem aprova o quê é parte do projeto."
+   },
+   {
+    "rotulo": "02 · DADOS",
+    "titulo": "A base de dados limita o agente antes do modelo",
+    "texto": "Os números de visibilidade e qualidade de dados indicam que o gargalo declarado está na infraestrutura e nos dados."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "A pesquisa é de quem vende observabilidade",
+    "texto": "A Riverbed vende o que a pesquisa descreve como necessário. A amostra é de empresas grandes e não separa o Brasil na divulgação."
+   }
+  ],
+  "fontes": [
+   {
+    "titulo": "New Riverbed Global Survey Finds Agentic AI is Reshaping IT",
+    "origem": "Riverbed · comunicado · 6 out 2026",
+    "url": "https://www.riverbed.com/press-releases/global-survey-finds-agentic-ai-reshaping-it/"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem mediu",
+    "valor": "Riverbed, com Coleman Parkes Research"
+   },
+   {
+    "rotulo": "Amostra",
+    "valor": "1.200 respondentes em 7 países"
+   },
+   {
+    "rotulo": "Campo",
+    "valor": "julho de 2026"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "6 out 2026"
+   }
+  ]
+ },
+ {
+  "id": "sierra-meta-personal-agent-protocol",
+  "publicado_em": "2026-10-08T07:10:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "Meta, Sierra, Shopify, Stripe e Walmart anunciam padrão aberto para agentes pessoais interagirem com empresas",
+  "linha": "O Personal Agent Protocol deve permitir que a empresa saiba quando quem acessa seu site ou API é um agente pessoal e limite o que ele pode fazer. A versão 0.1 está prevista para este mês.",
+  "linhaFina": "A Sierra diz que a sessão é construída sobre OAuth e que a empresa escolhe se o agente usa o site, as APIs ou um agente próprio da empresa.",
+  "fontePrimaria": "Sierra",
+  "leitura": 3,
+  "resumo": [
+   "Meta e Sierra desenvolvem o Personal Agent Protocol, padrão aberto para a forma como agentes pessoais de IA se autenticam e interagem com empresas, com Genesys, Instinct, Rocket, Shopify, Stripe e Walmart.",
+   "A Sierra diz que a sessão usa OAuth e que o cliente decide se o agente tem acesso só de leitura ou também de escrita.",
+   "A especificação v0.1 está prevista para ser publicada ainda em outubro. Pagamentos, notificações e permissões mais detalhadas aparecem como extensões futuras."
+  ],
+  "corpo": [
+   "A Sierra, empresa de agentes de IA para empresas cofundada por Bret Taylor, anunciou em 6 de outubro o Personal Agent Protocol, um padrão aberto que Meta e Sierra desenvolvem com Genesys, Instinct, Rocket, Shopify, Stripe e Walmart. O objetivo declarado é tratar da autenticação e dar às empresas visibilidade sobre o que agentes pessoais fazem em seus sites, APIs ou agentes próprios.",
+   "Segundo a Sierra, hoje a maioria dos agentes pessoais usa sites e aplicativos como uma pessoa usaria, carregando páginas e preenchendo formulários, e pode recorrer ao telefone ou ao chat de suporte quando isso falha. No protocolo, o agente descobre o que a empresa oferece, inicia uma sessão em nome do usuário e pode começar como visitante, por exemplo para consultar estoque ou política de devolução. Quando a tarefa exige a conta do cliente, ele entra pela página da empresa, e é ele quem decide se o agente terá acesso só de leitura ou também de escrita.",
+   "A empresa escolhe por qual caminho o agente trabalha: o site, as APIs, em padrões como MCP e OpenAPI, ou um agente da própria empresa para tarefas que pedem conversa, como um pedido de garantia. A Sierra afirma que a sessão é construída sobre OAuth e acompanha o cliente entre canais.",
+   "Em entrevista à CNBC, Bret Taylor, que também preside o conselho da OpenAI, disse que sem um padrão o cenário é de caos e que as empresas saberão quando se trata de um agente pessoal e não de uma pessoa. A CNBC informa que a Amazon bloqueou os agentes da Meta por preocupação com raspagem de dados, e que OpenAI e Anthropic não fazem parte do grupo por enquanto."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · ACESSO",
+    "titulo": "Agente de cliente passa a ser um tipo de tráfego a gerenciar",
+    "texto": "Empresa que vende online ou atende por canais digitais pode receber agentes pessoais agindo em nome de clientes. O padrão propõe um jeito de identificá-los e de definir o que cada um pode fazer."
+   },
+   {
+    "rotulo": "02 · MATURIDADE",
+    "titulo": "Ainda é uma proposta, sem especificação publicada",
+    "texto": "A versão 0.1 só deve sair neste mês, e a adesão de OpenAI e Anthropic é uma expectativa de Taylor, não um fato. Não há dado sobre adoção no Brasil."
+   },
+   {
+    "rotulo": "03 · INTERESSE",
+    "titulo": "Quem propõe o padrão vende agentes de atendimento",
+    "texto": "A Sierra vende agentes que as empresas usam para atender clientes e a Meta é dona do agente Muse. Ambas se beneficiam de um acesso mais fácil dos agentes às empresas."
+   }
+  ],
+  "oQueFazer": [
+   "Para empresa média, não há ação imediata. Vale perguntar à equipe de TI e ao fornecedor de e-commerce ou de atendimento se já enxergam tráfego de agentes nos canais e se existe regra definida para eles."
+  ],
+  "fontes": [
+   {
+    "titulo": "Introducing Personal Agent Protocol",
+    "origem": "Sierra · blog · 6 out 2026",
+    "url": "https://sierra.ai/blog/introducing-personal-agent-protocol"
+   },
+   {
+    "titulo": "Meta joins with group of companies to tame 'chaos' of doing business with AI bots",
+    "origem": "CNBC · 6 out 2026",
+    "url": "https://www.cnbc.com/2026/10/06/meta-joins-companies-to-tame-chaos-of-doing-business-with-ai-bots.html"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem anunciou",
+    "valor": "Sierra, com Meta e parceiros"
+   },
+   {
+    "rotulo": "Parceiros citados",
+    "valor": "Genesys, Instinct, Rocket, Shopify, Stripe e Walmart"
+   },
+   {
+    "rotulo": "Especificação",
+    "valor": "v0.1 prevista para outubro de 2026"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "6 out 2026"
+   }
+  ]
+ },
+ {
   "id": "sailpoint-79-agentes-producao-2-seguranca-especifica",
   "publicado_em": "2026-10-07T07:10:00-03:00",
   "tema": "PESQUISA",
