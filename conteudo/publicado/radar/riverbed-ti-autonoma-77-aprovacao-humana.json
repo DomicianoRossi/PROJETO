@@ -1,0 +1,50 @@
+{
+  "id": "riverbed-ti-autonoma-77-aprovacao-humana",
+  "publicado_em": "2026-10-08T07:11:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "Riverbed: 77% hesitam em deixar a IA decidir na operação de TI sem aprovação humana, e só 19% das operações são automatizadas",
+  "linha": "Pesquisa encomendada pela Riverbed ouviu 1.200 profissionais em sete países: 90% querem TI autônoma, mas só 17% têm visibilidade totalmente unificada.",
+  "linhaFina": "O levantamento foi feito pela Coleman Parkes Research em julho de 2026 e divulgado pela fornecedora de observabilidade em 6 de outubro.",
+  "fontePrimaria": "Riverbed / Coleman Parkes Research",
+  "leitura": 3,
+  "resumo": [
+    "90% dos entrevistados querem usar IA agêntica para operações de TI autônomas, mas 77% dizem que a organização hesita em deixar a IA tomar decisões operacionais sem aprovação humana.",
+    "Em média, 19% das operações de TI estão automatizadas hoje, e só 8% relatam operações com IA em toda a empresa.",
+    "Só 17% têm visibilidade totalmente unificada entre redes, aplicações e dispositivos; 21% avaliam como excelente a qualidade dos seus dados."
+  ],
+  "corpo": [
+    "A Riverbed, fornecedora de observabilidade e AIOps, divulgou em 6 de outubro o Riverbed Global Survey 2026: The State of Autonomous IT Operations. A pesquisa ouviu 1.200 gestores de negócio, líderes de TI e especialistas técnicos em sete países, em empresas com receita anual média de US$ 2,3 bilhões, e foi conduzida pela Coleman Parkes Research em julho de 2026.",
+    "Entre os respondentes, 76% consideram a IA agêntica crítica ou muito importante para a estratégia de TI, 63% aumentaram o investimento e 91% dizem que a IA atendeu ou superou as expectativas de retorno. Ao mesmo tempo, 77% dizem que a organização hesita em permitir que a IA tome decisões operacionais sem aprovação humana, e 69% preferem IA supervisionada por pessoas.",
+    "Os obstáculos citados são segurança e conformidade (55%), risco de interrupção da operação (45%) e falta de confiança nas decisões da IA (39%). Só 41% dizem que seus ambientes estão totalmente preparados para IA, e 23% avaliam como excelente a granularidade dos dados."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · APROVAÇÃO",
+      "titulo": "Humano no fluxo segue sendo a regra na TI",
+      "texto": "Mesmo entre quem planeja operação autônoma, a maioria não libera decisão sem aprovação. Para a empresa média, desenhar quem aprova o quê é parte do projeto."
+    },
+    {
+      "rotulo": "02 · DADOS",
+      "titulo": "A base de dados limita o agente antes do modelo",
+      "texto": "Os números de visibilidade e qualidade de dados indicam que o gargalo declarado está na infraestrutura e nos dados."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "A pesquisa é de quem vende observabilidade",
+      "texto": "A Riverbed vende o que a pesquisa descreve como necessário. A amostra é de empresas grandes e não separa o Brasil na divulgação."
+    }
+  ],
+  "fontes": [
+    {
+      "titulo": "New Riverbed Global Survey Finds Agentic AI is Reshaping IT",
+      "origem": "Riverbed · comunicado · 6 out 2026",
+      "url": "https://www.riverbed.com/press-releases/global-survey-finds-agentic-ai-reshaping-it/"
+    }
+  ],
+  "ficha": [
+    { "rotulo": "Quem mediu", "valor": "Riverbed, com Coleman Parkes Research" },
+    { "rotulo": "Amostra", "valor": "1.200 respondentes em 7 países" },
+    { "rotulo": "Campo", "valor": "julho de 2026" },
+    { "rotulo": "Divulgação", "valor": "6 out 2026" }
+  ]
+}

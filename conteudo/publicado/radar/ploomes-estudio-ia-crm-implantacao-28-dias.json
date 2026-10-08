@@ -1,0 +1,45 @@
+{
+  "id": "ploomes-estudio-ia-crm-implantacao-28-dias",
+  "publicado_em": "2026-10-08T07:12:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "Ploomes diz que o Estúdio IA reduz a implantação de CRM de 4,6 meses para 28 dias",
+  "linha": "A empresa brasileira de CRM investe R$ 25 milhões na arquitetura, que usa IA para criar telas, integrar sistemas e registrar interações; o prazo é projeção da própria empresa.",
+  "linhaFina": "Segundo o IT Forum, o Estúdio IA Ploomes será apresentado ao mercado em outubro de 2026. A redução de até 80% é estimativa do CEO.",
+  "fontePrimaria": "Ploomes, via IT Forum",
+  "leitura": 3,
+  "resumo": [
+    "A Ploomes diz investir R$ 25 milhões no Estúdio IA, em que a IA cria telas, integra ferramentas e registra o histórico de interações de vendedores com clientes.",
+    "A empresa afirma que o tempo de implantação cai até 80%, de 4,6 meses em média para cerca de 28 dias, estimativa do CEO para a maioria dos cenários.",
+    "O lançamento ao mercado está previsto para outubro de 2026."
+  ],
+  "corpo": [
+    "Segundo reportagem do IT Forum de 7 de outubro, a Ploomes, que se apresenta como a maior empresa de CRM da América Latina, investe R$ 25 milhões no Estúdio IA Ploomes. A arquitetura tem quatro frentes: o Integrador, que monta fluxos com agentes de IA e ferramentas como Slack e Gmail; o Construtor de Telas, que gera telas, dashboards e formulários a partir de texto; o CPQ em Branco, em que a IA lê arquivos da empresa para transformar regras de preço em campos de proposta ligados ao ERP; e o Radar Ploomes, que transcreve chamadas, WhatsApp, e-mail e calendário e os vincula ao cliente.",
+    "O CEO e fundador, Matheus Pagani, afirma que nenhum dado dos clientes é usado para treinar os modelos. A redução de 4,6 meses para 28 dias é projetada para a maioria dos cenários de implantação, segundo ele. A reportagem não traz medição de cliente nem avaliação independente.",
+    "Para contextualizar o problema, o IT Forum cita pesquisa da Deloitte com 115 executivos brasileiros: 58% das empresas implementaram no máximo 20% dos pilotos de IA, e 23% levaram 40% ou mais deles para a operação."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · PRAZO",
+      "titulo": "O número é meta do fornecedor, não resultado medido",
+      "texto": "A reportagem apresenta 28 dias como projeção do CEO. Antes de contar com ele, vale pedir ao fornecedor casos de clientes com prazo efetivamente medido."
+    },
+    {
+      "rotulo": "02 · DADOS",
+      "titulo": "Gravação de interações exige decisão sobre privacidade",
+      "texto": "O Radar Ploomes transcreve chamadas e mensagens de vendedores com clientes. A empresa que adotar precisa definir base legal e aviso, o que a reportagem não detalha."
+    }
+  ],
+  "fontes": [
+    {
+      "titulo": "Ploomes investe R$ 25 milhões em nova IA para CRM no Brasil",
+      "origem": "IT Forum · 7 out 2026",
+      "url": "https://itforum.com.br/noticias/ploomes-inteligencia-artificial-crm/"
+    }
+  ],
+  "ficha": [
+    { "rotulo": "Quem afirma", "valor": "Ploomes, via IT Forum" },
+    { "rotulo": "Lançamento", "valor": "outubro de 2026" },
+    { "rotulo": "Confirmação", "valor": "não confirmada pelo cliente" },
+    { "rotulo": "Divulgação", "valor": "7 out 2026" }
+  ]
+}

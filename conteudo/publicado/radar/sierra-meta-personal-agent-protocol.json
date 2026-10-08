@@ -1,0 +1,59 @@
+{
+  "id": "sierra-meta-personal-agent-protocol",
+  "publicado_em": "2026-10-08T07:10:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "Meta, Sierra, Shopify, Stripe e Walmart anunciam padrão aberto para agentes pessoais interagirem com empresas",
+  "linha": "O Personal Agent Protocol deve permitir que a empresa saiba quando quem acessa seu site ou API é um agente pessoal e limite o que ele pode fazer. A versão 0.1 está prevista para este mês.",
+  "linhaFina": "A Sierra diz que a sessão é construída sobre OAuth e que a empresa escolhe se o agente usa o site, as APIs ou um agente próprio da empresa.",
+  "fontePrimaria": "Sierra",
+  "leitura": 3,
+  "resumo": [
+    "Meta e Sierra desenvolvem o Personal Agent Protocol, padrão aberto para a forma como agentes pessoais de IA se autenticam e interagem com empresas, com Genesys, Instinct, Rocket, Shopify, Stripe e Walmart.",
+    "A Sierra diz que a sessão usa OAuth e que o cliente decide se o agente tem acesso só de leitura ou também de escrita.",
+    "A especificação v0.1 está prevista para ser publicada ainda em outubro. Pagamentos, notificações e permissões mais detalhadas aparecem como extensões futuras."
+  ],
+  "corpo": [
+    "A Sierra, empresa de agentes de IA para empresas cofundada por Bret Taylor, anunciou em 6 de outubro o Personal Agent Protocol, um padrão aberto que Meta e Sierra desenvolvem com Genesys, Instinct, Rocket, Shopify, Stripe e Walmart. O objetivo declarado é tratar da autenticação e dar às empresas visibilidade sobre o que agentes pessoais fazem em seus sites, APIs ou agentes próprios.",
+    "Segundo a Sierra, hoje a maioria dos agentes pessoais usa sites e aplicativos como uma pessoa usaria, carregando páginas e preenchendo formulários, e pode recorrer ao telefone ou ao chat de suporte quando isso falha. No protocolo, o agente descobre o que a empresa oferece, inicia uma sessão em nome do usuário e pode começar como visitante, por exemplo para consultar estoque ou política de devolução. Quando a tarefa exige a conta do cliente, ele entra pela página da empresa, e é ele quem decide se o agente terá acesso só de leitura ou também de escrita.",
+    "A empresa escolhe por qual caminho o agente trabalha: o site, as APIs, em padrões como MCP e OpenAPI, ou um agente da própria empresa para tarefas que pedem conversa, como um pedido de garantia. A Sierra afirma que a sessão é construída sobre OAuth e acompanha o cliente entre canais.",
+    "Em entrevista à CNBC, Bret Taylor, que também preside o conselho da OpenAI, disse que sem um padrão o cenário é de caos e que as empresas saberão quando se trata de um agente pessoal e não de uma pessoa. A CNBC informa que a Amazon bloqueou os agentes da Meta por preocupação com raspagem de dados, e que OpenAI e Anthropic não fazem parte do grupo por enquanto."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · ACESSO",
+      "titulo": "Agente de cliente passa a ser um tipo de tráfego a gerenciar",
+      "texto": "Empresa que vende online ou atende por canais digitais pode receber agentes pessoais agindo em nome de clientes. O padrão propõe um jeito de identificá-los e de definir o que cada um pode fazer."
+    },
+    {
+      "rotulo": "02 · MATURIDADE",
+      "titulo": "Ainda é uma proposta, sem especificação publicada",
+      "texto": "A versão 0.1 só deve sair neste mês, e a adesão de OpenAI e Anthropic é uma expectativa de Taylor, não um fato. Não há dado sobre adoção no Brasil."
+    },
+    {
+      "rotulo": "03 · INTERESSE",
+      "titulo": "Quem propõe o padrão vende agentes de atendimento",
+      "texto": "A Sierra vende agentes que as empresas usam para atender clientes e a Meta é dona do agente Muse. Ambas se beneficiam de um acesso mais fácil dos agentes às empresas."
+    }
+  ],
+  "oQueFazer": [
+    "Para empresa média, não há ação imediata. Vale perguntar à equipe de TI e ao fornecedor de e-commerce ou de atendimento se já enxergam tráfego de agentes nos canais e se existe regra definida para eles."
+  ],
+  "fontes": [
+    {
+      "titulo": "Introducing Personal Agent Protocol",
+      "origem": "Sierra · blog · 6 out 2026",
+      "url": "https://sierra.ai/blog/introducing-personal-agent-protocol"
+    },
+    {
+      "titulo": "Meta joins with group of companies to tame 'chaos' of doing business with AI bots",
+      "origem": "CNBC · 6 out 2026",
+      "url": "https://www.cnbc.com/2026/10/06/meta-joins-companies-to-tame-chaos-of-doing-business-with-ai-bots.html"
+    }
+  ],
+  "ficha": [
+    { "rotulo": "Quem anunciou", "valor": "Sierra, com Meta e parceiros" },
+    { "rotulo": "Parceiros citados", "valor": "Genesys, Instinct, Rocket, Shopify, Stripe e Walmart" },
+    { "rotulo": "Especificação", "valor": "v0.1 prevista para outubro de 2026" },
+    { "rotulo": "Divulgação", "valor": "6 out 2026" }
+  ]
+}
