@@ -1,0 +1,62 @@
+{
+  "id": "global-payments-comercio-agentico-brasil-72",
+  "publicado_em": "2026-10-09T07:10:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "Global Payments: 72% dos brasileiros já usaram ou aceitariam usar agente de IA para comprar, mas 41% querem confirmar antes",
+  "linha": "Pesquisa com 8.027 consumidores em sete países mostra o Brasil em segundo lugar, atrás da China. O índice soma quem já usou (24%) e quem pretende usar em até 12 meses (48%).",
+  "linhaFina": "O estudo é de uma empresa de pagamentos, a Global Payments, feito com a consultoria The Lantern em maio de 2026. A divulgação no Brasil foi pelo InfoMoney em 9 de outubro.",
+  "fontePrimaria": "Global Payments / The Lantern, via InfoMoney",
+  "leitura": 3,
+  "resumo": [
+    "72% dos brasileiros ouvidos já experimentaram ou aceitariam usar agente de IA para comprar, ante 39% em 2025. Desses, 24% já tiveram a experiência e 48% estão dispostos a usá-la agora ou nos próximos 12 meses.",
+    "Entre as preocupações no Brasil: segurança dos dados de pagamento (50%), privacidade (45%), escolha errada (41%) e definição de responsabilidade se algo der errado (36%).",
+    "41% querem uma etapa de confirmação antes de qualquer compra feita por agente."
+  ],
+  "corpo": [
+    "O Agentic Commerce Report 2026, da empresa de pagamentos Global Payments, foi feito com a consultoria The Lantern e ouviu 8.027 consumidores em Brasil, China, Estados Unidos, Reino Unido, França, Cingapura e Austrália, em maio deste ano, segundo o InfoMoney. A matéria foi publicada em 9 de outubro.",
+    "No Brasil, o índice de 72% (39% em 2025) combina experiência e intenção: 24% disseram já ter vivido experiências de compra com agentes de IA e 48% afirmaram estar dispostos a usá-las agora ou nos próximos 12 meses. O país fica atrás apenas da China, com 86%. A nota média de confiança dos brasileiros nos agentes pessoais, em escala de 1 a 5, subiu de 3,18 para 3,80.",
+    "A disposição não equivale a delegar o pagamento. Entre os brasileiros, 50% citam a segurança dos dados de pagamento como preocupação, 45% a privacidade e o uso de informações pessoais, 41% o risco de o agente fazer escolha errada e 36% a definição de responsabilidades caso algo dê errado. Além disso, 41% querem uma etapa de confirmação antes de qualquer compra. O executivo da Global Payments Juan Pablo D'Antiochia distingue o agente que compara produtos e entrega um link do agente autorizado a concluir o pagamento, e diz que o segundo exige mais confiança e uma infraestrutura que identifique a autorização."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · CANAL",
+      "titulo": "Parte dos clientes pode passar a comprar por um agente",
+      "texto": "Quem vende online tende a ser consultado por agentes de clientes, o que muda como catálogo, preço e prazo precisam ser apresentados."
+    },
+    {
+      "rotulo": "02 · CONFIRMAÇÃO",
+      "titulo": "Pagamento sem confirmação ainda encontra resistência",
+      "texto": "Com 41% querendo confirmar a compra e 36% preocupados com responsabilidade, fluxos que mantêm uma etapa de aprovação são o ponto de partida mais prudente."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "Quem mede vende pagamento",
+      "texto": "A Global Payments tem interesse em que o comércio por agentes cresça. O índice de 72% mistura uso e intenção, e intenção declarada não é compra realizada."
+    }
+  ],
+  "fontes": [
+    {
+      "titulo": "Comércio agêntico avança no Brasil, mas consumidor ainda não confia cegamente na IA",
+      "origem": "InfoMoney · 9 out 2026",
+      "url": "https://www.infomoney.com.br/minhas-financas/comercio-agentico-avanca-no-brasil-mas-consumidor-ainda-nao-confia-cegamente-na-ia/"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem mediu",
+      "valor": "Global Payments, com a consultoria The Lantern"
+    },
+    {
+      "rotulo": "Amostra",
+      "valor": "8.027 consumidores em 7 países"
+    },
+    {
+      "rotulo": "Campo",
+      "valor": "maio de 2026"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "9 out 2026 (InfoMoney)"
+    }
+  ]
+}

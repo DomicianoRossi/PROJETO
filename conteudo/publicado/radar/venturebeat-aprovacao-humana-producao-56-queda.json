@@ -1,0 +1,66 @@
+{
+  "id": "venturebeat-aprovacao-humana-producao-56-queda",
+  "publicado_em": "2026-10-09T07:10:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "VentureBeat: cai de 75% para 56% a parcela de empresas que liberam agentes a alterar produção sem revisão humana",
+  "linha": "Na pesquisa de agosto, com 140 respondentes, 61% relataram ao menos uma falha com cliente em agente que havia passado nos testes internos. A amostra é de leitores e painel da própria VentureBeat.",
+  "linhaFina": "A VentureBeat Intelligence compara as ondas de julho e agosto e ressalva que os grupos são distintos e autosselecionados, o que impede extrapolar para o mercado.",
+  "fontePrimaria": "VentureBeat Intelligence",
+  "leitura": 3,
+  "resumo": [
+    "Entre respondentes de empresas que usam agentes autônomos, 56% já permitem alterações em produção com base só em avaliações automáticas, ou preparam isso para o próximo ano. Em julho eram 75%.",
+    "Entre os que decidem a compra final de IA, a queda foi de 88% para 61%.",
+    "61% das empresas que fazem avaliação antes da implantação tiveram ao menos um caso em que um agente passou nos testes internos e depois causou falha com cliente nos últimos 12 meses."
+  ],
+  "corpo": [
+    "A VentureBeat divulgou em 8 de outubro a onda de agosto de sua pesquisa sobre confiabilidade e avaliação de agentes. Entre respondentes cujas empresas usam agentes autônomos, 56% disseram já permitir certas alterações em produção com base apenas em resultados de avaliação automática, sem revisão humana, ou estar construindo isso para o próximo ano. Em julho, o índice era 75%.",
+    "A amostra de agosto tem 140 respondentes, dos quais 53% decidem a compra final de IA (44% em julho). Entre esses decisores, a parcela caiu de 88% para 61%. A própria VentureBeat adverte que os dois levantamentos usam grupos distintos e autosselecionados de leitores e membros de painel, e que os resultados não estabelecem uma mudança no mercado inteiro.",
+    "Considerando apenas quem usa agentes autônomos, 32% já permitem alterações sem revisão para agentes ou mudanças específicas de baixo risco, 24% estão construindo essa capacidade e 42% esperam manter revisão humana no futuro previsível. Esse último grupo era 20% em julho.",
+    "Outro dado: 61% dos respondentes cujas empresas fazem avaliação antes da implantação relataram ao menos um caso em que um agente ou recurso baseado em modelo de linguagem passou nos testes internos e depois causou falha voltada ao cliente nos últimos 12 meses. A VentureBeat nota que o uso das ferramentas de avaliação cresceu ao mesmo tempo em que caiu a disposição de dispensar a aprovação humana."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · APROVAÇÃO",
+      "titulo": "Teste automático ainda não substitui quem aprova",
+      "texto": "O dado de falhas após testes aprovados é o argumento prático para manter revisão humana em mudanças que afetam cliente."
+    },
+    {
+      "rotulo": "02 · ESCOPO",
+      "titulo": "Dispensar revisão só faz sentido para o que é de baixo risco",
+      "texto": "O grupo que já dispensa a revisão a faz em agentes ou mudanças específicas de baixo risco, não de forma geral."
+    },
+    {
+      "rotulo": "03 · AMOSTRA",
+      "titulo": "São 140 respostas de público da própria publicação",
+      "texto": "Os números mostram direção entre leitores e painel da VentureBeat, não uma medida do mercado."
+    }
+  ],
+  "oQueFazer": [
+    "Para quem libera agentes a mexer em sistemas, a pesquisa sugere definir quais mudanças podem ir sem revisão (as de baixo risco e reversíveis) e manter a aprovação humana para as demais."
+  ],
+  "fontes": [
+    {
+      "titulo": "The share of enterprises trusting AI agents to make production changes on their own has fallen from 75% to 56",
+      "origem": "VentureBeat Intelligence · 8 out 2026",
+      "url": "https://venturebeat.com/orchestration/the-share-of-enterprises-trusting-ai-agents-to-make-production-changes-on-their-own-has-fallen-from-75-to-56-vb-intelligence-finds"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem mediu",
+      "valor": "VentureBeat Intelligence"
+    },
+    {
+      "rotulo": "Amostra",
+      "valor": "140 respondentes em agosto, leitores e membros de painel autosselecionados"
+    },
+    {
+      "rotulo": "Comparação",
+      "valor": "onda de julho, com grupo distinto"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "8 out 2026"
+    }
+  ]
+}
