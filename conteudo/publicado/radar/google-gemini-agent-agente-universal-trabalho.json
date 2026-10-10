@@ -1,0 +1,58 @@
+{
+  "id": "google-gemini-agent-agente-universal-trabalho",
+  "publicado_em": "2026-10-10T07:15:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "Google lança o Gemini agent, agente para o trabalho que se conecta a sistemas da empresa e pode ter e-mail próprio",
+  "linha": "O Google Cloud apresentou em 8 de outubro um agente único para tarefas de trabalho, com teto de gasto por projeto e versões setoriais para finanças e jurídico em prévia.",
+  "linhaFina": "O agente funciona no Google Workspace, no Microsoft 365 e no Slack, usa modelos Gemini e Claude e permite criar agentes que atuam como colegas de equipe.",
+  "fontePrimaria": "Google Cloud",
+  "leitura": 3,
+  "resumo": [
+    "O Google Cloud anunciou em 8 de outubro de 2026 o Gemini agent, descrito como um agente universal para trabalho de conhecimento, criação de conteúdo e código.",
+    "Ele pode ser acessado pelo Google Workspace, pelo Microsoft 365 e pelo Slack, e hoje escolhe entre modelos Gemini e Claude, da Anthropic.",
+    "Versões para serviços financeiros e jurídico estão em prévia; governo, saúde e varejo são descritos como \"em breve\"."
+  ],
+  "corpo": [
+    "Em palestra publicada em 8 de outubro, Thomas Kurian, CEO do Google Cloud, apresentou o Gemini agent como um agente único que planeja o trabalho, usa ferramentas e entrega algo concluído em documentos, caixa de entrada e ambientes de desenvolvimento. A Reuters, em texto reproduzido pelo g1, resume o anúncio da mesma forma.",
+    "Segundo o Google, o agente se conecta a sistemas que a empresa já usa, como Salesforce, ServiceNow, Jira, Confluence, Microsoft Office, Teams e Slack, e a bases como BigQuery, Databricks, Postgres e Snowflake. Os usuários também podem pedir a criação de um agente colega de equipe: ele recebe conta própria no Workspace, com e-mail, agenda e Drive, aparece no diretório da empresa e age sob identidade própria, vendo só o que lhe for compartilhado.",
+    "Sobre custo, o Google cita roteamento automático entre modelos e um limite de gasto em tempo real: ao atingir o teto definido no console de faturamento, o agente daquele projeto pausa, e o gestor decide se retoma. O acompanhamento é por projeto, o que permite ratear o custo por departamento.",
+    "O texto do Google não informa preço do Gemini agent nem disponibilidade específica para o Brasil. Entre os clientes citados no anúncio há brasileiros, como Bradesco e Banco BV, mas o relato de resultados desses clientes é do próprio Google."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · IDENTIDADE",
+      "titulo": "Agente com e-mail próprio precisa de dono e de regra de acesso",
+      "texto": "Um agente que aparece no diretório da empresa e assina edições em documentos é, na prática, um usuário novo. Quem o cria, o que ele enxerga e quem responde por ele são perguntas de TI antes de serem de produtividade."
+    },
+    {
+      "rotulo": "02 · CUSTO",
+      "titulo": "Teto de gasto por projeto é o recurso a verificar no contrato",
+      "texto": "O limite que pausa o agente é a resposta do Google ao custo imprevisível de uso. Vale confirmar como a cobrança funciona para a empresa e se o teto está disponível no plano contratado."
+    },
+    {
+      "rotulo": "03 · FONTE",
+      "titulo": "Anúncio de fornecedor, sem teste independente",
+      "texto": "Capacidades e resultados de clientes vêm do Google, que vende a plataforma. Não há, na fonte, medição de terceiros sobre o desempenho do agente."
+    }
+  ],
+  "oQueFazer": [
+    "Quem já usa Workspace ou Gemini Enterprise pode perguntar ao fornecedor três coisas antes de qualquer piloto: preço e data para o Brasil, quais conectores estão incluídos e como o log de cada ação do agente é registrado."
+  ],
+  "fontes": [
+    {
+      "titulo": "Welcome to Gemini at Work 2026: Introducing the Gemini agent",
+      "origem": "Google Cloud · blog · 8 out 2026",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+    },
+    {
+      "titulo": "Google lança agente de IA para tarefas de trabalho",
+      "origem": "g1 / Reuters · 8 out 2026",
+      "url": "https://g1.globo.com/tecnologia/noticia/2026/10/08/google-lanca-agente-de-ia-para-tarefas-de-trabalho.ghtml"
+    }
+  ],
+  "ficha": [
+    { "rotulo": "Quem anunciou", "valor": "Google Cloud" },
+    { "rotulo": "Divulgação", "valor": "8 out 2026" },
+    { "rotulo": "Situação", "valor": "Versões para finanças e jurídico em prévia; preço e disponibilidade no Brasil não informados" }
+  ]
+}

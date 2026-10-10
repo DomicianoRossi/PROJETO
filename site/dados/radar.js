@@ -3,6 +3,138 @@ window.AW_DADOS = window.AW_DADOS || {};
 window.AW_DADOS.assinatura = "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi";
 window.AW_DADOS.radar = [
  {
+  "id": "optro-um-terco-agiu-sobre-decisao-errada-de-agente",
+  "publicado_em": "2026-10-10T07:16:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "34% das organizações já agiram com base em decisão errada de agente de IA, diz Optro; só 9% redesenharam fluxos",
+  "linha": "Pesquisa da Optro com 417 profissionais de auditoria, risco e conformidade na América do Norte e na Europa: 38% deixam agentes aprovar ou rejeitar transações.",
+  "linhaFina": "A Optro, que vende plataforma de governança, divulgou o relatório em 8 de outubro. A amostra não inclui o Brasil.",
+  "fontePrimaria": "Optro",
+  "leitura": 3,
+  "resumo": [
+   "34% dos respondentes dizem que sua organização teve uma decisão ou resultado impreciso de agente que foi posto em prática.",
+   "38% autorizam agentes a aprovar ou rejeitar transações, 34% a alterar controles ou políticas e 27% a mudar permissões de acesso.",
+   "96% concordam que fluxos devem se adaptar à IA, mas só 9% os redesenharam para receber agentes com segurança."
+  ],
+  "corpo": [
+   "A Optro, que vende uma plataforma de governança, risco e conformidade (GRC), divulgou em 8 de outubro de 2026 o relatório \"Authority without oversight: The 2026 agentic enterprise report\". A base é uma pesquisa com 417 respondentes de um painel online, decisores de auditoria interna, gestão de risco, conformidade e segurança da informação na América do Norte e na Europa, em organizações com 250 ou mais funcionários e filtrados por conhecimento de IA agêntica.",
+   "Sobre autoridade concedida, 38% das organizações autorizam agentes a aprovar ou rejeitar transações, 34% a modificar controles ou políticas e 27% a alterar permissões de usuário ou direitos de acesso.",
+   "Sobre falhas, além dos 34% que agiram sobre uma decisão imprecisa, 30% viram um agente tomar uma ação não pretendida e 25% tiveram falha de controle envolvendo agente. Para 46%, os funcionários passam mais tempo revisando, validando ou corrigindo o que a IA produz."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · AUTORIDADE",
+    "titulo": "O que o agente pode aprovar deveria ser decisão registrada",
+    "texto": "Os números de aprovação de transações e alteração de permissões mostram onde o risco se concentra. Definir quais ações exigem aprovação humana antes de ligar o agente é mais barato do que corrigir depois."
+   },
+   {
+    "rotulo": "02 · TRABALHO OCULTO",
+    "titulo": "Revisão humana também tem custo",
+    "texto": "46% dizem gastar mais tempo corrigindo saídas de IA. Ao medir o ganho de um agente, convém contar esse tempo."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "Quem publica vende governança, e a amostra é de outros mercados",
+    "texto": "A Optro vende justamente o tipo de plataforma que o relatório recomenda, e os respondentes são da América do Norte e da Europa. Serve de indício para o Brasil, não de medida."
+   }
+  ],
+  "oQueFazer": [
+   "Para quem já tem agentes em uso, vale listar quais ações cada um pode executar sozinho (aprovar, alterar permissão, mudar regra) e marcar as que hoje não passam por nenhuma pessoa."
+  ],
+  "fontes": [
+   {
+    "titulo": "One in Three Organizations Say They Have Acted on Wrong Decisions Made by AI Agents, Optro Research Finds",
+    "origem": "Optro · comunicado · 8 out 2026",
+    "url": "https://optro.ai/blog/one-in-three-organizations-say-they-have-acted-on-wrong-decisions-made-by-ai-agents-optro-research-finds"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem mediu",
+    "valor": "Optro"
+   },
+   {
+    "rotulo": "Amostra",
+    "valor": "417 decisores de auditoria, risco, conformidade e segurança, em organizações com 250 ou mais funcionários"
+   },
+   {
+    "rotulo": "Onde",
+    "valor": "América do Norte e Europa, painel online"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "8 out 2026"
+   }
+  ]
+ },
+ {
+  "id": "google-gemini-agent-agente-universal-trabalho",
+  "publicado_em": "2026-10-10T07:15:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "Google lança o Gemini agent, agente para o trabalho que se conecta a sistemas da empresa e pode ter e-mail próprio",
+  "linha": "O Google Cloud apresentou em 8 de outubro um agente único para tarefas de trabalho, com teto de gasto por projeto e versões setoriais para finanças e jurídico em prévia.",
+  "linhaFina": "O agente funciona no Google Workspace, no Microsoft 365 e no Slack, usa modelos Gemini e Claude e permite criar agentes que atuam como colegas de equipe.",
+  "fontePrimaria": "Google Cloud",
+  "leitura": 3,
+  "resumo": [
+   "O Google Cloud anunciou em 8 de outubro de 2026 o Gemini agent, descrito como um agente universal para trabalho de conhecimento, criação de conteúdo e código.",
+   "Ele pode ser acessado pelo Google Workspace, pelo Microsoft 365 e pelo Slack, e hoje escolhe entre modelos Gemini e Claude, da Anthropic.",
+   "Versões para serviços financeiros e jurídico estão em prévia; governo, saúde e varejo são descritos como \"em breve\"."
+  ],
+  "corpo": [
+   "Em palestra publicada em 8 de outubro, Thomas Kurian, CEO do Google Cloud, apresentou o Gemini agent como um agente único que planeja o trabalho, usa ferramentas e entrega algo concluído em documentos, caixa de entrada e ambientes de desenvolvimento. A Reuters, em texto reproduzido pelo g1, resume o anúncio da mesma forma.",
+   "Segundo o Google, o agente se conecta a sistemas que a empresa já usa, como Salesforce, ServiceNow, Jira, Confluence, Microsoft Office, Teams e Slack, e a bases como BigQuery, Databricks, Postgres e Snowflake. Os usuários também podem pedir a criação de um agente colega de equipe: ele recebe conta própria no Workspace, com e-mail, agenda e Drive, aparece no diretório da empresa e age sob identidade própria, vendo só o que lhe for compartilhado.",
+   "Sobre custo, o Google cita roteamento automático entre modelos e um limite de gasto em tempo real: ao atingir o teto definido no console de faturamento, o agente daquele projeto pausa, e o gestor decide se retoma. O acompanhamento é por projeto, o que permite ratear o custo por departamento.",
+   "O texto do Google não informa preço do Gemini agent nem disponibilidade específica para o Brasil. Entre os clientes citados no anúncio há brasileiros, como Bradesco e Banco BV, mas o relato de resultados desses clientes é do próprio Google."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · IDENTIDADE",
+    "titulo": "Agente com e-mail próprio precisa de dono e de regra de acesso",
+    "texto": "Um agente que aparece no diretório da empresa e assina edições em documentos é, na prática, um usuário novo. Quem o cria, o que ele enxerga e quem responde por ele são perguntas de TI antes de serem de produtividade."
+   },
+   {
+    "rotulo": "02 · CUSTO",
+    "titulo": "Teto de gasto por projeto é o recurso a verificar no contrato",
+    "texto": "O limite que pausa o agente é a resposta do Google ao custo imprevisível de uso. Vale confirmar como a cobrança funciona para a empresa e se o teto está disponível no plano contratado."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "Anúncio de fornecedor, sem teste independente",
+    "texto": "Capacidades e resultados de clientes vêm do Google, que vende a plataforma. Não há, na fonte, medição de terceiros sobre o desempenho do agente."
+   }
+  ],
+  "oQueFazer": [
+   "Quem já usa Workspace ou Gemini Enterprise pode perguntar ao fornecedor três coisas antes de qualquer piloto: preço e data para o Brasil, quais conectores estão incluídos e como o log de cada ação do agente é registrado."
+  ],
+  "fontes": [
+   {
+    "titulo": "Welcome to Gemini at Work 2026: Introducing the Gemini agent",
+    "origem": "Google Cloud · blog · 8 out 2026",
+    "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+   },
+   {
+    "titulo": "Google lança agente de IA para tarefas de trabalho",
+    "origem": "g1 / Reuters · 8 out 2026",
+    "url": "https://g1.globo.com/tecnologia/noticia/2026/10/08/google-lanca-agente-de-ia-para-tarefas-de-trabalho.ghtml"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem anunciou",
+    "valor": "Google Cloud"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "8 out 2026"
+   },
+   {
+    "rotulo": "Situação",
+    "valor": "Versões para finanças e jurídico em prévia; preço e disponibilidade no Brasil não informados"
+   }
+  ]
+ },
+ {
   "id": "ploomes-estudio-ia-crm-implantacao-28-dias",
   "publicado_em": "2026-10-08T07:12:00-03:00",
   "tema": "LANÇAMENTOS",
