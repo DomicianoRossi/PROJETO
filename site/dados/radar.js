@@ -3,6 +3,205 @@ window.AW_DADOS = window.AW_DADOS || {};
 window.AW_DADOS.assinatura = "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi";
 window.AW_DADOS.radar = [
  {
+  "id": "global-payments-comercio-agentico-brasil-72",
+  "publicado_em": "2026-10-09T07:10:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "Global Payments: 72% dos brasileiros já usaram ou aceitariam usar agente de IA para comprar, mas 41% querem confirmar antes",
+  "linha": "Pesquisa com 8.027 consumidores em sete países mostra o Brasil em segundo lugar, atrás da China. O índice soma quem já usou (24%) e quem pretende usar em até 12 meses (48%).",
+  "linhaFina": "O estudo é de uma empresa de pagamentos, a Global Payments, feito com a consultoria The Lantern em maio de 2026. A divulgação no Brasil foi pelo InfoMoney em 9 de outubro.",
+  "fontePrimaria": "Global Payments / The Lantern, via InfoMoney",
+  "leitura": 3,
+  "resumo": [
+   "72% dos brasileiros ouvidos já experimentaram ou aceitariam usar agente de IA para comprar, ante 39% em 2025. Desses, 24% já tiveram a experiência e 48% estão dispostos a usá-la agora ou nos próximos 12 meses.",
+   "Entre as preocupações no Brasil: segurança dos dados de pagamento (50%), privacidade (45%), escolha errada (41%) e definição de responsabilidade se algo der errado (36%).",
+   "41% querem uma etapa de confirmação antes de qualquer compra feita por agente."
+  ],
+  "corpo": [
+   "O Agentic Commerce Report 2026, da empresa de pagamentos Global Payments, foi feito com a consultoria The Lantern e ouviu 8.027 consumidores em Brasil, China, Estados Unidos, Reino Unido, França, Cingapura e Austrália, em maio deste ano, segundo o InfoMoney. A matéria foi publicada em 9 de outubro.",
+   "No Brasil, o índice de 72% (39% em 2025) combina experiência e intenção: 24% disseram já ter vivido experiências de compra com agentes de IA e 48% afirmaram estar dispostos a usá-las agora ou nos próximos 12 meses. O país fica atrás apenas da China, com 86%. A nota média de confiança dos brasileiros nos agentes pessoais, em escala de 1 a 5, subiu de 3,18 para 3,80.",
+   "A disposição não equivale a delegar o pagamento. Entre os brasileiros, 50% citam a segurança dos dados de pagamento como preocupação, 45% a privacidade e o uso de informações pessoais, 41% o risco de o agente fazer escolha errada e 36% a definição de responsabilidades caso algo dê errado. Além disso, 41% querem uma etapa de confirmação antes de qualquer compra. O executivo da Global Payments Juan Pablo D'Antiochia distingue o agente que compara produtos e entrega um link do agente autorizado a concluir o pagamento, e diz que o segundo exige mais confiança e uma infraestrutura que identifique a autorização."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · CANAL",
+    "titulo": "Parte dos clientes pode passar a comprar por um agente",
+    "texto": "Quem vende online tende a ser consultado por agentes de clientes, o que muda como catálogo, preço e prazo precisam ser apresentados."
+   },
+   {
+    "rotulo": "02 · CONFIRMAÇÃO",
+    "titulo": "Pagamento sem confirmação ainda encontra resistência",
+    "texto": "Com 41% querendo confirmar a compra e 36% preocupados com responsabilidade, fluxos que mantêm uma etapa de aprovação são o ponto de partida mais prudente."
+   },
+   {
+    "rotulo": "03 · FONTE",
+    "titulo": "Quem mede vende pagamento",
+    "texto": "A Global Payments tem interesse em que o comércio por agentes cresça. O índice de 72% mistura uso e intenção, e intenção declarada não é compra realizada."
+   }
+  ],
+  "fontes": [
+   {
+    "titulo": "Comércio agêntico avança no Brasil, mas consumidor ainda não confia cegamente na IA",
+    "origem": "InfoMoney · 9 out 2026",
+    "url": "https://www.infomoney.com.br/minhas-financas/comercio-agentico-avanca-no-brasil-mas-consumidor-ainda-nao-confia-cegamente-na-ia/"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem mediu",
+    "valor": "Global Payments, com a consultoria The Lantern"
+   },
+   {
+    "rotulo": "Amostra",
+    "valor": "8.027 consumidores em 7 países"
+   },
+   {
+    "rotulo": "Campo",
+    "valor": "maio de 2026"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "9 out 2026 (InfoMoney)"
+   }
+  ]
+ },
+ {
+  "id": "google-cloud-gemini-agent-previa-privada",
+  "publicado_em": "2026-10-09T07:10:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "Google Cloud lança o Gemini agent, que escolhe entre Gemini e Claude, em prévia privada e sem data para todos",
+  "linha": "O agente roda tarefas por horas ou dias, tem identidade própria e trilha de auditoria. Por ora só clientes selecionados têm acesso; preço para agentes persistentes não foi detalhado.",
+  "linhaFina": "Segundo o Google Cloud, o Gemini agent será incluído sem custo adicional onde o Gemini Enterprise estiver disponível. A empresa não informou data de lançamento amplo.",
+  "fontePrimaria": "Google Cloud",
+  "leitura": 3,
+  "resumo": [
+   "O Google Cloud anunciou em 8 de outubro o Gemini agent, apresentado como um agente único para o trabalho, que planeja tarefas, usa ferramentas e se conecta aos sistemas da empresa.",
+   "O agente orquestra modelos Gemini e Claude, da Anthropic, e escolhe o modelo conforme a tarefa. Cada agente recebe identidade própria, e cada ação fica registrada em trilha de auditoria atribuída ao agente, não a uma pessoa.",
+   "Está em prévia privada para clientes selecionados, sem data para disponibilidade ampla."
+  ],
+  "corpo": [
+   "O Google Cloud apresentou em 8 de outubro, no evento Gemini at Work 2026, o Gemini agent. Em seu blog, a empresa o descreve como um agente único para o trabalho: recebe um objetivo, planeja, usa habilidades e ferramentas, conecta-se aos sistemas da empresa e devolve o resultado dentro de documentos, caixa de entrada e ambientes de desenvolvimento.",
+   "O agente executa em nuvem e, segundo o Google, trabalhos que levam horas ou dias continuam rodando depois que o usuário fecha o computador. Pode criar subagentes temporários e também agir como agente colega de equipe, com endereço de e-mail próprio no domínio da empresa (@agents.company.com), armazenamento próprio e acesso apenas ao contexto que a equipe fornecer. O Google afirma que ele roda sobre modelos Gemini e Claude, com outros modelos previstos para o futuro, e que roteia cada tarefa para o modelo que equilibra qualidade e custo.",
+   "Sobre governança, o Google diz que cada agente tem identidade própria com permissões mínimas, que a identidade é propagada a sistemas externos por padrões como OAuth, e que cada ação é gravada em trilha de auditoria atribuída ao agente. O tráfego passa por um Agent Gateway, que aplica as políticas da empresa. Há também limite de gasto por projeto: ao atingi-lo, o agente do projeto pausa até que alguém retome no console.",
+   "Em disponibilidade, o Google confirmou à VentureBeat que o agente está em prévia privada para clientes selecionados, sem data para a ampla. A empresa disse que ele será incluído sem custo adicional onde o Gemini Enterprise estiver disponível, inclusive em assinaturas empresariais do Workspace. Segundo a VentureBeat, o Google não esclareceu se agentes colegas persistentes e subagentes terão cobrança por uso."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · DISPONIBILIDADE",
+    "titulo": "Anúncio não é produto liberado",
+    "texto": "A prévia é privada e não há data. Quem usa Workspace ou Gemini Enterprise pode perguntar ao fornecedor o prazo e se o plano contratado entra, antes de planejar qualquer uso."
+   },
+   {
+    "rotulo": "02 · CONTROLE",
+    "titulo": "Identidade e registro por agente são os pontos a testar",
+    "texto": "Agente com identidade própria e ação registrada em seu nome facilita auditar o que foi feito. Se funcionam como descrito só se verá com o produto liberado."
+   },
+   {
+    "rotulo": "03 · CUSTO",
+    "titulo": "A cobrança de agentes que rodam por dias está em aberto",
+    "texto": "Tarefas longas e subagentes consomem processamento. O Google promete limite de gasto por projeto, mas não detalhou o preço dos agentes persistentes."
+   }
+  ],
+  "oQueFazer": [
+   "Se a empresa já usa Google Workspace, vale registrar o interesse com o representante da conta e pedir por escrito a política de preço e os controles de permissão antes de qualquer piloto."
+  ],
+  "fontes": [
+   {
+    "titulo": "Gemini at Work 2026: Introducing Gemini agent",
+    "origem": "Google Cloud · blog · 8 out 2026",
+    "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+   },
+   {
+    "titulo": "Google Cloud unveils persistent Gemini Agents for long-running tasks",
+    "origem": "VentureBeat · 8 out 2026",
+    "url": "https://venturebeat.com/orchestration/google-cloud-unveils-persistent-gemini-agents-for-long-running-tasks-and-they-get-their-own-gmail-calendar-and-drive-storage"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem anunciou",
+    "valor": "Google Cloud"
+   },
+   {
+    "rotulo": "Status",
+    "valor": "prévia privada, sem data para disponibilidade ampla"
+   },
+   {
+    "rotulo": "Preço",
+    "valor": "sem custo adicional onde houver Gemini Enterprise; agentes persistentes não detalhados"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "8 out 2026"
+   }
+  ]
+ },
+ {
+  "id": "venturebeat-aprovacao-humana-producao-56-queda",
+  "publicado_em": "2026-10-09T07:10:00-03:00",
+  "tema": "PESQUISA",
+  "titulo": "VentureBeat: cai de 75% para 56% a parcela de empresas que liberam agentes a alterar produção sem revisão humana",
+  "linha": "Na pesquisa de agosto, com 140 respondentes, 61% relataram ao menos uma falha com cliente em agente que havia passado nos testes internos. A amostra é de leitores e painel da própria VentureBeat.",
+  "linhaFina": "A VentureBeat Intelligence compara as ondas de julho e agosto e ressalva que os grupos são distintos e autosselecionados, o que impede extrapolar para o mercado.",
+  "fontePrimaria": "VentureBeat Intelligence",
+  "leitura": 3,
+  "resumo": [
+   "Entre respondentes de empresas que usam agentes autônomos, 56% já permitem alterações em produção com base só em avaliações automáticas, ou preparam isso para o próximo ano. Em julho eram 75%.",
+   "Entre os que decidem a compra final de IA, a queda foi de 88% para 61%.",
+   "61% das empresas que fazem avaliação antes da implantação tiveram ao menos um caso em que um agente passou nos testes internos e depois causou falha com cliente nos últimos 12 meses."
+  ],
+  "corpo": [
+   "A VentureBeat divulgou em 8 de outubro a onda de agosto de sua pesquisa sobre confiabilidade e avaliação de agentes. Entre respondentes cujas empresas usam agentes autônomos, 56% disseram já permitir certas alterações em produção com base apenas em resultados de avaliação automática, sem revisão humana, ou estar construindo isso para o próximo ano. Em julho, o índice era 75%.",
+   "A amostra de agosto tem 140 respondentes, dos quais 53% decidem a compra final de IA (44% em julho). Entre esses decisores, a parcela caiu de 88% para 61%. A própria VentureBeat adverte que os dois levantamentos usam grupos distintos e autosselecionados de leitores e membros de painel, e que os resultados não estabelecem uma mudança no mercado inteiro.",
+   "Considerando apenas quem usa agentes autônomos, 32% já permitem alterações sem revisão para agentes ou mudanças específicas de baixo risco, 24% estão construindo essa capacidade e 42% esperam manter revisão humana no futuro previsível. Esse último grupo era 20% em julho.",
+   "Outro dado: 61% dos respondentes cujas empresas fazem avaliação antes da implantação relataram ao menos um caso em que um agente ou recurso baseado em modelo de linguagem passou nos testes internos e depois causou falha voltada ao cliente nos últimos 12 meses. A VentureBeat nota que o uso das ferramentas de avaliação cresceu ao mesmo tempo em que caiu a disposição de dispensar a aprovação humana."
+  ],
+  "consequencias": [
+   {
+    "rotulo": "01 · APROVAÇÃO",
+    "titulo": "Teste automático ainda não substitui quem aprova",
+    "texto": "O dado de falhas após testes aprovados é o argumento prático para manter revisão humana em mudanças que afetam cliente."
+   },
+   {
+    "rotulo": "02 · ESCOPO",
+    "titulo": "Dispensar revisão só faz sentido para o que é de baixo risco",
+    "texto": "O grupo que já dispensa a revisão a faz em agentes ou mudanças específicas de baixo risco, não de forma geral."
+   },
+   {
+    "rotulo": "03 · AMOSTRA",
+    "titulo": "São 140 respostas de público da própria publicação",
+    "texto": "Os números mostram direção entre leitores e painel da VentureBeat, não uma medida do mercado."
+   }
+  ],
+  "oQueFazer": [
+   "Para quem libera agentes a mexer em sistemas, a pesquisa sugere definir quais mudanças podem ir sem revisão (as de baixo risco e reversíveis) e manter a aprovação humana para as demais."
+  ],
+  "fontes": [
+   {
+    "titulo": "The share of enterprises trusting AI agents to make production changes on their own has fallen from 75% to 56",
+    "origem": "VentureBeat Intelligence · 8 out 2026",
+    "url": "https://venturebeat.com/orchestration/the-share-of-enterprises-trusting-ai-agents-to-make-production-changes-on-their-own-has-fallen-from-75-to-56-vb-intelligence-finds"
+   }
+  ],
+  "ficha": [
+   {
+    "rotulo": "Quem mediu",
+    "valor": "VentureBeat Intelligence"
+   },
+   {
+    "rotulo": "Amostra",
+    "valor": "140 respondentes em agosto, leitores e membros de painel autosselecionados"
+   },
+   {
+    "rotulo": "Comparação",
+    "valor": "onda de julho, com grupo distinto"
+   },
+   {
+    "rotulo": "Divulgação",
+    "valor": "8 out 2026"
+   }
+  ]
+ },
+ {
   "id": "ploomes-estudio-ia-crm-implantacao-28-dias",
   "publicado_em": "2026-10-08T07:12:00-03:00",
   "tema": "LANÇAMENTOS",

@@ -1,0 +1,71 @@
+{
+  "id": "google-cloud-gemini-agent-previa-privada",
+  "publicado_em": "2026-10-09T07:10:00-03:00",
+  "tema": "LANÇAMENTOS",
+  "titulo": "Google Cloud lança o Gemini agent, que escolhe entre Gemini e Claude, em prévia privada e sem data para todos",
+  "linha": "O agente roda tarefas por horas ou dias, tem identidade própria e trilha de auditoria. Por ora só clientes selecionados têm acesso; preço para agentes persistentes não foi detalhado.",
+  "linhaFina": "Segundo o Google Cloud, o Gemini agent será incluído sem custo adicional onde o Gemini Enterprise estiver disponível. A empresa não informou data de lançamento amplo.",
+  "fontePrimaria": "Google Cloud",
+  "leitura": 3,
+  "resumo": [
+    "O Google Cloud anunciou em 8 de outubro o Gemini agent, apresentado como um agente único para o trabalho, que planeja tarefas, usa ferramentas e se conecta aos sistemas da empresa.",
+    "O agente orquestra modelos Gemini e Claude, da Anthropic, e escolhe o modelo conforme a tarefa. Cada agente recebe identidade própria, e cada ação fica registrada em trilha de auditoria atribuída ao agente, não a uma pessoa.",
+    "Está em prévia privada para clientes selecionados, sem data para disponibilidade ampla."
+  ],
+  "corpo": [
+    "O Google Cloud apresentou em 8 de outubro, no evento Gemini at Work 2026, o Gemini agent. Em seu blog, a empresa o descreve como um agente único para o trabalho: recebe um objetivo, planeja, usa habilidades e ferramentas, conecta-se aos sistemas da empresa e devolve o resultado dentro de documentos, caixa de entrada e ambientes de desenvolvimento.",
+    "O agente executa em nuvem e, segundo o Google, trabalhos que levam horas ou dias continuam rodando depois que o usuário fecha o computador. Pode criar subagentes temporários e também agir como agente colega de equipe, com endereço de e-mail próprio no domínio da empresa (@agents.company.com), armazenamento próprio e acesso apenas ao contexto que a equipe fornecer. O Google afirma que ele roda sobre modelos Gemini e Claude, com outros modelos previstos para o futuro, e que roteia cada tarefa para o modelo que equilibra qualidade e custo.",
+    "Sobre governança, o Google diz que cada agente tem identidade própria com permissões mínimas, que a identidade é propagada a sistemas externos por padrões como OAuth, e que cada ação é gravada em trilha de auditoria atribuída ao agente. O tráfego passa por um Agent Gateway, que aplica as políticas da empresa. Há também limite de gasto por projeto: ao atingi-lo, o agente do projeto pausa até que alguém retome no console.",
+    "Em disponibilidade, o Google confirmou à VentureBeat que o agente está em prévia privada para clientes selecionados, sem data para a ampla. A empresa disse que ele será incluído sem custo adicional onde o Gemini Enterprise estiver disponível, inclusive em assinaturas empresariais do Workspace. Segundo a VentureBeat, o Google não esclareceu se agentes colegas persistentes e subagentes terão cobrança por uso."
+  ],
+  "consequencias": [
+    {
+      "rotulo": "01 · DISPONIBILIDADE",
+      "titulo": "Anúncio não é produto liberado",
+      "texto": "A prévia é privada e não há data. Quem usa Workspace ou Gemini Enterprise pode perguntar ao fornecedor o prazo e se o plano contratado entra, antes de planejar qualquer uso."
+    },
+    {
+      "rotulo": "02 · CONTROLE",
+      "titulo": "Identidade e registro por agente são os pontos a testar",
+      "texto": "Agente com identidade própria e ação registrada em seu nome facilita auditar o que foi feito. Se funcionam como descrito só se verá com o produto liberado."
+    },
+    {
+      "rotulo": "03 · CUSTO",
+      "titulo": "A cobrança de agentes que rodam por dias está em aberto",
+      "texto": "Tarefas longas e subagentes consomem processamento. O Google promete limite de gasto por projeto, mas não detalhou o preço dos agentes persistentes."
+    }
+  ],
+  "oQueFazer": [
+    "Se a empresa já usa Google Workspace, vale registrar o interesse com o representante da conta e pedir por escrito a política de preço e os controles de permissão antes de qualquer piloto."
+  ],
+  "fontes": [
+    {
+      "titulo": "Gemini at Work 2026: Introducing Gemini agent",
+      "origem": "Google Cloud · blog · 8 out 2026",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+    },
+    {
+      "titulo": "Google Cloud unveils persistent Gemini Agents for long-running tasks",
+      "origem": "VentureBeat · 8 out 2026",
+      "url": "https://venturebeat.com/orchestration/google-cloud-unveils-persistent-gemini-agents-for-long-running-tasks-and-they-get-their-own-gmail-calendar-and-drive-storage"
+    }
+  ],
+  "ficha": [
+    {
+      "rotulo": "Quem anunciou",
+      "valor": "Google Cloud"
+    },
+    {
+      "rotulo": "Status",
+      "valor": "prévia privada, sem data para disponibilidade ampla"
+    },
+    {
+      "rotulo": "Preço",
+      "valor": "sem custo adicional onde houver Gemini Enterprise; agentes persistentes não detalhados"
+    },
+    {
+      "rotulo": "Divulgação",
+      "valor": "8 out 2026"
+    }
+  ]
+}
