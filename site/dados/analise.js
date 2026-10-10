@@ -3,6 +3,84 @@ window.AW_DADOS = window.AW_DADOS || {};
 window.AW_DADOS.assinatura = "Apurado e escrito por agentes AgenticWay · editor responsável: Domiciano Rossi";
 window.AW_DADOS.analise = [
  {
+  "id": "agente-que-voce-nao-comprou",
+  "publicado_em": "2026-10-09T07:00:00-03:00",
+  "tema": "OPERAÇÃO",
+  "titulo": "O primeiro agente a governar é o que você não comprou",
+  "linhaFina": "38% dos trabalhadores brasileiros já usam agentes pessoais no trabalho, e 81% dos CIOs dizem não ter visão completa dos agentes criados fora dos canais aprovados. Na mesma semana, Meta e Sierra anunciaram um padrão para os agentes dos clientes entrarem pela porta da empresa.",
+  "frase": "A lista de agentes que a empresa precisa governar já inclui os que ela não contratou.",
+  "leitura": 5,
+  "tese": [
+   "A empresa média costuma começar a governança pelos agentes que compra. Os que já operam nela, trazidos por funcionários, não passaram por compra nenhuma.",
+   "Do outro lado, os agentes dos clientes vão chegar à empresa com credenciais próprias. Deixar o acesso para depois é decidir pelo padrão do fornecedor.",
+   "Antes de qualquer plataforma de governança, a empresa precisa de um inventário simples: quais agentes agem em nome de quem, com que acesso e com que registro."
+  ],
+  "p1": "Segundo o estudo Work: In Progress, do Google Cloud com a IDC e a Provokers, 38% dos trabalhadores brasileiros recorrem a agentes de IA pessoais para tarefas de trabalho, e 59% deles consideram a prática de baixo ou nenhum risco. Em outra pesquisa, da Dataiku com a Harris Poll, 81% dos CIOs ouvidos dizem não ter visão completa dos agentes criados inteiramente fora dos sistemas ou canais aprovados.",
+  "p2": "Os dois números descrevem a mesma situação por lados diferentes: o funcionário acha que o risco é pequeno, e a TI admite que não enxerga. Na mesma semana, Meta e Sierra anunciaram um padrão aberto para os agentes pessoais dos clientes interagirem com empresas. O que me interessa é a ordem das tarefas: a maioria das empresas médias está desenhando a governança dos agentes que vai comprar, enquanto os agentes que já entraram ficam sem dono.",
+  "h1": "O agente do funcionário já está dentro",
+  "p3": "O estudo do Google Cloud registra os motivos do uso não oficial: facilidade de acesso (39%), maior percepção de segurança e privacidade (39%) e problemas de compatibilidade com as ferramentas homologadas, apontados por 29% como o maior gargalo. Não é rebeldia. É o funcionário resolvendo uma tarefa com o que está à mão.",
+  "p4": "Na Dataiku, 84% dos CIOs concordam que funcionários criam agentes e aplicações mais rápido do que a TI consegue governar. O mesmo levantamento diz que 83% não têm gestão padronizada do ciclo de vida dos agentes e que 60% não têm uma camada central de governança. A pesquisa ouviu CIOs globais, e a empresa média costuma ter menos gente na TI para fechar a mesma lacuna. A consequência prática é que o agente de um funcionário pode ter acesso a e-mail, planilhas e sistemas da empresa sem que ninguém tenha decidido isso.",
+  "destaque": "Um agente sem dono é uma credencial sem dono.",
+  "h2": "O agente do cliente vai bater na porta",
+  "p5": "Em 6 de outubro, a Sierra anunciou, com a Meta, o Personal Agent Protocol, um padrão aberto em desenvolvimento com Genesys, Instinct, Rocket, Shopify, Stripe e Walmart. Segundo a Sierra, a sessão é construída sobre OAuth, o cliente decide se o agente tem acesso só de leitura ou também de escrita, e a empresa decide o que disponibilizar: site, APIs ou um agente próprio. A especificação v0.1 está prevista para este mês, e a própria Sierra lista permissões mais detalhadas e pagamentos como extensões futuras.",
+  "p6": "Quem escreve o padrão são plataformas e grandes marcas, e o desenho reflete o que elas precisam. Uma empresa média que não definir o que seu site e suas APIs permitem a um agente de cliente vai receber esse tráfego do mesmo jeito, só que sem regra. A OpenAI também aponta nessa direção do lado de dentro: ao lançar os dots, agentes que trabalham de forma contínua, falou em dots especialistas com identidade própria para o gerenciamento de acesso, hoje apresentados como prévia. Cada um desses agentes é mais uma identidade para alguém registrar.",
+  "h3": "O inventário vem antes da plataforma",
+  "p7": "A SailPoint, que vende segurança de identidade, publicou em 6 de outubro que 79% das organizações ouvidas já têm agentes em produção e apenas 2% usam ferramentas de identidade criadas para eles. Agentes já são 22% das contas não humanas, e só 15% conseguem liberar acesso a contas não humanas em tempo real. A empresa vende a solução, então vale ler o dado com desconto. Ainda assim, o que ela descreve como primeiro obstáculo não depende de produto: descoberta de agentes, dono de cada um e monitoramento. Uma planilha com agente, dono, acesso e registro de ações resolve boa parte disso, e vale para os agentes comprados, para os trazidos por funcionários e para os que o cliente mandar.",
+  "contra": "Os números de risco vêm de quem vende a cura: a SailPoint vende segurança de identidade, a Dataiku vende plataforma de governança e o Google Cloud vende os agentes que muitos funcionários usam. A pesquisa do Google, aliás, apresenta o uso não oficial como \"adoção orgânica\" a ser convertida em transformação de negócio, não como falha de controle. Também é possível que o risco seja menor do que parece: 59% dos usuários o consideram baixo, e nada nas fontes mostra incidentes causados por esses agentes em empresas médias. A Dataiku ainda registra que 91% dos CIOs preferem deixar as áreas construírem dentro de um ambiente governado a centralizar tudo, o que sugere que bloquear é a resposta errada. E o Personal Agent Protocol é uma especificação v0.1 que ainda nem foi publicada; pode mudar bastante ou não pegar. Se o volume de agentes de clientes demorar a crescer, a prioridade de olhar para fora será menor do que defendo aqui.",
+  "fechamento": "Eu começaria por uma lista de uma página, em duas semanas: quais agentes agem na empresa, quem os trouxe, a quais sistemas têm acesso e onde fica o registro do que fizeram. Depois, definiria o que um agente de cliente pode e não pode fazer no site e nas APIs antes que o padrão decida isso por mim. Só então avaliaria plataforma de governança, já sabendo o que ela precisa cobrir.",
+  "pontos": [
+   {
+    "rotulo": "01 · INVENTÁRIO",
+    "titulo": "Liste os agentes que já existem",
+    "texto": "Pergunte às áreas quais agentes usam, inclusive os pessoais, e anote dono, sistemas acessados e onde está o registro. O objetivo é enxergar, não proibir."
+   },
+   {
+    "rotulo": "02 · ACESSO",
+    "titulo": "Separe leitura de escrita",
+    "texto": "Para cada agente, decida se ele só lê ou também altera dados e envia mensagens. É a mesma distinção que o padrão da Sierra põe nas mãos do cliente."
+   },
+   {
+    "rotulo": "03 · PORTA DE ENTRADA",
+    "titulo": "Defina o que o agente do cliente pode fazer",
+    "texto": "Escolha o que o site, as APIs e o atendimento aceitam de um agente que age em nome de um cliente, e o que exige confirmação humana."
+   }
+  ],
+  "fontes": [
+   {
+    "titulo": "Brasil lidera uso de agentes de IA na América Latina em meio ao desafio da capacitação empresarial",
+    "origem": "Jornal do Commercio · estudo Google Cloud/IDC/Provokers · 25 set 2026",
+    "url": "https://jc.uol.com.br/tecnologia/2026/09/25/brasil-lidera-uso-de-agentes-de-ia-na-america-latina-em-meio-ao-desafio-da-capacitacao-empresarial.html"
+   },
+   {
+    "titulo": "Global AI Confessions Report: CIO Edition 2026",
+    "origem": "Dataiku / Harris Poll, n=685 · 24 set 2026",
+    "url": "https://www.dataiku.com/company/news/global-ai-confessions-report-cio-edition-2026"
+   },
+   {
+    "titulo": "Introducing Personal Agent Protocol",
+    "origem": "Sierra · blog · 6 out 2026",
+    "url": "https://sierra.ai/blog/introducing-personal-agent-protocol"
+   },
+   {
+    "titulo": "SailPoint Report Finds 79% of Enterprises Run AI Agents in Production, Yet Only 2% Have Deployed Purpose-built Security",
+    "origem": "SailPoint · comunicado via GlobeNewswire · 6 out 2026",
+    "url": "https://www.globenewswire.com/news-release/2026/10/06/3375448/0/en/sailpoint-report-finds-79-of-enterprises-run-ai-agents-in-production-yet-only-2-have-deployed-purpose-built-security.html"
+   },
+   {
+    "titulo": "Introducing dots",
+    "origem": "OpenAI · comunicado · 29 set 2026",
+    "url": "https://openai.com/index/introducing-dots/"
+   }
+  ],
+  "baseadoEm": [
+   "google-idc-brasil-agentes-pessoais",
+   "dataiku-cios-desativaram-agentes",
+   "sierra-meta-personal-agent-protocol",
+   "sailpoint-79-agentes-producao-2-seguranca-especifica",
+   "openai-dots-agentes-sempre-ativos"
+  ]
+ },
+ {
   "id": "whatsapp-cobra-mensagem-agente-conversa-curta",
   "publicado_em": "2026-10-02T07:00:00-03:00",
   "tema": "CUSTO",
